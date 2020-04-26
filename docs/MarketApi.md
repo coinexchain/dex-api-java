@@ -1,0 +1,531 @@
+# MarketApi
+
+All URIs are relative to *https://dex-api.coinex.org/*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**cancelOrder**](MarketApi.md#cancelOrder) | **POST** /market/cancel-order | Cancel the order
+[**cancelTradingPair**](MarketApi.md#cancelTradingPair) | **POST** /market/cancel-trading-pair | Cancel the trading-pair
+[**createGteOrder**](MarketApi.md#createGteOrder) | **POST** /market/gte-orders | Create GTE order in blockchain
+[**createIocOrder**](MarketApi.md#createIocOrder) | **POST** /market/ioc-orders | Create IOC order in blockchain
+[**createTradingPair**](MarketApi.md#createTradingPair) | **POST** /market/trading-pairs | Create trading-pair in blockchain
+[**getMarketParams**](MarketApi.md#getMarketParams) | **GET** /market/parameters | Get the current market parameters
+[**getOrder**](MarketApi.md#getOrder) | **GET** /market/orders/{order-id} | Query order info
+[**getOrders**](MarketApi.md#getOrders) | **GET** /market/orders/account/{address} | Query user order-id list
+[**getOrdersInMarket**](MarketApi.md#getOrdersInMarket) | **GET** /market/orderbook/{stock}/{money} | Query trading-pair&#x27;s orderbook
+[**getTradingPair**](MarketApi.md#getTradingPair) | **GET** /market/trading-pairs/{stock}/{money} | Query trading-pair info
+[**modifyPricePrecision**](MarketApi.md#modifyPricePrecision) | **POST** /market/price-precision | Modify the price precision of the trading pair in the dex
+[**queryTradingPairs**](MarketApi.md#queryTradingPairs) | **GET** /market/exist-trading-pairs | Query all trading-pair infos in blockchain
+
+<a name="cancelOrder"></a>
+# **cancelOrder**
+> StdTx cancelOrder(body)
+
+Cancel the order
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.MarketApi;
+
+
+MarketApi apiInstance = new MarketApi();
+Object body = null; // Object | cancel order tx
+try {
+    StdTx result = apiInstance.cancelOrder(body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MarketApi#cancelOrder");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**Object**](Object.md)| cancel order tx |
+
+### Return type
+
+[**StdTx**](StdTx.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="cancelTradingPair"></a>
+# **cancelTradingPair**
+> StdTx cancelTradingPair(body)
+
+Cancel the trading-pair
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.MarketApi;
+
+
+MarketApi apiInstance = new MarketApi();
+Object body = null; // Object | cancel trading-pair in dex
+try {
+    StdTx result = apiInstance.cancelTradingPair(body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MarketApi#cancelTradingPair");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**Object**](Object.md)| cancel trading-pair in dex |
+
+### Return type
+
+[**StdTx**](StdTx.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="createGteOrder"></a>
+# **createGteOrder**
+> StdTx createGteOrder(body)
+
+Create GTE order in blockchain
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.MarketApi;
+
+
+MarketApi apiInstance = new MarketApi();
+Object body = null; // Object | create order tx
+try {
+    StdTx result = apiInstance.createGteOrder(body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MarketApi#createGteOrder");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**Object**](Object.md)| create order tx |
+
+### Return type
+
+[**StdTx**](StdTx.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="createIocOrder"></a>
+# **createIocOrder**
+> StdTx createIocOrder(body)
+
+Create IOC order in blockchain
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.MarketApi;
+
+
+MarketApi apiInstance = new MarketApi();
+Object body = null; // Object | create order tx
+try {
+    StdTx result = apiInstance.createIocOrder(body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MarketApi#createIocOrder");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**Object**](Object.md)| create order tx |
+
+### Return type
+
+[**StdTx**](StdTx.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="createTradingPair"></a>
+# **createTradingPair**
+> StdTx createTradingPair(body)
+
+Create trading-pair in blockchain
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.MarketApi;
+
+
+MarketApi apiInstance = new MarketApi();
+Object body = null; // Object | Create trading-pair
+try {
+    StdTx result = apiInstance.createTradingPair(body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MarketApi#createTradingPair");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**Object**](Object.md)| Create trading-pair |
+
+### Return type
+
+[**StdTx**](StdTx.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getMarketParams"></a>
+# **getMarketParams**
+> Object getMarketParams()
+
+Get the current market parameters
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.MarketApi;
+
+
+MarketApi apiInstance = new MarketApi();
+try {
+    Object result = apiInstance.getMarketParams();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MarketApi#getMarketParams");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getOrder"></a>
+# **getOrder**
+> Object getOrder(orderId)
+
+Query order info
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.MarketApi;
+
+
+MarketApi apiInstance = new MarketApi();
+String orderId = "orderId_example"; // String | The order id
+try {
+    Object result = apiInstance.getOrder(orderId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MarketApi#getOrder");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderId** | **String**| The order id |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getOrders"></a>
+# **getOrders**
+> Object getOrders(address)
+
+Query user order-id list
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.MarketApi;
+
+
+MarketApi apiInstance = new MarketApi();
+String address = "address_example"; // String | The user address
+try {
+    Object result = apiInstance.getOrders(address);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MarketApi#getOrders");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **address** | **String**| The user address |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getOrdersInMarket"></a>
+# **getOrdersInMarket**
+> Object getOrdersInMarket(stock, money)
+
+Query trading-pair&#x27;s orderbook
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.MarketApi;
+
+
+MarketApi apiInstance = new MarketApi();
+String stock = "stock_example"; // String | stock symbol
+String money = "money_example"; // String | money symbol
+try {
+    Object result = apiInstance.getOrdersInMarket(stock, money);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MarketApi#getOrdersInMarket");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stock** | **String**| stock symbol |
+ **money** | **String**| money symbol |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getTradingPair"></a>
+# **getTradingPair**
+> Object getTradingPair(stock, money)
+
+Query trading-pair info
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.MarketApi;
+
+
+MarketApi apiInstance = new MarketApi();
+String stock = "stock_example"; // String | stock symbol
+String money = "money_example"; // String | money symbol
+try {
+    Object result = apiInstance.getTradingPair(stock, money);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MarketApi#getTradingPair");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **stock** | **String**| stock symbol |
+ **money** | **String**| money symbol |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="modifyPricePrecision"></a>
+# **modifyPricePrecision**
+> StdTx modifyPricePrecision(body)
+
+Modify the price precision of the trading pair in the dex
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.MarketApi;
+
+
+MarketApi apiInstance = new MarketApi();
+Object body = null; // Object | trading-pair, price-precision as params
+try {
+    StdTx result = apiInstance.modifyPricePrecision(body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MarketApi#modifyPricePrecision");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**Object**](Object.md)| trading-pair, price-precision as params |
+
+### Return type
+
+[**StdTx**](StdTx.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="queryTradingPairs"></a>
+# **queryTradingPairs**
+> Object queryTradingPairs()
+
+Query all trading-pair infos in blockchain
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.MarketApi;
+
+
+MarketApi apiInstance = new MarketApi();
+try {
+    Object result = apiInstance.queryTradingPairs();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MarketApi#queryTradingPairs");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
