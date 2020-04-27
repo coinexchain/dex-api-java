@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.api;
 
 import io.swagger.client.ApiCallback;
@@ -26,6 +27,9 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import io.swagger.client.model.FollowupCommentReq;
+import io.swagger.client.model.NewThreadReq;
+import io.swagger.client.model.RewardCommentsReq;
 import io.swagger.client.model.StdTx;
 
 import java.lang.reflect.Type;
@@ -55,15 +59,15 @@ public class CommentApi {
 
     /**
      * Build call for followupComment
-     * @param body Post a follow-up comment (required)
+     * @param followupCommentReq Post a follow-up comment (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call followupCommentCall(Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
+    public com.squareup.okhttp.Call followupCommentCall(FollowupCommentReq followupCommentReq, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = followupCommentReq;
+
         // create path and map variables
         String localVarPath = "/comment/followup-comment";
 
@@ -89,7 +93,7 @@ public class CommentApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -101,44 +105,42 @@ public class CommentApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call followupCommentValidateBeforeCall(Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling followupComment(Async)");
+    private com.squareup.okhttp.Call followupCommentValidateBeforeCall(FollowupCommentReq followupCommentReq, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'followupCommentReq' is set
+        if (followupCommentReq == null) {
+            throw new ApiException("Missing the required parameter 'followupCommentReq' when calling followupComment(Async)");
         }
         
-        com.squareup.okhttp.Call call = followupCommentCall(body, progressListener, progressRequestListener);
+
+        com.squareup.okhttp.Call call = followupCommentCall(followupCommentReq, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Post a follow-up comment under some thread
      * 
-     * @param body Post a follow-up comment (required)
+     * @param followupCommentReq Post a follow-up comment (required)
      * @return StdTx
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public StdTx followupComment(Object body) throws ApiException {
-        ApiResponse<StdTx> resp = followupCommentWithHttpInfo(body);
+    public StdTx followupComment(FollowupCommentReq followupCommentReq) throws ApiException {
+        ApiResponse<StdTx> resp = followupCommentWithHttpInfo(followupCommentReq);
         return resp.getData();
     }
 
     /**
      * Post a follow-up comment under some thread
      * 
-     * @param body Post a follow-up comment (required)
+     * @param followupCommentReq Post a follow-up comment (required)
      * @return ApiResponse&lt;StdTx&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<StdTx> followupCommentWithHttpInfo(Object body) throws ApiException {
-        com.squareup.okhttp.Call call = followupCommentValidateBeforeCall(body, null, null);
+    public ApiResponse<StdTx> followupCommentWithHttpInfo(FollowupCommentReq followupCommentReq) throws ApiException {
+        com.squareup.okhttp.Call call = followupCommentValidateBeforeCall(followupCommentReq, null, null);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -146,12 +148,12 @@ public class CommentApi {
     /**
      * Post a follow-up comment under some thread (asynchronously)
      * 
-     * @param body Post a follow-up comment (required)
+     * @param followupCommentReq Post a follow-up comment (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call followupCommentAsync(Object body, final ApiCallback<StdTx> callback) throws ApiException {
+    public com.squareup.okhttp.Call followupCommentAsync(FollowupCommentReq followupCommentReq, final ApiCallback<StdTx> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -172,22 +174,22 @@ public class CommentApi {
             };
         }
 
-        com.squareup.okhttp.Call call = followupCommentValidateBeforeCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = followupCommentValidateBeforeCall(followupCommentReq, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for newThread
-     * @param body open a new thread (required)
+     * @param newThreadReq open a new thread (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call newThreadCall(Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
+    public com.squareup.okhttp.Call newThreadCall(NewThreadReq newThreadReq, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = newThreadReq;
+
         // create path and map variables
         String localVarPath = "/comment/new-thread";
 
@@ -213,7 +215,7 @@ public class CommentApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -225,44 +227,42 @@ public class CommentApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call newThreadValidateBeforeCall(Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling newThread(Async)");
+    private com.squareup.okhttp.Call newThreadValidateBeforeCall(NewThreadReq newThreadReq, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'newThreadReq' is set
+        if (newThreadReq == null) {
+            throw new ApiException("Missing the required parameter 'newThreadReq' when calling newThread(Async)");
         }
         
-        com.squareup.okhttp.Call call = newThreadCall(body, progressListener, progressRequestListener);
+
+        com.squareup.okhttp.Call call = newThreadCall(newThreadReq, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Post a new comment to open a new thread
      * 
-     * @param body open a new thread (required)
+     * @param newThreadReq open a new thread (required)
      * @return StdTx
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public StdTx newThread(Object body) throws ApiException {
-        ApiResponse<StdTx> resp = newThreadWithHttpInfo(body);
+    public StdTx newThread(NewThreadReq newThreadReq) throws ApiException {
+        ApiResponse<StdTx> resp = newThreadWithHttpInfo(newThreadReq);
         return resp.getData();
     }
 
     /**
      * Post a new comment to open a new thread
      * 
-     * @param body open a new thread (required)
+     * @param newThreadReq open a new thread (required)
      * @return ApiResponse&lt;StdTx&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<StdTx> newThreadWithHttpInfo(Object body) throws ApiException {
-        com.squareup.okhttp.Call call = newThreadValidateBeforeCall(body, null, null);
+    public ApiResponse<StdTx> newThreadWithHttpInfo(NewThreadReq newThreadReq) throws ApiException {
+        com.squareup.okhttp.Call call = newThreadValidateBeforeCall(newThreadReq, null, null);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -270,12 +270,12 @@ public class CommentApi {
     /**
      * Post a new comment to open a new thread (asynchronously)
      * 
-     * @param body open a new thread (required)
+     * @param newThreadReq open a new thread (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call newThreadAsync(Object body, final ApiCallback<StdTx> callback) throws ApiException {
+    public com.squareup.okhttp.Call newThreadAsync(NewThreadReq newThreadReq, final ApiCallback<StdTx> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -296,22 +296,22 @@ public class CommentApi {
             };
         }
 
-        com.squareup.okhttp.Call call = newThreadValidateBeforeCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = newThreadValidateBeforeCall(newThreadReq, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for rewardComments
-     * @param body reward some comments (required)
+     * @param rewardCommentsReq reward some comments (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call rewardCommentsCall(Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
+    public com.squareup.okhttp.Call rewardCommentsCall(RewardCommentsReq rewardCommentsReq, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = rewardCommentsReq;
+
         // create path and map variables
         String localVarPath = "/comment/reward-comments";
 
@@ -337,7 +337,7 @@ public class CommentApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -349,44 +349,42 @@ public class CommentApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call rewardCommentsValidateBeforeCall(Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling rewardComments(Async)");
+    private com.squareup.okhttp.Call rewardCommentsValidateBeforeCall(RewardCommentsReq rewardCommentsReq, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'rewardCommentsReq' is set
+        if (rewardCommentsReq == null) {
+            throw new ApiException("Missing the required parameter 'rewardCommentsReq' when calling rewardComments(Async)");
         }
         
-        com.squareup.okhttp.Call call = rewardCommentsCall(body, progressListener, progressRequestListener);
+
+        com.squareup.okhttp.Call call = rewardCommentsCall(rewardCommentsReq, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * reward some comments with coins
      * 
-     * @param body reward some comments (required)
+     * @param rewardCommentsReq reward some comments (required)
      * @return StdTx
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public StdTx rewardComments(Object body) throws ApiException {
-        ApiResponse<StdTx> resp = rewardCommentsWithHttpInfo(body);
+    public StdTx rewardComments(RewardCommentsReq rewardCommentsReq) throws ApiException {
+        ApiResponse<StdTx> resp = rewardCommentsWithHttpInfo(rewardCommentsReq);
         return resp.getData();
     }
 
     /**
      * reward some comments with coins
      * 
-     * @param body reward some comments (required)
+     * @param rewardCommentsReq reward some comments (required)
      * @return ApiResponse&lt;StdTx&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<StdTx> rewardCommentsWithHttpInfo(Object body) throws ApiException {
-        com.squareup.okhttp.Call call = rewardCommentsValidateBeforeCall(body, null, null);
+    public ApiResponse<StdTx> rewardCommentsWithHttpInfo(RewardCommentsReq rewardCommentsReq) throws ApiException {
+        com.squareup.okhttp.Call call = rewardCommentsValidateBeforeCall(rewardCommentsReq, null, null);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -394,12 +392,12 @@ public class CommentApi {
     /**
      * reward some comments with coins (asynchronously)
      * 
-     * @param body reward some comments (required)
+     * @param rewardCommentsReq reward some comments (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call rewardCommentsAsync(Object body, final ApiCallback<StdTx> callback) throws ApiException {
+    public com.squareup.okhttp.Call rewardCommentsAsync(RewardCommentsReq rewardCommentsReq, final ApiCallback<StdTx> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -420,7 +418,7 @@ public class CommentApi {
             };
         }
 
-        com.squareup.okhttp.Call call = rewardCommentsValidateBeforeCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = rewardCommentsValidateBeforeCall(rewardCommentsReq, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

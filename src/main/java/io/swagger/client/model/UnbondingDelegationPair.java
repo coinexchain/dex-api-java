@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,17 +20,20 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import io.swagger.client.model.UnbondingEntries;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 /**
  * UnbondingDelegationPair
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-26T10:53:15.911+08:00[Asia/Shanghai]")
-public class UnbondingDelegationPair {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
+public class UnbondingDelegationPair extends HashMap<String, Object> {
   @SerializedName("delegator_address")
   private String delegatorAddress = null;
 
@@ -48,7 +52,7 @@ public class UnbondingDelegationPair {
    * Get delegatorAddress
    * @return delegatorAddress
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getDelegatorAddress() {
     return delegatorAddress;
   }
@@ -66,7 +70,7 @@ public class UnbondingDelegationPair {
    * Get validatorAddress
    * @return validatorAddress
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getValidatorAddress() {
     return validatorAddress;
   }
@@ -89,7 +93,7 @@ public class UnbondingDelegationPair {
    * Get entries
    * @return entries
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public List<UnbondingEntries> getEntries() {
     return entries;
   }
@@ -100,7 +104,7 @@ public class UnbondingDelegationPair {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -110,12 +114,13 @@ public class UnbondingDelegationPair {
     UnbondingDelegationPair unbondingDelegationPair = (UnbondingDelegationPair) o;
     return Objects.equals(this.delegatorAddress, unbondingDelegationPair.delegatorAddress) &&
         Objects.equals(this.validatorAddress, unbondingDelegationPair.validatorAddress) &&
-        Objects.equals(this.entries, unbondingDelegationPair.entries);
+        Objects.equals(this.entries, unbondingDelegationPair.entries) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(delegatorAddress, validatorAddress, entries);
+    return Objects.hash(delegatorAddress, validatorAddress, entries, super.hashCode());
   }
 
 
@@ -123,7 +128,7 @@ public class UnbondingDelegationPair {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UnbondingDelegationPair {\n");
-    
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    delegatorAddress: ").append(toIndentedString(delegatorAddress)).append("\n");
     sb.append("    validatorAddress: ").append(toIndentedString(validatorAddress)).append("\n");
     sb.append("    entries: ").append(toIndentedString(entries)).append("\n");
@@ -135,7 +140,7 @@ public class UnbondingDelegationPair {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -143,3 +148,4 @@ public class UnbondingDelegationPair {
   }
 
 }
+

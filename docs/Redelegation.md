@@ -1,3 +1,4 @@
+
 # Redelegation
 
 ## Properties
@@ -7,3 +8,6 @@ Name | Type | Description | Notes
 **validatorSrcAddress** | **String** |  | 
 **validatorDstAddress** | **String** |  | 
 **entries** | [**List&lt;RedelegationEntry&gt;**](RedelegationEntry.md) |  | 
+
+
+

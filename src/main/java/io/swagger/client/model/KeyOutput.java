@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,13 +20,14 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+
 /**
  * KeyOutput
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-26T10:53:15.911+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
 public class KeyOutput {
   @SerializedName("name")
   private String name = null;
@@ -51,7 +53,7 @@ public class KeyOutput {
    * Get name
    * @return name
   **/
-  @Schema(example = "Main Account", description = "")
+  @ApiModelProperty(example = "Main Account", value = "")
   public String getName() {
     return name;
   }
@@ -69,7 +71,7 @@ public class KeyOutput {
    * Get address
    * @return address
   **/
-  @Schema(example = "coinex1y5kdxnzn2tfwayyntf2n28q8q2s80mcul852ke", description = "")
+  @ApiModelProperty(example = "coinex1y5kdxnzn2tfwayyntf2n28q8q2s80mcul852ke", value = "")
   public String getAddress() {
     return address;
   }
@@ -87,7 +89,7 @@ public class KeyOutput {
    * Get pubKey
    * @return pubKey
   **/
-  @Schema(example = "coinexpub1addwnpepqdnj3shrcsjxjfp027lh6szyrrmvwxace6frplg30e9ngtflzpr5ut4wmke", description = "")
+  @ApiModelProperty(example = "coinexpub1addwnpepqdnj3shrcsjxjfp027lh6szyrrmvwxace6frplg30e9ngtflzpr5ut4wmke", value = "")
   public String getPubKey() {
     return pubKey;
   }
@@ -105,7 +107,7 @@ public class KeyOutput {
    * Get type
    * @return type
   **/
-  @Schema(example = "local", description = "")
+  @ApiModelProperty(example = "local", value = "")
   public String getType() {
     return type;
   }
@@ -123,7 +125,7 @@ public class KeyOutput {
    * Get seed
    * @return seed
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public String getSeed() {
     return seed;
   }
@@ -134,7 +136,7 @@ public class KeyOutput {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -173,7 +175,7 @@ public class KeyOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -181,3 +183,4 @@ public class KeyOutput {
   }
 
 }
+

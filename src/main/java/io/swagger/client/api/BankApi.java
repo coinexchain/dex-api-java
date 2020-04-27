@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.api;
 
 import io.swagger.client.ApiCallback;
@@ -26,6 +27,10 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import io.swagger.client.model.Account;
+import io.swagger.client.model.Account1;
+import io.swagger.client.model.InlineResponse20035;
+import io.swagger.client.model.PostTxBody;
 import io.swagger.client.model.StdTx;
 
 import java.lang.reflect.Type;
@@ -63,7 +68,7 @@ public class BankApi {
      */
     public com.squareup.okhttp.Call getAddressBalancesCall(String address, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/bank/balances/{address}"
             .replaceAll("\\{" + "address" + "\\}", apiClient.escapeString(address.toString()));
@@ -90,7 +95,7 @@ public class BankApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -102,21 +107,19 @@ public class BankApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getAddressBalancesValidateBeforeCall(String address, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'address' is set
         if (address == null) {
             throw new ApiException("Missing the required parameter 'address' when calling getAddressBalances(Async)");
         }
         
+
         com.squareup.okhttp.Call call = getAddressBalancesCall(address, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -187,7 +190,7 @@ public class BankApi {
      */
     public com.squareup.okhttp.Call getBankParamsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/bank/parameters";
 
@@ -213,7 +216,7 @@ public class BankApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -225,39 +228,36 @@ public class BankApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getBankParamsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+
         com.squareup.okhttp.Call call = getBankParamsCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get the current bankx parameters
      * 
-     * @return Object
+     * @return InlineResponse20035
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getBankParams() throws ApiException {
-        ApiResponse<Object> resp = getBankParamsWithHttpInfo();
+    public InlineResponse20035 getBankParams() throws ApiException {
+        ApiResponse<InlineResponse20035> resp = getBankParamsWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * Get the current bankx parameters
      * 
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse20035&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getBankParamsWithHttpInfo() throws ApiException {
+    public ApiResponse<InlineResponse20035> getBankParamsWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getBankParamsValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20035>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -268,7 +268,7 @@ public class BankApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getBankParamsAsync(final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getBankParamsAsync(final ApiCallback<InlineResponse20035> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -290,22 +290,22 @@ public class BankApi {
         }
 
         com.squareup.okhttp.Call call = getBankParamsValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20035>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for sendCoins
-     * @param body The sender and tx information (required)
      * @param address Account address in bech32 format (required)
+     * @param account The sender and tx information (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call sendCoinsCall(Object body, String address, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
+    public com.squareup.okhttp.Call sendCoinsCall(String address, Account account, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = account;
+
         // create path and map variables
         String localVarPath = "/bank/accounts/{address}/transfers"
             .replaceAll("\\{" + "address" + "\\}", apiClient.escapeString(address.toString()));
@@ -332,7 +332,7 @@ public class BankApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -344,50 +344,49 @@ public class BankApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call sendCoinsValidateBeforeCall(Object body, String address, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling sendCoins(Async)");
-        }
+    private com.squareup.okhttp.Call sendCoinsValidateBeforeCall(String address, Account account, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'address' is set
         if (address == null) {
             throw new ApiException("Missing the required parameter 'address' when calling sendCoins(Async)");
         }
         
-        com.squareup.okhttp.Call call = sendCoinsCall(body, address, progressListener, progressRequestListener);
+        // verify the required parameter 'account' is set
+        if (account == null) {
+            throw new ApiException("Missing the required parameter 'account' when calling sendCoins(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = sendCoinsCall(address, account, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Send coins from one account to another
      * 
-     * @param body The sender and tx information (required)
      * @param address Account address in bech32 format (required)
+     * @param account The sender and tx information (required)
      * @return StdTx
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public StdTx sendCoins(Object body, String address) throws ApiException {
-        ApiResponse<StdTx> resp = sendCoinsWithHttpInfo(body, address);
+    public StdTx sendCoins(String address, Account account) throws ApiException {
+        ApiResponse<StdTx> resp = sendCoinsWithHttpInfo(address, account);
         return resp.getData();
     }
 
     /**
      * Send coins from one account to another
      * 
-     * @param body The sender and tx information (required)
      * @param address Account address in bech32 format (required)
+     * @param account The sender and tx information (required)
      * @return ApiResponse&lt;StdTx&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<StdTx> sendCoinsWithHttpInfo(Object body, String address) throws ApiException {
-        com.squareup.okhttp.Call call = sendCoinsValidateBeforeCall(body, address, null, null);
+    public ApiResponse<StdTx> sendCoinsWithHttpInfo(String address, Account account) throws ApiException {
+        com.squareup.okhttp.Call call = sendCoinsValidateBeforeCall(address, account, null, null);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -395,13 +394,13 @@ public class BankApi {
     /**
      * Send coins from one account to another (asynchronously)
      * 
-     * @param body The sender and tx information (required)
      * @param address Account address in bech32 format (required)
+     * @param account The sender and tx information (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call sendCoinsAsync(Object body, String address, final ApiCallback<StdTx> callback) throws ApiException {
+    public com.squareup.okhttp.Call sendCoinsAsync(String address, Account account, final ApiCallback<StdTx> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -422,22 +421,22 @@ public class BankApi {
             };
         }
 
-        com.squareup.okhttp.Call call = sendCoinsValidateBeforeCall(body, address, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = sendCoinsValidateBeforeCall(address, account, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for setMemoRequired
-     * @param body The mark (required)
+     * @param account The mark (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call setMemoRequiredCall(Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
+    public com.squareup.okhttp.Call setMemoRequiredCall(Account1 account, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = account;
+
         // create path and map variables
         String localVarPath = "/bank/accounts/memo";
 
@@ -463,7 +462,7 @@ public class BankApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -475,44 +474,42 @@ public class BankApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call setMemoRequiredValidateBeforeCall(Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling setMemoRequired(Async)");
+    private com.squareup.okhttp.Call setMemoRequiredValidateBeforeCall(Account1 account, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'account' is set
+        if (account == null) {
+            throw new ApiException("Missing the required parameter 'account' when calling setMemoRequired(Async)");
         }
         
-        com.squareup.okhttp.Call call = setMemoRequiredCall(body, progressListener, progressRequestListener);
+
+        com.squareup.okhttp.Call call = setMemoRequiredCall(account, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Mark if memo is required to receive coins
      * 
-     * @param body The mark (required)
+     * @param account The mark (required)
      * @return StdTx
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public StdTx setMemoRequired(Object body) throws ApiException {
-        ApiResponse<StdTx> resp = setMemoRequiredWithHttpInfo(body);
+    public StdTx setMemoRequired(Account1 account) throws ApiException {
+        ApiResponse<StdTx> resp = setMemoRequiredWithHttpInfo(account);
         return resp.getData();
     }
 
     /**
      * Mark if memo is required to receive coins
      * 
-     * @param body The mark (required)
+     * @param account The mark (required)
      * @return ApiResponse&lt;StdTx&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<StdTx> setMemoRequiredWithHttpInfo(Object body) throws ApiException {
-        com.squareup.okhttp.Call call = setMemoRequiredValidateBeforeCall(body, null, null);
+    public ApiResponse<StdTx> setMemoRequiredWithHttpInfo(Account1 account) throws ApiException {
+        com.squareup.okhttp.Call call = setMemoRequiredValidateBeforeCall(account, null, null);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -520,12 +517,12 @@ public class BankApi {
     /**
      * Mark if memo is required to receive coins (asynchronously)
      * 
-     * @param body The mark (required)
+     * @param account The mark (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call setMemoRequiredAsync(Object body, final ApiCallback<StdTx> callback) throws ApiException {
+    public com.squareup.okhttp.Call setMemoRequiredAsync(Account1 account, final ApiCallback<StdTx> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -546,23 +543,23 @@ public class BankApi {
             };
         }
 
-        com.squareup.okhttp.Call call = setMemoRequiredValidateBeforeCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = setMemoRequiredValidateBeforeCall(account, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for transferSupervisedCoins
-     * @param body The sender and tx information (required)
      * @param address Account address in bech32 format (required)
+     * @param postTxBody The sender and tx information (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call transferSupervisedCoinsCall(Object body, String address, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
+    public com.squareup.okhttp.Call transferSupervisedCoinsCall(String address, PostTxBody postTxBody, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = postTxBody;
+
         // create path and map variables
         String localVarPath = "/bank/accounts/{address}/supervised_transfers"
             .replaceAll("\\{" + "address" + "\\}", apiClient.escapeString(address.toString()));
@@ -589,7 +586,7 @@ public class BankApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -601,50 +598,49 @@ public class BankApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call transferSupervisedCoinsValidateBeforeCall(Object body, String address, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling transferSupervisedCoins(Async)");
-        }
+    private com.squareup.okhttp.Call transferSupervisedCoinsValidateBeforeCall(String address, PostTxBody postTxBody, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'address' is set
         if (address == null) {
             throw new ApiException("Missing the required parameter 'address' when calling transferSupervisedCoins(Async)");
         }
         
-        com.squareup.okhttp.Call call = transferSupervisedCoinsCall(body, address, progressListener, progressRequestListener);
+        // verify the required parameter 'postTxBody' is set
+        if (postTxBody == null) {
+            throw new ApiException("Missing the required parameter 'postTxBody' when calling transferSupervisedCoins(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = transferSupervisedCoinsCall(address, postTxBody, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Operate a supervised transfer
      * 
-     * @param body The sender and tx information (required)
      * @param address Account address in bech32 format (required)
+     * @param postTxBody The sender and tx information (required)
      * @return StdTx
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public StdTx transferSupervisedCoins(Object body, String address) throws ApiException {
-        ApiResponse<StdTx> resp = transferSupervisedCoinsWithHttpInfo(body, address);
+    public StdTx transferSupervisedCoins(String address, PostTxBody postTxBody) throws ApiException {
+        ApiResponse<StdTx> resp = transferSupervisedCoinsWithHttpInfo(address, postTxBody);
         return resp.getData();
     }
 
     /**
      * Operate a supervised transfer
      * 
-     * @param body The sender and tx information (required)
      * @param address Account address in bech32 format (required)
+     * @param postTxBody The sender and tx information (required)
      * @return ApiResponse&lt;StdTx&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<StdTx> transferSupervisedCoinsWithHttpInfo(Object body, String address) throws ApiException {
-        com.squareup.okhttp.Call call = transferSupervisedCoinsValidateBeforeCall(body, address, null, null);
+    public ApiResponse<StdTx> transferSupervisedCoinsWithHttpInfo(String address, PostTxBody postTxBody) throws ApiException {
+        com.squareup.okhttp.Call call = transferSupervisedCoinsValidateBeforeCall(address, postTxBody, null, null);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -652,13 +648,13 @@ public class BankApi {
     /**
      * Operate a supervised transfer (asynchronously)
      * 
-     * @param body The sender and tx information (required)
      * @param address Account address in bech32 format (required)
+     * @param postTxBody The sender and tx information (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call transferSupervisedCoinsAsync(Object body, String address, final ApiCallback<StdTx> callback) throws ApiException {
+    public com.squareup.okhttp.Call transferSupervisedCoinsAsync(String address, PostTxBody postTxBody, final ApiCallback<StdTx> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -679,7 +675,7 @@ public class BankApi {
             };
         }
 
-        com.squareup.okhttp.Call call = transferSupervisedCoinsValidateBeforeCall(body, address, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = transferSupervisedCoinsValidateBeforeCall(address, postTxBody, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,17 +20,20 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import io.swagger.client.model.BaseReq;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 /**
  * Whitelist
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-26T10:53:15.911+08:00[Asia/Shanghai]")
-public class Whitelist {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
+public class Whitelist extends HashMap<String, Object> {
   @SerializedName("base_req")
   private BaseReq baseReq = null;
 
@@ -45,7 +49,7 @@ public class Whitelist {
    * Get baseReq
    * @return baseReq
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public BaseReq getBaseReq() {
     return baseReq;
   }
@@ -68,7 +72,7 @@ public class Whitelist {
    * Get whitelist
    * @return whitelist
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public List<String> getWhitelist() {
     return whitelist;
   }
@@ -79,7 +83,7 @@ public class Whitelist {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -88,12 +92,13 @@ public class Whitelist {
     }
     Whitelist whitelist = (Whitelist) o;
     return Objects.equals(this.baseReq, whitelist.baseReq) &&
-        Objects.equals(this.whitelist, whitelist.whitelist);
+        Objects.equals(this.whitelist, whitelist.whitelist) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(baseReq, whitelist);
+    return Objects.hash(baseReq, whitelist, super.hashCode());
   }
 
 
@@ -101,7 +106,7 @@ public class Whitelist {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Whitelist {\n");
-    
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    baseReq: ").append(toIndentedString(baseReq)).append("\n");
     sb.append("    whitelist: ").append(toIndentedString(whitelist)).append("\n");
     sb.append("}");
@@ -112,7 +117,7 @@ public class Whitelist {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -120,3 +125,4 @@ public class Whitelist {
   }
 
 }
+

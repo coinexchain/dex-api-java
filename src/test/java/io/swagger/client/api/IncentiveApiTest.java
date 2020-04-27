@@ -10,9 +10,11 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
+import io.swagger.client.model.InlineResponse20036;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -29,6 +31,7 @@ public class IncentiveApiTest {
 
     private final IncentiveApi api = new IncentiveApi();
 
+    
     /**
      * Get the current incentive parameters
      *
@@ -39,8 +42,9 @@ public class IncentiveApiTest {
      */
     @Test
     public void getIncentiveParamsTest() throws ApiException {
-        Object response = api.getIncentiveParams();
+        InlineResponse20036 response = api.getIncentiveParams();
 
         // TODO: test validations
     }
+    
 }

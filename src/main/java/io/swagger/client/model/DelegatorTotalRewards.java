@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,18 +20,21 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import io.swagger.client.model.Coin;
 import io.swagger.client.model.DelegationDelegatorReward;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 /**
  * DelegatorTotalRewards
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-26T10:53:15.911+08:00[Asia/Shanghai]")
-public class DelegatorTotalRewards {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
+public class DelegatorTotalRewards extends HashMap<String, Object> {
   @SerializedName("rewards")
   private List<DelegationDelegatorReward> rewards = new ArrayList<DelegationDelegatorReward>();
 
@@ -51,7 +55,7 @@ public class DelegatorTotalRewards {
    * Get rewards
    * @return rewards
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public List<DelegationDelegatorReward> getRewards() {
     return rewards;
   }
@@ -74,7 +78,7 @@ public class DelegatorTotalRewards {
    * Get total
    * @return total
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public List<Coin> getTotal() {
     return total;
   }
@@ -85,7 +89,7 @@ public class DelegatorTotalRewards {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -94,12 +98,13 @@ public class DelegatorTotalRewards {
     }
     DelegatorTotalRewards delegatorTotalRewards = (DelegatorTotalRewards) o;
     return Objects.equals(this.rewards, delegatorTotalRewards.rewards) &&
-        Objects.equals(this.total, delegatorTotalRewards.total);
+        Objects.equals(this.total, delegatorTotalRewards.total) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(rewards, total);
+    return Objects.hash(rewards, total, super.hashCode());
   }
 
 
@@ -107,7 +112,7 @@ public class DelegatorTotalRewards {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DelegatorTotalRewards {\n");
-    
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    rewards: ").append(toIndentedString(rewards)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("}");
@@ -118,7 +123,7 @@ public class DelegatorTotalRewards {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -126,3 +131,4 @@ public class DelegatorTotalRewards {
   }
 
 }
+

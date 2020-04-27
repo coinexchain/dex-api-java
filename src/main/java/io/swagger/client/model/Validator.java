@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,14 +20,19 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.client.model.ValidatorCommission;
+import io.swagger.client.model.ValidatorDescription;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Validator
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-26T10:53:15.911+08:00[Asia/Shanghai]")
-public class Validator {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
+public class Validator extends HashMap<String, Object> {
   @SerializedName("operator_address")
   private String operatorAddress = null;
 
@@ -46,7 +52,7 @@ public class Validator {
   private String delegatorShares = null;
 
   @SerializedName("description")
-  private Object description = null;
+  private ValidatorDescription description = null;
 
   @SerializedName("unbonding_height")
   private String unbondingHeight = null;
@@ -55,7 +61,7 @@ public class Validator {
   private String unbondingTime = null;
 
   @SerializedName("commission")
-  private Object commission = null;
+  private ValidatorCommission commission = null;
 
   @SerializedName("min_self_delegation")
   private String minSelfDelegation = null;
@@ -69,7 +75,7 @@ public class Validator {
    * Get operatorAddress
    * @return operatorAddress
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getOperatorAddress() {
     return operatorAddress;
   }
@@ -87,7 +93,7 @@ public class Validator {
    * Get consensusPubkey
    * @return consensusPubkey
   **/
-  @Schema(example = "coinexvalconspub1zcjduepq7sjfglw7ra4mjxpw4ph7dtdhdheh7nz8dfgl6t8u2n5szuuql9mqsrwquu", required = true, description = "")
+  @ApiModelProperty(example = "coinexvalconspub1zcjduepq7sjfglw7ra4mjxpw4ph7dtdhdheh7nz8dfgl6t8u2n5szuuql9mqsrwquu", required = true, value = "")
   public String getConsensusPubkey() {
     return consensusPubkey;
   }
@@ -105,7 +111,7 @@ public class Validator {
    * Get jailed
    * @return jailed
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public Boolean isJailed() {
     return jailed;
   }
@@ -123,7 +129,7 @@ public class Validator {
    * Get status
    * @return status
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public Integer getStatus() {
     return status;
   }
@@ -141,7 +147,7 @@ public class Validator {
    * Get tokens
    * @return tokens
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getTokens() {
     return tokens;
   }
@@ -159,7 +165,7 @@ public class Validator {
    * Get delegatorShares
    * @return delegatorShares
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getDelegatorShares() {
     return delegatorShares;
   }
@@ -168,7 +174,7 @@ public class Validator {
     this.delegatorShares = delegatorShares;
   }
 
-  public Validator description(Object description) {
+  public Validator description(ValidatorDescription description) {
     this.description = description;
     return this;
   }
@@ -177,12 +183,12 @@ public class Validator {
    * Get description
    * @return description
   **/
-  @Schema(required = true, description = "")
-  public Object getDescription() {
+  @ApiModelProperty(required = true, value = "")
+  public ValidatorDescription getDescription() {
     return description;
   }
 
-  public void setDescription(Object description) {
+  public void setDescription(ValidatorDescription description) {
     this.description = description;
   }
 
@@ -195,7 +201,7 @@ public class Validator {
    * Get unbondingHeight
    * @return unbondingHeight
   **/
-  @Schema(example = "0", required = true, description = "")
+  @ApiModelProperty(example = "0", required = true, value = "")
   public String getUnbondingHeight() {
     return unbondingHeight;
   }
@@ -213,7 +219,7 @@ public class Validator {
    * Get unbondingTime
    * @return unbondingTime
   **/
-  @Schema(example = "1970-01-01T00:00:00Z", required = true, description = "")
+  @ApiModelProperty(example = "1970-01-01T00:00:00Z", required = true, value = "")
   public String getUnbondingTime() {
     return unbondingTime;
   }
@@ -222,7 +228,7 @@ public class Validator {
     this.unbondingTime = unbondingTime;
   }
 
-  public Validator commission(Object commission) {
+  public Validator commission(ValidatorCommission commission) {
     this.commission = commission;
     return this;
   }
@@ -231,12 +237,12 @@ public class Validator {
    * Get commission
    * @return commission
   **/
-  @Schema(required = true, description = "")
-  public Object getCommission() {
+  @ApiModelProperty(required = true, value = "")
+  public ValidatorCommission getCommission() {
     return commission;
   }
 
-  public void setCommission(Object commission) {
+  public void setCommission(ValidatorCommission commission) {
     this.commission = commission;
   }
 
@@ -249,7 +255,7 @@ public class Validator {
    * Get minSelfDelegation
    * @return minSelfDelegation
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getMinSelfDelegation() {
     return minSelfDelegation;
   }
@@ -260,7 +266,7 @@ public class Validator {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -278,12 +284,13 @@ public class Validator {
         Objects.equals(this.unbondingHeight, validator.unbondingHeight) &&
         Objects.equals(this.unbondingTime, validator.unbondingTime) &&
         Objects.equals(this.commission, validator.commission) &&
-        Objects.equals(this.minSelfDelegation, validator.minSelfDelegation);
+        Objects.equals(this.minSelfDelegation, validator.minSelfDelegation) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operatorAddress, consensusPubkey, jailed, status, tokens, delegatorShares, description, unbondingHeight, unbondingTime, commission, minSelfDelegation);
+    return Objects.hash(operatorAddress, consensusPubkey, jailed, status, tokens, delegatorShares, description, unbondingHeight, unbondingTime, commission, minSelfDelegation, super.hashCode());
   }
 
 
@@ -291,7 +298,7 @@ public class Validator {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Validator {\n");
-    
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    operatorAddress: ").append(toIndentedString(operatorAddress)).append("\n");
     sb.append("    consensusPubkey: ").append(toIndentedString(consensusPubkey)).append("\n");
     sb.append("    jailed: ").append(toIndentedString(jailed)).append("\n");
@@ -311,7 +318,7 @@ public class Validator {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -319,3 +326,4 @@ public class Validator {
   }
 
 }
+

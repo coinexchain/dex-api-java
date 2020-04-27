@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,14 +20,17 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * ParamChange
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-26T10:53:15.911+08:00[Asia/Shanghai]")
-public class ParamChange {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
+public class ParamChange extends HashMap<String, Object> {
   @SerializedName("subspace")
   private String subspace = null;
 
@@ -48,7 +52,7 @@ public class ParamChange {
    * Get subspace
    * @return subspace
   **/
-  @Schema(example = "staking", required = true, description = "")
+  @ApiModelProperty(example = "staking", required = true, value = "")
   public String getSubspace() {
     return subspace;
   }
@@ -66,7 +70,7 @@ public class ParamChange {
    * Get key
    * @return key
   **/
-  @Schema(example = "MaxValidators", required = true, description = "")
+  @ApiModelProperty(example = "MaxValidators", required = true, value = "")
   public String getKey() {
     return key;
   }
@@ -84,7 +88,7 @@ public class ParamChange {
    * Get subkey
    * @return subkey
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(example = "", required = true, value = "")
   public String getSubkey() {
     return subkey;
   }
@@ -102,7 +106,7 @@ public class ParamChange {
    * Get value
    * @return value
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public Object getValue() {
     return value;
   }
@@ -113,7 +117,7 @@ public class ParamChange {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -124,12 +128,13 @@ public class ParamChange {
     return Objects.equals(this.subspace, paramChange.subspace) &&
         Objects.equals(this.key, paramChange.key) &&
         Objects.equals(this.subkey, paramChange.subkey) &&
-        Objects.equals(this.value, paramChange.value);
+        Objects.equals(this.value, paramChange.value) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(subspace, key, subkey, value);
+    return Objects.hash(subspace, key, subkey, value, super.hashCode());
   }
 
 
@@ -137,7 +142,7 @@ public class ParamChange {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ParamChange {\n");
-    
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    subspace: ").append(toIndentedString(subspace)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    subkey: ").append(toIndentedString(subkey)).append("\n");
@@ -150,7 +155,7 @@ public class ParamChange {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -158,3 +163,4 @@ public class ParamChange {
   }
 
 }
+

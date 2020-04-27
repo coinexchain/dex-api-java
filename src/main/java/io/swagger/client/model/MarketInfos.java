@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -17,15 +18,15 @@ import java.util.Arrays;
 import io.swagger.client.model.MarketInfo;
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * MarketInfos
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-26T10:53:15.911+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
 public class MarketInfos extends ArrayList<MarketInfo> {
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -54,7 +55,7 @@ public class MarketInfos extends ArrayList<MarketInfo> {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -62,3 +63,4 @@ public class MarketInfos extends ArrayList<MarketInfo> {
   }
 
 }
+

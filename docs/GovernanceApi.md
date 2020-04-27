@@ -1,6 +1,6 @@
 # GovernanceApi
 
-All URIs are relative to *https://dex-api.coinex.org/*
+All URIs are relative to *https://dex-api.coinex.org*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**getProposalByID**](GovernanceApi.md#getProposalByID) | **GET** /gov/proposals/{proposalId} | Query a proposal
 [**getProposals**](GovernanceApi.md#getProposals) | **GET** /gov/proposals | Query proposals
 [**getProposer**](GovernanceApi.md#getProposer) | **GET** /gov/proposals/{proposalId}/proposer | Query proposer
-[**getTally**](GovernanceApi.md#getTally) | **GET** /gov/proposals/{proposalId}/tally | Get a proposal&#x27;s tally result at the current time
+[**getTally**](GovernanceApi.md#getTally) | **GET** /gov/proposals/{proposalId}/tally | Get a proposal&#39;s tally result at the current time
 [**getTallyingParameters**](GovernanceApi.md#getTallyingParameters) | **GET** /gov/parameters/tallying | Query governance tally parameters
 [**getVoterByAddr**](GovernanceApi.md#getVoterByAddr) | **GET** /gov/proposals/{proposalId}/votes/{voter} | Query vote
 [**getVoters**](GovernanceApi.md#getVoters) | **GET** /gov/proposals/{proposalId}/votes | Query voters
@@ -21,9 +21,10 @@ Method | HTTP request | Description
 [**submitProposal**](GovernanceApi.md#submitProposal) | **POST** /gov/proposals | Submit a proposal
 [**voteProposal**](GovernanceApi.md#voteProposal) | **POST** /gov/proposals/{proposalId}/votes | Vote a proposal
 
+
 <a name="depositToProposal"></a>
 # **depositToProposal**
-> BroadcastTxCommitResult depositToProposal(body, proposalId)
+> BroadcastTxCommitResult depositToProposal(proposalId, postDepositBody)
 
 Deposit tokens to a proposal
 
@@ -37,10 +38,10 @@ Send transaction to deposit tokens to a proposal
 
 
 GovernanceApi apiInstance = new GovernanceApi();
-Object body = null; // Object | 
 String proposalId = "proposalId_example"; // String | proposal id
+PostDepositBody postDepositBody = new PostDepositBody(); // PostDepositBody | 
 try {
-    BroadcastTxCommitResult result = apiInstance.depositToProposal(body, proposalId);
+    BroadcastTxCommitResult result = apiInstance.depositToProposal(proposalId, postDepositBody);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GovernanceApi#depositToProposal");
@@ -52,8 +53,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)|  |
  **proposalId** | **String**| proposal id |
+ **postDepositBody** | [**PostDepositBody**](PostDepositBody.md)|  |
 
 ### Return type
 
@@ -70,7 +71,7 @@ No authorization required
 
 <a name="getDepositByAddr"></a>
 # **getDepositByAddr**
-> Object getDepositByAddr(proposalId, depositor)
+> InlineResponse20022 getDepositByAddr(proposalId, depositor)
 
 Query deposit
 
@@ -87,7 +88,7 @@ GovernanceApi apiInstance = new GovernanceApi();
 String proposalId = "proposalId_example"; // String | proposal id
 String depositor = "depositor_example"; // String | Bech32 depositor address
 try {
-    Object result = apiInstance.getDepositByAddr(proposalId, depositor);
+    InlineResponse20022 result = apiInstance.getDepositByAddr(proposalId, depositor);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GovernanceApi#getDepositByAddr");
@@ -104,7 +105,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse20022**](InlineResponse20022.md)
 
 ### Authorization
 
@@ -117,7 +118,7 @@ No authorization required
 
 <a name="getDepositParameters"></a>
 # **getDepositParameters**
-> Object getDepositParameters()
+> InlineResponse20026 getDepositParameters()
 
 Query governance deposit parameters
 
@@ -132,7 +133,7 @@ Query governance deposit parameters. The max_deposit_period units are in nanosec
 
 GovernanceApi apiInstance = new GovernanceApi();
 try {
-    Object result = apiInstance.getDepositParameters();
+    InlineResponse20026 result = apiInstance.getDepositParameters();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GovernanceApi#getDepositParameters");
@@ -145,7 +146,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Object**
+[**InlineResponse20026**](InlineResponse20026.md)
 
 ### Authorization
 
@@ -158,7 +159,7 @@ No authorization required
 
 <a name="getDeposits"></a>
 # **getDeposits**
-> Object getDeposits(proposalId)
+> InlineResponse20021 getDeposits(proposalId)
 
 Query deposits
 
@@ -174,7 +175,7 @@ Query deposits by proposalId
 GovernanceApi apiInstance = new GovernanceApi();
 String proposalId = "proposalId_example"; // String | 
 try {
-    Object result = apiInstance.getDeposits(proposalId);
+    InlineResponse20021 result = apiInstance.getDeposits(proposalId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GovernanceApi#getDeposits");
@@ -190,7 +191,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse20021**](InlineResponse20021.md)
 
 ### Authorization
 
@@ -203,7 +204,7 @@ No authorization required
 
 <a name="getProposalByID"></a>
 # **getProposalByID**
-> Object getProposalByID(proposalId)
+> InlineResponse20019 getProposalByID(proposalId)
 
 Query a proposal
 
@@ -219,7 +220,7 @@ Query a proposal by id
 GovernanceApi apiInstance = new GovernanceApi();
 String proposalId = "proposalId_example"; // String | 
 try {
-    Object result = apiInstance.getProposalByID(proposalId);
+    InlineResponse20019 result = apiInstance.getProposalByID(proposalId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GovernanceApi#getProposalByID");
@@ -235,7 +236,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse20019**](InlineResponse20019.md)
 
 ### Authorization
 
@@ -248,7 +249,7 @@ No authorization required
 
 <a name="getProposals"></a>
 # **getProposals**
-> Object getProposals(voter, depositor, status)
+> InlineResponse20018 getProposals(voter, depositor, status)
 
 Query proposals
 
@@ -266,7 +267,7 @@ String voter = "voter_example"; // String | voter address
 String depositor = "depositor_example"; // String | depositor address
 String status = "status_example"; // String | proposal status, valid values can be `\"deposit_period\"`, `\"voting_period\"`, `\"passed\"`, `\"rejected\"`
 try {
-    Object result = apiInstance.getProposals(voter, depositor, status);
+    InlineResponse20018 result = apiInstance.getProposals(voter, depositor, status);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GovernanceApi#getProposals");
@@ -284,7 +285,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse20018**](InlineResponse20018.md)
 
 ### Authorization
 
@@ -297,7 +298,7 @@ No authorization required
 
 <a name="getProposer"></a>
 # **getProposer**
-> Object getProposer(proposalId)
+> InlineResponse20020 getProposer(proposalId)
 
 Query proposer
 
@@ -313,7 +314,7 @@ Query for the proposer for a proposal
 GovernanceApi apiInstance = new GovernanceApi();
 String proposalId = "proposalId_example"; // String | 
 try {
-    Object result = apiInstance.getProposer(proposalId);
+    InlineResponse20020 result = apiInstance.getProposer(proposalId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GovernanceApi#getProposer");
@@ -329,7 +330,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse20020**](InlineResponse20020.md)
 
 ### Authorization
 
@@ -342,11 +343,11 @@ No authorization required
 
 <a name="getTally"></a>
 # **getTally**
-> Object getTally(proposalId)
+> InlineResponse20025 getTally(proposalId)
 
-Get a proposal&#x27;s tally result at the current time
+Get a proposal&#39;s tally result at the current time
 
-Gets a proposal&#x27;s tally result at the current time. If the proposal is pending deposits (i.e status &#x27;DepositPeriod&#x27;) it returns an empty tally result.
+Gets a proposal&#39;s tally result at the current time. If the proposal is pending deposits (i.e status &#39;DepositPeriod&#39;) it returns an empty tally result.
 
 ### Example
 ```java
@@ -358,7 +359,7 @@ Gets a proposal&#x27;s tally result at the current time. If the proposal is pend
 GovernanceApi apiInstance = new GovernanceApi();
 String proposalId = "proposalId_example"; // String | proposal id
 try {
-    Object result = apiInstance.getTally(proposalId);
+    InlineResponse20025 result = apiInstance.getTally(proposalId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GovernanceApi#getTally");
@@ -374,7 +375,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse20025**](InlineResponse20025.md)
 
 ### Authorization
 
@@ -387,7 +388,7 @@ No authorization required
 
 <a name="getTallyingParameters"></a>
 # **getTallyingParameters**
-> Object getTallyingParameters()
+> InlineResponse20027 getTallyingParameters()
 
 Query governance tally parameters
 
@@ -402,7 +403,7 @@ Query governance tally parameters
 
 GovernanceApi apiInstance = new GovernanceApi();
 try {
-    Object result = apiInstance.getTallyingParameters();
+    InlineResponse20027 result = apiInstance.getTallyingParameters();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GovernanceApi#getTallyingParameters");
@@ -415,7 +416,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Object**
+[**InlineResponse20027**](InlineResponse20027.md)
 
 ### Authorization
 
@@ -428,7 +429,7 @@ No authorization required
 
 <a name="getVoterByAddr"></a>
 # **getVoterByAddr**
-> Object getVoterByAddr(proposalId, voter)
+> InlineResponse20024 getVoterByAddr(proposalId, voter)
 
 Query vote
 
@@ -445,7 +446,7 @@ GovernanceApi apiInstance = new GovernanceApi();
 String proposalId = "proposalId_example"; // String | proposal id
 String voter = "voter_example"; // String | Bech32 voter address
 try {
-    Object result = apiInstance.getVoterByAddr(proposalId, voter);
+    InlineResponse20024 result = apiInstance.getVoterByAddr(proposalId, voter);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GovernanceApi#getVoterByAddr");
@@ -462,7 +463,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse20024**](InlineResponse20024.md)
 
 ### Authorization
 
@@ -475,7 +476,7 @@ No authorization required
 
 <a name="getVoters"></a>
 # **getVoters**
-> Object getVoters(proposalId)
+> InlineResponse20023 getVoters(proposalId)
 
 Query voters
 
@@ -491,7 +492,7 @@ Query voters information by proposalId
 GovernanceApi apiInstance = new GovernanceApi();
 String proposalId = "proposalId_example"; // String | proposal id
 try {
-    Object result = apiInstance.getVoters(proposalId);
+    InlineResponse20023 result = apiInstance.getVoters(proposalId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GovernanceApi#getVoters");
@@ -507,7 +508,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse20023**](InlineResponse20023.md)
 
 ### Authorization
 
@@ -520,7 +521,7 @@ No authorization required
 
 <a name="getVotingParameters"></a>
 # **getVotingParameters**
-> Object getVotingParameters()
+> InlineResponse20028 getVotingParameters()
 
 Query governance voting parameters
 
@@ -535,7 +536,7 @@ Query governance voting parameters. The voting_period units are in nanoseconds.
 
 GovernanceApi apiInstance = new GovernanceApi();
 try {
-    Object result = apiInstance.getVotingParameters();
+    InlineResponse20028 result = apiInstance.getVotingParameters();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GovernanceApi#getVotingParameters");
@@ -548,7 +549,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Object**
+[**InlineResponse20028**](InlineResponse20028.md)
 
 ### Authorization
 
@@ -561,7 +562,7 @@ No authorization required
 
 <a name="submitCommunityPoolSpendProposal"></a>
 # **submitCommunityPoolSpendProposal**
-> StdTx submitCommunityPoolSpendProposal(body)
+> StdTx submitCommunityPoolSpendProposal(postProposalBody)
 
 Generate a community pool spend proposal transaction
 
@@ -575,9 +576,9 @@ Generate a community pool spend proposal transaction
 
 
 GovernanceApi apiInstance = new GovernanceApi();
-Object body = null; // Object | The community pool spend proposal body contains coin amount to be spent
+PostProposalBody2 postProposalBody = new PostProposalBody2(); // PostProposalBody2 | The community pool spend proposal body contains coin amount to be spent
 try {
-    StdTx result = apiInstance.submitCommunityPoolSpendProposal(body);
+    StdTx result = apiInstance.submitCommunityPoolSpendProposal(postProposalBody);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GovernanceApi#submitCommunityPoolSpendProposal");
@@ -589,7 +590,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)| The community pool spend proposal body contains coin amount to be spent |
+ **postProposalBody** | [**PostProposalBody2**](PostProposalBody2.md)| The community pool spend proposal body contains coin amount to be spent |
 
 ### Return type
 
@@ -606,7 +607,7 @@ No authorization required
 
 <a name="submitParameterChangeProposal"></a>
 # **submitParameterChangeProposal**
-> StdTx submitParameterChangeProposal(body)
+> StdTx submitParameterChangeProposal(postProposalBody)
 
 Generate a parameter change proposal transaction
 
@@ -620,9 +621,9 @@ Generate a parameter change proposal transaction
 
 
 GovernanceApi apiInstance = new GovernanceApi();
-Object body = null; // Object | The parameter change proposal body that contains all parameter changes
+PostProposalBody1 postProposalBody = new PostProposalBody1(); // PostProposalBody1 | The parameter change proposal body that contains all parameter changes
 try {
-    StdTx result = apiInstance.submitParameterChangeProposal(body);
+    StdTx result = apiInstance.submitParameterChangeProposal(postProposalBody);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GovernanceApi#submitParameterChangeProposal");
@@ -634,7 +635,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)| The parameter change proposal body that contains all parameter changes |
+ **postProposalBody** | [**PostProposalBody1**](PostProposalBody1.md)| The parameter change proposal body that contains all parameter changes |
 
 ### Return type
 
@@ -651,7 +652,7 @@ No authorization required
 
 <a name="submitProposal"></a>
 # **submitProposal**
-> StdTx submitProposal(body)
+> StdTx submitProposal(postProposalBody)
 
 Submit a proposal
 
@@ -665,9 +666,9 @@ Send transaction to submit a proposal
 
 
 GovernanceApi apiInstance = new GovernanceApi();
-Object body = null; // Object | valid value of `"proposal_type"` can be `"text"`, `"parameter_change"`, `"software_upgrade"`
+PostProposalBody postProposalBody = new PostProposalBody(); // PostProposalBody | valid value of `\"proposal_type\"` can be `\"text\"`, `\"parameter_change\"`, `\"software_upgrade\"`
 try {
-    StdTx result = apiInstance.submitProposal(body);
+    StdTx result = apiInstance.submitProposal(postProposalBody);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GovernanceApi#submitProposal");
@@ -679,7 +680,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)| valid value of &#x60;&quot;proposal_type&quot;&#x60; can be &#x60;&quot;text&quot;&#x60;, &#x60;&quot;parameter_change&quot;&#x60;, &#x60;&quot;software_upgrade&quot;&#x60; |
+ **postProposalBody** | [**PostProposalBody**](PostProposalBody.md)| valid value of &#x60;\&quot;proposal_type\&quot;&#x60; can be &#x60;\&quot;text\&quot;&#x60;, &#x60;\&quot;parameter_change\&quot;&#x60;, &#x60;\&quot;software_upgrade\&quot;&#x60; |
 
 ### Return type
 
@@ -696,7 +697,7 @@ No authorization required
 
 <a name="voteProposal"></a>
 # **voteProposal**
-> BroadcastTxCommitResult voteProposal(body, proposalId)
+> BroadcastTxCommitResult voteProposal(proposalId, postVoteBody)
 
 Vote a proposal
 
@@ -710,10 +711,10 @@ Send transaction to vote a proposal
 
 
 GovernanceApi apiInstance = new GovernanceApi();
-Object body = null; // Object | valid value of `"option"` field can be `"yes"`, `"no"`, `"no_with_veto"` and `"abstain"`
 String proposalId = "proposalId_example"; // String | proposal id
+PostVoteBody postVoteBody = new PostVoteBody(); // PostVoteBody | valid value of `\"option\"` field can be `\"yes\"`, `\"no\"`, `\"no_with_veto\"` and `\"abstain\"`
 try {
-    BroadcastTxCommitResult result = apiInstance.voteProposal(body, proposalId);
+    BroadcastTxCommitResult result = apiInstance.voteProposal(proposalId, postVoteBody);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GovernanceApi#voteProposal");
@@ -725,8 +726,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)| valid value of &#x60;&quot;option&quot;&#x60; field can be &#x60;&quot;yes&quot;&#x60;, &#x60;&quot;no&quot;&#x60;, &#x60;&quot;no_with_veto&quot;&#x60; and &#x60;&quot;abstain&quot;&#x60; |
  **proposalId** | **String**| proposal id |
+ **postVoteBody** | [**PostVoteBody**](PostVoteBody.md)| valid value of &#x60;\&quot;option\&quot;&#x60; field can be &#x60;\&quot;yes\&quot;&#x60;, &#x60;\&quot;no\&quot;&#x60;, &#x60;\&quot;no_with_veto\&quot;&#x60; and &#x60;\&quot;abstain\&quot;&#x60; |
 
 ### Return type
 

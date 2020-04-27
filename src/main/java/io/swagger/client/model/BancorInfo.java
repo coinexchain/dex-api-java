@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,13 +20,14 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+
 /**
  * BancorInfo
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-26T10:53:15.911+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
 public class BancorInfo {
   @SerializedName("owner")
   private String owner = null;
@@ -75,7 +77,7 @@ public class BancorInfo {
    * Get owner
    * @return owner
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getOwner() {
     return owner;
   }
@@ -93,7 +95,7 @@ public class BancorInfo {
    * Get stock
    * @return stock
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getStock() {
     return stock;
   }
@@ -111,7 +113,7 @@ public class BancorInfo {
    * Get money
    * @return money
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getMoney() {
     return money;
   }
@@ -129,7 +131,7 @@ public class BancorInfo {
    * Get initPrice
    * @return initPrice
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getInitPrice() {
     return initPrice;
   }
@@ -147,7 +149,7 @@ public class BancorInfo {
    * Get maxSupply
    * @return maxSupply
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getMaxSupply() {
     return maxSupply;
   }
@@ -165,7 +167,7 @@ public class BancorInfo {
    * Get stockPrecision
    * @return stockPrecision
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public String getStockPrecision() {
     return stockPrecision;
   }
@@ -183,7 +185,7 @@ public class BancorInfo {
    * Get maxPrice
    * @return maxPrice
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getMaxPrice() {
     return maxPrice;
   }
@@ -201,7 +203,7 @@ public class BancorInfo {
    * Get maxMoney
    * @return maxMoney
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getMaxMoney() {
     return maxMoney;
   }
@@ -219,7 +221,7 @@ public class BancorInfo {
    * Get ar
    * @return ar
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getAr() {
     return ar;
   }
@@ -237,7 +239,7 @@ public class BancorInfo {
    * Get currentPrice
    * @return currentPrice
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getCurrentPrice() {
     return currentPrice;
   }
@@ -255,7 +257,7 @@ public class BancorInfo {
    * Get stockInPool
    * @return stockInPool
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getStockInPool() {
     return stockInPool;
   }
@@ -273,7 +275,7 @@ public class BancorInfo {
    * Get moneyInPool
    * @return moneyInPool
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getMoneyInPool() {
     return moneyInPool;
   }
@@ -291,7 +293,7 @@ public class BancorInfo {
    * Get earliestCancelTime
    * @return earliestCancelTime
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getEarliestCancelTime() {
     return earliestCancelTime;
   }
@@ -302,7 +304,7 @@ public class BancorInfo {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -357,7 +359,7 @@ public class BancorInfo {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -365,3 +367,4 @@ public class BancorInfo {
   }
 
 }
+

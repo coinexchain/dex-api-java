@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.api;
 
 import io.swagger.client.ApiCallback;
@@ -27,6 +28,22 @@ import java.io.IOException;
 
 
 import io.swagger.client.model.BroadcastTxCommitResult;
+import io.swagger.client.model.InlineResponse20018;
+import io.swagger.client.model.InlineResponse20019;
+import io.swagger.client.model.InlineResponse20020;
+import io.swagger.client.model.InlineResponse20021;
+import io.swagger.client.model.InlineResponse20022;
+import io.swagger.client.model.InlineResponse20023;
+import io.swagger.client.model.InlineResponse20024;
+import io.swagger.client.model.InlineResponse20025;
+import io.swagger.client.model.InlineResponse20026;
+import io.swagger.client.model.InlineResponse20027;
+import io.swagger.client.model.InlineResponse20028;
+import io.swagger.client.model.PostDepositBody;
+import io.swagger.client.model.PostProposalBody;
+import io.swagger.client.model.PostProposalBody1;
+import io.swagger.client.model.PostProposalBody2;
+import io.swagger.client.model.PostVoteBody;
 import io.swagger.client.model.StdTx;
 
 import java.lang.reflect.Type;
@@ -56,16 +73,16 @@ public class GovernanceApi {
 
     /**
      * Build call for depositToProposal
-     * @param body  (required)
      * @param proposalId proposal id (required)
+     * @param postDepositBody  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call depositToProposalCall(Object body, String proposalId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
+    public com.squareup.okhttp.Call depositToProposalCall(String proposalId, PostDepositBody postDepositBody, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = postDepositBody;
+
         // create path and map variables
         String localVarPath = "/gov/proposals/{proposalId}/deposits"
             .replaceAll("\\{" + "proposalId" + "\\}", apiClient.escapeString(proposalId.toString()));
@@ -92,7 +109,7 @@ public class GovernanceApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -104,50 +121,49 @@ public class GovernanceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call depositToProposalValidateBeforeCall(Object body, String proposalId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling depositToProposal(Async)");
-        }
+    private com.squareup.okhttp.Call depositToProposalValidateBeforeCall(String proposalId, PostDepositBody postDepositBody, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'proposalId' is set
         if (proposalId == null) {
             throw new ApiException("Missing the required parameter 'proposalId' when calling depositToProposal(Async)");
         }
         
-        com.squareup.okhttp.Call call = depositToProposalCall(body, proposalId, progressListener, progressRequestListener);
+        // verify the required parameter 'postDepositBody' is set
+        if (postDepositBody == null) {
+            throw new ApiException("Missing the required parameter 'postDepositBody' when calling depositToProposal(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = depositToProposalCall(proposalId, postDepositBody, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Deposit tokens to a proposal
      * Send transaction to deposit tokens to a proposal
-     * @param body  (required)
      * @param proposalId proposal id (required)
+     * @param postDepositBody  (required)
      * @return BroadcastTxCommitResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public BroadcastTxCommitResult depositToProposal(Object body, String proposalId) throws ApiException {
-        ApiResponse<BroadcastTxCommitResult> resp = depositToProposalWithHttpInfo(body, proposalId);
+    public BroadcastTxCommitResult depositToProposal(String proposalId, PostDepositBody postDepositBody) throws ApiException {
+        ApiResponse<BroadcastTxCommitResult> resp = depositToProposalWithHttpInfo(proposalId, postDepositBody);
         return resp.getData();
     }
 
     /**
      * Deposit tokens to a proposal
      * Send transaction to deposit tokens to a proposal
-     * @param body  (required)
      * @param proposalId proposal id (required)
+     * @param postDepositBody  (required)
      * @return ApiResponse&lt;BroadcastTxCommitResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<BroadcastTxCommitResult> depositToProposalWithHttpInfo(Object body, String proposalId) throws ApiException {
-        com.squareup.okhttp.Call call = depositToProposalValidateBeforeCall(body, proposalId, null, null);
+    public ApiResponse<BroadcastTxCommitResult> depositToProposalWithHttpInfo(String proposalId, PostDepositBody postDepositBody) throws ApiException {
+        com.squareup.okhttp.Call call = depositToProposalValidateBeforeCall(proposalId, postDepositBody, null, null);
         Type localVarReturnType = new TypeToken<BroadcastTxCommitResult>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -155,13 +171,13 @@ public class GovernanceApi {
     /**
      * Deposit tokens to a proposal (asynchronously)
      * Send transaction to deposit tokens to a proposal
-     * @param body  (required)
      * @param proposalId proposal id (required)
+     * @param postDepositBody  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call depositToProposalAsync(Object body, String proposalId, final ApiCallback<BroadcastTxCommitResult> callback) throws ApiException {
+    public com.squareup.okhttp.Call depositToProposalAsync(String proposalId, PostDepositBody postDepositBody, final ApiCallback<BroadcastTxCommitResult> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -182,7 +198,7 @@ public class GovernanceApi {
             };
         }
 
-        com.squareup.okhttp.Call call = depositToProposalValidateBeforeCall(body, proposalId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = depositToProposalValidateBeforeCall(proposalId, postDepositBody, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<BroadcastTxCommitResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -198,7 +214,7 @@ public class GovernanceApi {
      */
     public com.squareup.okhttp.Call getDepositByAddrCall(String proposalId, String depositor, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/gov/proposals/{proposalId}/deposits/{depositor}"
             .replaceAll("\\{" + "proposalId" + "\\}", apiClient.escapeString(proposalId.toString()))
@@ -226,7 +242,7 @@ public class GovernanceApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -238,25 +254,24 @@ public class GovernanceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getDepositByAddrValidateBeforeCall(String proposalId, String depositor, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'proposalId' is set
         if (proposalId == null) {
             throw new ApiException("Missing the required parameter 'proposalId' when calling getDepositByAddr(Async)");
         }
+        
         // verify the required parameter 'depositor' is set
         if (depositor == null) {
             throw new ApiException("Missing the required parameter 'depositor' when calling getDepositByAddr(Async)");
         }
         
+
         com.squareup.okhttp.Call call = getDepositByAddrCall(proposalId, depositor, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -264,11 +279,11 @@ public class GovernanceApi {
      * Query deposit by proposalId and depositor address
      * @param proposalId proposal id (required)
      * @param depositor Bech32 depositor address (required)
-     * @return Object
+     * @return InlineResponse20022
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getDepositByAddr(String proposalId, String depositor) throws ApiException {
-        ApiResponse<Object> resp = getDepositByAddrWithHttpInfo(proposalId, depositor);
+    public InlineResponse20022 getDepositByAddr(String proposalId, String depositor) throws ApiException {
+        ApiResponse<InlineResponse20022> resp = getDepositByAddrWithHttpInfo(proposalId, depositor);
         return resp.getData();
     }
 
@@ -277,12 +292,12 @@ public class GovernanceApi {
      * Query deposit by proposalId and depositor address
      * @param proposalId proposal id (required)
      * @param depositor Bech32 depositor address (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse20022&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getDepositByAddrWithHttpInfo(String proposalId, String depositor) throws ApiException {
+    public ApiResponse<InlineResponse20022> getDepositByAddrWithHttpInfo(String proposalId, String depositor) throws ApiException {
         com.squareup.okhttp.Call call = getDepositByAddrValidateBeforeCall(proposalId, depositor, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20022>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -295,7 +310,7 @@ public class GovernanceApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getDepositByAddrAsync(String proposalId, String depositor, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getDepositByAddrAsync(String proposalId, String depositor, final ApiCallback<InlineResponse20022> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -317,7 +332,7 @@ public class GovernanceApi {
         }
 
         com.squareup.okhttp.Call call = getDepositByAddrValidateBeforeCall(proposalId, depositor, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20022>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -330,7 +345,7 @@ public class GovernanceApi {
      */
     public com.squareup.okhttp.Call getDepositParametersCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/gov/parameters/deposit";
 
@@ -356,7 +371,7 @@ public class GovernanceApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -368,39 +383,36 @@ public class GovernanceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getDepositParametersValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+
         com.squareup.okhttp.Call call = getDepositParametersCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Query governance deposit parameters
      * Query governance deposit parameters. The max_deposit_period units are in nanoseconds.
-     * @return Object
+     * @return InlineResponse20026
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getDepositParameters() throws ApiException {
-        ApiResponse<Object> resp = getDepositParametersWithHttpInfo();
+    public InlineResponse20026 getDepositParameters() throws ApiException {
+        ApiResponse<InlineResponse20026> resp = getDepositParametersWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * Query governance deposit parameters
      * Query governance deposit parameters. The max_deposit_period units are in nanoseconds.
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse20026&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getDepositParametersWithHttpInfo() throws ApiException {
+    public ApiResponse<InlineResponse20026> getDepositParametersWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getDepositParametersValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20026>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -411,7 +423,7 @@ public class GovernanceApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getDepositParametersAsync(final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getDepositParametersAsync(final ApiCallback<InlineResponse20026> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -433,7 +445,7 @@ public class GovernanceApi {
         }
 
         com.squareup.okhttp.Call call = getDepositParametersValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20026>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -447,7 +459,7 @@ public class GovernanceApi {
      */
     public com.squareup.okhttp.Call getDepositsCall(String proposalId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/gov/proposals/{proposalId}/deposits"
             .replaceAll("\\{" + "proposalId" + "\\}", apiClient.escapeString(proposalId.toString()));
@@ -474,7 +486,7 @@ public class GovernanceApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -486,32 +498,30 @@ public class GovernanceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getDepositsValidateBeforeCall(String proposalId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'proposalId' is set
         if (proposalId == null) {
             throw new ApiException("Missing the required parameter 'proposalId' when calling getDeposits(Async)");
         }
         
+
         com.squareup.okhttp.Call call = getDepositsCall(proposalId, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Query deposits
      * Query deposits by proposalId
      * @param proposalId  (required)
-     * @return Object
+     * @return InlineResponse20021
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getDeposits(String proposalId) throws ApiException {
-        ApiResponse<Object> resp = getDepositsWithHttpInfo(proposalId);
+    public InlineResponse20021 getDeposits(String proposalId) throws ApiException {
+        ApiResponse<InlineResponse20021> resp = getDepositsWithHttpInfo(proposalId);
         return resp.getData();
     }
 
@@ -519,12 +529,12 @@ public class GovernanceApi {
      * Query deposits
      * Query deposits by proposalId
      * @param proposalId  (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse20021&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getDepositsWithHttpInfo(String proposalId) throws ApiException {
+    public ApiResponse<InlineResponse20021> getDepositsWithHttpInfo(String proposalId) throws ApiException {
         com.squareup.okhttp.Call call = getDepositsValidateBeforeCall(proposalId, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20021>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -536,7 +546,7 @@ public class GovernanceApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getDepositsAsync(String proposalId, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getDepositsAsync(String proposalId, final ApiCallback<InlineResponse20021> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -558,7 +568,7 @@ public class GovernanceApi {
         }
 
         com.squareup.okhttp.Call call = getDepositsValidateBeforeCall(proposalId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20021>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -572,7 +582,7 @@ public class GovernanceApi {
      */
     public com.squareup.okhttp.Call getProposalByIDCall(String proposalId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/gov/proposals/{proposalId}"
             .replaceAll("\\{" + "proposalId" + "\\}", apiClient.escapeString(proposalId.toString()));
@@ -599,7 +609,7 @@ public class GovernanceApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -611,32 +621,30 @@ public class GovernanceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getProposalByIDValidateBeforeCall(String proposalId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'proposalId' is set
         if (proposalId == null) {
             throw new ApiException("Missing the required parameter 'proposalId' when calling getProposalByID(Async)");
         }
         
+
         com.squareup.okhttp.Call call = getProposalByIDCall(proposalId, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Query a proposal
      * Query a proposal by id
      * @param proposalId  (required)
-     * @return Object
+     * @return InlineResponse20019
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getProposalByID(String proposalId) throws ApiException {
-        ApiResponse<Object> resp = getProposalByIDWithHttpInfo(proposalId);
+    public InlineResponse20019 getProposalByID(String proposalId) throws ApiException {
+        ApiResponse<InlineResponse20019> resp = getProposalByIDWithHttpInfo(proposalId);
         return resp.getData();
     }
 
@@ -644,12 +652,12 @@ public class GovernanceApi {
      * Query a proposal
      * Query a proposal by id
      * @param proposalId  (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse20019&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getProposalByIDWithHttpInfo(String proposalId) throws ApiException {
+    public ApiResponse<InlineResponse20019> getProposalByIDWithHttpInfo(String proposalId) throws ApiException {
         com.squareup.okhttp.Call call = getProposalByIDValidateBeforeCall(proposalId, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20019>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -661,7 +669,7 @@ public class GovernanceApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getProposalByIDAsync(String proposalId, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getProposalByIDAsync(String proposalId, final ApiCallback<InlineResponse20019> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -683,7 +691,7 @@ public class GovernanceApi {
         }
 
         com.squareup.okhttp.Call call = getProposalByIDValidateBeforeCall(proposalId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20019>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -699,7 +707,7 @@ public class GovernanceApi {
      */
     public com.squareup.okhttp.Call getProposalsCall(String voter, String depositor, String status, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/gov/proposals";
 
@@ -731,7 +739,7 @@ public class GovernanceApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -743,17 +751,14 @@ public class GovernanceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getProposalsValidateBeforeCall(String voter, String depositor, String status, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+
         com.squareup.okhttp.Call call = getProposalsCall(voter, depositor, status, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -762,11 +767,11 @@ public class GovernanceApi {
      * @param voter voter address (optional)
      * @param depositor depositor address (optional)
      * @param status proposal status, valid values can be &#x60;\&quot;deposit_period\&quot;&#x60;, &#x60;\&quot;voting_period\&quot;&#x60;, &#x60;\&quot;passed\&quot;&#x60;, &#x60;\&quot;rejected\&quot;&#x60; (optional)
-     * @return Object
+     * @return InlineResponse20018
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getProposals(String voter, String depositor, String status) throws ApiException {
-        ApiResponse<Object> resp = getProposalsWithHttpInfo(voter, depositor, status);
+    public InlineResponse20018 getProposals(String voter, String depositor, String status) throws ApiException {
+        ApiResponse<InlineResponse20018> resp = getProposalsWithHttpInfo(voter, depositor, status);
         return resp.getData();
     }
 
@@ -776,12 +781,12 @@ public class GovernanceApi {
      * @param voter voter address (optional)
      * @param depositor depositor address (optional)
      * @param status proposal status, valid values can be &#x60;\&quot;deposit_period\&quot;&#x60;, &#x60;\&quot;voting_period\&quot;&#x60;, &#x60;\&quot;passed\&quot;&#x60;, &#x60;\&quot;rejected\&quot;&#x60; (optional)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse20018&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getProposalsWithHttpInfo(String voter, String depositor, String status) throws ApiException {
+    public ApiResponse<InlineResponse20018> getProposalsWithHttpInfo(String voter, String depositor, String status) throws ApiException {
         com.squareup.okhttp.Call call = getProposalsValidateBeforeCall(voter, depositor, status, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20018>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -795,7 +800,7 @@ public class GovernanceApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getProposalsAsync(String voter, String depositor, String status, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getProposalsAsync(String voter, String depositor, String status, final ApiCallback<InlineResponse20018> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -817,7 +822,7 @@ public class GovernanceApi {
         }
 
         com.squareup.okhttp.Call call = getProposalsValidateBeforeCall(voter, depositor, status, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20018>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -831,7 +836,7 @@ public class GovernanceApi {
      */
     public com.squareup.okhttp.Call getProposerCall(String proposalId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/gov/proposals/{proposalId}/proposer"
             .replaceAll("\\{" + "proposalId" + "\\}", apiClient.escapeString(proposalId.toString()));
@@ -858,7 +863,7 @@ public class GovernanceApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -870,32 +875,30 @@ public class GovernanceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getProposerValidateBeforeCall(String proposalId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'proposalId' is set
         if (proposalId == null) {
             throw new ApiException("Missing the required parameter 'proposalId' when calling getProposer(Async)");
         }
         
+
         com.squareup.okhttp.Call call = getProposerCall(proposalId, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Query proposer
      * Query for the proposer for a proposal
      * @param proposalId  (required)
-     * @return Object
+     * @return InlineResponse20020
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getProposer(String proposalId) throws ApiException {
-        ApiResponse<Object> resp = getProposerWithHttpInfo(proposalId);
+    public InlineResponse20020 getProposer(String proposalId) throws ApiException {
+        ApiResponse<InlineResponse20020> resp = getProposerWithHttpInfo(proposalId);
         return resp.getData();
     }
 
@@ -903,12 +906,12 @@ public class GovernanceApi {
      * Query proposer
      * Query for the proposer for a proposal
      * @param proposalId  (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse20020&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getProposerWithHttpInfo(String proposalId) throws ApiException {
+    public ApiResponse<InlineResponse20020> getProposerWithHttpInfo(String proposalId) throws ApiException {
         com.squareup.okhttp.Call call = getProposerValidateBeforeCall(proposalId, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20020>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -920,7 +923,7 @@ public class GovernanceApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getProposerAsync(String proposalId, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getProposerAsync(String proposalId, final ApiCallback<InlineResponse20020> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -942,7 +945,7 @@ public class GovernanceApi {
         }
 
         com.squareup.okhttp.Call call = getProposerValidateBeforeCall(proposalId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20020>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -956,7 +959,7 @@ public class GovernanceApi {
      */
     public com.squareup.okhttp.Call getTallyCall(String proposalId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/gov/proposals/{proposalId}/tally"
             .replaceAll("\\{" + "proposalId" + "\\}", apiClient.escapeString(proposalId.toString()));
@@ -983,7 +986,7 @@ public class GovernanceApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -995,57 +998,55 @@ public class GovernanceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getTallyValidateBeforeCall(String proposalId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'proposalId' is set
         if (proposalId == null) {
             throw new ApiException("Missing the required parameter 'proposalId' when calling getTally(Async)");
         }
         
+
         com.squareup.okhttp.Call call = getTallyCall(proposalId, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
-     * Get a proposal&#x27;s tally result at the current time
-     * Gets a proposal&#x27;s tally result at the current time. If the proposal is pending deposits (i.e status &#x27;DepositPeriod&#x27;) it returns an empty tally result.
+     * Get a proposal&#39;s tally result at the current time
+     * Gets a proposal&#39;s tally result at the current time. If the proposal is pending deposits (i.e status &#39;DepositPeriod&#39;) it returns an empty tally result.
      * @param proposalId proposal id (required)
-     * @return Object
+     * @return InlineResponse20025
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getTally(String proposalId) throws ApiException {
-        ApiResponse<Object> resp = getTallyWithHttpInfo(proposalId);
+    public InlineResponse20025 getTally(String proposalId) throws ApiException {
+        ApiResponse<InlineResponse20025> resp = getTallyWithHttpInfo(proposalId);
         return resp.getData();
     }
 
     /**
-     * Get a proposal&#x27;s tally result at the current time
-     * Gets a proposal&#x27;s tally result at the current time. If the proposal is pending deposits (i.e status &#x27;DepositPeriod&#x27;) it returns an empty tally result.
+     * Get a proposal&#39;s tally result at the current time
+     * Gets a proposal&#39;s tally result at the current time. If the proposal is pending deposits (i.e status &#39;DepositPeriod&#39;) it returns an empty tally result.
      * @param proposalId proposal id (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse20025&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getTallyWithHttpInfo(String proposalId) throws ApiException {
+    public ApiResponse<InlineResponse20025> getTallyWithHttpInfo(String proposalId) throws ApiException {
         com.squareup.okhttp.Call call = getTallyValidateBeforeCall(proposalId, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20025>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Get a proposal&#x27;s tally result at the current time (asynchronously)
-     * Gets a proposal&#x27;s tally result at the current time. If the proposal is pending deposits (i.e status &#x27;DepositPeriod&#x27;) it returns an empty tally result.
+     * Get a proposal&#39;s tally result at the current time (asynchronously)
+     * Gets a proposal&#39;s tally result at the current time. If the proposal is pending deposits (i.e status &#39;DepositPeriod&#39;) it returns an empty tally result.
      * @param proposalId proposal id (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTallyAsync(String proposalId, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTallyAsync(String proposalId, final ApiCallback<InlineResponse20025> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1067,7 +1068,7 @@ public class GovernanceApi {
         }
 
         com.squareup.okhttp.Call call = getTallyValidateBeforeCall(proposalId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20025>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1080,7 +1081,7 @@ public class GovernanceApi {
      */
     public com.squareup.okhttp.Call getTallyingParametersCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/gov/parameters/tallying";
 
@@ -1106,7 +1107,7 @@ public class GovernanceApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1118,39 +1119,36 @@ public class GovernanceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getTallyingParametersValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+
         com.squareup.okhttp.Call call = getTallyingParametersCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Query governance tally parameters
      * Query governance tally parameters
-     * @return Object
+     * @return InlineResponse20027
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getTallyingParameters() throws ApiException {
-        ApiResponse<Object> resp = getTallyingParametersWithHttpInfo();
+    public InlineResponse20027 getTallyingParameters() throws ApiException {
+        ApiResponse<InlineResponse20027> resp = getTallyingParametersWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * Query governance tally parameters
      * Query governance tally parameters
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse20027&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getTallyingParametersWithHttpInfo() throws ApiException {
+    public ApiResponse<InlineResponse20027> getTallyingParametersWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getTallyingParametersValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20027>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1161,7 +1159,7 @@ public class GovernanceApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTallyingParametersAsync(final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTallyingParametersAsync(final ApiCallback<InlineResponse20027> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1183,7 +1181,7 @@ public class GovernanceApi {
         }
 
         com.squareup.okhttp.Call call = getTallyingParametersValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20027>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1198,7 +1196,7 @@ public class GovernanceApi {
      */
     public com.squareup.okhttp.Call getVoterByAddrCall(String proposalId, String voter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/gov/proposals/{proposalId}/votes/{voter}"
             .replaceAll("\\{" + "proposalId" + "\\}", apiClient.escapeString(proposalId.toString()))
@@ -1226,7 +1224,7 @@ public class GovernanceApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1238,25 +1236,24 @@ public class GovernanceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getVoterByAddrValidateBeforeCall(String proposalId, String voter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'proposalId' is set
         if (proposalId == null) {
             throw new ApiException("Missing the required parameter 'proposalId' when calling getVoterByAddr(Async)");
         }
+        
         // verify the required parameter 'voter' is set
         if (voter == null) {
             throw new ApiException("Missing the required parameter 'voter' when calling getVoterByAddr(Async)");
         }
         
+
         com.squareup.okhttp.Call call = getVoterByAddrCall(proposalId, voter, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1264,11 +1261,11 @@ public class GovernanceApi {
      * Query vote information by proposal Id and voter address
      * @param proposalId proposal id (required)
      * @param voter Bech32 voter address (required)
-     * @return Object
+     * @return InlineResponse20024
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getVoterByAddr(String proposalId, String voter) throws ApiException {
-        ApiResponse<Object> resp = getVoterByAddrWithHttpInfo(proposalId, voter);
+    public InlineResponse20024 getVoterByAddr(String proposalId, String voter) throws ApiException {
+        ApiResponse<InlineResponse20024> resp = getVoterByAddrWithHttpInfo(proposalId, voter);
         return resp.getData();
     }
 
@@ -1277,12 +1274,12 @@ public class GovernanceApi {
      * Query vote information by proposal Id and voter address
      * @param proposalId proposal id (required)
      * @param voter Bech32 voter address (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse20024&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getVoterByAddrWithHttpInfo(String proposalId, String voter) throws ApiException {
+    public ApiResponse<InlineResponse20024> getVoterByAddrWithHttpInfo(String proposalId, String voter) throws ApiException {
         com.squareup.okhttp.Call call = getVoterByAddrValidateBeforeCall(proposalId, voter, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20024>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1295,7 +1292,7 @@ public class GovernanceApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getVoterByAddrAsync(String proposalId, String voter, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getVoterByAddrAsync(String proposalId, String voter, final ApiCallback<InlineResponse20024> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1317,7 +1314,7 @@ public class GovernanceApi {
         }
 
         com.squareup.okhttp.Call call = getVoterByAddrValidateBeforeCall(proposalId, voter, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20024>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1331,7 +1328,7 @@ public class GovernanceApi {
      */
     public com.squareup.okhttp.Call getVotersCall(String proposalId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/gov/proposals/{proposalId}/votes"
             .replaceAll("\\{" + "proposalId" + "\\}", apiClient.escapeString(proposalId.toString()));
@@ -1358,7 +1355,7 @@ public class GovernanceApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1370,32 +1367,30 @@ public class GovernanceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getVotersValidateBeforeCall(String proposalId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'proposalId' is set
         if (proposalId == null) {
             throw new ApiException("Missing the required parameter 'proposalId' when calling getVoters(Async)");
         }
         
+
         com.squareup.okhttp.Call call = getVotersCall(proposalId, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Query voters
      * Query voters information by proposalId
      * @param proposalId proposal id (required)
-     * @return Object
+     * @return InlineResponse20023
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getVoters(String proposalId) throws ApiException {
-        ApiResponse<Object> resp = getVotersWithHttpInfo(proposalId);
+    public InlineResponse20023 getVoters(String proposalId) throws ApiException {
+        ApiResponse<InlineResponse20023> resp = getVotersWithHttpInfo(proposalId);
         return resp.getData();
     }
 
@@ -1403,12 +1398,12 @@ public class GovernanceApi {
      * Query voters
      * Query voters information by proposalId
      * @param proposalId proposal id (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse20023&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getVotersWithHttpInfo(String proposalId) throws ApiException {
+    public ApiResponse<InlineResponse20023> getVotersWithHttpInfo(String proposalId) throws ApiException {
         com.squareup.okhttp.Call call = getVotersValidateBeforeCall(proposalId, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20023>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1420,7 +1415,7 @@ public class GovernanceApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getVotersAsync(String proposalId, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getVotersAsync(String proposalId, final ApiCallback<InlineResponse20023> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1442,7 +1437,7 @@ public class GovernanceApi {
         }
 
         com.squareup.okhttp.Call call = getVotersValidateBeforeCall(proposalId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20023>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1455,7 +1450,7 @@ public class GovernanceApi {
      */
     public com.squareup.okhttp.Call getVotingParametersCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/gov/parameters/voting";
 
@@ -1481,7 +1476,7 @@ public class GovernanceApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1493,39 +1488,36 @@ public class GovernanceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getVotingParametersValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+
         com.squareup.okhttp.Call call = getVotingParametersCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Query governance voting parameters
      * Query governance voting parameters. The voting_period units are in nanoseconds.
-     * @return Object
+     * @return InlineResponse20028
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getVotingParameters() throws ApiException {
-        ApiResponse<Object> resp = getVotingParametersWithHttpInfo();
+    public InlineResponse20028 getVotingParameters() throws ApiException {
+        ApiResponse<InlineResponse20028> resp = getVotingParametersWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * Query governance voting parameters
      * Query governance voting parameters. The voting_period units are in nanoseconds.
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse20028&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getVotingParametersWithHttpInfo() throws ApiException {
+    public ApiResponse<InlineResponse20028> getVotingParametersWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getVotingParametersValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20028>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1536,7 +1528,7 @@ public class GovernanceApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getVotingParametersAsync(final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getVotingParametersAsync(final ApiCallback<InlineResponse20028> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1558,21 +1550,21 @@ public class GovernanceApi {
         }
 
         com.squareup.okhttp.Call call = getVotingParametersValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20028>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for submitCommunityPoolSpendProposal
-     * @param body The community pool spend proposal body contains coin amount to be spent (required)
+     * @param postProposalBody The community pool spend proposal body contains coin amount to be spent (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call submitCommunityPoolSpendProposalCall(Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
+    public com.squareup.okhttp.Call submitCommunityPoolSpendProposalCall(PostProposalBody2 postProposalBody, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = postProposalBody;
+
         // create path and map variables
         String localVarPath = "/gov/proposals/community_pool_spend";
 
@@ -1598,7 +1590,7 @@ public class GovernanceApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1610,44 +1602,42 @@ public class GovernanceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call submitCommunityPoolSpendProposalValidateBeforeCall(Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling submitCommunityPoolSpendProposal(Async)");
+    private com.squareup.okhttp.Call submitCommunityPoolSpendProposalValidateBeforeCall(PostProposalBody2 postProposalBody, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'postProposalBody' is set
+        if (postProposalBody == null) {
+            throw new ApiException("Missing the required parameter 'postProposalBody' when calling submitCommunityPoolSpendProposal(Async)");
         }
         
-        com.squareup.okhttp.Call call = submitCommunityPoolSpendProposalCall(body, progressListener, progressRequestListener);
+
+        com.squareup.okhttp.Call call = submitCommunityPoolSpendProposalCall(postProposalBody, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Generate a community pool spend proposal transaction
      * Generate a community pool spend proposal transaction
-     * @param body The community pool spend proposal body contains coin amount to be spent (required)
+     * @param postProposalBody The community pool spend proposal body contains coin amount to be spent (required)
      * @return StdTx
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public StdTx submitCommunityPoolSpendProposal(Object body) throws ApiException {
-        ApiResponse<StdTx> resp = submitCommunityPoolSpendProposalWithHttpInfo(body);
+    public StdTx submitCommunityPoolSpendProposal(PostProposalBody2 postProposalBody) throws ApiException {
+        ApiResponse<StdTx> resp = submitCommunityPoolSpendProposalWithHttpInfo(postProposalBody);
         return resp.getData();
     }
 
     /**
      * Generate a community pool spend proposal transaction
      * Generate a community pool spend proposal transaction
-     * @param body The community pool spend proposal body contains coin amount to be spent (required)
+     * @param postProposalBody The community pool spend proposal body contains coin amount to be spent (required)
      * @return ApiResponse&lt;StdTx&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<StdTx> submitCommunityPoolSpendProposalWithHttpInfo(Object body) throws ApiException {
-        com.squareup.okhttp.Call call = submitCommunityPoolSpendProposalValidateBeforeCall(body, null, null);
+    public ApiResponse<StdTx> submitCommunityPoolSpendProposalWithHttpInfo(PostProposalBody2 postProposalBody) throws ApiException {
+        com.squareup.okhttp.Call call = submitCommunityPoolSpendProposalValidateBeforeCall(postProposalBody, null, null);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1655,12 +1645,12 @@ public class GovernanceApi {
     /**
      * Generate a community pool spend proposal transaction (asynchronously)
      * Generate a community pool spend proposal transaction
-     * @param body The community pool spend proposal body contains coin amount to be spent (required)
+     * @param postProposalBody The community pool spend proposal body contains coin amount to be spent (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call submitCommunityPoolSpendProposalAsync(Object body, final ApiCallback<StdTx> callback) throws ApiException {
+    public com.squareup.okhttp.Call submitCommunityPoolSpendProposalAsync(PostProposalBody2 postProposalBody, final ApiCallback<StdTx> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1681,22 +1671,22 @@ public class GovernanceApi {
             };
         }
 
-        com.squareup.okhttp.Call call = submitCommunityPoolSpendProposalValidateBeforeCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = submitCommunityPoolSpendProposalValidateBeforeCall(postProposalBody, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for submitParameterChangeProposal
-     * @param body The parameter change proposal body that contains all parameter changes (required)
+     * @param postProposalBody The parameter change proposal body that contains all parameter changes (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call submitParameterChangeProposalCall(Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
+    public com.squareup.okhttp.Call submitParameterChangeProposalCall(PostProposalBody1 postProposalBody, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = postProposalBody;
+
         // create path and map variables
         String localVarPath = "/gov/proposals/param_change";
 
@@ -1722,7 +1712,7 @@ public class GovernanceApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1734,44 +1724,42 @@ public class GovernanceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call submitParameterChangeProposalValidateBeforeCall(Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling submitParameterChangeProposal(Async)");
+    private com.squareup.okhttp.Call submitParameterChangeProposalValidateBeforeCall(PostProposalBody1 postProposalBody, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'postProposalBody' is set
+        if (postProposalBody == null) {
+            throw new ApiException("Missing the required parameter 'postProposalBody' when calling submitParameterChangeProposal(Async)");
         }
         
-        com.squareup.okhttp.Call call = submitParameterChangeProposalCall(body, progressListener, progressRequestListener);
+
+        com.squareup.okhttp.Call call = submitParameterChangeProposalCall(postProposalBody, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Generate a parameter change proposal transaction
      * Generate a parameter change proposal transaction
-     * @param body The parameter change proposal body that contains all parameter changes (required)
+     * @param postProposalBody The parameter change proposal body that contains all parameter changes (required)
      * @return StdTx
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public StdTx submitParameterChangeProposal(Object body) throws ApiException {
-        ApiResponse<StdTx> resp = submitParameterChangeProposalWithHttpInfo(body);
+    public StdTx submitParameterChangeProposal(PostProposalBody1 postProposalBody) throws ApiException {
+        ApiResponse<StdTx> resp = submitParameterChangeProposalWithHttpInfo(postProposalBody);
         return resp.getData();
     }
 
     /**
      * Generate a parameter change proposal transaction
      * Generate a parameter change proposal transaction
-     * @param body The parameter change proposal body that contains all parameter changes (required)
+     * @param postProposalBody The parameter change proposal body that contains all parameter changes (required)
      * @return ApiResponse&lt;StdTx&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<StdTx> submitParameterChangeProposalWithHttpInfo(Object body) throws ApiException {
-        com.squareup.okhttp.Call call = submitParameterChangeProposalValidateBeforeCall(body, null, null);
+    public ApiResponse<StdTx> submitParameterChangeProposalWithHttpInfo(PostProposalBody1 postProposalBody) throws ApiException {
+        com.squareup.okhttp.Call call = submitParameterChangeProposalValidateBeforeCall(postProposalBody, null, null);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1779,12 +1767,12 @@ public class GovernanceApi {
     /**
      * Generate a parameter change proposal transaction (asynchronously)
      * Generate a parameter change proposal transaction
-     * @param body The parameter change proposal body that contains all parameter changes (required)
+     * @param postProposalBody The parameter change proposal body that contains all parameter changes (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call submitParameterChangeProposalAsync(Object body, final ApiCallback<StdTx> callback) throws ApiException {
+    public com.squareup.okhttp.Call submitParameterChangeProposalAsync(PostProposalBody1 postProposalBody, final ApiCallback<StdTx> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1805,22 +1793,22 @@ public class GovernanceApi {
             };
         }
 
-        com.squareup.okhttp.Call call = submitParameterChangeProposalValidateBeforeCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = submitParameterChangeProposalValidateBeforeCall(postProposalBody, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for submitProposal
-     * @param body valid value of &#x60;&quot;proposal_type&quot;&#x60; can be &#x60;&quot;text&quot;&#x60;, &#x60;&quot;parameter_change&quot;&#x60;, &#x60;&quot;software_upgrade&quot;&#x60; (required)
+     * @param postProposalBody valid value of &#x60;\&quot;proposal_type\&quot;&#x60; can be &#x60;\&quot;text\&quot;&#x60;, &#x60;\&quot;parameter_change\&quot;&#x60;, &#x60;\&quot;software_upgrade\&quot;&#x60; (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call submitProposalCall(Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
+    public com.squareup.okhttp.Call submitProposalCall(PostProposalBody postProposalBody, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = postProposalBody;
+
         // create path and map variables
         String localVarPath = "/gov/proposals";
 
@@ -1846,7 +1834,7 @@ public class GovernanceApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1858,44 +1846,42 @@ public class GovernanceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call submitProposalValidateBeforeCall(Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling submitProposal(Async)");
+    private com.squareup.okhttp.Call submitProposalValidateBeforeCall(PostProposalBody postProposalBody, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'postProposalBody' is set
+        if (postProposalBody == null) {
+            throw new ApiException("Missing the required parameter 'postProposalBody' when calling submitProposal(Async)");
         }
         
-        com.squareup.okhttp.Call call = submitProposalCall(body, progressListener, progressRequestListener);
+
+        com.squareup.okhttp.Call call = submitProposalCall(postProposalBody, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Submit a proposal
      * Send transaction to submit a proposal
-     * @param body valid value of &#x60;&quot;proposal_type&quot;&#x60; can be &#x60;&quot;text&quot;&#x60;, &#x60;&quot;parameter_change&quot;&#x60;, &#x60;&quot;software_upgrade&quot;&#x60; (required)
+     * @param postProposalBody valid value of &#x60;\&quot;proposal_type\&quot;&#x60; can be &#x60;\&quot;text\&quot;&#x60;, &#x60;\&quot;parameter_change\&quot;&#x60;, &#x60;\&quot;software_upgrade\&quot;&#x60; (required)
      * @return StdTx
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public StdTx submitProposal(Object body) throws ApiException {
-        ApiResponse<StdTx> resp = submitProposalWithHttpInfo(body);
+    public StdTx submitProposal(PostProposalBody postProposalBody) throws ApiException {
+        ApiResponse<StdTx> resp = submitProposalWithHttpInfo(postProposalBody);
         return resp.getData();
     }
 
     /**
      * Submit a proposal
      * Send transaction to submit a proposal
-     * @param body valid value of &#x60;&quot;proposal_type&quot;&#x60; can be &#x60;&quot;text&quot;&#x60;, &#x60;&quot;parameter_change&quot;&#x60;, &#x60;&quot;software_upgrade&quot;&#x60; (required)
+     * @param postProposalBody valid value of &#x60;\&quot;proposal_type\&quot;&#x60; can be &#x60;\&quot;text\&quot;&#x60;, &#x60;\&quot;parameter_change\&quot;&#x60;, &#x60;\&quot;software_upgrade\&quot;&#x60; (required)
      * @return ApiResponse&lt;StdTx&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<StdTx> submitProposalWithHttpInfo(Object body) throws ApiException {
-        com.squareup.okhttp.Call call = submitProposalValidateBeforeCall(body, null, null);
+    public ApiResponse<StdTx> submitProposalWithHttpInfo(PostProposalBody postProposalBody) throws ApiException {
+        com.squareup.okhttp.Call call = submitProposalValidateBeforeCall(postProposalBody, null, null);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1903,12 +1889,12 @@ public class GovernanceApi {
     /**
      * Submit a proposal (asynchronously)
      * Send transaction to submit a proposal
-     * @param body valid value of &#x60;&quot;proposal_type&quot;&#x60; can be &#x60;&quot;text&quot;&#x60;, &#x60;&quot;parameter_change&quot;&#x60;, &#x60;&quot;software_upgrade&quot;&#x60; (required)
+     * @param postProposalBody valid value of &#x60;\&quot;proposal_type\&quot;&#x60; can be &#x60;\&quot;text\&quot;&#x60;, &#x60;\&quot;parameter_change\&quot;&#x60;, &#x60;\&quot;software_upgrade\&quot;&#x60; (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call submitProposalAsync(Object body, final ApiCallback<StdTx> callback) throws ApiException {
+    public com.squareup.okhttp.Call submitProposalAsync(PostProposalBody postProposalBody, final ApiCallback<StdTx> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1929,23 +1915,23 @@ public class GovernanceApi {
             };
         }
 
-        com.squareup.okhttp.Call call = submitProposalValidateBeforeCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = submitProposalValidateBeforeCall(postProposalBody, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for voteProposal
-     * @param body valid value of &#x60;&quot;option&quot;&#x60; field can be &#x60;&quot;yes&quot;&#x60;, &#x60;&quot;no&quot;&#x60;, &#x60;&quot;no_with_veto&quot;&#x60; and &#x60;&quot;abstain&quot;&#x60; (required)
      * @param proposalId proposal id (required)
+     * @param postVoteBody valid value of &#x60;\&quot;option\&quot;&#x60; field can be &#x60;\&quot;yes\&quot;&#x60;, &#x60;\&quot;no\&quot;&#x60;, &#x60;\&quot;no_with_veto\&quot;&#x60; and &#x60;\&quot;abstain\&quot;&#x60; (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call voteProposalCall(Object body, String proposalId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
+    public com.squareup.okhttp.Call voteProposalCall(String proposalId, PostVoteBody postVoteBody, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = postVoteBody;
+
         // create path and map variables
         String localVarPath = "/gov/proposals/{proposalId}/votes"
             .replaceAll("\\{" + "proposalId" + "\\}", apiClient.escapeString(proposalId.toString()));
@@ -1972,7 +1958,7 @@ public class GovernanceApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1984,50 +1970,49 @@ public class GovernanceApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call voteProposalValidateBeforeCall(Object body, String proposalId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling voteProposal(Async)");
-        }
+    private com.squareup.okhttp.Call voteProposalValidateBeforeCall(String proposalId, PostVoteBody postVoteBody, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'proposalId' is set
         if (proposalId == null) {
             throw new ApiException("Missing the required parameter 'proposalId' when calling voteProposal(Async)");
         }
         
-        com.squareup.okhttp.Call call = voteProposalCall(body, proposalId, progressListener, progressRequestListener);
+        // verify the required parameter 'postVoteBody' is set
+        if (postVoteBody == null) {
+            throw new ApiException("Missing the required parameter 'postVoteBody' when calling voteProposal(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = voteProposalCall(proposalId, postVoteBody, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Vote a proposal
      * Send transaction to vote a proposal
-     * @param body valid value of &#x60;&quot;option&quot;&#x60; field can be &#x60;&quot;yes&quot;&#x60;, &#x60;&quot;no&quot;&#x60;, &#x60;&quot;no_with_veto&quot;&#x60; and &#x60;&quot;abstain&quot;&#x60; (required)
      * @param proposalId proposal id (required)
+     * @param postVoteBody valid value of &#x60;\&quot;option\&quot;&#x60; field can be &#x60;\&quot;yes\&quot;&#x60;, &#x60;\&quot;no\&quot;&#x60;, &#x60;\&quot;no_with_veto\&quot;&#x60; and &#x60;\&quot;abstain\&quot;&#x60; (required)
      * @return BroadcastTxCommitResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public BroadcastTxCommitResult voteProposal(Object body, String proposalId) throws ApiException {
-        ApiResponse<BroadcastTxCommitResult> resp = voteProposalWithHttpInfo(body, proposalId);
+    public BroadcastTxCommitResult voteProposal(String proposalId, PostVoteBody postVoteBody) throws ApiException {
+        ApiResponse<BroadcastTxCommitResult> resp = voteProposalWithHttpInfo(proposalId, postVoteBody);
         return resp.getData();
     }
 
     /**
      * Vote a proposal
      * Send transaction to vote a proposal
-     * @param body valid value of &#x60;&quot;option&quot;&#x60; field can be &#x60;&quot;yes&quot;&#x60;, &#x60;&quot;no&quot;&#x60;, &#x60;&quot;no_with_veto&quot;&#x60; and &#x60;&quot;abstain&quot;&#x60; (required)
      * @param proposalId proposal id (required)
+     * @param postVoteBody valid value of &#x60;\&quot;option\&quot;&#x60; field can be &#x60;\&quot;yes\&quot;&#x60;, &#x60;\&quot;no\&quot;&#x60;, &#x60;\&quot;no_with_veto\&quot;&#x60; and &#x60;\&quot;abstain\&quot;&#x60; (required)
      * @return ApiResponse&lt;BroadcastTxCommitResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<BroadcastTxCommitResult> voteProposalWithHttpInfo(Object body, String proposalId) throws ApiException {
-        com.squareup.okhttp.Call call = voteProposalValidateBeforeCall(body, proposalId, null, null);
+    public ApiResponse<BroadcastTxCommitResult> voteProposalWithHttpInfo(String proposalId, PostVoteBody postVoteBody) throws ApiException {
+        com.squareup.okhttp.Call call = voteProposalValidateBeforeCall(proposalId, postVoteBody, null, null);
         Type localVarReturnType = new TypeToken<BroadcastTxCommitResult>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2035,13 +2020,13 @@ public class GovernanceApi {
     /**
      * Vote a proposal (asynchronously)
      * Send transaction to vote a proposal
-     * @param body valid value of &#x60;&quot;option&quot;&#x60; field can be &#x60;&quot;yes&quot;&#x60;, &#x60;&quot;no&quot;&#x60;, &#x60;&quot;no_with_veto&quot;&#x60; and &#x60;&quot;abstain&quot;&#x60; (required)
      * @param proposalId proposal id (required)
+     * @param postVoteBody valid value of &#x60;\&quot;option\&quot;&#x60; field can be &#x60;\&quot;yes\&quot;&#x60;, &#x60;\&quot;no\&quot;&#x60;, &#x60;\&quot;no_with_veto\&quot;&#x60; and &#x60;\&quot;abstain\&quot;&#x60; (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call voteProposalAsync(Object body, String proposalId, final ApiCallback<BroadcastTxCommitResult> callback) throws ApiException {
+    public com.squareup.okhttp.Call voteProposalAsync(String proposalId, PostVoteBody postVoteBody, final ApiCallback<BroadcastTxCommitResult> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2062,7 +2047,7 @@ public class GovernanceApi {
             };
         }
 
-        com.squareup.okhttp.Call call = voteProposalValidateBeforeCall(body, proposalId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = voteProposalValidateBeforeCall(proposalId, postVoteBody, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<BroadcastTxCommitResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

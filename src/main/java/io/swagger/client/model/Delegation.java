@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,25 +20,46 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.client.model.BaseReq;
+import io.swagger.client.model.Coin;
 import java.io.IOException;
+
 /**
  * Delegation
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-26T10:53:15.911+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
 public class Delegation {
+  @SerializedName("base_req")
+  private BaseReq baseReq = null;
+
   @SerializedName("delegator_address")
   private String delegatorAddress = null;
 
   @SerializedName("validator_address")
   private String validatorAddress = null;
 
-  @SerializedName("shares")
-  private String shares = null;
+  @SerializedName("amount")
+  private Coin amount = null;
 
-  @SerializedName("balance")
-  private String balance = null;
+  public Delegation baseReq(BaseReq baseReq) {
+    this.baseReq = baseReq;
+    return this;
+  }
+
+   /**
+   * Get baseReq
+   * @return baseReq
+  **/
+  @ApiModelProperty(value = "")
+  public BaseReq getBaseReq() {
+    return baseReq;
+  }
+
+  public void setBaseReq(BaseReq baseReq) {
+    this.baseReq = baseReq;
+  }
 
   public Delegation delegatorAddress(String delegatorAddress) {
     this.delegatorAddress = delegatorAddress;
@@ -48,7 +70,7 @@ public class Delegation {
    * Get delegatorAddress
    * @return delegatorAddress
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(value = "")
   public String getDelegatorAddress() {
     return delegatorAddress;
   }
@@ -66,7 +88,7 @@ public class Delegation {
    * Get validatorAddress
    * @return validatorAddress
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(value = "")
   public String getValidatorAddress() {
     return validatorAddress;
   }
@@ -75,45 +97,27 @@ public class Delegation {
     this.validatorAddress = validatorAddress;
   }
 
-  public Delegation shares(String shares) {
-    this.shares = shares;
+  public Delegation amount(Coin amount) {
+    this.amount = amount;
     return this;
   }
 
    /**
-   * Get shares
-   * @return shares
+   * Get amount
+   * @return amount
   **/
-  @Schema(required = true, description = "")
-  public String getShares() {
-    return shares;
+  @ApiModelProperty(value = "")
+  public Coin getAmount() {
+    return amount;
   }
 
-  public void setShares(String shares) {
-    this.shares = shares;
-  }
-
-  public Delegation balance(String balance) {
-    this.balance = balance;
-    return this;
-  }
-
-   /**
-   * Get balance
-   * @return balance
-  **/
-  @Schema(required = true, description = "")
-  public String getBalance() {
-    return balance;
-  }
-
-  public void setBalance(String balance) {
-    this.balance = balance;
+  public void setAmount(Coin amount) {
+    this.amount = amount;
   }
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -121,15 +125,15 @@ public class Delegation {
       return false;
     }
     Delegation delegation = (Delegation) o;
-    return Objects.equals(this.delegatorAddress, delegation.delegatorAddress) &&
+    return Objects.equals(this.baseReq, delegation.baseReq) &&
+        Objects.equals(this.delegatorAddress, delegation.delegatorAddress) &&
         Objects.equals(this.validatorAddress, delegation.validatorAddress) &&
-        Objects.equals(this.shares, delegation.shares) &&
-        Objects.equals(this.balance, delegation.balance);
+        Objects.equals(this.amount, delegation.amount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(delegatorAddress, validatorAddress, shares, balance);
+    return Objects.hash(baseReq, delegatorAddress, validatorAddress, amount);
   }
 
 
@@ -138,10 +142,10 @@ public class Delegation {
     StringBuilder sb = new StringBuilder();
     sb.append("class Delegation {\n");
     
+    sb.append("    baseReq: ").append(toIndentedString(baseReq)).append("\n");
     sb.append("    delegatorAddress: ").append(toIndentedString(delegatorAddress)).append("\n");
     sb.append("    validatorAddress: ").append(toIndentedString(validatorAddress)).append("\n");
-    sb.append("    shares: ").append(toIndentedString(shares)).append("\n");
-    sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
+    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -150,7 +154,7 @@ public class Delegation {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -158,3 +162,4 @@ public class Delegation {
   }
 
 }
+

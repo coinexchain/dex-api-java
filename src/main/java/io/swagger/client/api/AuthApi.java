@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.api;
 
 import io.swagger.client.ApiCallback;
@@ -26,6 +27,9 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import io.swagger.client.model.InlineResponse20034;
+import io.swagger.client.model.InlineResponse2004;
+import io.swagger.client.model.Referee;
 import io.swagger.client.model.StdTx;
 
 import java.lang.reflect.Type;
@@ -63,7 +67,7 @@ public class AuthApi {
      */
     public com.squareup.okhttp.Call getAccountCall(String address, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/auth/accounts/{address}"
             .replaceAll("\\{" + "address" + "\\}", apiClient.escapeString(address.toString()));
@@ -90,7 +94,7 @@ public class AuthApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -102,32 +106,30 @@ public class AuthApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getAccountValidateBeforeCall(String address, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'address' is set
         if (address == null) {
             throw new ApiException("Missing the required parameter 'address' when calling getAccount(Async)");
         }
         
+
         com.squareup.okhttp.Call call = getAccountCall(address, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get the account information on blockchain
      * 
      * @param address Account address (required)
-     * @return Object
+     * @return InlineResponse2004
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getAccount(String address) throws ApiException {
-        ApiResponse<Object> resp = getAccountWithHttpInfo(address);
+    public InlineResponse2004 getAccount(String address) throws ApiException {
+        ApiResponse<InlineResponse2004> resp = getAccountWithHttpInfo(address);
         return resp.getData();
     }
 
@@ -135,12 +137,12 @@ public class AuthApi {
      * Get the account information on blockchain
      * 
      * @param address Account address (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse2004&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getAccountWithHttpInfo(String address) throws ApiException {
+    public ApiResponse<InlineResponse2004> getAccountWithHttpInfo(String address) throws ApiException {
         com.squareup.okhttp.Call call = getAccountValidateBeforeCall(address, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse2004>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -152,7 +154,7 @@ public class AuthApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAccountAsync(String address, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getAccountAsync(String address, final ApiCallback<InlineResponse2004> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -174,7 +176,7 @@ public class AuthApi {
         }
 
         com.squareup.okhttp.Call call = getAccountValidateBeforeCall(address, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse2004>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -187,7 +189,7 @@ public class AuthApi {
      */
     public com.squareup.okhttp.Call getAuthParamsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/auth/parameters";
 
@@ -213,7 +215,7 @@ public class AuthApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -225,39 +227,36 @@ public class AuthApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getAuthParamsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+
         com.squareup.okhttp.Call call = getAuthParamsCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get the current auth parameters
      * 
-     * @return Object
+     * @return InlineResponse20034
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getAuthParams() throws ApiException {
-        ApiResponse<Object> resp = getAuthParamsWithHttpInfo();
+    public InlineResponse20034 getAuthParams() throws ApiException {
+        ApiResponse<InlineResponse20034> resp = getAuthParamsWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * Get the current auth parameters
      * 
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse20034&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getAuthParamsWithHttpInfo() throws ApiException {
+    public ApiResponse<InlineResponse20034> getAuthParamsWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getAuthParamsValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20034>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -268,7 +267,7 @@ public class AuthApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAuthParamsAsync(final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getAuthParamsAsync(final ApiCallback<InlineResponse20034> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -290,22 +289,22 @@ public class AuthApi {
         }
 
         com.squareup.okhttp.Call call = getAuthParamsValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20034>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for setReferee
-     * @param body Referee (required)
      * @param address Account address in bech32 format (required)
+     * @param referee Referee (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call setRefereeCall(Object body, String address, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
+    public com.squareup.okhttp.Call setRefereeCall(String address, Referee referee, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = referee;
+
         // create path and map variables
         String localVarPath = "/auth/accounts/{address}/referee"
             .replaceAll("\\{" + "address" + "\\}", apiClient.escapeString(address.toString()));
@@ -332,7 +331,7 @@ public class AuthApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -344,50 +343,49 @@ public class AuthApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call setRefereeValidateBeforeCall(Object body, String address, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling setReferee(Async)");
-        }
+    private com.squareup.okhttp.Call setRefereeValidateBeforeCall(String address, Referee referee, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'address' is set
         if (address == null) {
             throw new ApiException("Missing the required parameter 'address' when calling setReferee(Async)");
         }
         
-        com.squareup.okhttp.Call call = setRefereeCall(body, address, progressListener, progressRequestListener);
+        // verify the required parameter 'referee' is set
+        if (referee == null) {
+            throw new ApiException("Missing the required parameter 'referee' when calling setReferee(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = setRefereeCall(address, referee, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Set referee for account
      * 
-     * @param body Referee (required)
      * @param address Account address in bech32 format (required)
+     * @param referee Referee (required)
      * @return StdTx
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public StdTx setReferee(Object body, String address) throws ApiException {
-        ApiResponse<StdTx> resp = setRefereeWithHttpInfo(body, address);
+    public StdTx setReferee(String address, Referee referee) throws ApiException {
+        ApiResponse<StdTx> resp = setRefereeWithHttpInfo(address, referee);
         return resp.getData();
     }
 
     /**
      * Set referee for account
      * 
-     * @param body Referee (required)
      * @param address Account address in bech32 format (required)
+     * @param referee Referee (required)
      * @return ApiResponse&lt;StdTx&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<StdTx> setRefereeWithHttpInfo(Object body, String address) throws ApiException {
-        com.squareup.okhttp.Call call = setRefereeValidateBeforeCall(body, address, null, null);
+    public ApiResponse<StdTx> setRefereeWithHttpInfo(String address, Referee referee) throws ApiException {
+        com.squareup.okhttp.Call call = setRefereeValidateBeforeCall(address, referee, null, null);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -395,13 +393,13 @@ public class AuthApi {
     /**
      * Set referee for account (asynchronously)
      * 
-     * @param body Referee (required)
      * @param address Account address in bech32 format (required)
+     * @param referee Referee (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call setRefereeAsync(Object body, String address, final ApiCallback<StdTx> callback) throws ApiException {
+    public com.squareup.okhttp.Call setRefereeAsync(String address, Referee referee, final ApiCallback<StdTx> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -422,7 +420,7 @@ public class AuthApi {
             };
         }
 
-        com.squareup.okhttp.Call call = setRefereeValidateBeforeCall(body, address, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = setRefereeValidateBeforeCall(address, referee, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,14 +20,17 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Vote
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-26T10:53:15.911+08:00[Asia/Shanghai]")
-public class Vote {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
+public class Vote extends HashMap<String, Object> {
   @SerializedName("voter")
   private String voter = null;
 
@@ -45,7 +49,7 @@ public class Vote {
    * Get voter
    * @return voter
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getVoter() {
     return voter;
   }
@@ -63,7 +67,7 @@ public class Vote {
    * Get proposalId
    * @return proposalId
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getProposalId() {
     return proposalId;
   }
@@ -81,7 +85,7 @@ public class Vote {
    * Get option
    * @return option
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getOption() {
     return option;
   }
@@ -92,7 +96,7 @@ public class Vote {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -102,12 +106,13 @@ public class Vote {
     Vote vote = (Vote) o;
     return Objects.equals(this.voter, vote.voter) &&
         Objects.equals(this.proposalId, vote.proposalId) &&
-        Objects.equals(this.option, vote.option);
+        Objects.equals(this.option, vote.option) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(voter, proposalId, option);
+    return Objects.hash(voter, proposalId, option, super.hashCode());
   }
 
 
@@ -115,7 +120,7 @@ public class Vote {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Vote {\n");
-    
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    voter: ").append(toIndentedString(voter)).append("\n");
     sb.append("    proposalId: ").append(toIndentedString(proposalId)).append("\n");
     sb.append("    option: ").append(toIndentedString(option)).append("\n");
@@ -127,7 +132,7 @@ public class Vote {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -135,3 +140,4 @@ public class Vote {
   }
 
 }
+

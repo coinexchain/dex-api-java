@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.api;
 
 import io.swagger.client.ApiCallback;
@@ -27,7 +28,18 @@ import java.io.IOException;
 
 
 import io.swagger.client.model.Addresses;
+import io.swagger.client.model.Amount1;
+import io.swagger.client.model.Amount2;
+import io.swagger.client.model.BaseReq;
+import io.swagger.client.model.BaseReq1;
+import io.swagger.client.model.Info;
+import io.swagger.client.model.InlineResponse20037;
+import io.swagger.client.model.InlineResponse20038;
+import io.swagger.client.model.InlineResponse20039;
+import io.swagger.client.model.InlineResponse20040;
+import io.swagger.client.model.InlineResponse20041;
 import io.swagger.client.model.IssueToken;
+import io.swagger.client.model.NewOwner;
 import io.swagger.client.model.StdTx;
 import io.swagger.client.model.Whitelist;
 
@@ -58,16 +70,16 @@ public class AssetApi {
 
     /**
      * Build call for addWhitelist
-     * @param body token whitelist addr (required)
      * @param symbol token symbol (required)
+     * @param whitelist token whitelist addr (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call addWhitelistCall(Whitelist body, String symbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
+    public com.squareup.okhttp.Call addWhitelistCall(String symbol, Whitelist whitelist, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = whitelist;
+
         // create path and map variables
         String localVarPath = "/asset/tokens/{symbol}/forbidden/whitelist"
             .replaceAll("\\{" + "symbol" + "\\}", apiClient.escapeString(symbol.toString()));
@@ -94,7 +106,7 @@ public class AssetApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -106,50 +118,49 @@ public class AssetApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call addWhitelistValidateBeforeCall(Whitelist body, String symbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling addWhitelist(Async)");
-        }
+    private com.squareup.okhttp.Call addWhitelistValidateBeforeCall(String symbol, Whitelist whitelist, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'symbol' is set
         if (symbol == null) {
             throw new ApiException("Missing the required parameter 'symbol' when calling addWhitelist(Async)");
         }
         
-        com.squareup.okhttp.Call call = addWhitelistCall(body, symbol, progressListener, progressRequestListener);
+        // verify the required parameter 'whitelist' is set
+        if (whitelist == null) {
+            throw new ApiException("Missing the required parameter 'whitelist' when calling addWhitelist(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = addWhitelistCall(symbol, whitelist, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Add forbid whitelist
      * Add forbiddable token whitelist addr
-     * @param body token whitelist addr (required)
      * @param symbol token symbol (required)
+     * @param whitelist token whitelist addr (required)
      * @return StdTx
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public StdTx addWhitelist(Whitelist body, String symbol) throws ApiException {
-        ApiResponse<StdTx> resp = addWhitelistWithHttpInfo(body, symbol);
+    public StdTx addWhitelist(String symbol, Whitelist whitelist) throws ApiException {
+        ApiResponse<StdTx> resp = addWhitelistWithHttpInfo(symbol, whitelist);
         return resp.getData();
     }
 
     /**
      * Add forbid whitelist
      * Add forbiddable token whitelist addr
-     * @param body token whitelist addr (required)
      * @param symbol token symbol (required)
+     * @param whitelist token whitelist addr (required)
      * @return ApiResponse&lt;StdTx&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<StdTx> addWhitelistWithHttpInfo(Whitelist body, String symbol) throws ApiException {
-        com.squareup.okhttp.Call call = addWhitelistValidateBeforeCall(body, symbol, null, null);
+    public ApiResponse<StdTx> addWhitelistWithHttpInfo(String symbol, Whitelist whitelist) throws ApiException {
+        com.squareup.okhttp.Call call = addWhitelistValidateBeforeCall(symbol, whitelist, null, null);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -157,13 +168,13 @@ public class AssetApi {
     /**
      * Add forbid whitelist (asynchronously)
      * Add forbiddable token whitelist addr
-     * @param body token whitelist addr (required)
      * @param symbol token symbol (required)
+     * @param whitelist token whitelist addr (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call addWhitelistAsync(Whitelist body, String symbol, final ApiCallback<StdTx> callback) throws ApiException {
+    public com.squareup.okhttp.Call addWhitelistAsync(String symbol, Whitelist whitelist, final ApiCallback<StdTx> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -184,23 +195,23 @@ public class AssetApi {
             };
         }
 
-        com.squareup.okhttp.Call call = addWhitelistValidateBeforeCall(body, symbol, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = addWhitelistValidateBeforeCall(symbol, whitelist, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for burnToken
-     * @param body burn token amount (required)
      * @param symbol token symbol (required)
+     * @param amount burn token amount (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call burnTokenCall(Object body, String symbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
+    public com.squareup.okhttp.Call burnTokenCall(String symbol, Amount2 amount, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = amount;
+
         // create path and map variables
         String localVarPath = "/asset/tokens/{symbol}/burns"
             .replaceAll("\\{" + "symbol" + "\\}", apiClient.escapeString(symbol.toString()));
@@ -227,7 +238,7 @@ public class AssetApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -239,50 +250,49 @@ public class AssetApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call burnTokenValidateBeforeCall(Object body, String symbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling burnToken(Async)");
-        }
+    private com.squareup.okhttp.Call burnTokenValidateBeforeCall(String symbol, Amount2 amount, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'symbol' is set
         if (symbol == null) {
             throw new ApiException("Missing the required parameter 'symbol' when calling burnToken(Async)");
         }
         
-        com.squareup.okhttp.Call call = burnTokenCall(body, symbol, progressListener, progressRequestListener);
+        // verify the required parameter 'amount' is set
+        if (amount == null) {
+            throw new ApiException("Missing the required parameter 'amount' when calling burnToken(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = burnTokenCall(symbol, amount, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Burn token
      * Burn burnable token
-     * @param body burn token amount (required)
      * @param symbol token symbol (required)
+     * @param amount burn token amount (required)
      * @return StdTx
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public StdTx burnToken(Object body, String symbol) throws ApiException {
-        ApiResponse<StdTx> resp = burnTokenWithHttpInfo(body, symbol);
+    public StdTx burnToken(String symbol, Amount2 amount) throws ApiException {
+        ApiResponse<StdTx> resp = burnTokenWithHttpInfo(symbol, amount);
         return resp.getData();
     }
 
     /**
      * Burn token
      * Burn burnable token
-     * @param body burn token amount (required)
      * @param symbol token symbol (required)
+     * @param amount burn token amount (required)
      * @return ApiResponse&lt;StdTx&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<StdTx> burnTokenWithHttpInfo(Object body, String symbol) throws ApiException {
-        com.squareup.okhttp.Call call = burnTokenValidateBeforeCall(body, symbol, null, null);
+    public ApiResponse<StdTx> burnTokenWithHttpInfo(String symbol, Amount2 amount) throws ApiException {
+        com.squareup.okhttp.Call call = burnTokenValidateBeforeCall(symbol, amount, null, null);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -290,13 +300,13 @@ public class AssetApi {
     /**
      * Burn token (asynchronously)
      * Burn burnable token
-     * @param body burn token amount (required)
      * @param symbol token symbol (required)
+     * @param amount burn token amount (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call burnTokenAsync(Object body, String symbol, final ApiCallback<StdTx> callback) throws ApiException {
+    public com.squareup.okhttp.Call burnTokenAsync(String symbol, Amount2 amount, final ApiCallback<StdTx> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -317,23 +327,23 @@ public class AssetApi {
             };
         }
 
-        com.squareup.okhttp.Call call = burnTokenValidateBeforeCall(body, symbol, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = burnTokenValidateBeforeCall(symbol, amount, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for forbidAddr
-     * @param body forbidden addresses (required)
      * @param symbol token symbol (required)
+     * @param addresses forbidden addresses (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call forbidAddrCall(Addresses body, String symbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
+    public com.squareup.okhttp.Call forbidAddrCall(String symbol, Addresses addresses, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = addresses;
+
         // create path and map variables
         String localVarPath = "/asset/tokens/{symbol}/forbidden/addresses"
             .replaceAll("\\{" + "symbol" + "\\}", apiClient.escapeString(symbol.toString()));
@@ -360,7 +370,7 @@ public class AssetApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -372,50 +382,49 @@ public class AssetApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call forbidAddrValidateBeforeCall(Addresses body, String symbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling forbidAddr(Async)");
-        }
+    private com.squareup.okhttp.Call forbidAddrValidateBeforeCall(String symbol, Addresses addresses, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'symbol' is set
         if (symbol == null) {
             throw new ApiException("Missing the required parameter 'symbol' when calling forbidAddr(Async)");
         }
         
-        com.squareup.okhttp.Call call = forbidAddrCall(body, symbol, progressListener, progressRequestListener);
+        // verify the required parameter 'addresses' is set
+        if (addresses == null) {
+            throw new ApiException("Missing the required parameter 'addresses' when calling forbidAddr(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = forbidAddrCall(symbol, addresses, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Forbid address
      * Add forbidden addresses
-     * @param body forbidden addresses (required)
      * @param symbol token symbol (required)
+     * @param addresses forbidden addresses (required)
      * @return StdTx
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public StdTx forbidAddr(Addresses body, String symbol) throws ApiException {
-        ApiResponse<StdTx> resp = forbidAddrWithHttpInfo(body, symbol);
+    public StdTx forbidAddr(String symbol, Addresses addresses) throws ApiException {
+        ApiResponse<StdTx> resp = forbidAddrWithHttpInfo(symbol, addresses);
         return resp.getData();
     }
 
     /**
      * Forbid address
      * Add forbidden addresses
-     * @param body forbidden addresses (required)
      * @param symbol token symbol (required)
+     * @param addresses forbidden addresses (required)
      * @return ApiResponse&lt;StdTx&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<StdTx> forbidAddrWithHttpInfo(Addresses body, String symbol) throws ApiException {
-        com.squareup.okhttp.Call call = forbidAddrValidateBeforeCall(body, symbol, null, null);
+    public ApiResponse<StdTx> forbidAddrWithHttpInfo(String symbol, Addresses addresses) throws ApiException {
+        com.squareup.okhttp.Call call = forbidAddrValidateBeforeCall(symbol, addresses, null, null);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -423,13 +432,13 @@ public class AssetApi {
     /**
      * Forbid address (asynchronously)
      * Add forbidden addresses
-     * @param body forbidden addresses (required)
      * @param symbol token symbol (required)
+     * @param addresses forbidden addresses (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call forbidAddrAsync(Addresses body, String symbol, final ApiCallback<StdTx> callback) throws ApiException {
+    public com.squareup.okhttp.Call forbidAddrAsync(String symbol, Addresses addresses, final ApiCallback<StdTx> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -450,23 +459,23 @@ public class AssetApi {
             };
         }
 
-        com.squareup.okhttp.Call call = forbidAddrValidateBeforeCall(body, symbol, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = forbidAddrValidateBeforeCall(symbol, addresses, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for forbidToken
-     * @param body base req (required)
      * @param symbol token symbol (required)
+     * @param baseReq base req (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call forbidTokenCall(Object body, String symbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
+    public com.squareup.okhttp.Call forbidTokenCall(String symbol, BaseReq baseReq, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = baseReq;
+
         // create path and map variables
         String localVarPath = "/asset/tokens/{symbol}/forbids"
             .replaceAll("\\{" + "symbol" + "\\}", apiClient.escapeString(symbol.toString()));
@@ -493,7 +502,7 @@ public class AssetApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -505,50 +514,49 @@ public class AssetApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call forbidTokenValidateBeforeCall(Object body, String symbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling forbidToken(Async)");
-        }
+    private com.squareup.okhttp.Call forbidTokenValidateBeforeCall(String symbol, BaseReq baseReq, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'symbol' is set
         if (symbol == null) {
             throw new ApiException("Missing the required parameter 'symbol' when calling forbidToken(Async)");
         }
         
-        com.squareup.okhttp.Call call = forbidTokenCall(body, symbol, progressListener, progressRequestListener);
+        // verify the required parameter 'baseReq' is set
+        if (baseReq == null) {
+            throw new ApiException("Missing the required parameter 'baseReq' when calling forbidToken(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = forbidTokenCall(symbol, baseReq, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Forbid token
      * Forbid forbiddable token
-     * @param body base req (required)
      * @param symbol token symbol (required)
+     * @param baseReq base req (required)
      * @return StdTx
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public StdTx forbidToken(Object body, String symbol) throws ApiException {
-        ApiResponse<StdTx> resp = forbidTokenWithHttpInfo(body, symbol);
+    public StdTx forbidToken(String symbol, BaseReq baseReq) throws ApiException {
+        ApiResponse<StdTx> resp = forbidTokenWithHttpInfo(symbol, baseReq);
         return resp.getData();
     }
 
     /**
      * Forbid token
      * Forbid forbiddable token
-     * @param body base req (required)
      * @param symbol token symbol (required)
+     * @param baseReq base req (required)
      * @return ApiResponse&lt;StdTx&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<StdTx> forbidTokenWithHttpInfo(Object body, String symbol) throws ApiException {
-        com.squareup.okhttp.Call call = forbidTokenValidateBeforeCall(body, symbol, null, null);
+    public ApiResponse<StdTx> forbidTokenWithHttpInfo(String symbol, BaseReq baseReq) throws ApiException {
+        com.squareup.okhttp.Call call = forbidTokenValidateBeforeCall(symbol, baseReq, null, null);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -556,13 +564,13 @@ public class AssetApi {
     /**
      * Forbid token (asynchronously)
      * Forbid forbiddable token
-     * @param body base req (required)
      * @param symbol token symbol (required)
+     * @param baseReq base req (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call forbidTokenAsync(Object body, String symbol, final ApiCallback<StdTx> callback) throws ApiException {
+    public com.squareup.okhttp.Call forbidTokenAsync(String symbol, BaseReq baseReq, final ApiCallback<StdTx> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -583,7 +591,7 @@ public class AssetApi {
             };
         }
 
-        com.squareup.okhttp.Call call = forbidTokenValidateBeforeCall(body, symbol, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = forbidTokenValidateBeforeCall(symbol, baseReq, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -597,7 +605,7 @@ public class AssetApi {
      */
     public com.squareup.okhttp.Call getAssetParamsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/asset/parameters";
 
@@ -623,7 +631,7 @@ public class AssetApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -635,39 +643,36 @@ public class AssetApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getAssetParamsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+
         com.squareup.okhttp.Call call = getAssetParamsCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get the current asset parameters
      * 
-     * @return Object
+     * @return InlineResponse20037
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getAssetParams() throws ApiException {
-        ApiResponse<Object> resp = getAssetParamsWithHttpInfo();
+    public InlineResponse20037 getAssetParams() throws ApiException {
+        ApiResponse<InlineResponse20037> resp = getAssetParamsWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * Get the current asset parameters
      * 
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse20037&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getAssetParamsWithHttpInfo() throws ApiException {
+    public ApiResponse<InlineResponse20037> getAssetParamsWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getAssetParamsValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20037>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -678,7 +683,7 @@ public class AssetApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAssetParamsAsync(final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getAssetParamsAsync(final ApiCallback<InlineResponse20037> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -700,7 +705,7 @@ public class AssetApi {
         }
 
         com.squareup.okhttp.Call call = getAssetParamsValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20037>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -714,7 +719,7 @@ public class AssetApi {
      */
     public com.squareup.okhttp.Call getForbiddenAddressesCall(String symbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/asset/tokens/{symbol}/forbidden/addresses"
             .replaceAll("\\{" + "symbol" + "\\}", apiClient.escapeString(symbol.toString()));
@@ -741,7 +746,7 @@ public class AssetApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -753,32 +758,30 @@ public class AssetApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getForbiddenAddressesValidateBeforeCall(String symbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'symbol' is set
         if (symbol == null) {
             throw new ApiException("Missing the required parameter 'symbol' when calling getForbiddenAddresses(Async)");
         }
         
+
         com.squareup.okhttp.Call call = getForbiddenAddressesCall(symbol, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * query forbidden addresses
      * Get forbidden addresses with provided &#x60;symbol&#x60;
      * @param symbol token symbol (required)
-     * @return Object
+     * @return InlineResponse20040
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getForbiddenAddresses(String symbol) throws ApiException {
-        ApiResponse<Object> resp = getForbiddenAddressesWithHttpInfo(symbol);
+    public InlineResponse20040 getForbiddenAddresses(String symbol) throws ApiException {
+        ApiResponse<InlineResponse20040> resp = getForbiddenAddressesWithHttpInfo(symbol);
         return resp.getData();
     }
 
@@ -786,12 +789,12 @@ public class AssetApi {
      * query forbidden addresses
      * Get forbidden addresses with provided &#x60;symbol&#x60;
      * @param symbol token symbol (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse20040&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getForbiddenAddressesWithHttpInfo(String symbol) throws ApiException {
+    public ApiResponse<InlineResponse20040> getForbiddenAddressesWithHttpInfo(String symbol) throws ApiException {
         com.squareup.okhttp.Call call = getForbiddenAddressesValidateBeforeCall(symbol, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20040>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -803,7 +806,7 @@ public class AssetApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getForbiddenAddressesAsync(String symbol, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getForbiddenAddressesAsync(String symbol, final ApiCallback<InlineResponse20040> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -825,7 +828,7 @@ public class AssetApi {
         }
 
         com.squareup.okhttp.Call call = getForbiddenAddressesValidateBeforeCall(symbol, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20040>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -838,7 +841,7 @@ public class AssetApi {
      */
     public com.squareup.okhttp.Call getReservedSymbolsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/asset/tokens/reserved/symbols";
 
@@ -864,7 +867,7 @@ public class AssetApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -876,39 +879,36 @@ public class AssetApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getReservedSymbolsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+
         com.squareup.okhttp.Call call = getReservedSymbolsCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * List reserved symbols
      * List all reserved symbols
-     * @return Object
+     * @return InlineResponse20041
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getReservedSymbols() throws ApiException {
-        ApiResponse<Object> resp = getReservedSymbolsWithHttpInfo();
+    public InlineResponse20041 getReservedSymbols() throws ApiException {
+        ApiResponse<InlineResponse20041> resp = getReservedSymbolsWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * List reserved symbols
      * List all reserved symbols
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse20041&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getReservedSymbolsWithHttpInfo() throws ApiException {
+    public ApiResponse<InlineResponse20041> getReservedSymbolsWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getReservedSymbolsValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20041>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -919,7 +919,7 @@ public class AssetApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getReservedSymbolsAsync(final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getReservedSymbolsAsync(final ApiCallback<InlineResponse20041> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -941,7 +941,7 @@ public class AssetApi {
         }
 
         com.squareup.okhttp.Call call = getReservedSymbolsValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20041>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -955,7 +955,7 @@ public class AssetApi {
      */
     public com.squareup.okhttp.Call getTokenCall(String symbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/asset/tokens/{symbol}"
             .replaceAll("\\{" + "symbol" + "\\}", apiClient.escapeString(symbol.toString()));
@@ -982,7 +982,7 @@ public class AssetApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -994,32 +994,30 @@ public class AssetApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getTokenValidateBeforeCall(String symbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'symbol' is set
         if (symbol == null) {
             throw new ApiException("Missing the required parameter 'symbol' when calling getToken(Async)");
         }
         
+
         com.squareup.okhttp.Call call = getTokenCall(symbol, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * queryToken
      * Get token with provided &#x60;symbol&#x60;
      * @param symbol token symbol (required)
-     * @return Object
+     * @return InlineResponse20039
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getToken(String symbol) throws ApiException {
-        ApiResponse<Object> resp = getTokenWithHttpInfo(symbol);
+    public InlineResponse20039 getToken(String symbol) throws ApiException {
+        ApiResponse<InlineResponse20039> resp = getTokenWithHttpInfo(symbol);
         return resp.getData();
     }
 
@@ -1027,12 +1025,12 @@ public class AssetApi {
      * queryToken
      * Get token with provided &#x60;symbol&#x60;
      * @param symbol token symbol (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse20039&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getTokenWithHttpInfo(String symbol) throws ApiException {
+    public ApiResponse<InlineResponse20039> getTokenWithHttpInfo(String symbol) throws ApiException {
         com.squareup.okhttp.Call call = getTokenValidateBeforeCall(symbol, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20039>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1044,7 +1042,7 @@ public class AssetApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTokenAsync(String symbol, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTokenAsync(String symbol, final ApiCallback<InlineResponse20039> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1066,7 +1064,7 @@ public class AssetApi {
         }
 
         com.squareup.okhttp.Call call = getTokenValidateBeforeCall(symbol, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20039>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1079,7 +1077,7 @@ public class AssetApi {
      */
     public com.squareup.okhttp.Call getTokenListCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/asset/tokens";
 
@@ -1105,7 +1103,7 @@ public class AssetApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1117,39 +1115,36 @@ public class AssetApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getTokenListValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+
         com.squareup.okhttp.Call call = getTokenListCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * List tokens
      * List all existing tokens
-     * @return Object
+     * @return InlineResponse20038
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getTokenList() throws ApiException {
-        ApiResponse<Object> resp = getTokenListWithHttpInfo();
+    public InlineResponse20038 getTokenList() throws ApiException {
+        ApiResponse<InlineResponse20038> resp = getTokenListWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * List tokens
      * List all existing tokens
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse20038&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getTokenListWithHttpInfo() throws ApiException {
+    public ApiResponse<InlineResponse20038> getTokenListWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getTokenListValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20038>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1160,7 +1155,7 @@ public class AssetApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTokenListAsync(final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTokenListAsync(final ApiCallback<InlineResponse20038> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1182,7 +1177,7 @@ public class AssetApi {
         }
 
         com.squareup.okhttp.Call call = getTokenListValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20038>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1196,7 +1191,7 @@ public class AssetApi {
      */
     public com.squareup.okhttp.Call getWhitelistCall(String symbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/asset/tokens/{symbol}/forbidden/whitelist"
             .replaceAll("\\{" + "symbol" + "\\}", apiClient.escapeString(symbol.toString()));
@@ -1223,7 +1218,7 @@ public class AssetApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1235,32 +1230,30 @@ public class AssetApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getWhitelistValidateBeforeCall(String symbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'symbol' is set
         if (symbol == null) {
             throw new ApiException("Missing the required parameter 'symbol' when calling getWhitelist(Async)");
         }
         
+
         com.squareup.okhttp.Call call = getWhitelistCall(symbol, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * queryWhitelist
      * Get token whitelist with provided &#x60;symbol&#x60;
      * @param symbol token symbol (required)
-     * @return Object
+     * @return InlineResponse20040
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getWhitelist(String symbol) throws ApiException {
-        ApiResponse<Object> resp = getWhitelistWithHttpInfo(symbol);
+    public InlineResponse20040 getWhitelist(String symbol) throws ApiException {
+        ApiResponse<InlineResponse20040> resp = getWhitelistWithHttpInfo(symbol);
         return resp.getData();
     }
 
@@ -1268,12 +1261,12 @@ public class AssetApi {
      * queryWhitelist
      * Get token whitelist with provided &#x60;symbol&#x60;
      * @param symbol token symbol (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse20040&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getWhitelistWithHttpInfo(String symbol) throws ApiException {
+    public ApiResponse<InlineResponse20040> getWhitelistWithHttpInfo(String symbol) throws ApiException {
         com.squareup.okhttp.Call call = getWhitelistValidateBeforeCall(symbol, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20040>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1285,7 +1278,7 @@ public class AssetApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getWhitelistAsync(String symbol, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getWhitelistAsync(String symbol, final ApiCallback<InlineResponse20040> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1307,21 +1300,21 @@ public class AssetApi {
         }
 
         com.squareup.okhttp.Call call = getWhitelistValidateBeforeCall(symbol, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20040>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for issueToken
-     * @param body the detail info about the Token to issue (required)
+     * @param tokenInfo the detail info about the Token to issue (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call issueTokenCall(IssueToken body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
+    public com.squareup.okhttp.Call issueTokenCall(IssueToken tokenInfo, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = tokenInfo;
+
         // create path and map variables
         String localVarPath = "/asset/tokens";
 
@@ -1347,7 +1340,7 @@ public class AssetApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1359,44 +1352,42 @@ public class AssetApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call issueTokenValidateBeforeCall(IssueToken body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling issueToken(Async)");
+    private com.squareup.okhttp.Call issueTokenValidateBeforeCall(IssueToken tokenInfo, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'tokenInfo' is set
+        if (tokenInfo == null) {
+            throw new ApiException("Missing the required parameter 'tokenInfo' when calling issueToken(Async)");
         }
         
-        com.squareup.okhttp.Call call = issueTokenCall(body, progressListener, progressRequestListener);
+
+        com.squareup.okhttp.Call call = issueTokenCall(tokenInfo, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Issue token
      * Issue a new Token
-     * @param body the detail info about the Token to issue (required)
+     * @param tokenInfo the detail info about the Token to issue (required)
      * @return StdTx
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public StdTx issueToken(IssueToken body) throws ApiException {
-        ApiResponse<StdTx> resp = issueTokenWithHttpInfo(body);
+    public StdTx issueToken(IssueToken tokenInfo) throws ApiException {
+        ApiResponse<StdTx> resp = issueTokenWithHttpInfo(tokenInfo);
         return resp.getData();
     }
 
     /**
      * Issue token
      * Issue a new Token
-     * @param body the detail info about the Token to issue (required)
+     * @param tokenInfo the detail info about the Token to issue (required)
      * @return ApiResponse&lt;StdTx&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<StdTx> issueTokenWithHttpInfo(IssueToken body) throws ApiException {
-        com.squareup.okhttp.Call call = issueTokenValidateBeforeCall(body, null, null);
+    public ApiResponse<StdTx> issueTokenWithHttpInfo(IssueToken tokenInfo) throws ApiException {
+        com.squareup.okhttp.Call call = issueTokenValidateBeforeCall(tokenInfo, null, null);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1404,12 +1395,12 @@ public class AssetApi {
     /**
      * Issue token (asynchronously)
      * Issue a new Token
-     * @param body the detail info about the Token to issue (required)
+     * @param tokenInfo the detail info about the Token to issue (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call issueTokenAsync(IssueToken body, final ApiCallback<StdTx> callback) throws ApiException {
+    public com.squareup.okhttp.Call issueTokenAsync(IssueToken tokenInfo, final ApiCallback<StdTx> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1430,23 +1421,23 @@ public class AssetApi {
             };
         }
 
-        com.squareup.okhttp.Call call = issueTokenValidateBeforeCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = issueTokenValidateBeforeCall(tokenInfo, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for mintToken
-     * @param body mint token amount (required)
      * @param symbol token symbol (required)
+     * @param amount mint token amount (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call mintTokenCall(Object body, String symbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
+    public com.squareup.okhttp.Call mintTokenCall(String symbol, Amount1 amount, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = amount;
+
         // create path and map variables
         String localVarPath = "/asset/tokens/{symbol}/mints"
             .replaceAll("\\{" + "symbol" + "\\}", apiClient.escapeString(symbol.toString()));
@@ -1473,7 +1464,7 @@ public class AssetApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1485,50 +1476,49 @@ public class AssetApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call mintTokenValidateBeforeCall(Object body, String symbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling mintToken(Async)");
-        }
+    private com.squareup.okhttp.Call mintTokenValidateBeforeCall(String symbol, Amount1 amount, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'symbol' is set
         if (symbol == null) {
             throw new ApiException("Missing the required parameter 'symbol' when calling mintToken(Async)");
         }
         
-        com.squareup.okhttp.Call call = mintTokenCall(body, symbol, progressListener, progressRequestListener);
+        // verify the required parameter 'amount' is set
+        if (amount == null) {
+            throw new ApiException("Missing the required parameter 'amount' when calling mintToken(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = mintTokenCall(symbol, amount, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Mint token
      * Mint mintable token
-     * @param body mint token amount (required)
      * @param symbol token symbol (required)
+     * @param amount mint token amount (required)
      * @return StdTx
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public StdTx mintToken(Object body, String symbol) throws ApiException {
-        ApiResponse<StdTx> resp = mintTokenWithHttpInfo(body, symbol);
+    public StdTx mintToken(String symbol, Amount1 amount) throws ApiException {
+        ApiResponse<StdTx> resp = mintTokenWithHttpInfo(symbol, amount);
         return resp.getData();
     }
 
     /**
      * Mint token
      * Mint mintable token
-     * @param body mint token amount (required)
      * @param symbol token symbol (required)
+     * @param amount mint token amount (required)
      * @return ApiResponse&lt;StdTx&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<StdTx> mintTokenWithHttpInfo(Object body, String symbol) throws ApiException {
-        com.squareup.okhttp.Call call = mintTokenValidateBeforeCall(body, symbol, null, null);
+    public ApiResponse<StdTx> mintTokenWithHttpInfo(String symbol, Amount1 amount) throws ApiException {
+        com.squareup.okhttp.Call call = mintTokenValidateBeforeCall(symbol, amount, null, null);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1536,13 +1526,13 @@ public class AssetApi {
     /**
      * Mint token (asynchronously)
      * Mint mintable token
-     * @param body mint token amount (required)
      * @param symbol token symbol (required)
+     * @param amount mint token amount (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call mintTokenAsync(Object body, String symbol, final ApiCallback<StdTx> callback) throws ApiException {
+    public com.squareup.okhttp.Call mintTokenAsync(String symbol, Amount1 amount, final ApiCallback<StdTx> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1563,23 +1553,23 @@ public class AssetApi {
             };
         }
 
-        com.squareup.okhttp.Call call = mintTokenValidateBeforeCall(body, symbol, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = mintTokenValidateBeforeCall(symbol, amount, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for modifyTokenInfo
-     * @param body new token info (required)
      * @param symbol token symbol (required)
+     * @param info new token info (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call modifyTokenInfoCall(Object body, String symbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
+    public com.squareup.okhttp.Call modifyTokenInfoCall(String symbol, Info info, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = info;
+
         // create path and map variables
         String localVarPath = "/asset/tokens/{symbol}/infos"
             .replaceAll("\\{" + "symbol" + "\\}", apiClient.escapeString(symbol.toString()));
@@ -1606,7 +1596,7 @@ public class AssetApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1618,50 +1608,49 @@ public class AssetApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call modifyTokenInfoValidateBeforeCall(Object body, String symbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling modifyTokenInfo(Async)");
-        }
+    private com.squareup.okhttp.Call modifyTokenInfoValidateBeforeCall(String symbol, Info info, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'symbol' is set
         if (symbol == null) {
             throw new ApiException("Missing the required parameter 'symbol' when calling modifyTokenInfo(Async)");
         }
         
-        com.squareup.okhttp.Call call = modifyTokenInfoCall(body, symbol, progressListener, progressRequestListener);
+        // verify the required parameter 'info' is set
+        if (info == null) {
+            throw new ApiException("Missing the required parameter 'info' when calling modifyTokenInfo(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = modifyTokenInfoCall(symbol, info, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Modify token info
      * Modify token info
-     * @param body new token info (required)
      * @param symbol token symbol (required)
+     * @param info new token info (required)
      * @return StdTx
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public StdTx modifyTokenInfo(Object body, String symbol) throws ApiException {
-        ApiResponse<StdTx> resp = modifyTokenInfoWithHttpInfo(body, symbol);
+    public StdTx modifyTokenInfo(String symbol, Info info) throws ApiException {
+        ApiResponse<StdTx> resp = modifyTokenInfoWithHttpInfo(symbol, info);
         return resp.getData();
     }
 
     /**
      * Modify token info
      * Modify token info
-     * @param body new token info (required)
      * @param symbol token symbol (required)
+     * @param info new token info (required)
      * @return ApiResponse&lt;StdTx&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<StdTx> modifyTokenInfoWithHttpInfo(Object body, String symbol) throws ApiException {
-        com.squareup.okhttp.Call call = modifyTokenInfoValidateBeforeCall(body, symbol, null, null);
+    public ApiResponse<StdTx> modifyTokenInfoWithHttpInfo(String symbol, Info info) throws ApiException {
+        com.squareup.okhttp.Call call = modifyTokenInfoValidateBeforeCall(symbol, info, null, null);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1669,13 +1658,13 @@ public class AssetApi {
     /**
      * Modify token info (asynchronously)
      * Modify token info
-     * @param body new token info (required)
      * @param symbol token symbol (required)
+     * @param info new token info (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call modifyTokenInfoAsync(Object body, String symbol, final ApiCallback<StdTx> callback) throws ApiException {
+    public com.squareup.okhttp.Call modifyTokenInfoAsync(String symbol, Info info, final ApiCallback<StdTx> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1696,23 +1685,23 @@ public class AssetApi {
             };
         }
 
-        com.squareup.okhttp.Call call = modifyTokenInfoValidateBeforeCall(body, symbol, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = modifyTokenInfoValidateBeforeCall(symbol, info, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for removeWhitelist
-     * @param body token whitelist addr (required)
      * @param symbol token symbol (required)
+     * @param whitelist token whitelist addr (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call removeWhitelistCall(Whitelist body, String symbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
+    public com.squareup.okhttp.Call removeWhitelistCall(String symbol, Whitelist whitelist, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = whitelist;
+
         // create path and map variables
         String localVarPath = "/asset/tokens/{symbol}/unforbidden/whitelist"
             .replaceAll("\\{" + "symbol" + "\\}", apiClient.escapeString(symbol.toString()));
@@ -1739,7 +1728,7 @@ public class AssetApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1751,50 +1740,49 @@ public class AssetApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call removeWhitelistValidateBeforeCall(Whitelist body, String symbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling removeWhitelist(Async)");
-        }
+    private com.squareup.okhttp.Call removeWhitelistValidateBeforeCall(String symbol, Whitelist whitelist, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'symbol' is set
         if (symbol == null) {
             throw new ApiException("Missing the required parameter 'symbol' when calling removeWhitelist(Async)");
         }
         
-        com.squareup.okhttp.Call call = removeWhitelistCall(body, symbol, progressListener, progressRequestListener);
+        // verify the required parameter 'whitelist' is set
+        if (whitelist == null) {
+            throw new ApiException("Missing the required parameter 'whitelist' when calling removeWhitelist(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = removeWhitelistCall(symbol, whitelist, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Remove forbid whitelist
      * Remove forbiddable token whitelist addr
-     * @param body token whitelist addr (required)
      * @param symbol token symbol (required)
+     * @param whitelist token whitelist addr (required)
      * @return StdTx
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public StdTx removeWhitelist(Whitelist body, String symbol) throws ApiException {
-        ApiResponse<StdTx> resp = removeWhitelistWithHttpInfo(body, symbol);
+    public StdTx removeWhitelist(String symbol, Whitelist whitelist) throws ApiException {
+        ApiResponse<StdTx> resp = removeWhitelistWithHttpInfo(symbol, whitelist);
         return resp.getData();
     }
 
     /**
      * Remove forbid whitelist
      * Remove forbiddable token whitelist addr
-     * @param body token whitelist addr (required)
      * @param symbol token symbol (required)
+     * @param whitelist token whitelist addr (required)
      * @return ApiResponse&lt;StdTx&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<StdTx> removeWhitelistWithHttpInfo(Whitelist body, String symbol) throws ApiException {
-        com.squareup.okhttp.Call call = removeWhitelistValidateBeforeCall(body, symbol, null, null);
+    public ApiResponse<StdTx> removeWhitelistWithHttpInfo(String symbol, Whitelist whitelist) throws ApiException {
+        com.squareup.okhttp.Call call = removeWhitelistValidateBeforeCall(symbol, whitelist, null, null);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1802,13 +1790,13 @@ public class AssetApi {
     /**
      * Remove forbid whitelist (asynchronously)
      * Remove forbiddable token whitelist addr
-     * @param body token whitelist addr (required)
      * @param symbol token symbol (required)
+     * @param whitelist token whitelist addr (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call removeWhitelistAsync(Whitelist body, String symbol, final ApiCallback<StdTx> callback) throws ApiException {
+    public com.squareup.okhttp.Call removeWhitelistAsync(String symbol, Whitelist whitelist, final ApiCallback<StdTx> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1829,23 +1817,23 @@ public class AssetApi {
             };
         }
 
-        com.squareup.okhttp.Call call = removeWhitelistValidateBeforeCall(body, symbol, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = removeWhitelistValidateBeforeCall(symbol, whitelist, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for transferOwnership
-     * @param body transfer ownership to new owner (required)
      * @param symbol token symbol (required)
+     * @param newOwner transfer ownership to new owner (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call transferOwnershipCall(Object body, String symbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
+    public com.squareup.okhttp.Call transferOwnershipCall(String symbol, NewOwner newOwner, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = newOwner;
+
         // create path and map variables
         String localVarPath = "/asset/tokens/{symbol}/ownerships"
             .replaceAll("\\{" + "symbol" + "\\}", apiClient.escapeString(symbol.toString()));
@@ -1872,7 +1860,7 @@ public class AssetApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1884,50 +1872,49 @@ public class AssetApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call transferOwnershipValidateBeforeCall(Object body, String symbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling transferOwnership(Async)");
-        }
+    private com.squareup.okhttp.Call transferOwnershipValidateBeforeCall(String symbol, NewOwner newOwner, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'symbol' is set
         if (symbol == null) {
             throw new ApiException("Missing the required parameter 'symbol' when calling transferOwnership(Async)");
         }
         
-        com.squareup.okhttp.Call call = transferOwnershipCall(body, symbol, progressListener, progressRequestListener);
+        // verify the required parameter 'newOwner' is set
+        if (newOwner == null) {
+            throw new ApiException("Missing the required parameter 'newOwner' when calling transferOwnership(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = transferOwnershipCall(symbol, newOwner, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Transfer ownership
      * Transfer token owner ship
-     * @param body transfer ownership to new owner (required)
      * @param symbol token symbol (required)
+     * @param newOwner transfer ownership to new owner (required)
      * @return StdTx
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public StdTx transferOwnership(Object body, String symbol) throws ApiException {
-        ApiResponse<StdTx> resp = transferOwnershipWithHttpInfo(body, symbol);
+    public StdTx transferOwnership(String symbol, NewOwner newOwner) throws ApiException {
+        ApiResponse<StdTx> resp = transferOwnershipWithHttpInfo(symbol, newOwner);
         return resp.getData();
     }
 
     /**
      * Transfer ownership
      * Transfer token owner ship
-     * @param body transfer ownership to new owner (required)
      * @param symbol token symbol (required)
+     * @param newOwner transfer ownership to new owner (required)
      * @return ApiResponse&lt;StdTx&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<StdTx> transferOwnershipWithHttpInfo(Object body, String symbol) throws ApiException {
-        com.squareup.okhttp.Call call = transferOwnershipValidateBeforeCall(body, symbol, null, null);
+    public ApiResponse<StdTx> transferOwnershipWithHttpInfo(String symbol, NewOwner newOwner) throws ApiException {
+        com.squareup.okhttp.Call call = transferOwnershipValidateBeforeCall(symbol, newOwner, null, null);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1935,13 +1922,13 @@ public class AssetApi {
     /**
      * Transfer ownership (asynchronously)
      * Transfer token owner ship
-     * @param body transfer ownership to new owner (required)
      * @param symbol token symbol (required)
+     * @param newOwner transfer ownership to new owner (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call transferOwnershipAsync(Object body, String symbol, final ApiCallback<StdTx> callback) throws ApiException {
+    public com.squareup.okhttp.Call transferOwnershipAsync(String symbol, NewOwner newOwner, final ApiCallback<StdTx> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1962,23 +1949,23 @@ public class AssetApi {
             };
         }
 
-        com.squareup.okhttp.Call call = transferOwnershipValidateBeforeCall(body, symbol, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = transferOwnershipValidateBeforeCall(symbol, newOwner, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for unForbidAddr
-     * @param body un forbidden addresses (required)
      * @param symbol token symbol (required)
+     * @param addresses un forbidden addresses (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call unForbidAddrCall(Addresses body, String symbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
+    public com.squareup.okhttp.Call unForbidAddrCall(String symbol, Addresses addresses, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = addresses;
+
         // create path and map variables
         String localVarPath = "/asset/tokens/{symbol}/unforbidden/addresses"
             .replaceAll("\\{" + "symbol" + "\\}", apiClient.escapeString(symbol.toString()));
@@ -2005,7 +1992,7 @@ public class AssetApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -2017,50 +2004,49 @@ public class AssetApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call unForbidAddrValidateBeforeCall(Addresses body, String symbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling unForbidAddr(Async)");
-        }
+    private com.squareup.okhttp.Call unForbidAddrValidateBeforeCall(String symbol, Addresses addresses, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'symbol' is set
         if (symbol == null) {
             throw new ApiException("Missing the required parameter 'symbol' when calling unForbidAddr(Async)");
         }
         
-        com.squareup.okhttp.Call call = unForbidAddrCall(body, symbol, progressListener, progressRequestListener);
+        // verify the required parameter 'addresses' is set
+        if (addresses == null) {
+            throw new ApiException("Missing the required parameter 'addresses' when calling unForbidAddr(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = unForbidAddrCall(symbol, addresses, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * UnForbid address
      * Remove forbidden addresses
-     * @param body un forbidden addresses (required)
      * @param symbol token symbol (required)
+     * @param addresses un forbidden addresses (required)
      * @return StdTx
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public StdTx unForbidAddr(Addresses body, String symbol) throws ApiException {
-        ApiResponse<StdTx> resp = unForbidAddrWithHttpInfo(body, symbol);
+    public StdTx unForbidAddr(String symbol, Addresses addresses) throws ApiException {
+        ApiResponse<StdTx> resp = unForbidAddrWithHttpInfo(symbol, addresses);
         return resp.getData();
     }
 
     /**
      * UnForbid address
      * Remove forbidden addresses
-     * @param body un forbidden addresses (required)
      * @param symbol token symbol (required)
+     * @param addresses un forbidden addresses (required)
      * @return ApiResponse&lt;StdTx&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<StdTx> unForbidAddrWithHttpInfo(Addresses body, String symbol) throws ApiException {
-        com.squareup.okhttp.Call call = unForbidAddrValidateBeforeCall(body, symbol, null, null);
+    public ApiResponse<StdTx> unForbidAddrWithHttpInfo(String symbol, Addresses addresses) throws ApiException {
+        com.squareup.okhttp.Call call = unForbidAddrValidateBeforeCall(symbol, addresses, null, null);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2068,13 +2054,13 @@ public class AssetApi {
     /**
      * UnForbid address (asynchronously)
      * Remove forbidden addresses
-     * @param body un forbidden addresses (required)
      * @param symbol token symbol (required)
+     * @param addresses un forbidden addresses (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call unForbidAddrAsync(Addresses body, String symbol, final ApiCallback<StdTx> callback) throws ApiException {
+    public com.squareup.okhttp.Call unForbidAddrAsync(String symbol, Addresses addresses, final ApiCallback<StdTx> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2095,23 +2081,23 @@ public class AssetApi {
             };
         }
 
-        com.squareup.okhttp.Call call = unForbidAddrValidateBeforeCall(body, symbol, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = unForbidAddrValidateBeforeCall(symbol, addresses, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for unFrobidToken
-     * @param body base req (required)
      * @param symbol token symbol (required)
+     * @param baseReq base req (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call unFrobidTokenCall(Object body, String symbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
+    public com.squareup.okhttp.Call unFrobidTokenCall(String symbol, BaseReq1 baseReq, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = baseReq;
+
         // create path and map variables
         String localVarPath = "/asset/tokens/{symbol}/unforbids"
             .replaceAll("\\{" + "symbol" + "\\}", apiClient.escapeString(symbol.toString()));
@@ -2138,7 +2124,7 @@ public class AssetApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -2150,50 +2136,49 @@ public class AssetApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call unFrobidTokenValidateBeforeCall(Object body, String symbol, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling unFrobidToken(Async)");
-        }
+    private com.squareup.okhttp.Call unFrobidTokenValidateBeforeCall(String symbol, BaseReq1 baseReq, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'symbol' is set
         if (symbol == null) {
             throw new ApiException("Missing the required parameter 'symbol' when calling unFrobidToken(Async)");
         }
         
-        com.squareup.okhttp.Call call = unFrobidTokenCall(body, symbol, progressListener, progressRequestListener);
+        // verify the required parameter 'baseReq' is set
+        if (baseReq == null) {
+            throw new ApiException("Missing the required parameter 'baseReq' when calling unFrobidToken(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = unFrobidTokenCall(symbol, baseReq, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * UnForbid token
      * UnForbid forbiddable token
-     * @param body base req (required)
      * @param symbol token symbol (required)
+     * @param baseReq base req (required)
      * @return StdTx
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public StdTx unFrobidToken(Object body, String symbol) throws ApiException {
-        ApiResponse<StdTx> resp = unFrobidTokenWithHttpInfo(body, symbol);
+    public StdTx unFrobidToken(String symbol, BaseReq1 baseReq) throws ApiException {
+        ApiResponse<StdTx> resp = unFrobidTokenWithHttpInfo(symbol, baseReq);
         return resp.getData();
     }
 
     /**
      * UnForbid token
      * UnForbid forbiddable token
-     * @param body base req (required)
      * @param symbol token symbol (required)
+     * @param baseReq base req (required)
      * @return ApiResponse&lt;StdTx&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<StdTx> unFrobidTokenWithHttpInfo(Object body, String symbol) throws ApiException {
-        com.squareup.okhttp.Call call = unFrobidTokenValidateBeforeCall(body, symbol, null, null);
+    public ApiResponse<StdTx> unFrobidTokenWithHttpInfo(String symbol, BaseReq1 baseReq) throws ApiException {
+        com.squareup.okhttp.Call call = unFrobidTokenValidateBeforeCall(symbol, baseReq, null, null);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2201,13 +2186,13 @@ public class AssetApi {
     /**
      * UnForbid token (asynchronously)
      * UnForbid forbiddable token
-     * @param body base req (required)
      * @param symbol token symbol (required)
+     * @param baseReq base req (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call unFrobidTokenAsync(Object body, String symbol, final ApiCallback<StdTx> callback) throws ApiException {
+    public com.squareup.okhttp.Call unFrobidTokenAsync(String symbol, BaseReq1 baseReq, final ApiCallback<StdTx> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2228,7 +2213,7 @@ public class AssetApi {
             };
         }
 
-        com.squareup.okhttp.Call call = unFrobidTokenValidateBeforeCall(body, symbol, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = unFrobidTokenValidateBeforeCall(symbol, baseReq, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

@@ -10,10 +10,24 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
 import io.swagger.client.model.BroadcastTxCommitResult;
+import io.swagger.client.model.Delegation;
+import io.swagger.client.model.Delegation1;
+import io.swagger.client.model.Delegation2;
+import io.swagger.client.model.InlineResponse20010;
+import io.swagger.client.model.InlineResponse20011;
+import io.swagger.client.model.InlineResponse20012;
+import io.swagger.client.model.InlineResponse20013;
+import io.swagger.client.model.InlineResponse20014;
+import io.swagger.client.model.InlineResponse2005;
+import io.swagger.client.model.InlineResponse2006;
+import io.swagger.client.model.InlineResponse2007;
+import io.swagger.client.model.InlineResponse2008;
+import io.swagger.client.model.InlineResponse2009;
 import io.swagger.client.model.PaginatedQueryTxs;
 import io.swagger.client.model.StdTx;
 import org.junit.Test;
@@ -32,6 +46,7 @@ public class StakingApiTest {
 
     private final StakingApi api = new StakingApi();
 
+    
     /**
      * Get all delegations from a delegator
      *
@@ -43,10 +58,11 @@ public class StakingApiTest {
     @Test
     public void getDelegationsTest() throws ApiException {
         String delegatorAddr = null;
-        Object response = api.getDelegations(delegatorAddr);
+        InlineResponse2005 response = api.getDelegations(delegatorAddr);
 
         // TODO: test validations
     }
+    
     /**
      * Get all delegations from a validator
      *
@@ -58,10 +74,11 @@ public class StakingApiTest {
     @Test
     public void getDelegationsOfValidatorTest() throws ApiException {
         String validatorAddr = null;
-        Object response = api.getDelegationsOfValidator(validatorAddr);
+        InlineResponse2005 response = api.getDelegationsOfValidator(validatorAddr);
 
         // TODO: test validations
     }
+    
     /**
      * Query the current delegation between a delegator and a validator
      *
@@ -74,10 +91,11 @@ public class StakingApiTest {
     public void getDelegationsToValidatorTest() throws ApiException {
         String delegatorAddr = null;
         String validatorAddr = null;
-        Object response = api.getDelegationsToValidator(delegatorAddr, validatorAddr);
+        InlineResponse2006 response = api.getDelegationsToValidator(delegatorAddr, validatorAddr);
 
         // TODO: test validations
     }
+    
     /**
      * Get all staking txs (i.e msgs) from a delegator
      *
@@ -93,6 +111,7 @@ public class StakingApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Get all redelegations (filter by query params)
      *
@@ -106,10 +125,11 @@ public class StakingApiTest {
         String delegator = null;
         String validatorFrom = null;
         String validatorTo = null;
-        Object response = api.getRedelegations(delegator, validatorFrom, validatorTo);
+        InlineResponse2009 response = api.getRedelegations(delegator, validatorFrom, validatorTo);
 
         // TODO: test validations
     }
+    
     /**
      * Get the current staking parameter values
      *
@@ -120,10 +140,11 @@ public class StakingApiTest {
      */
     @Test
     public void getStakingParametersTest() throws ApiException {
-        Object response = api.getStakingParameters();
+        InlineResponse20014 response = api.getStakingParameters();
 
         // TODO: test validations
     }
+    
     /**
      * Get the current state of the staking pool
      *
@@ -134,10 +155,11 @@ public class StakingApiTest {
      */
     @Test
     public void getStakingPoolTest() throws ApiException {
-        Object response = api.getStakingPool();
+        InlineResponse20013 response = api.getStakingPool();
 
         // TODO: test validations
     }
+    
     /**
      * Query all unbonding delegations between a delegator and a validator
      *
@@ -150,10 +172,11 @@ public class StakingApiTest {
     public void getUndelegationsBetweenTest() throws ApiException {
         String delegatorAddr = null;
         String validatorAddr = null;
-        Object response = api.getUndelegationsBetween(delegatorAddr, validatorAddr);
+        InlineResponse2008 response = api.getUndelegationsBetween(delegatorAddr, validatorAddr);
 
         // TODO: test validations
     }
+    
     /**
      * Get all unbonding delegations from a delegator
      *
@@ -165,10 +188,11 @@ public class StakingApiTest {
     @Test
     public void getUndelegationsOfDelegatorTest() throws ApiException {
         String delegatorAddr = null;
-        Object response = api.getUndelegationsOfDelegator(delegatorAddr);
+        InlineResponse2007 response = api.getUndelegationsOfDelegator(delegatorAddr);
 
         // TODO: test validations
     }
+    
     /**
      * Get all unbonding delegations from a validator
      *
@@ -180,10 +204,11 @@ public class StakingApiTest {
     @Test
     public void getUndelegationsOfValidatorTest() throws ApiException {
         String validatorAddr = null;
-        Object response = api.getUndelegationsOfValidator(validatorAddr);
+        InlineResponse20012 response = api.getUndelegationsOfValidator(validatorAddr);
 
         // TODO: test validations
     }
+    
     /**
      * Query the information from a single validator
      *
@@ -195,10 +220,11 @@ public class StakingApiTest {
     @Test
     public void getValidatorTest() throws ApiException {
         String validatorAddr = null;
-        Object response = api.getValidator(validatorAddr);
+        InlineResponse20011 response = api.getValidator(validatorAddr);
 
         // TODO: test validations
     }
+    
     /**
      * Query a validator that a delegator is bonded to
      *
@@ -211,10 +237,11 @@ public class StakingApiTest {
     public void getValidatorOfDelegatorTest() throws ApiException {
         String delegatorAddr = null;
         String validatorAddr = null;
-        Object response = api.getValidatorOfDelegator(delegatorAddr, validatorAddr);
+        InlineResponse20011 response = api.getValidatorOfDelegator(delegatorAddr, validatorAddr);
 
         // TODO: test validations
     }
+    
     /**
      * Get all validator candidates. By default it returns only the bonded validators.
      *
@@ -228,10 +255,11 @@ public class StakingApiTest {
         String status = null;
         Integer page = null;
         Integer limit = null;
-        Object response = api.getValidators(status, page, limit);
+        InlineResponse20010 response = api.getValidators(status, page, limit);
 
         // TODO: test validations
     }
+    
     /**
      * Query all validators that a delegator is bonded to
      *
@@ -243,10 +271,11 @@ public class StakingApiTest {
     @Test
     public void getValidatorsOfDelegatorTest() throws ApiException {
         String delegatorAddr = null;
-        Object response = api.getValidatorsOfDelegator(delegatorAddr);
+        InlineResponse20010 response = api.getValidatorsOfDelegator(delegatorAddr);
 
         // TODO: test validations
     }
+    
     /**
      * Submit delegation
      *
@@ -258,11 +287,12 @@ public class StakingApiTest {
     @Test
     public void submitDelegationTest() throws ApiException {
         String delegatorAddr = null;
-        Object body = null;
-        BroadcastTxCommitResult response = api.submitDelegation(delegatorAddr, body);
+        Delegation delegation = null;
+        BroadcastTxCommitResult response = api.submitDelegation(delegatorAddr, delegation);
 
         // TODO: test validations
     }
+    
     /**
      * Submit a redelegation
      *
@@ -274,11 +304,12 @@ public class StakingApiTest {
     @Test
     public void submitRedelegationTest() throws ApiException {
         String delegatorAddr = null;
-        Object body = null;
-        StdTx response = api.submitRedelegation(delegatorAddr, body);
+        Delegation2 delegation = null;
+        StdTx response = api.submitRedelegation(delegatorAddr, delegation);
 
         // TODO: test validations
     }
+    
     /**
      * Submit an unbonding delegation
      *
@@ -290,9 +321,10 @@ public class StakingApiTest {
     @Test
     public void undelegateTest() throws ApiException {
         String delegatorAddr = null;
-        Object body = null;
-        BroadcastTxCommitResult response = api.undelegate(delegatorAddr, body);
+        Delegation1 delegation = null;
+        BroadcastTxCommitResult response = api.undelegate(delegatorAddr, delegation);
 
         // TODO: test validations
     }
+    
 }

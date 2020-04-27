@@ -10,10 +10,15 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
 import io.swagger.client.model.BroadcastTxCommitResult;
+import io.swagger.client.model.InlineResponse20015;
+import io.swagger.client.model.InlineResponse20016;
+import io.swagger.client.model.InlineResponse20017;
+import io.swagger.client.model.UnjailBody;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -30,6 +35,7 @@ public class SlashingApiTest {
 
     private final SlashingApi api = new SlashingApi();
 
+    
     /**
      * Get sign info of given validator
      *
@@ -41,10 +47,11 @@ public class SlashingApiTest {
     @Test
     public void getSigningInfoTest() throws ApiException {
         String validatorPubKey = null;
-        Object response = api.getSigningInfo(validatorPubKey);
+        InlineResponse20015 response = api.getSigningInfo(validatorPubKey);
 
         // TODO: test validations
     }
+    
     /**
      * Get sign info of given all validators
      *
@@ -57,10 +64,11 @@ public class SlashingApiTest {
     public void getSigningInfosTest() throws ApiException {
         Integer page = null;
         Integer limit = null;
-        Object response = api.getSigningInfos(page, limit);
+        InlineResponse20016 response = api.getSigningInfos(page, limit);
 
         // TODO: test validations
     }
+    
     /**
      * Get the current slashing parameters
      *
@@ -71,10 +79,11 @@ public class SlashingApiTest {
      */
     @Test
     public void getSlashingParamsTest() throws ApiException {
-        Object response = api.getSlashingParams();
+        InlineResponse20017 response = api.getSlashingParams();
 
         // TODO: test validations
     }
+    
     /**
      * Unjail a jailed validator
      *
@@ -85,10 +94,11 @@ public class SlashingApiTest {
      */
     @Test
     public void unjailValidatorTest() throws ApiException {
-        Object body = null;
         String validatorAddr = null;
-        BroadcastTxCommitResult response = api.unjailValidator(body, validatorAddr);
+        UnjailBody unjailBody = null;
+        BroadcastTxCommitResult response = api.unjailValidator(validatorAddr, unjailBody);
 
         // TODO: test validations
     }
+    
 }

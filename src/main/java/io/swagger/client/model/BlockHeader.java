@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,16 +20,20 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.client.model.BlockHeaderVersion;
 import io.swagger.client.model.BlockID;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * BlockHeader
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-26T10:53:15.911+08:00[Asia/Shanghai]")
-public class BlockHeader {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
+public class BlockHeader extends HashMap<String, Object> {
   @SerializedName("chain_id")
   private String chainId = null;
 
@@ -75,7 +80,7 @@ public class BlockHeader {
   private String proposerAddress = null;
 
   @SerializedName("version")
-  private Object version = null;
+  private BlockHeaderVersion version = null;
 
   public BlockHeader chainId(String chainId) {
     this.chainId = chainId;
@@ -86,7 +91,7 @@ public class BlockHeader {
    * Get chainId
    * @return chainId
   **/
-  @Schema(example = "coinexchain-2", required = true, description = "")
+  @ApiModelProperty(example = "coinexchain-2", required = true, value = "")
   public String getChainId() {
     return chainId;
   }
@@ -104,7 +109,7 @@ public class BlockHeader {
    * Get height
    * @return height
   **/
-  @Schema(example = "1.0", required = true, description = "")
+  @ApiModelProperty(example = "1.0", required = true, value = "")
   public BigDecimal getHeight() {
     return height;
   }
@@ -122,7 +127,7 @@ public class BlockHeader {
    * Get time
    * @return time
   **/
-  @Schema(example = "2017-12-30T05:53:09.287+01:00", required = true, description = "")
+  @ApiModelProperty(example = "2017-12-30T05:53:09.287+01:00", required = true, value = "")
   public String getTime() {
     return time;
   }
@@ -140,7 +145,7 @@ public class BlockHeader {
    * Get numTxs
    * @return numTxs
   **/
-  @Schema(example = "0.0", required = true, description = "")
+  @ApiModelProperty(example = "0.0", required = true, value = "")
   public BigDecimal getNumTxs() {
     return numTxs;
   }
@@ -158,7 +163,7 @@ public class BlockHeader {
    * Get lastBlockId
    * @return lastBlockId
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public BlockID getLastBlockId() {
     return lastBlockId;
   }
@@ -176,7 +181,7 @@ public class BlockHeader {
    * Get totalTxs
    * @return totalTxs
   **/
-  @Schema(example = "35.0", required = true, description = "")
+  @ApiModelProperty(example = "35.0", required = true, value = "")
   public BigDecimal getTotalTxs() {
     return totalTxs;
   }
@@ -194,7 +199,7 @@ public class BlockHeader {
    * Get lastCommitHash
    * @return lastCommitHash
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getLastCommitHash() {
     return lastCommitHash;
   }
@@ -212,7 +217,7 @@ public class BlockHeader {
    * Get dataHash
    * @return dataHash
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getDataHash() {
     return dataHash;
   }
@@ -230,7 +235,7 @@ public class BlockHeader {
    * Get validatorsHash
    * @return validatorsHash
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getValidatorsHash() {
     return validatorsHash;
   }
@@ -248,7 +253,7 @@ public class BlockHeader {
    * Get nextValidatorsHash
    * @return nextValidatorsHash
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getNextValidatorsHash() {
     return nextValidatorsHash;
   }
@@ -266,7 +271,7 @@ public class BlockHeader {
    * Get consensusHash
    * @return consensusHash
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getConsensusHash() {
     return consensusHash;
   }
@@ -284,7 +289,7 @@ public class BlockHeader {
    * Get appHash
    * @return appHash
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getAppHash() {
     return appHash;
   }
@@ -302,7 +307,7 @@ public class BlockHeader {
    * Get lastResultsHash
    * @return lastResultsHash
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getLastResultsHash() {
     return lastResultsHash;
   }
@@ -320,7 +325,7 @@ public class BlockHeader {
    * Get evidenceHash
    * @return evidenceHash
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getEvidenceHash() {
     return evidenceHash;
   }
@@ -338,7 +343,7 @@ public class BlockHeader {
    * Get proposerAddress
    * @return proposerAddress
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getProposerAddress() {
     return proposerAddress;
   }
@@ -347,7 +352,7 @@ public class BlockHeader {
     this.proposerAddress = proposerAddress;
   }
 
-  public BlockHeader version(Object version) {
+  public BlockHeader version(BlockHeaderVersion version) {
     this.version = version;
     return this;
   }
@@ -356,18 +361,18 @@ public class BlockHeader {
    * Get version
    * @return version
   **/
-  @Schema(required = true, description = "")
-  public Object getVersion() {
+  @ApiModelProperty(required = true, value = "")
+  public BlockHeaderVersion getVersion() {
     return version;
   }
 
-  public void setVersion(Object version) {
+  public void setVersion(BlockHeaderVersion version) {
     this.version = version;
   }
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -390,12 +395,13 @@ public class BlockHeader {
         Objects.equals(this.lastResultsHash, blockHeader.lastResultsHash) &&
         Objects.equals(this.evidenceHash, blockHeader.evidenceHash) &&
         Objects.equals(this.proposerAddress, blockHeader.proposerAddress) &&
-        Objects.equals(this.version, blockHeader.version);
+        Objects.equals(this.version, blockHeader.version) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chainId, height, time, numTxs, lastBlockId, totalTxs, lastCommitHash, dataHash, validatorsHash, nextValidatorsHash, consensusHash, appHash, lastResultsHash, evidenceHash, proposerAddress, version);
+    return Objects.hash(chainId, height, time, numTxs, lastBlockId, totalTxs, lastCommitHash, dataHash, validatorsHash, nextValidatorsHash, consensusHash, appHash, lastResultsHash, evidenceHash, proposerAddress, version, super.hashCode());
   }
 
 
@@ -403,7 +409,7 @@ public class BlockHeader {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BlockHeader {\n");
-    
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    chainId: ").append(toIndentedString(chainId)).append("\n");
     sb.append("    height: ").append(toIndentedString(height)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
@@ -428,7 +434,7 @@ public class BlockHeader {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -436,3 +442,4 @@ public class BlockHeader {
   }
 
 }
+

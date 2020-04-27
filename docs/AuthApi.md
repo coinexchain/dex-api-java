@@ -1,6 +1,6 @@
 # AuthApi
 
-All URIs are relative to *https://dex-api.coinex.org/*
+All URIs are relative to *https://dex-api.coinex.org*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,9 +8,10 @@ Method | HTTP request | Description
 [**getAuthParams**](AuthApi.md#getAuthParams) | **GET** /auth/parameters | Get the current auth parameters
 [**setReferee**](AuthApi.md#setReferee) | **POST** /auth/accounts/{address}/referee | Set referee for account
 
+
 <a name="getAccount"></a>
 # **getAccount**
-> Object getAccount(address)
+> InlineResponse2004 getAccount(address)
 
 Get the account information on blockchain
 
@@ -24,7 +25,7 @@ Get the account information on blockchain
 AuthApi apiInstance = new AuthApi();
 String address = "address_example"; // String | Account address
 try {
-    Object result = apiInstance.getAccount(address);
+    InlineResponse2004 result = apiInstance.getAccount(address);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AuthApi#getAccount");
@@ -40,7 +41,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 
@@ -53,7 +54,7 @@ No authorization required
 
 <a name="getAuthParams"></a>
 # **getAuthParams**
-> Object getAuthParams()
+> InlineResponse20034 getAuthParams()
 
 Get the current auth parameters
 
@@ -66,7 +67,7 @@ Get the current auth parameters
 
 AuthApi apiInstance = new AuthApi();
 try {
-    Object result = apiInstance.getAuthParams();
+    InlineResponse20034 result = apiInstance.getAuthParams();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AuthApi#getAuthParams");
@@ -79,7 +80,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Object**
+[**InlineResponse20034**](InlineResponse20034.md)
 
 ### Authorization
 
@@ -92,7 +93,7 @@ No authorization required
 
 <a name="setReferee"></a>
 # **setReferee**
-> StdTx setReferee(body, address)
+> StdTx setReferee(address, referee)
 
 Set referee for account
 
@@ -104,10 +105,10 @@ Set referee for account
 
 
 AuthApi apiInstance = new AuthApi();
-Object body = null; // Object | Referee
 String address = "address_example"; // String | Account address in bech32 format
+Referee referee = new Referee(); // Referee | Referee
 try {
-    StdTx result = apiInstance.setReferee(body, address);
+    StdTx result = apiInstance.setReferee(address, referee);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AuthApi#setReferee");
@@ -119,8 +120,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)| Referee |
  **address** | **String**| Account address in bech32 format |
+ **referee** | [**Referee**](Referee.md)| Referee |
 
 ### Return type
 

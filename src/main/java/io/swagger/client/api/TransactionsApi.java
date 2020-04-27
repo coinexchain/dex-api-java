@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.api;
 
 import io.swagger.client.ApiCallback;
@@ -27,7 +28,10 @@ import java.io.IOException;
 
 
 import io.swagger.client.model.BroadcastTxCommitResult;
+import io.swagger.client.model.InlineResponse2003;
 import io.swagger.client.model.PaginatedQueryTxs;
+import io.swagger.client.model.Tx;
+import io.swagger.client.model.TxBroadcast;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -56,15 +60,15 @@ public class TransactionsApi {
 
     /**
      * Build call for broadcastTx
-     * @param body The tx must be a signed StdTx. The supported broadcast modes include &#x60;&quot;block&quot;&#x60;(return after tx commit), &#x60;&quot;sync&quot;&#x60;(return afer CheckTx) and &#x60;&quot;async&quot;&#x60;(return right away). (required)
+     * @param txBroadcast The tx must be a signed StdTx. The supported broadcast modes include &#x60;\&quot;block\&quot;&#x60;(return after tx commit), &#x60;\&quot;sync\&quot;&#x60;(return afer CheckTx) and &#x60;\&quot;async\&quot;&#x60;(return right away). (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call broadcastTxCall(Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
+    public com.squareup.okhttp.Call broadcastTxCall(TxBroadcast txBroadcast, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = txBroadcast;
+
         // create path and map variables
         String localVarPath = "/txs";
 
@@ -90,7 +94,7 @@ public class TransactionsApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -102,44 +106,42 @@ public class TransactionsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call broadcastTxValidateBeforeCall(Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling broadcastTx(Async)");
+    private com.squareup.okhttp.Call broadcastTxValidateBeforeCall(TxBroadcast txBroadcast, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'txBroadcast' is set
+        if (txBroadcast == null) {
+            throw new ApiException("Missing the required parameter 'txBroadcast' when calling broadcastTx(Async)");
         }
         
-        com.squareup.okhttp.Call call = broadcastTxCall(body, progressListener, progressRequestListener);
+
+        com.squareup.okhttp.Call call = broadcastTxCall(txBroadcast, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Broadcast a signed tx
      * Broadcast a signed tx to a full node
-     * @param body The tx must be a signed StdTx. The supported broadcast modes include &#x60;&quot;block&quot;&#x60;(return after tx commit), &#x60;&quot;sync&quot;&#x60;(return afer CheckTx) and &#x60;&quot;async&quot;&#x60;(return right away). (required)
+     * @param txBroadcast The tx must be a signed StdTx. The supported broadcast modes include &#x60;\&quot;block\&quot;&#x60;(return after tx commit), &#x60;\&quot;sync\&quot;&#x60;(return afer CheckTx) and &#x60;\&quot;async\&quot;&#x60;(return right away). (required)
      * @return BroadcastTxCommitResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public BroadcastTxCommitResult broadcastTx(Object body) throws ApiException {
-        ApiResponse<BroadcastTxCommitResult> resp = broadcastTxWithHttpInfo(body);
+    public BroadcastTxCommitResult broadcastTx(TxBroadcast txBroadcast) throws ApiException {
+        ApiResponse<BroadcastTxCommitResult> resp = broadcastTxWithHttpInfo(txBroadcast);
         return resp.getData();
     }
 
     /**
      * Broadcast a signed tx
      * Broadcast a signed tx to a full node
-     * @param body The tx must be a signed StdTx. The supported broadcast modes include &#x60;&quot;block&quot;&#x60;(return after tx commit), &#x60;&quot;sync&quot;&#x60;(return afer CheckTx) and &#x60;&quot;async&quot;&#x60;(return right away). (required)
+     * @param txBroadcast The tx must be a signed StdTx. The supported broadcast modes include &#x60;\&quot;block\&quot;&#x60;(return after tx commit), &#x60;\&quot;sync\&quot;&#x60;(return afer CheckTx) and &#x60;\&quot;async\&quot;&#x60;(return right away). (required)
      * @return ApiResponse&lt;BroadcastTxCommitResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<BroadcastTxCommitResult> broadcastTxWithHttpInfo(Object body) throws ApiException {
-        com.squareup.okhttp.Call call = broadcastTxValidateBeforeCall(body, null, null);
+    public ApiResponse<BroadcastTxCommitResult> broadcastTxWithHttpInfo(TxBroadcast txBroadcast) throws ApiException {
+        com.squareup.okhttp.Call call = broadcastTxValidateBeforeCall(txBroadcast, null, null);
         Type localVarReturnType = new TypeToken<BroadcastTxCommitResult>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -147,12 +149,12 @@ public class TransactionsApi {
     /**
      * Broadcast a signed tx (asynchronously)
      * Broadcast a signed tx to a full node
-     * @param body The tx must be a signed StdTx. The supported broadcast modes include &#x60;&quot;block&quot;&#x60;(return after tx commit), &#x60;&quot;sync&quot;&#x60;(return afer CheckTx) and &#x60;&quot;async&quot;&#x60;(return right away). (required)
+     * @param txBroadcast The tx must be a signed StdTx. The supported broadcast modes include &#x60;\&quot;block\&quot;&#x60;(return after tx commit), &#x60;\&quot;sync\&quot;&#x60;(return afer CheckTx) and &#x60;\&quot;async\&quot;&#x60;(return right away). (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call broadcastTxAsync(Object body, final ApiCallback<BroadcastTxCommitResult> callback) throws ApiException {
+    public com.squareup.okhttp.Call broadcastTxAsync(TxBroadcast txBroadcast, final ApiCallback<BroadcastTxCommitResult> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -173,22 +175,22 @@ public class TransactionsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = broadcastTxValidateBeforeCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = broadcastTxValidateBeforeCall(txBroadcast, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<BroadcastTxCommitResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for encodeTx
-     * @param body The tx to encode (required)
+     * @param tx The tx to encode (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call encodeTxCall(Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
+    public com.squareup.okhttp.Call encodeTxCall(Tx tx, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = tx;
+
         // create path and map variables
         String localVarPath = "/txs/encode";
 
@@ -214,7 +216,7 @@ public class TransactionsApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -226,57 +228,55 @@ public class TransactionsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call encodeTxValidateBeforeCall(Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling encodeTx(Async)");
+    private com.squareup.okhttp.Call encodeTxValidateBeforeCall(Tx tx, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'tx' is set
+        if (tx == null) {
+            throw new ApiException("Missing the required parameter 'tx' when calling encodeTx(Async)");
         }
         
-        com.squareup.okhttp.Call call = encodeTxCall(body, progressListener, progressRequestListener);
+
+        com.squareup.okhttp.Call call = encodeTxCall(tx, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Encode a transaction to the Amino wire format
      * Encode a transaction (signed or not) from JSON to base64-encoded Amino serialized bytes
-     * @param body The tx to encode (required)
-     * @return Object
+     * @param tx The tx to encode (required)
+     * @return InlineResponse2003
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object encodeTx(Object body) throws ApiException {
-        ApiResponse<Object> resp = encodeTxWithHttpInfo(body);
+    public InlineResponse2003 encodeTx(Tx tx) throws ApiException {
+        ApiResponse<InlineResponse2003> resp = encodeTxWithHttpInfo(tx);
         return resp.getData();
     }
 
     /**
      * Encode a transaction to the Amino wire format
      * Encode a transaction (signed or not) from JSON to base64-encoded Amino serialized bytes
-     * @param body The tx to encode (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @param tx The tx to encode (required)
+     * @return ApiResponse&lt;InlineResponse2003&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> encodeTxWithHttpInfo(Object body) throws ApiException {
-        com.squareup.okhttp.Call call = encodeTxValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+    public ApiResponse<InlineResponse2003> encodeTxWithHttpInfo(Tx tx) throws ApiException {
+        com.squareup.okhttp.Call call = encodeTxValidateBeforeCall(tx, null, null);
+        Type localVarReturnType = new TypeToken<InlineResponse2003>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Encode a transaction to the Amino wire format (asynchronously)
      * Encode a transaction (signed or not) from JSON to base64-encoded Amino serialized bytes
-     * @param body The tx to encode (required)
+     * @param tx The tx to encode (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call encodeTxAsync(Object body, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call encodeTxAsync(Tx tx, final ApiCallback<InlineResponse2003> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -297,8 +297,8 @@ public class TransactionsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = encodeTxValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        com.squareup.okhttp.Call call = encodeTxValidateBeforeCall(tx, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InlineResponse2003>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -312,7 +312,7 @@ public class TransactionsApi {
      */
     public com.squareup.okhttp.Call getTxByHashCall(String hash, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/txs/{hash}"
             .replaceAll("\\{" + "hash" + "\\}", apiClient.escapeString(hash.toString()));
@@ -339,7 +339,7 @@ public class TransactionsApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -351,21 +351,19 @@ public class TransactionsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getTxByHashValidateBeforeCall(String hash, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'hash' is set
         if (hash == null) {
             throw new ApiException("Missing the required parameter 'hash' when calling getTxByHash(Async)");
         }
         
+
         com.squareup.okhttp.Call call = getTxByHashCall(hash, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -429,8 +427,8 @@ public class TransactionsApi {
     }
     /**
      * Build call for searchTx
-     * @param messageAction transaction events such as &#x27;message.action&#x3D;send&#x27; which results in the following endpoint: &#x27;GET /txs?message.action&#x3D;send&#x27; (optional)
-     * @param messageSender transaction tags with sender: &#x27;GET /txs?message.action&#x3D;send&amp;message.sender&#x3D;cosmos16xyempempp92x9hyzz9wrgf94r6j9h5f06pxxv&#x27; (optional)
+     * @param messageAction transaction events such as &#39;message.action&#x3D;send&#39; which results in the following endpoint: &#39;GET /txs?message.action&#x3D;send&#39; (optional)
+     * @param messageSender transaction tags with sender: &#39;GET /txs?message.action&#x3D;send&amp;message.sender&#x3D;cosmos16xyempempp92x9hyzz9wrgf94r6j9h5f06pxxv&#39; (optional)
      * @param page Page number (optional)
      * @param limit Maximum number of items per page (optional)
      * @param progressListener Progress listener
@@ -440,7 +438,7 @@ public class TransactionsApi {
      */
     public com.squareup.okhttp.Call searchTxCall(String messageAction, String messageSender, Integer page, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/txs";
 
@@ -474,7 +472,7 @@ public class TransactionsApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -486,24 +484,21 @@ public class TransactionsApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call searchTxValidateBeforeCall(String messageAction, String messageSender, Integer page, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+
         com.squareup.okhttp.Call call = searchTxCall(messageAction, messageSender, page, limit, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Search transactions
      * Search transactions by events.
-     * @param messageAction transaction events such as &#x27;message.action&#x3D;send&#x27; which results in the following endpoint: &#x27;GET /txs?message.action&#x3D;send&#x27; (optional)
-     * @param messageSender transaction tags with sender: &#x27;GET /txs?message.action&#x3D;send&amp;message.sender&#x3D;cosmos16xyempempp92x9hyzz9wrgf94r6j9h5f06pxxv&#x27; (optional)
+     * @param messageAction transaction events such as &#39;message.action&#x3D;send&#39; which results in the following endpoint: &#39;GET /txs?message.action&#x3D;send&#39; (optional)
+     * @param messageSender transaction tags with sender: &#39;GET /txs?message.action&#x3D;send&amp;message.sender&#x3D;cosmos16xyempempp92x9hyzz9wrgf94r6j9h5f06pxxv&#39; (optional)
      * @param page Page number (optional)
      * @param limit Maximum number of items per page (optional)
      * @return PaginatedQueryTxs
@@ -517,8 +512,8 @@ public class TransactionsApi {
     /**
      * Search transactions
      * Search transactions by events.
-     * @param messageAction transaction events such as &#x27;message.action&#x3D;send&#x27; which results in the following endpoint: &#x27;GET /txs?message.action&#x3D;send&#x27; (optional)
-     * @param messageSender transaction tags with sender: &#x27;GET /txs?message.action&#x3D;send&amp;message.sender&#x3D;cosmos16xyempempp92x9hyzz9wrgf94r6j9h5f06pxxv&#x27; (optional)
+     * @param messageAction transaction events such as &#39;message.action&#x3D;send&#39; which results in the following endpoint: &#39;GET /txs?message.action&#x3D;send&#39; (optional)
+     * @param messageSender transaction tags with sender: &#39;GET /txs?message.action&#x3D;send&amp;message.sender&#x3D;cosmos16xyempempp92x9hyzz9wrgf94r6j9h5f06pxxv&#39; (optional)
      * @param page Page number (optional)
      * @param limit Maximum number of items per page (optional)
      * @return ApiResponse&lt;PaginatedQueryTxs&gt;
@@ -533,8 +528,8 @@ public class TransactionsApi {
     /**
      * Search transactions (asynchronously)
      * Search transactions by events.
-     * @param messageAction transaction events such as &#x27;message.action&#x3D;send&#x27; which results in the following endpoint: &#x27;GET /txs?message.action&#x3D;send&#x27; (optional)
-     * @param messageSender transaction tags with sender: &#x27;GET /txs?message.action&#x3D;send&amp;message.sender&#x3D;cosmos16xyempempp92x9hyzz9wrgf94r6j9h5f06pxxv&#x27; (optional)
+     * @param messageAction transaction events such as &#39;message.action&#x3D;send&#39; which results in the following endpoint: &#39;GET /txs?message.action&#x3D;send&#39; (optional)
+     * @param messageSender transaction tags with sender: &#39;GET /txs?message.action&#x3D;send&amp;message.sender&#x3D;cosmos16xyempempp92x9hyzz9wrgf94r6j9h5f06pxxv&#39; (optional)
      * @param page Page number (optional)
      * @param limit Maximum number of items per page (optional)
      * @param callback The callback to be executed when the API call finishes

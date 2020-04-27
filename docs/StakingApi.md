@@ -1,6 +1,6 @@
 # StakingApi
 
-All URIs are relative to *https://dex-api.coinex.org/*
+All URIs are relative to *https://dex-api.coinex.org*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -22,9 +22,10 @@ Method | HTTP request | Description
 [**submitRedelegation**](StakingApi.md#submitRedelegation) | **POST** /staking/delegators/{delegatorAddr}/redelegations | Submit a redelegation
 [**undelegate**](StakingApi.md#undelegate) | **POST** /staking/delegators/{delegatorAddr}/unbonding_delegations | Submit an unbonding delegation
 
+
 <a name="getDelegations"></a>
 # **getDelegations**
-> Object getDelegations(delegatorAddr)
+> InlineResponse2005 getDelegations(delegatorAddr)
 
 Get all delegations from a delegator
 
@@ -38,7 +39,7 @@ Get all delegations from a delegator
 StakingApi apiInstance = new StakingApi();
 String delegatorAddr = "delegatorAddr_example"; // String | Bech32 AccAddress of Delegator
 try {
-    Object result = apiInstance.getDelegations(delegatorAddr);
+    InlineResponse2005 result = apiInstance.getDelegations(delegatorAddr);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StakingApi#getDelegations");
@@ -54,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -67,7 +68,7 @@ No authorization required
 
 <a name="getDelegationsOfValidator"></a>
 # **getDelegationsOfValidator**
-> Object getDelegationsOfValidator(validatorAddr)
+> InlineResponse2005 getDelegationsOfValidator(validatorAddr)
 
 Get all delegations from a validator
 
@@ -81,7 +82,7 @@ Get all delegations from a validator
 StakingApi apiInstance = new StakingApi();
 String validatorAddr = "validatorAddr_example"; // String | Bech32 OperatorAddress of validator
 try {
-    Object result = apiInstance.getDelegationsOfValidator(validatorAddr);
+    InlineResponse2005 result = apiInstance.getDelegationsOfValidator(validatorAddr);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StakingApi#getDelegationsOfValidator");
@@ -97,7 +98,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -110,7 +111,7 @@ No authorization required
 
 <a name="getDelegationsToValidator"></a>
 # **getDelegationsToValidator**
-> Object getDelegationsToValidator(delegatorAddr, validatorAddr)
+> InlineResponse2006 getDelegationsToValidator(delegatorAddr, validatorAddr)
 
 Query the current delegation between a delegator and a validator
 
@@ -125,7 +126,7 @@ StakingApi apiInstance = new StakingApi();
 String delegatorAddr = "delegatorAddr_example"; // String | Bech32 AccAddress of Delegator
 String validatorAddr = "validatorAddr_example"; // String | Bech32 OperatorAddress of validator
 try {
-    Object result = apiInstance.getDelegationsToValidator(delegatorAddr, validatorAddr);
+    InlineResponse2006 result = apiInstance.getDelegationsToValidator(delegatorAddr, validatorAddr);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StakingApi#getDelegationsToValidator");
@@ -142,7 +143,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 
@@ -198,7 +199,7 @@ No authorization required
 
 <a name="getRedelegations"></a>
 # **getRedelegations**
-> Object getRedelegations(delegator, validatorFrom, validatorTo)
+> InlineResponse2009 getRedelegations(delegator, validatorFrom, validatorTo)
 
 Get all redelegations (filter by query params)
 
@@ -214,7 +215,7 @@ String delegator = "delegator_example"; // String | Bech32 AccAddress of Delegat
 String validatorFrom = "validatorFrom_example"; // String | Bech32 ValAddress of SrcValidator
 String validatorTo = "validatorTo_example"; // String | Bech32 ValAddress of DstValidator
 try {
-    Object result = apiInstance.getRedelegations(delegator, validatorFrom, validatorTo);
+    InlineResponse2009 result = apiInstance.getRedelegations(delegator, validatorFrom, validatorTo);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StakingApi#getRedelegations");
@@ -232,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization
 
@@ -245,7 +246,7 @@ No authorization required
 
 <a name="getStakingParameters"></a>
 # **getStakingParameters**
-> Object getStakingParameters()
+> InlineResponse20014 getStakingParameters()
 
 Get the current staking parameter values
 
@@ -258,7 +259,7 @@ Get the current staking parameter values
 
 StakingApi apiInstance = new StakingApi();
 try {
-    Object result = apiInstance.getStakingParameters();
+    InlineResponse20014 result = apiInstance.getStakingParameters();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StakingApi#getStakingParameters");
@@ -271,7 +272,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Object**
+[**InlineResponse20014**](InlineResponse20014.md)
 
 ### Authorization
 
@@ -284,7 +285,7 @@ No authorization required
 
 <a name="getStakingPool"></a>
 # **getStakingPool**
-> Object getStakingPool()
+> InlineResponse20013 getStakingPool()
 
 Get the current state of the staking pool
 
@@ -297,7 +298,7 @@ Get the current state of the staking pool
 
 StakingApi apiInstance = new StakingApi();
 try {
-    Object result = apiInstance.getStakingPool();
+    InlineResponse20013 result = apiInstance.getStakingPool();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StakingApi#getStakingPool");
@@ -310,7 +311,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Object**
+[**InlineResponse20013**](InlineResponse20013.md)
 
 ### Authorization
 
@@ -323,7 +324,7 @@ No authorization required
 
 <a name="getUndelegationsBetween"></a>
 # **getUndelegationsBetween**
-> Object getUndelegationsBetween(delegatorAddr, validatorAddr)
+> InlineResponse2008 getUndelegationsBetween(delegatorAddr, validatorAddr)
 
 Query all unbonding delegations between a delegator and a validator
 
@@ -338,7 +339,7 @@ StakingApi apiInstance = new StakingApi();
 String delegatorAddr = "delegatorAddr_example"; // String | Bech32 AccAddress of Delegator
 String validatorAddr = "validatorAddr_example"; // String | Bech32 OperatorAddress of validator
 try {
-    Object result = apiInstance.getUndelegationsBetween(delegatorAddr, validatorAddr);
+    InlineResponse2008 result = apiInstance.getUndelegationsBetween(delegatorAddr, validatorAddr);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StakingApi#getUndelegationsBetween");
@@ -355,7 +356,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 
@@ -368,7 +369,7 @@ No authorization required
 
 <a name="getUndelegationsOfDelegator"></a>
 # **getUndelegationsOfDelegator**
-> Object getUndelegationsOfDelegator(delegatorAddr)
+> InlineResponse2007 getUndelegationsOfDelegator(delegatorAddr)
 
 Get all unbonding delegations from a delegator
 
@@ -382,7 +383,7 @@ Get all unbonding delegations from a delegator
 StakingApi apiInstance = new StakingApi();
 String delegatorAddr = "delegatorAddr_example"; // String | Bech32 AccAddress of Delegator
 try {
-    Object result = apiInstance.getUndelegationsOfDelegator(delegatorAddr);
+    InlineResponse2007 result = apiInstance.getUndelegationsOfDelegator(delegatorAddr);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StakingApi#getUndelegationsOfDelegator");
@@ -398,7 +399,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -411,7 +412,7 @@ No authorization required
 
 <a name="getUndelegationsOfValidator"></a>
 # **getUndelegationsOfValidator**
-> Object getUndelegationsOfValidator(validatorAddr)
+> InlineResponse20012 getUndelegationsOfValidator(validatorAddr)
 
 Get all unbonding delegations from a validator
 
@@ -425,7 +426,7 @@ Get all unbonding delegations from a validator
 StakingApi apiInstance = new StakingApi();
 String validatorAddr = "validatorAddr_example"; // String | Bech32 OperatorAddress of validator
 try {
-    Object result = apiInstance.getUndelegationsOfValidator(validatorAddr);
+    InlineResponse20012 result = apiInstance.getUndelegationsOfValidator(validatorAddr);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StakingApi#getUndelegationsOfValidator");
@@ -441,7 +442,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 
@@ -454,7 +455,7 @@ No authorization required
 
 <a name="getValidator"></a>
 # **getValidator**
-> Object getValidator(validatorAddr)
+> InlineResponse20011 getValidator(validatorAddr)
 
 Query the information from a single validator
 
@@ -468,7 +469,7 @@ Query the information from a single validator
 StakingApi apiInstance = new StakingApi();
 String validatorAddr = "validatorAddr_example"; // String | Bech32 OperatorAddress of validator
 try {
-    Object result = apiInstance.getValidator(validatorAddr);
+    InlineResponse20011 result = apiInstance.getValidator(validatorAddr);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StakingApi#getValidator");
@@ -484,7 +485,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -497,7 +498,7 @@ No authorization required
 
 <a name="getValidatorOfDelegator"></a>
 # **getValidatorOfDelegator**
-> Object getValidatorOfDelegator(delegatorAddr, validatorAddr)
+> InlineResponse20011 getValidatorOfDelegator(delegatorAddr, validatorAddr)
 
 Query a validator that a delegator is bonded to
 
@@ -512,7 +513,7 @@ StakingApi apiInstance = new StakingApi();
 String delegatorAddr = "delegatorAddr_example"; // String | Bech32 AccAddress of Delegator
 String validatorAddr = "validatorAddr_example"; // String | Bech32 ValAddress of Delegator
 try {
-    Object result = apiInstance.getValidatorOfDelegator(delegatorAddr, validatorAddr);
+    InlineResponse20011 result = apiInstance.getValidatorOfDelegator(delegatorAddr, validatorAddr);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StakingApi#getValidatorOfDelegator");
@@ -529,7 +530,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -542,7 +543,7 @@ No authorization required
 
 <a name="getValidators"></a>
 # **getValidators**
-> Object getValidators(status, page, limit)
+> InlineResponse20010 getValidators(status, page, limit)
 
 Get all validator candidates. By default it returns only the bonded validators.
 
@@ -558,7 +559,7 @@ String status = "status_example"; // String | The validator bond status. Must be
 Integer page = 56; // Integer | The page number.
 Integer limit = 56; // Integer | The maximum number of items per page.
 try {
-    Object result = apiInstance.getValidators(status, page, limit);
+    InlineResponse20010 result = apiInstance.getValidators(status, page, limit);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StakingApi#getValidators");
@@ -570,13 +571,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | **String**| The validator bond status. Must be either &#x27;bonded&#x27;, &#x27;unbonded&#x27;, or &#x27;unbonding&#x27;. | [optional]
+ **status** | **String**| The validator bond status. Must be either &#39;bonded&#39;, &#39;unbonded&#39;, or &#39;unbonding&#39;. | [optional]
  **page** | **Integer**| The page number. | [optional]
  **limit** | **Integer**| The maximum number of items per page. | [optional]
 
 ### Return type
 
-**Object**
+[**InlineResponse20010**](InlineResponse20010.md)
 
 ### Authorization
 
@@ -589,7 +590,7 @@ No authorization required
 
 <a name="getValidatorsOfDelegator"></a>
 # **getValidatorsOfDelegator**
-> Object getValidatorsOfDelegator(delegatorAddr)
+> InlineResponse20010 getValidatorsOfDelegator(delegatorAddr)
 
 Query all validators that a delegator is bonded to
 
@@ -603,7 +604,7 @@ Query all validators that a delegator is bonded to
 StakingApi apiInstance = new StakingApi();
 String delegatorAddr = "delegatorAddr_example"; // String | Bech32 AccAddress of Delegator
 try {
-    Object result = apiInstance.getValidatorsOfDelegator(delegatorAddr);
+    InlineResponse20010 result = apiInstance.getValidatorsOfDelegator(delegatorAddr);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StakingApi#getValidatorsOfDelegator");
@@ -619,7 +620,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse20010**](InlineResponse20010.md)
 
 ### Authorization
 
@@ -632,7 +633,7 @@ No authorization required
 
 <a name="submitDelegation"></a>
 # **submitDelegation**
-> BroadcastTxCommitResult submitDelegation(delegatorAddr, body)
+> BroadcastTxCommitResult submitDelegation(delegatorAddr, delegation)
 
 Submit delegation
 
@@ -645,9 +646,9 @@ Submit delegation
 
 StakingApi apiInstance = new StakingApi();
 String delegatorAddr = "delegatorAddr_example"; // String | Bech32 AccAddress of Delegator
-Object body = null; // Object | submit delegation to provided validator
+Delegation delegation = new Delegation(); // Delegation | submit delegation to provided validator
 try {
-    BroadcastTxCommitResult result = apiInstance.submitDelegation(delegatorAddr, body);
+    BroadcastTxCommitResult result = apiInstance.submitDelegation(delegatorAddr, delegation);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StakingApi#submitDelegation");
@@ -660,7 +661,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **delegatorAddr** | **String**| Bech32 AccAddress of Delegator |
- **body** | [**Object**](Object.md)| submit delegation to provided validator | [optional]
+ **delegation** | [**Delegation**](Delegation.md)| submit delegation to provided validator | [optional]
 
 ### Return type
 
@@ -677,7 +678,7 @@ No authorization required
 
 <a name="submitRedelegation"></a>
 # **submitRedelegation**
-> StdTx submitRedelegation(delegatorAddr, body)
+> StdTx submitRedelegation(delegatorAddr, delegation)
 
 Submit a redelegation
 
@@ -690,9 +691,9 @@ Submit a redelegation
 
 StakingApi apiInstance = new StakingApi();
 String delegatorAddr = "delegatorAddr_example"; // String | Bech32 AccAddress of Delegator
-Object body = null; // Object | The sender and tx information
+Delegation2 delegation = new Delegation2(); // Delegation2 | The sender and tx information
 try {
-    StdTx result = apiInstance.submitRedelegation(delegatorAddr, body);
+    StdTx result = apiInstance.submitRedelegation(delegatorAddr, delegation);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StakingApi#submitRedelegation");
@@ -705,7 +706,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **delegatorAddr** | **String**| Bech32 AccAddress of Delegator |
- **body** | [**Object**](Object.md)| The sender and tx information | [optional]
+ **delegation** | [**Delegation2**](Delegation2.md)| The sender and tx information | [optional]
 
 ### Return type
 
@@ -722,7 +723,7 @@ No authorization required
 
 <a name="undelegate"></a>
 # **undelegate**
-> BroadcastTxCommitResult undelegate(delegatorAddr, body)
+> BroadcastTxCommitResult undelegate(delegatorAddr, delegation)
 
 Submit an unbonding delegation
 
@@ -735,9 +736,9 @@ Submit an unbonding delegation
 
 StakingApi apiInstance = new StakingApi();
 String delegatorAddr = "delegatorAddr_example"; // String | Bech32 AccAddress of Delegator
-Object body = null; // Object | The password of the account to remove from the KMS
+Delegation1 delegation = new Delegation1(); // Delegation1 | The password of the account to remove from the KMS
 try {
-    BroadcastTxCommitResult result = apiInstance.undelegate(delegatorAddr, body);
+    BroadcastTxCommitResult result = apiInstance.undelegate(delegatorAddr, delegation);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling StakingApi#undelegate");
@@ -750,7 +751,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **delegatorAddr** | **String**| Bech32 AccAddress of Delegator |
- **body** | [**Object**](Object.md)| The password of the account to remove from the KMS | [optional]
+ **delegation** | [**Delegation1**](Delegation1.md)| The password of the account to remove from the KMS | [optional]
 
 ### Return type
 

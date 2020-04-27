@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,16 +20,17 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import io.swagger.client.model.KVPair;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * CheckTxResult
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-26T10:53:15.911+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
 public class CheckTxResult {
   @SerializedName("code")
   private Integer code = null;
@@ -60,7 +62,7 @@ public class CheckTxResult {
    * Get code
    * @return code
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public Integer getCode() {
     return code;
   }
@@ -78,7 +80,7 @@ public class CheckTxResult {
    * Get data
    * @return data
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public String getData() {
     return data;
   }
@@ -96,7 +98,7 @@ public class CheckTxResult {
    * Get gasUsed
    * @return gasUsed
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public Integer getGasUsed() {
     return gasUsed;
   }
@@ -114,7 +116,7 @@ public class CheckTxResult {
    * Get gasWanted
    * @return gasWanted
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public Integer getGasWanted() {
     return gasWanted;
   }
@@ -132,7 +134,7 @@ public class CheckTxResult {
    * Get info
    * @return info
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public String getInfo() {
     return info;
   }
@@ -150,7 +152,7 @@ public class CheckTxResult {
    * Get log
    * @return log
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public String getLog() {
     return log;
   }
@@ -176,7 +178,7 @@ public class CheckTxResult {
    * Get tags
    * @return tags
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public List<KVPair> getTags() {
     return tags;
   }
@@ -187,7 +189,7 @@ public class CheckTxResult {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -230,7 +232,7 @@ public class CheckTxResult {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -238,3 +240,4 @@ public class CheckTxResult {
   }
 
 }
+

@@ -1,3 +1,4 @@
+
 # TallyResult
 
 ## Properties
@@ -7,3 +8,6 @@ Name | Type | Description | Notes
 **abstain** | **String** |  | 
 **no** | **String** |  | 
 **noWithVeto** | **String** |  | 
+
+
+

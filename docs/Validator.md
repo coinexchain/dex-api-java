@@ -1,3 +1,4 @@
+
 # Validator
 
 ## Properties
@@ -9,8 +10,11 @@ Name | Type | Description | Notes
 **status** | **Integer** |  | 
 **tokens** | **String** |  | 
 **delegatorShares** | **String** |  | 
-**description** | **Object** |  | 
+**description** | [**ValidatorDescription**](ValidatorDescription.md) |  | 
 **unbondingHeight** | **String** |  | 
 **unbondingTime** | **String** |  | 
-**commission** | **Object** |  | 
+**commission** | [**ValidatorCommission**](ValidatorCommission.md) |  | 
 **minSelfDelegation** | **String** |  | 
+
+
+

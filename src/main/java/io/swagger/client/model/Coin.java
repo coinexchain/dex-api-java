@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,14 +20,17 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Coin
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-26T10:53:15.911+08:00[Asia/Shanghai]")
-public class Coin {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
+public class Coin extends HashMap<String, Object> {
   @SerializedName("denom")
   private String denom = null;
 
@@ -42,7 +46,7 @@ public class Coin {
    * Get denom
    * @return denom
   **/
-  @Schema(example = "stake", required = true, description = "")
+  @ApiModelProperty(example = "stake", required = true, value = "")
   public String getDenom() {
     return denom;
   }
@@ -60,7 +64,7 @@ public class Coin {
    * Get amount
    * @return amount
   **/
-  @Schema(example = "50", required = true, description = "")
+  @ApiModelProperty(example = "50", required = true, value = "")
   public String getAmount() {
     return amount;
   }
@@ -71,7 +75,7 @@ public class Coin {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -80,12 +84,13 @@ public class Coin {
     }
     Coin coin = (Coin) o;
     return Objects.equals(this.denom, coin.denom) &&
-        Objects.equals(this.amount, coin.amount);
+        Objects.equals(this.amount, coin.amount) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(denom, amount);
+    return Objects.hash(denom, amount, super.hashCode());
   }
 
 
@@ -93,7 +98,7 @@ public class Coin {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Coin {\n");
-    
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    denom: ").append(toIndentedString(denom)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("}");
@@ -104,7 +109,7 @@ public class Coin {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -112,3 +117,4 @@ public class Coin {
   }
 
 }
+

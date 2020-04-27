@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,13 +20,14 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+
 /**
  * BaseMarket
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-26T10:53:15.911+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
 public class BaseMarket {
   @SerializedName("stock")
   private String stock = null;
@@ -48,7 +50,7 @@ public class BaseMarket {
    * Get stock
    * @return stock
   **/
-  @Schema(example = "abc", required = true, description = "")
+  @ApiModelProperty(example = "abc", required = true, value = "")
   public String getStock() {
     return stock;
   }
@@ -66,7 +68,7 @@ public class BaseMarket {
    * Get money
    * @return money
   **/
-  @Schema(example = "cet", required = true, description = "")
+  @ApiModelProperty(example = "cet", required = true, value = "")
   public String getMoney() {
     return money;
   }
@@ -84,7 +86,7 @@ public class BaseMarket {
    * The trading-pair price precision, used to control the price accuracy of the order when token trades, valid range [0, 18]
    * @return pricePrecision
   **/
-  @Schema(example = "10", required = true, description = "The trading-pair price precision, used to control the price accuracy of the order when token trades, valid range [0, 18]")
+  @ApiModelProperty(example = "10", required = true, value = "The trading-pair price precision, used to control the price accuracy of the order when token trades, valid range [0, 18]")
   public String getPricePrecision() {
     return pricePrecision;
   }
@@ -102,7 +104,7 @@ public class BaseMarket {
    * To control the granularity of token trade, the token amount of trade must be a multiple of granularity.
    * @return orderPrecision
   **/
-  @Schema(example = "0", description = "To control the granularity of token trade, the token amount of trade must be a multiple of granularity.")
+  @ApiModelProperty(example = "0", value = "To control the granularity of token trade, the token amount of trade must be a multiple of granularity.")
   public String getOrderPrecision() {
     return orderPrecision;
   }
@@ -113,7 +115,7 @@ public class BaseMarket {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -150,7 +152,7 @@ public class BaseMarket {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -158,3 +160,4 @@ public class BaseMarket {
   }
 
 }
+

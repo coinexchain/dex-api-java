@@ -10,9 +10,13 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
+import io.swagger.client.model.InlineResponse20034;
+import io.swagger.client.model.InlineResponse2004;
+import io.swagger.client.model.Referee;
 import io.swagger.client.model.StdTx;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -30,6 +34,7 @@ public class AuthApiTest {
 
     private final AuthApi api = new AuthApi();
 
+    
     /**
      * Get the account information on blockchain
      *
@@ -41,10 +46,11 @@ public class AuthApiTest {
     @Test
     public void getAccountTest() throws ApiException {
         String address = null;
-        Object response = api.getAccount(address);
+        InlineResponse2004 response = api.getAccount(address);
 
         // TODO: test validations
     }
+    
     /**
      * Get the current auth parameters
      *
@@ -55,10 +61,11 @@ public class AuthApiTest {
      */
     @Test
     public void getAuthParamsTest() throws ApiException {
-        Object response = api.getAuthParams();
+        InlineResponse20034 response = api.getAuthParams();
 
         // TODO: test validations
     }
+    
     /**
      * Set referee for account
      *
@@ -69,10 +76,11 @@ public class AuthApiTest {
      */
     @Test
     public void setRefereeTest() throws ApiException {
-        Object body = null;
         String address = null;
-        StdTx response = api.setReferee(body, address);
+        Referee referee = null;
+        StdTx response = api.setReferee(address, referee);
 
         // TODO: test validations
     }
+    
 }

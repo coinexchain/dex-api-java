@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.api;
 
 import io.swagger.client.ApiCallback;
@@ -27,6 +28,19 @@ import java.io.IOException;
 
 
 import io.swagger.client.model.BroadcastTxCommitResult;
+import io.swagger.client.model.Delegation;
+import io.swagger.client.model.Delegation1;
+import io.swagger.client.model.Delegation2;
+import io.swagger.client.model.InlineResponse20010;
+import io.swagger.client.model.InlineResponse20011;
+import io.swagger.client.model.InlineResponse20012;
+import io.swagger.client.model.InlineResponse20013;
+import io.swagger.client.model.InlineResponse20014;
+import io.swagger.client.model.InlineResponse2005;
+import io.swagger.client.model.InlineResponse2006;
+import io.swagger.client.model.InlineResponse2007;
+import io.swagger.client.model.InlineResponse2008;
+import io.swagger.client.model.InlineResponse2009;
 import io.swagger.client.model.PaginatedQueryTxs;
 import io.swagger.client.model.StdTx;
 
@@ -65,7 +79,7 @@ public class StakingApi {
      */
     public com.squareup.okhttp.Call getDelegationsCall(String delegatorAddr, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/staking/delegators/{delegatorAddr}/delegations"
             .replaceAll("\\{" + "delegatorAddr" + "\\}", apiClient.escapeString(delegatorAddr.toString()));
@@ -92,7 +106,7 @@ public class StakingApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -104,32 +118,30 @@ public class StakingApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getDelegationsValidateBeforeCall(String delegatorAddr, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'delegatorAddr' is set
         if (delegatorAddr == null) {
             throw new ApiException("Missing the required parameter 'delegatorAddr' when calling getDelegations(Async)");
         }
         
+
         com.squareup.okhttp.Call call = getDelegationsCall(delegatorAddr, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get all delegations from a delegator
      * 
      * @param delegatorAddr Bech32 AccAddress of Delegator (required)
-     * @return Object
+     * @return InlineResponse2005
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getDelegations(String delegatorAddr) throws ApiException {
-        ApiResponse<Object> resp = getDelegationsWithHttpInfo(delegatorAddr);
+    public InlineResponse2005 getDelegations(String delegatorAddr) throws ApiException {
+        ApiResponse<InlineResponse2005> resp = getDelegationsWithHttpInfo(delegatorAddr);
         return resp.getData();
     }
 
@@ -137,12 +149,12 @@ public class StakingApi {
      * Get all delegations from a delegator
      * 
      * @param delegatorAddr Bech32 AccAddress of Delegator (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse2005&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getDelegationsWithHttpInfo(String delegatorAddr) throws ApiException {
+    public ApiResponse<InlineResponse2005> getDelegationsWithHttpInfo(String delegatorAddr) throws ApiException {
         com.squareup.okhttp.Call call = getDelegationsValidateBeforeCall(delegatorAddr, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse2005>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -154,7 +166,7 @@ public class StakingApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getDelegationsAsync(String delegatorAddr, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getDelegationsAsync(String delegatorAddr, final ApiCallback<InlineResponse2005> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -176,7 +188,7 @@ public class StakingApi {
         }
 
         com.squareup.okhttp.Call call = getDelegationsValidateBeforeCall(delegatorAddr, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse2005>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -190,7 +202,7 @@ public class StakingApi {
      */
     public com.squareup.okhttp.Call getDelegationsOfValidatorCall(String validatorAddr, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/staking/validators/{validatorAddr}/delegations"
             .replaceAll("\\{" + "validatorAddr" + "\\}", apiClient.escapeString(validatorAddr.toString()));
@@ -217,7 +229,7 @@ public class StakingApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -229,32 +241,30 @@ public class StakingApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getDelegationsOfValidatorValidateBeforeCall(String validatorAddr, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'validatorAddr' is set
         if (validatorAddr == null) {
             throw new ApiException("Missing the required parameter 'validatorAddr' when calling getDelegationsOfValidator(Async)");
         }
         
+
         com.squareup.okhttp.Call call = getDelegationsOfValidatorCall(validatorAddr, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get all delegations from a validator
      * 
      * @param validatorAddr Bech32 OperatorAddress of validator (required)
-     * @return Object
+     * @return InlineResponse2005
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getDelegationsOfValidator(String validatorAddr) throws ApiException {
-        ApiResponse<Object> resp = getDelegationsOfValidatorWithHttpInfo(validatorAddr);
+    public InlineResponse2005 getDelegationsOfValidator(String validatorAddr) throws ApiException {
+        ApiResponse<InlineResponse2005> resp = getDelegationsOfValidatorWithHttpInfo(validatorAddr);
         return resp.getData();
     }
 
@@ -262,12 +272,12 @@ public class StakingApi {
      * Get all delegations from a validator
      * 
      * @param validatorAddr Bech32 OperatorAddress of validator (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse2005&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getDelegationsOfValidatorWithHttpInfo(String validatorAddr) throws ApiException {
+    public ApiResponse<InlineResponse2005> getDelegationsOfValidatorWithHttpInfo(String validatorAddr) throws ApiException {
         com.squareup.okhttp.Call call = getDelegationsOfValidatorValidateBeforeCall(validatorAddr, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse2005>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -279,7 +289,7 @@ public class StakingApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getDelegationsOfValidatorAsync(String validatorAddr, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getDelegationsOfValidatorAsync(String validatorAddr, final ApiCallback<InlineResponse2005> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -301,7 +311,7 @@ public class StakingApi {
         }
 
         com.squareup.okhttp.Call call = getDelegationsOfValidatorValidateBeforeCall(validatorAddr, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse2005>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -316,7 +326,7 @@ public class StakingApi {
      */
     public com.squareup.okhttp.Call getDelegationsToValidatorCall(String delegatorAddr, String validatorAddr, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/staking/delegators/{delegatorAddr}/delegations/{validatorAddr}"
             .replaceAll("\\{" + "delegatorAddr" + "\\}", apiClient.escapeString(delegatorAddr.toString()))
@@ -344,7 +354,7 @@ public class StakingApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -356,25 +366,24 @@ public class StakingApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getDelegationsToValidatorValidateBeforeCall(String delegatorAddr, String validatorAddr, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'delegatorAddr' is set
         if (delegatorAddr == null) {
             throw new ApiException("Missing the required parameter 'delegatorAddr' when calling getDelegationsToValidator(Async)");
         }
+        
         // verify the required parameter 'validatorAddr' is set
         if (validatorAddr == null) {
             throw new ApiException("Missing the required parameter 'validatorAddr' when calling getDelegationsToValidator(Async)");
         }
         
+
         com.squareup.okhttp.Call call = getDelegationsToValidatorCall(delegatorAddr, validatorAddr, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -382,11 +391,11 @@ public class StakingApi {
      * 
      * @param delegatorAddr Bech32 AccAddress of Delegator (required)
      * @param validatorAddr Bech32 OperatorAddress of validator (required)
-     * @return Object
+     * @return InlineResponse2006
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getDelegationsToValidator(String delegatorAddr, String validatorAddr) throws ApiException {
-        ApiResponse<Object> resp = getDelegationsToValidatorWithHttpInfo(delegatorAddr, validatorAddr);
+    public InlineResponse2006 getDelegationsToValidator(String delegatorAddr, String validatorAddr) throws ApiException {
+        ApiResponse<InlineResponse2006> resp = getDelegationsToValidatorWithHttpInfo(delegatorAddr, validatorAddr);
         return resp.getData();
     }
 
@@ -395,12 +404,12 @@ public class StakingApi {
      * 
      * @param delegatorAddr Bech32 AccAddress of Delegator (required)
      * @param validatorAddr Bech32 OperatorAddress of validator (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse2006&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getDelegationsToValidatorWithHttpInfo(String delegatorAddr, String validatorAddr) throws ApiException {
+    public ApiResponse<InlineResponse2006> getDelegationsToValidatorWithHttpInfo(String delegatorAddr, String validatorAddr) throws ApiException {
         com.squareup.okhttp.Call call = getDelegationsToValidatorValidateBeforeCall(delegatorAddr, validatorAddr, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse2006>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -413,7 +422,7 @@ public class StakingApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getDelegationsToValidatorAsync(String delegatorAddr, String validatorAddr, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getDelegationsToValidatorAsync(String delegatorAddr, String validatorAddr, final ApiCallback<InlineResponse2006> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -435,7 +444,7 @@ public class StakingApi {
         }
 
         com.squareup.okhttp.Call call = getDelegationsToValidatorValidateBeforeCall(delegatorAddr, validatorAddr, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse2006>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -449,7 +458,7 @@ public class StakingApi {
      */
     public com.squareup.okhttp.Call getDelegatorTxsCall(String delegatorAddr, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/staking/delegators/{delegatorAddr}/txs"
             .replaceAll("\\{" + "delegatorAddr" + "\\}", apiClient.escapeString(delegatorAddr.toString()));
@@ -476,7 +485,7 @@ public class StakingApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -488,21 +497,19 @@ public class StakingApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getDelegatorTxsValidateBeforeCall(String delegatorAddr, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'delegatorAddr' is set
         if (delegatorAddr == null) {
             throw new ApiException("Missing the required parameter 'delegatorAddr' when calling getDelegatorTxs(Async)");
         }
         
+
         com.squareup.okhttp.Call call = getDelegatorTxsCall(delegatorAddr, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -576,7 +583,7 @@ public class StakingApi {
      */
     public com.squareup.okhttp.Call getRedelegationsCall(String delegator, String validatorFrom, String validatorTo, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/staking/redelegations";
 
@@ -608,7 +615,7 @@ public class StakingApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -620,17 +627,14 @@ public class StakingApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getRedelegationsValidateBeforeCall(String delegator, String validatorFrom, String validatorTo, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+
         com.squareup.okhttp.Call call = getRedelegationsCall(delegator, validatorFrom, validatorTo, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -639,11 +643,11 @@ public class StakingApi {
      * @param delegator Bech32 AccAddress of Delegator (optional)
      * @param validatorFrom Bech32 ValAddress of SrcValidator (optional)
      * @param validatorTo Bech32 ValAddress of DstValidator (optional)
-     * @return Object
+     * @return InlineResponse2009
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getRedelegations(String delegator, String validatorFrom, String validatorTo) throws ApiException {
-        ApiResponse<Object> resp = getRedelegationsWithHttpInfo(delegator, validatorFrom, validatorTo);
+    public InlineResponse2009 getRedelegations(String delegator, String validatorFrom, String validatorTo) throws ApiException {
+        ApiResponse<InlineResponse2009> resp = getRedelegationsWithHttpInfo(delegator, validatorFrom, validatorTo);
         return resp.getData();
     }
 
@@ -653,12 +657,12 @@ public class StakingApi {
      * @param delegator Bech32 AccAddress of Delegator (optional)
      * @param validatorFrom Bech32 ValAddress of SrcValidator (optional)
      * @param validatorTo Bech32 ValAddress of DstValidator (optional)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse2009&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getRedelegationsWithHttpInfo(String delegator, String validatorFrom, String validatorTo) throws ApiException {
+    public ApiResponse<InlineResponse2009> getRedelegationsWithHttpInfo(String delegator, String validatorFrom, String validatorTo) throws ApiException {
         com.squareup.okhttp.Call call = getRedelegationsValidateBeforeCall(delegator, validatorFrom, validatorTo, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse2009>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -672,7 +676,7 @@ public class StakingApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getRedelegationsAsync(String delegator, String validatorFrom, String validatorTo, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getRedelegationsAsync(String delegator, String validatorFrom, String validatorTo, final ApiCallback<InlineResponse2009> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -694,7 +698,7 @@ public class StakingApi {
         }
 
         com.squareup.okhttp.Call call = getRedelegationsValidateBeforeCall(delegator, validatorFrom, validatorTo, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse2009>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -707,7 +711,7 @@ public class StakingApi {
      */
     public com.squareup.okhttp.Call getStakingParametersCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/staking/parameters";
 
@@ -733,7 +737,7 @@ public class StakingApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -745,39 +749,36 @@ public class StakingApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getStakingParametersValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+
         com.squareup.okhttp.Call call = getStakingParametersCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get the current staking parameter values
      * 
-     * @return Object
+     * @return InlineResponse20014
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getStakingParameters() throws ApiException {
-        ApiResponse<Object> resp = getStakingParametersWithHttpInfo();
+    public InlineResponse20014 getStakingParameters() throws ApiException {
+        ApiResponse<InlineResponse20014> resp = getStakingParametersWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * Get the current staking parameter values
      * 
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse20014&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getStakingParametersWithHttpInfo() throws ApiException {
+    public ApiResponse<InlineResponse20014> getStakingParametersWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getStakingParametersValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20014>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -788,7 +789,7 @@ public class StakingApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getStakingParametersAsync(final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getStakingParametersAsync(final ApiCallback<InlineResponse20014> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -810,7 +811,7 @@ public class StakingApi {
         }
 
         com.squareup.okhttp.Call call = getStakingParametersValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20014>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -823,7 +824,7 @@ public class StakingApi {
      */
     public com.squareup.okhttp.Call getStakingPoolCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/staking/pool";
 
@@ -849,7 +850,7 @@ public class StakingApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -861,39 +862,36 @@ public class StakingApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getStakingPoolValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+
         com.squareup.okhttp.Call call = getStakingPoolCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get the current state of the staking pool
      * 
-     * @return Object
+     * @return InlineResponse20013
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getStakingPool() throws ApiException {
-        ApiResponse<Object> resp = getStakingPoolWithHttpInfo();
+    public InlineResponse20013 getStakingPool() throws ApiException {
+        ApiResponse<InlineResponse20013> resp = getStakingPoolWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * Get the current state of the staking pool
      * 
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse20013&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getStakingPoolWithHttpInfo() throws ApiException {
+    public ApiResponse<InlineResponse20013> getStakingPoolWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getStakingPoolValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20013>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -904,7 +902,7 @@ public class StakingApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getStakingPoolAsync(final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getStakingPoolAsync(final ApiCallback<InlineResponse20013> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -926,7 +924,7 @@ public class StakingApi {
         }
 
         com.squareup.okhttp.Call call = getStakingPoolValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20013>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -941,7 +939,7 @@ public class StakingApi {
      */
     public com.squareup.okhttp.Call getUndelegationsBetweenCall(String delegatorAddr, String validatorAddr, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/staking/delegators/{delegatorAddr}/unbonding_delegations/{validatorAddr}"
             .replaceAll("\\{" + "delegatorAddr" + "\\}", apiClient.escapeString(delegatorAddr.toString()))
@@ -969,7 +967,7 @@ public class StakingApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -981,25 +979,24 @@ public class StakingApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getUndelegationsBetweenValidateBeforeCall(String delegatorAddr, String validatorAddr, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'delegatorAddr' is set
         if (delegatorAddr == null) {
             throw new ApiException("Missing the required parameter 'delegatorAddr' when calling getUndelegationsBetween(Async)");
         }
+        
         // verify the required parameter 'validatorAddr' is set
         if (validatorAddr == null) {
             throw new ApiException("Missing the required parameter 'validatorAddr' when calling getUndelegationsBetween(Async)");
         }
         
+
         com.squareup.okhttp.Call call = getUndelegationsBetweenCall(delegatorAddr, validatorAddr, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1007,11 +1004,11 @@ public class StakingApi {
      * 
      * @param delegatorAddr Bech32 AccAddress of Delegator (required)
      * @param validatorAddr Bech32 OperatorAddress of validator (required)
-     * @return Object
+     * @return InlineResponse2008
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getUndelegationsBetween(String delegatorAddr, String validatorAddr) throws ApiException {
-        ApiResponse<Object> resp = getUndelegationsBetweenWithHttpInfo(delegatorAddr, validatorAddr);
+    public InlineResponse2008 getUndelegationsBetween(String delegatorAddr, String validatorAddr) throws ApiException {
+        ApiResponse<InlineResponse2008> resp = getUndelegationsBetweenWithHttpInfo(delegatorAddr, validatorAddr);
         return resp.getData();
     }
 
@@ -1020,12 +1017,12 @@ public class StakingApi {
      * 
      * @param delegatorAddr Bech32 AccAddress of Delegator (required)
      * @param validatorAddr Bech32 OperatorAddress of validator (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse2008&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getUndelegationsBetweenWithHttpInfo(String delegatorAddr, String validatorAddr) throws ApiException {
+    public ApiResponse<InlineResponse2008> getUndelegationsBetweenWithHttpInfo(String delegatorAddr, String validatorAddr) throws ApiException {
         com.squareup.okhttp.Call call = getUndelegationsBetweenValidateBeforeCall(delegatorAddr, validatorAddr, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse2008>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1038,7 +1035,7 @@ public class StakingApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getUndelegationsBetweenAsync(String delegatorAddr, String validatorAddr, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getUndelegationsBetweenAsync(String delegatorAddr, String validatorAddr, final ApiCallback<InlineResponse2008> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1060,7 +1057,7 @@ public class StakingApi {
         }
 
         com.squareup.okhttp.Call call = getUndelegationsBetweenValidateBeforeCall(delegatorAddr, validatorAddr, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse2008>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1074,7 +1071,7 @@ public class StakingApi {
      */
     public com.squareup.okhttp.Call getUndelegationsOfDelegatorCall(String delegatorAddr, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/staking/delegators/{delegatorAddr}/unbonding_delegations"
             .replaceAll("\\{" + "delegatorAddr" + "\\}", apiClient.escapeString(delegatorAddr.toString()));
@@ -1101,7 +1098,7 @@ public class StakingApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1113,32 +1110,30 @@ public class StakingApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getUndelegationsOfDelegatorValidateBeforeCall(String delegatorAddr, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'delegatorAddr' is set
         if (delegatorAddr == null) {
             throw new ApiException("Missing the required parameter 'delegatorAddr' when calling getUndelegationsOfDelegator(Async)");
         }
         
+
         com.squareup.okhttp.Call call = getUndelegationsOfDelegatorCall(delegatorAddr, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get all unbonding delegations from a delegator
      * 
      * @param delegatorAddr Bech32 AccAddress of Delegator (required)
-     * @return Object
+     * @return InlineResponse2007
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getUndelegationsOfDelegator(String delegatorAddr) throws ApiException {
-        ApiResponse<Object> resp = getUndelegationsOfDelegatorWithHttpInfo(delegatorAddr);
+    public InlineResponse2007 getUndelegationsOfDelegator(String delegatorAddr) throws ApiException {
+        ApiResponse<InlineResponse2007> resp = getUndelegationsOfDelegatorWithHttpInfo(delegatorAddr);
         return resp.getData();
     }
 
@@ -1146,12 +1141,12 @@ public class StakingApi {
      * Get all unbonding delegations from a delegator
      * 
      * @param delegatorAddr Bech32 AccAddress of Delegator (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse2007&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getUndelegationsOfDelegatorWithHttpInfo(String delegatorAddr) throws ApiException {
+    public ApiResponse<InlineResponse2007> getUndelegationsOfDelegatorWithHttpInfo(String delegatorAddr) throws ApiException {
         com.squareup.okhttp.Call call = getUndelegationsOfDelegatorValidateBeforeCall(delegatorAddr, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse2007>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1163,7 +1158,7 @@ public class StakingApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getUndelegationsOfDelegatorAsync(String delegatorAddr, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getUndelegationsOfDelegatorAsync(String delegatorAddr, final ApiCallback<InlineResponse2007> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1185,7 +1180,7 @@ public class StakingApi {
         }
 
         com.squareup.okhttp.Call call = getUndelegationsOfDelegatorValidateBeforeCall(delegatorAddr, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse2007>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1199,7 +1194,7 @@ public class StakingApi {
      */
     public com.squareup.okhttp.Call getUndelegationsOfValidatorCall(String validatorAddr, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/staking/validators/{validatorAddr}/unbonding_delegations"
             .replaceAll("\\{" + "validatorAddr" + "\\}", apiClient.escapeString(validatorAddr.toString()));
@@ -1226,7 +1221,7 @@ public class StakingApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1238,32 +1233,30 @@ public class StakingApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getUndelegationsOfValidatorValidateBeforeCall(String validatorAddr, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'validatorAddr' is set
         if (validatorAddr == null) {
             throw new ApiException("Missing the required parameter 'validatorAddr' when calling getUndelegationsOfValidator(Async)");
         }
         
+
         com.squareup.okhttp.Call call = getUndelegationsOfValidatorCall(validatorAddr, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get all unbonding delegations from a validator
      * 
      * @param validatorAddr Bech32 OperatorAddress of validator (required)
-     * @return Object
+     * @return InlineResponse20012
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getUndelegationsOfValidator(String validatorAddr) throws ApiException {
-        ApiResponse<Object> resp = getUndelegationsOfValidatorWithHttpInfo(validatorAddr);
+    public InlineResponse20012 getUndelegationsOfValidator(String validatorAddr) throws ApiException {
+        ApiResponse<InlineResponse20012> resp = getUndelegationsOfValidatorWithHttpInfo(validatorAddr);
         return resp.getData();
     }
 
@@ -1271,12 +1264,12 @@ public class StakingApi {
      * Get all unbonding delegations from a validator
      * 
      * @param validatorAddr Bech32 OperatorAddress of validator (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse20012&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getUndelegationsOfValidatorWithHttpInfo(String validatorAddr) throws ApiException {
+    public ApiResponse<InlineResponse20012> getUndelegationsOfValidatorWithHttpInfo(String validatorAddr) throws ApiException {
         com.squareup.okhttp.Call call = getUndelegationsOfValidatorValidateBeforeCall(validatorAddr, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20012>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1288,7 +1281,7 @@ public class StakingApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getUndelegationsOfValidatorAsync(String validatorAddr, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getUndelegationsOfValidatorAsync(String validatorAddr, final ApiCallback<InlineResponse20012> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1310,7 +1303,7 @@ public class StakingApi {
         }
 
         com.squareup.okhttp.Call call = getUndelegationsOfValidatorValidateBeforeCall(validatorAddr, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20012>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1324,7 +1317,7 @@ public class StakingApi {
      */
     public com.squareup.okhttp.Call getValidatorCall(String validatorAddr, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/staking/validators/{validatorAddr}"
             .replaceAll("\\{" + "validatorAddr" + "\\}", apiClient.escapeString(validatorAddr.toString()));
@@ -1351,7 +1344,7 @@ public class StakingApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1363,32 +1356,30 @@ public class StakingApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getValidatorValidateBeforeCall(String validatorAddr, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'validatorAddr' is set
         if (validatorAddr == null) {
             throw new ApiException("Missing the required parameter 'validatorAddr' when calling getValidator(Async)");
         }
         
+
         com.squareup.okhttp.Call call = getValidatorCall(validatorAddr, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Query the information from a single validator
      * 
      * @param validatorAddr Bech32 OperatorAddress of validator (required)
-     * @return Object
+     * @return InlineResponse20011
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getValidator(String validatorAddr) throws ApiException {
-        ApiResponse<Object> resp = getValidatorWithHttpInfo(validatorAddr);
+    public InlineResponse20011 getValidator(String validatorAddr) throws ApiException {
+        ApiResponse<InlineResponse20011> resp = getValidatorWithHttpInfo(validatorAddr);
         return resp.getData();
     }
 
@@ -1396,12 +1387,12 @@ public class StakingApi {
      * Query the information from a single validator
      * 
      * @param validatorAddr Bech32 OperatorAddress of validator (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse20011&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getValidatorWithHttpInfo(String validatorAddr) throws ApiException {
+    public ApiResponse<InlineResponse20011> getValidatorWithHttpInfo(String validatorAddr) throws ApiException {
         com.squareup.okhttp.Call call = getValidatorValidateBeforeCall(validatorAddr, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20011>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1413,7 +1404,7 @@ public class StakingApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getValidatorAsync(String validatorAddr, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getValidatorAsync(String validatorAddr, final ApiCallback<InlineResponse20011> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1435,7 +1426,7 @@ public class StakingApi {
         }
 
         com.squareup.okhttp.Call call = getValidatorValidateBeforeCall(validatorAddr, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20011>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1450,7 +1441,7 @@ public class StakingApi {
      */
     public com.squareup.okhttp.Call getValidatorOfDelegatorCall(String delegatorAddr, String validatorAddr, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/staking/delegators/{delegatorAddr}/validators/{validatorAddr}"
             .replaceAll("\\{" + "delegatorAddr" + "\\}", apiClient.escapeString(delegatorAddr.toString()))
@@ -1478,7 +1469,7 @@ public class StakingApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1490,25 +1481,24 @@ public class StakingApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getValidatorOfDelegatorValidateBeforeCall(String delegatorAddr, String validatorAddr, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'delegatorAddr' is set
         if (delegatorAddr == null) {
             throw new ApiException("Missing the required parameter 'delegatorAddr' when calling getValidatorOfDelegator(Async)");
         }
+        
         // verify the required parameter 'validatorAddr' is set
         if (validatorAddr == null) {
             throw new ApiException("Missing the required parameter 'validatorAddr' when calling getValidatorOfDelegator(Async)");
         }
         
+
         com.squareup.okhttp.Call call = getValidatorOfDelegatorCall(delegatorAddr, validatorAddr, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -1516,11 +1506,11 @@ public class StakingApi {
      * 
      * @param delegatorAddr Bech32 AccAddress of Delegator (required)
      * @param validatorAddr Bech32 ValAddress of Delegator (required)
-     * @return Object
+     * @return InlineResponse20011
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getValidatorOfDelegator(String delegatorAddr, String validatorAddr) throws ApiException {
-        ApiResponse<Object> resp = getValidatorOfDelegatorWithHttpInfo(delegatorAddr, validatorAddr);
+    public InlineResponse20011 getValidatorOfDelegator(String delegatorAddr, String validatorAddr) throws ApiException {
+        ApiResponse<InlineResponse20011> resp = getValidatorOfDelegatorWithHttpInfo(delegatorAddr, validatorAddr);
         return resp.getData();
     }
 
@@ -1529,12 +1519,12 @@ public class StakingApi {
      * 
      * @param delegatorAddr Bech32 AccAddress of Delegator (required)
      * @param validatorAddr Bech32 ValAddress of Delegator (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse20011&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getValidatorOfDelegatorWithHttpInfo(String delegatorAddr, String validatorAddr) throws ApiException {
+    public ApiResponse<InlineResponse20011> getValidatorOfDelegatorWithHttpInfo(String delegatorAddr, String validatorAddr) throws ApiException {
         com.squareup.okhttp.Call call = getValidatorOfDelegatorValidateBeforeCall(delegatorAddr, validatorAddr, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20011>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1547,7 +1537,7 @@ public class StakingApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getValidatorOfDelegatorAsync(String delegatorAddr, String validatorAddr, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getValidatorOfDelegatorAsync(String delegatorAddr, String validatorAddr, final ApiCallback<InlineResponse20011> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1569,13 +1559,13 @@ public class StakingApi {
         }
 
         com.squareup.okhttp.Call call = getValidatorOfDelegatorValidateBeforeCall(delegatorAddr, validatorAddr, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20011>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getValidators
-     * @param status The validator bond status. Must be either &#x27;bonded&#x27;, &#x27;unbonded&#x27;, or &#x27;unbonding&#x27;. (optional)
+     * @param status The validator bond status. Must be either &#39;bonded&#39;, &#39;unbonded&#39;, or &#39;unbonding&#39;. (optional)
      * @param page The page number. (optional)
      * @param limit The maximum number of items per page. (optional)
      * @param progressListener Progress listener
@@ -1585,7 +1575,7 @@ public class StakingApi {
      */
     public com.squareup.okhttp.Call getValidatorsCall(String status, Integer page, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/staking/validators";
 
@@ -1617,7 +1607,7 @@ public class StakingApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1629,59 +1619,56 @@ public class StakingApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getValidatorsValidateBeforeCall(String status, Integer page, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+
         com.squareup.okhttp.Call call = getValidatorsCall(status, page, limit, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get all validator candidates. By default it returns only the bonded validators.
      * 
-     * @param status The validator bond status. Must be either &#x27;bonded&#x27;, &#x27;unbonded&#x27;, or &#x27;unbonding&#x27;. (optional)
+     * @param status The validator bond status. Must be either &#39;bonded&#39;, &#39;unbonded&#39;, or &#39;unbonding&#39;. (optional)
      * @param page The page number. (optional)
      * @param limit The maximum number of items per page. (optional)
-     * @return Object
+     * @return InlineResponse20010
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getValidators(String status, Integer page, Integer limit) throws ApiException {
-        ApiResponse<Object> resp = getValidatorsWithHttpInfo(status, page, limit);
+    public InlineResponse20010 getValidators(String status, Integer page, Integer limit) throws ApiException {
+        ApiResponse<InlineResponse20010> resp = getValidatorsWithHttpInfo(status, page, limit);
         return resp.getData();
     }
 
     /**
      * Get all validator candidates. By default it returns only the bonded validators.
      * 
-     * @param status The validator bond status. Must be either &#x27;bonded&#x27;, &#x27;unbonded&#x27;, or &#x27;unbonding&#x27;. (optional)
+     * @param status The validator bond status. Must be either &#39;bonded&#39;, &#39;unbonded&#39;, or &#39;unbonding&#39;. (optional)
      * @param page The page number. (optional)
      * @param limit The maximum number of items per page. (optional)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse20010&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getValidatorsWithHttpInfo(String status, Integer page, Integer limit) throws ApiException {
+    public ApiResponse<InlineResponse20010> getValidatorsWithHttpInfo(String status, Integer page, Integer limit) throws ApiException {
         com.squareup.okhttp.Call call = getValidatorsValidateBeforeCall(status, page, limit, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20010>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Get all validator candidates. By default it returns only the bonded validators. (asynchronously)
      * 
-     * @param status The validator bond status. Must be either &#x27;bonded&#x27;, &#x27;unbonded&#x27;, or &#x27;unbonding&#x27;. (optional)
+     * @param status The validator bond status. Must be either &#39;bonded&#39;, &#39;unbonded&#39;, or &#39;unbonding&#39;. (optional)
      * @param page The page number. (optional)
      * @param limit The maximum number of items per page. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getValidatorsAsync(String status, Integer page, Integer limit, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getValidatorsAsync(String status, Integer page, Integer limit, final ApiCallback<InlineResponse20010> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1703,7 +1690,7 @@ public class StakingApi {
         }
 
         com.squareup.okhttp.Call call = getValidatorsValidateBeforeCall(status, page, limit, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20010>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1717,7 +1704,7 @@ public class StakingApi {
      */
     public com.squareup.okhttp.Call getValidatorsOfDelegatorCall(String delegatorAddr, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/staking/delegators/{delegatorAddr}/validators"
             .replaceAll("\\{" + "delegatorAddr" + "\\}", apiClient.escapeString(delegatorAddr.toString()));
@@ -1744,7 +1731,7 @@ public class StakingApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1756,32 +1743,30 @@ public class StakingApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getValidatorsOfDelegatorValidateBeforeCall(String delegatorAddr, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'delegatorAddr' is set
         if (delegatorAddr == null) {
             throw new ApiException("Missing the required parameter 'delegatorAddr' when calling getValidatorsOfDelegator(Async)");
         }
         
+
         com.squareup.okhttp.Call call = getValidatorsOfDelegatorCall(delegatorAddr, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Query all validators that a delegator is bonded to
      * 
      * @param delegatorAddr Bech32 AccAddress of Delegator (required)
-     * @return Object
+     * @return InlineResponse20010
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getValidatorsOfDelegator(String delegatorAddr) throws ApiException {
-        ApiResponse<Object> resp = getValidatorsOfDelegatorWithHttpInfo(delegatorAddr);
+    public InlineResponse20010 getValidatorsOfDelegator(String delegatorAddr) throws ApiException {
+        ApiResponse<InlineResponse20010> resp = getValidatorsOfDelegatorWithHttpInfo(delegatorAddr);
         return resp.getData();
     }
 
@@ -1789,12 +1774,12 @@ public class StakingApi {
      * Query all validators that a delegator is bonded to
      * 
      * @param delegatorAddr Bech32 AccAddress of Delegator (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse20010&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getValidatorsOfDelegatorWithHttpInfo(String delegatorAddr) throws ApiException {
+    public ApiResponse<InlineResponse20010> getValidatorsOfDelegatorWithHttpInfo(String delegatorAddr) throws ApiException {
         com.squareup.okhttp.Call call = getValidatorsOfDelegatorValidateBeforeCall(delegatorAddr, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20010>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1806,7 +1791,7 @@ public class StakingApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getValidatorsOfDelegatorAsync(String delegatorAddr, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getValidatorsOfDelegatorAsync(String delegatorAddr, final ApiCallback<InlineResponse20010> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1828,22 +1813,22 @@ public class StakingApi {
         }
 
         com.squareup.okhttp.Call call = getValidatorsOfDelegatorValidateBeforeCall(delegatorAddr, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20010>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for submitDelegation
      * @param delegatorAddr Bech32 AccAddress of Delegator (required)
-     * @param body submit delegation to provided validator (optional)
+     * @param delegation submit delegation to provided validator (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call submitDelegationCall(String delegatorAddr, Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
+    public com.squareup.okhttp.Call submitDelegationCall(String delegatorAddr, Delegation delegation, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = delegation;
+
         // create path and map variables
         String localVarPath = "/staking/delegators/{delegatorAddr}/delegations"
             .replaceAll("\\{" + "delegatorAddr" + "\\}", apiClient.escapeString(delegatorAddr.toString()));
@@ -1870,7 +1855,7 @@ public class StakingApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1882,33 +1867,31 @@ public class StakingApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call submitDelegationValidateBeforeCall(String delegatorAddr, Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call submitDelegationValidateBeforeCall(String delegatorAddr, Delegation delegation, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'delegatorAddr' is set
         if (delegatorAddr == null) {
             throw new ApiException("Missing the required parameter 'delegatorAddr' when calling submitDelegation(Async)");
         }
         
-        com.squareup.okhttp.Call call = submitDelegationCall(delegatorAddr, body, progressListener, progressRequestListener);
+
+        com.squareup.okhttp.Call call = submitDelegationCall(delegatorAddr, delegation, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Submit delegation
      * 
      * @param delegatorAddr Bech32 AccAddress of Delegator (required)
-     * @param body submit delegation to provided validator (optional)
+     * @param delegation submit delegation to provided validator (optional)
      * @return BroadcastTxCommitResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public BroadcastTxCommitResult submitDelegation(String delegatorAddr, Object body) throws ApiException {
-        ApiResponse<BroadcastTxCommitResult> resp = submitDelegationWithHttpInfo(delegatorAddr, body);
+    public BroadcastTxCommitResult submitDelegation(String delegatorAddr, Delegation delegation) throws ApiException {
+        ApiResponse<BroadcastTxCommitResult> resp = submitDelegationWithHttpInfo(delegatorAddr, delegation);
         return resp.getData();
     }
 
@@ -1916,12 +1899,12 @@ public class StakingApi {
      * Submit delegation
      * 
      * @param delegatorAddr Bech32 AccAddress of Delegator (required)
-     * @param body submit delegation to provided validator (optional)
+     * @param delegation submit delegation to provided validator (optional)
      * @return ApiResponse&lt;BroadcastTxCommitResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<BroadcastTxCommitResult> submitDelegationWithHttpInfo(String delegatorAddr, Object body) throws ApiException {
-        com.squareup.okhttp.Call call = submitDelegationValidateBeforeCall(delegatorAddr, body, null, null);
+    public ApiResponse<BroadcastTxCommitResult> submitDelegationWithHttpInfo(String delegatorAddr, Delegation delegation) throws ApiException {
+        com.squareup.okhttp.Call call = submitDelegationValidateBeforeCall(delegatorAddr, delegation, null, null);
         Type localVarReturnType = new TypeToken<BroadcastTxCommitResult>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1930,12 +1913,12 @@ public class StakingApi {
      * Submit delegation (asynchronously)
      * 
      * @param delegatorAddr Bech32 AccAddress of Delegator (required)
-     * @param body submit delegation to provided validator (optional)
+     * @param delegation submit delegation to provided validator (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call submitDelegationAsync(String delegatorAddr, Object body, final ApiCallback<BroadcastTxCommitResult> callback) throws ApiException {
+    public com.squareup.okhttp.Call submitDelegationAsync(String delegatorAddr, Delegation delegation, final ApiCallback<BroadcastTxCommitResult> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1956,7 +1939,7 @@ public class StakingApi {
             };
         }
 
-        com.squareup.okhttp.Call call = submitDelegationValidateBeforeCall(delegatorAddr, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = submitDelegationValidateBeforeCall(delegatorAddr, delegation, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<BroadcastTxCommitResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1964,15 +1947,15 @@ public class StakingApi {
     /**
      * Build call for submitRedelegation
      * @param delegatorAddr Bech32 AccAddress of Delegator (required)
-     * @param body The sender and tx information (optional)
+     * @param delegation The sender and tx information (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call submitRedelegationCall(String delegatorAddr, Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
+    public com.squareup.okhttp.Call submitRedelegationCall(String delegatorAddr, Delegation2 delegation, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = delegation;
+
         // create path and map variables
         String localVarPath = "/staking/delegators/{delegatorAddr}/redelegations"
             .replaceAll("\\{" + "delegatorAddr" + "\\}", apiClient.escapeString(delegatorAddr.toString()));
@@ -1999,7 +1982,7 @@ public class StakingApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -2011,33 +1994,31 @@ public class StakingApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call submitRedelegationValidateBeforeCall(String delegatorAddr, Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call submitRedelegationValidateBeforeCall(String delegatorAddr, Delegation2 delegation, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'delegatorAddr' is set
         if (delegatorAddr == null) {
             throw new ApiException("Missing the required parameter 'delegatorAddr' when calling submitRedelegation(Async)");
         }
         
-        com.squareup.okhttp.Call call = submitRedelegationCall(delegatorAddr, body, progressListener, progressRequestListener);
+
+        com.squareup.okhttp.Call call = submitRedelegationCall(delegatorAddr, delegation, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Submit a redelegation
      * 
      * @param delegatorAddr Bech32 AccAddress of Delegator (required)
-     * @param body The sender and tx information (optional)
+     * @param delegation The sender and tx information (optional)
      * @return StdTx
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public StdTx submitRedelegation(String delegatorAddr, Object body) throws ApiException {
-        ApiResponse<StdTx> resp = submitRedelegationWithHttpInfo(delegatorAddr, body);
+    public StdTx submitRedelegation(String delegatorAddr, Delegation2 delegation) throws ApiException {
+        ApiResponse<StdTx> resp = submitRedelegationWithHttpInfo(delegatorAddr, delegation);
         return resp.getData();
     }
 
@@ -2045,12 +2026,12 @@ public class StakingApi {
      * Submit a redelegation
      * 
      * @param delegatorAddr Bech32 AccAddress of Delegator (required)
-     * @param body The sender and tx information (optional)
+     * @param delegation The sender and tx information (optional)
      * @return ApiResponse&lt;StdTx&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<StdTx> submitRedelegationWithHttpInfo(String delegatorAddr, Object body) throws ApiException {
-        com.squareup.okhttp.Call call = submitRedelegationValidateBeforeCall(delegatorAddr, body, null, null);
+    public ApiResponse<StdTx> submitRedelegationWithHttpInfo(String delegatorAddr, Delegation2 delegation) throws ApiException {
+        com.squareup.okhttp.Call call = submitRedelegationValidateBeforeCall(delegatorAddr, delegation, null, null);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2059,12 +2040,12 @@ public class StakingApi {
      * Submit a redelegation (asynchronously)
      * 
      * @param delegatorAddr Bech32 AccAddress of Delegator (required)
-     * @param body The sender and tx information (optional)
+     * @param delegation The sender and tx information (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call submitRedelegationAsync(String delegatorAddr, Object body, final ApiCallback<StdTx> callback) throws ApiException {
+    public com.squareup.okhttp.Call submitRedelegationAsync(String delegatorAddr, Delegation2 delegation, final ApiCallback<StdTx> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2085,7 +2066,7 @@ public class StakingApi {
             };
         }
 
-        com.squareup.okhttp.Call call = submitRedelegationValidateBeforeCall(delegatorAddr, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = submitRedelegationValidateBeforeCall(delegatorAddr, delegation, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -2093,15 +2074,15 @@ public class StakingApi {
     /**
      * Build call for undelegate
      * @param delegatorAddr Bech32 AccAddress of Delegator (required)
-     * @param body The password of the account to remove from the KMS (optional)
+     * @param delegation The password of the account to remove from the KMS (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call undelegateCall(String delegatorAddr, Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
+    public com.squareup.okhttp.Call undelegateCall(String delegatorAddr, Delegation1 delegation, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = delegation;
+
         // create path and map variables
         String localVarPath = "/staking/delegators/{delegatorAddr}/unbonding_delegations"
             .replaceAll("\\{" + "delegatorAddr" + "\\}", apiClient.escapeString(delegatorAddr.toString()));
@@ -2128,7 +2109,7 @@ public class StakingApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -2140,33 +2121,31 @@ public class StakingApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call undelegateValidateBeforeCall(String delegatorAddr, Object body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call undelegateValidateBeforeCall(String delegatorAddr, Delegation1 delegation, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'delegatorAddr' is set
         if (delegatorAddr == null) {
             throw new ApiException("Missing the required parameter 'delegatorAddr' when calling undelegate(Async)");
         }
         
-        com.squareup.okhttp.Call call = undelegateCall(delegatorAddr, body, progressListener, progressRequestListener);
+
+        com.squareup.okhttp.Call call = undelegateCall(delegatorAddr, delegation, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Submit an unbonding delegation
      * 
      * @param delegatorAddr Bech32 AccAddress of Delegator (required)
-     * @param body The password of the account to remove from the KMS (optional)
+     * @param delegation The password of the account to remove from the KMS (optional)
      * @return BroadcastTxCommitResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public BroadcastTxCommitResult undelegate(String delegatorAddr, Object body) throws ApiException {
-        ApiResponse<BroadcastTxCommitResult> resp = undelegateWithHttpInfo(delegatorAddr, body);
+    public BroadcastTxCommitResult undelegate(String delegatorAddr, Delegation1 delegation) throws ApiException {
+        ApiResponse<BroadcastTxCommitResult> resp = undelegateWithHttpInfo(delegatorAddr, delegation);
         return resp.getData();
     }
 
@@ -2174,12 +2153,12 @@ public class StakingApi {
      * Submit an unbonding delegation
      * 
      * @param delegatorAddr Bech32 AccAddress of Delegator (required)
-     * @param body The password of the account to remove from the KMS (optional)
+     * @param delegation The password of the account to remove from the KMS (optional)
      * @return ApiResponse&lt;BroadcastTxCommitResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<BroadcastTxCommitResult> undelegateWithHttpInfo(String delegatorAddr, Object body) throws ApiException {
-        com.squareup.okhttp.Call call = undelegateValidateBeforeCall(delegatorAddr, body, null, null);
+    public ApiResponse<BroadcastTxCommitResult> undelegateWithHttpInfo(String delegatorAddr, Delegation1 delegation) throws ApiException {
+        com.squareup.okhttp.Call call = undelegateValidateBeforeCall(delegatorAddr, delegation, null, null);
         Type localVarReturnType = new TypeToken<BroadcastTxCommitResult>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2188,12 +2167,12 @@ public class StakingApi {
      * Submit an unbonding delegation (asynchronously)
      * 
      * @param delegatorAddr Bech32 AccAddress of Delegator (required)
-     * @param body The password of the account to remove from the KMS (optional)
+     * @param delegation The password of the account to remove from the KMS (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call undelegateAsync(String delegatorAddr, Object body, final ApiCallback<BroadcastTxCommitResult> callback) throws ApiException {
+    public com.squareup.okhttp.Call undelegateAsync(String delegatorAddr, Delegation1 delegation, final ApiCallback<BroadcastTxCommitResult> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2214,7 +2193,7 @@ public class StakingApi {
             };
         }
 
-        com.squareup.okhttp.Call call = undelegateValidateBeforeCall(delegatorAddr, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = undelegateValidateBeforeCall(delegatorAddr, delegation, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<BroadcastTxCommitResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

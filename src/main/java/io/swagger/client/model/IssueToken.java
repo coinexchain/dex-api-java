@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,15 +20,18 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import io.swagger.client.model.BaseReq;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * IssueToken
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-26T10:53:15.911+08:00[Asia/Shanghai]")
-public class IssueToken {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
+public class IssueToken extends HashMap<String, Object> {
   @SerializedName("base_req")
   private BaseReq baseReq = null;
 
@@ -73,7 +77,7 @@ public class IssueToken {
    * Get baseReq
    * @return baseReq
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public BaseReq getBaseReq() {
     return baseReq;
   }
@@ -91,7 +95,7 @@ public class IssueToken {
    * Get name
    * @return name
   **/
-  @Schema(example = "ABC Token", required = true, description = "")
+  @ApiModelProperty(example = "ABC Token", required = true, value = "")
   public String getName() {
     return name;
   }
@@ -109,7 +113,7 @@ public class IssueToken {
    * Get symbol
    * @return symbol
   **/
-  @Schema(example = "abc", required = true, description = "")
+  @ApiModelProperty(example = "abc", required = true, value = "")
   public String getSymbol() {
     return symbol;
   }
@@ -127,7 +131,7 @@ public class IssueToken {
    * Get totalSupply
    * @return totalSupply
   **/
-  @Schema(example = "2000000000000000", required = true, description = "")
+  @ApiModelProperty(example = "2000000000000000", required = true, value = "")
   public String getTotalSupply() {
     return totalSupply;
   }
@@ -145,7 +149,7 @@ public class IssueToken {
    * Get owner
    * @return owner
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public String getOwner() {
     return owner;
   }
@@ -163,7 +167,7 @@ public class IssueToken {
    * Get mintable
    * @return mintable
   **/
-  @Schema(example = "false", required = true, description = "")
+  @ApiModelProperty(example = "false", required = true, value = "")
   public Boolean isMintable() {
     return mintable;
   }
@@ -181,7 +185,7 @@ public class IssueToken {
    * Get burnable
    * @return burnable
   **/
-  @Schema(example = "true", required = true, description = "")
+  @ApiModelProperty(example = "true", required = true, value = "")
   public Boolean isBurnable() {
     return burnable;
   }
@@ -199,7 +203,7 @@ public class IssueToken {
    * Get addrForbiddable
    * @return addrForbiddable
   **/
-  @Schema(example = "false", required = true, description = "")
+  @ApiModelProperty(example = "false", required = true, value = "")
   public Boolean isAddrForbiddable() {
     return addrForbiddable;
   }
@@ -217,7 +221,7 @@ public class IssueToken {
    * Get tokenForbiddable
    * @return tokenForbiddable
   **/
-  @Schema(example = "false", required = true, description = "")
+  @ApiModelProperty(example = "false", required = true, value = "")
   public Boolean isTokenForbiddable() {
     return tokenForbiddable;
   }
@@ -235,7 +239,7 @@ public class IssueToken {
    * Get url
    * @return url
   **/
-  @Schema(example = "www.abc.org", description = "")
+  @ApiModelProperty(example = "www.abc.org", value = "")
   public String getUrl() {
     return url;
   }
@@ -253,7 +257,7 @@ public class IssueToken {
    * Get description
    * @return description
   **/
-  @Schema(example = "token abc is a example token", description = "")
+  @ApiModelProperty(example = "token abc is a example token", value = "")
   public String getDescription() {
     return description;
   }
@@ -271,7 +275,7 @@ public class IssueToken {
    * Get identity
    * @return identity
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public String getIdentity() {
     return identity;
   }
@@ -282,7 +286,7 @@ public class IssueToken {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -301,12 +305,13 @@ public class IssueToken {
         Objects.equals(this.tokenForbiddable, issueToken.tokenForbiddable) &&
         Objects.equals(this.url, issueToken.url) &&
         Objects.equals(this.description, issueToken.description) &&
-        Objects.equals(this.identity, issueToken.identity);
+        Objects.equals(this.identity, issueToken.identity) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(baseReq, name, symbol, totalSupply, owner, mintable, burnable, addrForbiddable, tokenForbiddable, url, description, identity);
+    return Objects.hash(baseReq, name, symbol, totalSupply, owner, mintable, burnable, addrForbiddable, tokenForbiddable, url, description, identity, super.hashCode());
   }
 
 
@@ -314,7 +319,7 @@ public class IssueToken {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IssueToken {\n");
-    
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    baseReq: ").append(toIndentedString(baseReq)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    symbol: ").append(toIndentedString(symbol)).append("\n");
@@ -335,7 +340,7 @@ public class IssueToken {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -343,3 +348,4 @@ public class IssueToken {
   }
 
 }
+

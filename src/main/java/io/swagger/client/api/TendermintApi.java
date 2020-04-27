@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.api;
 
 import io.swagger.client.ApiCallback;
@@ -28,6 +29,9 @@ import java.io.IOException;
 
 import java.math.BigDecimal;
 import io.swagger.client.model.BlockQuery;
+import io.swagger.client.model.InlineResponse200;
+import io.swagger.client.model.InlineResponse2001;
+import io.swagger.client.model.InlineResponse2002;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -64,7 +68,7 @@ public class TendermintApi {
      */
     public com.squareup.okhttp.Call getBlockCall(BigDecimal height, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/blocks/{height}"
             .replaceAll("\\{" + "height" + "\\}", apiClient.escapeString(height.toString()));
@@ -91,7 +95,7 @@ public class TendermintApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -103,21 +107,19 @@ public class TendermintApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getBlockValidateBeforeCall(BigDecimal height, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'height' is set
         if (height == null) {
             throw new ApiException("Missing the required parameter 'height' when calling getBlock(Async)");
         }
         
+
         com.squareup.okhttp.Call call = getBlockCall(height, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -188,7 +190,7 @@ public class TendermintApi {
      */
     public com.squareup.okhttp.Call getLatestBlockCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/blocks/latest";
 
@@ -214,7 +216,7 @@ public class TendermintApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -226,17 +228,14 @@ public class TendermintApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getLatestBlockValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+
         com.squareup.okhttp.Call call = getLatestBlockCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -304,7 +303,7 @@ public class TendermintApi {
      */
     public com.squareup.okhttp.Call getLatestValidatorSetCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/validatorsets/latest";
 
@@ -330,7 +329,7 @@ public class TendermintApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -342,39 +341,36 @@ public class TendermintApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getLatestValidatorSetValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+
         com.squareup.okhttp.Call call = getLatestValidatorSetCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get the latest validator set
      * 
-     * @return Object
+     * @return InlineResponse2001
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getLatestValidatorSet() throws ApiException {
-        ApiResponse<Object> resp = getLatestValidatorSetWithHttpInfo();
+    public InlineResponse2001 getLatestValidatorSet() throws ApiException {
+        ApiResponse<InlineResponse2001> resp = getLatestValidatorSetWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * Get the latest validator set
      * 
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse2001&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getLatestValidatorSetWithHttpInfo() throws ApiException {
+    public ApiResponse<InlineResponse2001> getLatestValidatorSetWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getLatestValidatorSetValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -385,7 +381,7 @@ public class TendermintApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getLatestValidatorSetAsync(final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getLatestValidatorSetAsync(final ApiCallback<InlineResponse2001> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -407,7 +403,7 @@ public class TendermintApi {
         }
 
         com.squareup.okhttp.Call call = getLatestValidatorSetValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -420,7 +416,7 @@ public class TendermintApi {
      */
     public com.squareup.okhttp.Call getNodeInfoCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/node_info";
 
@@ -446,7 +442,7 @@ public class TendermintApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -458,39 +454,36 @@ public class TendermintApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getNodeInfoValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+
         com.squareup.okhttp.Call call = getNodeInfoCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * The properties of the connected node
      * Information about the connected node
-     * @return Object
+     * @return InlineResponse200
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getNodeInfo() throws ApiException {
-        ApiResponse<Object> resp = getNodeInfoWithHttpInfo();
+    public InlineResponse200 getNodeInfo() throws ApiException {
+        ApiResponse<InlineResponse200> resp = getNodeInfoWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * The properties of the connected node
      * Information about the connected node
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse200&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getNodeInfoWithHttpInfo() throws ApiException {
+    public ApiResponse<InlineResponse200> getNodeInfoWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getNodeInfoValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -501,7 +494,7 @@ public class TendermintApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getNodeInfoAsync(final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getNodeInfoAsync(final ApiCallback<InlineResponse200> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -523,7 +516,7 @@ public class TendermintApi {
         }
 
         com.squareup.okhttp.Call call = getNodeInfoValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -536,7 +529,7 @@ public class TendermintApi {
      */
     public com.squareup.okhttp.Call getSyncingCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/syncing";
 
@@ -562,7 +555,7 @@ public class TendermintApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -574,17 +567,14 @@ public class TendermintApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getSyncingValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+
         com.squareup.okhttp.Call call = getSyncingCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -649,7 +639,7 @@ public class TendermintApi {
      */
     public com.squareup.okhttp.Call getValidatorSetCall(BigDecimal height, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/validatorsets/{height}"
             .replaceAll("\\{" + "height" + "\\}", apiClient.escapeString(height.toString()));
@@ -676,7 +666,7 @@ public class TendermintApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -688,32 +678,30 @@ public class TendermintApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getValidatorSetValidateBeforeCall(BigDecimal height, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'height' is set
         if (height == null) {
             throw new ApiException("Missing the required parameter 'height' when calling getValidatorSet(Async)");
         }
         
+
         com.squareup.okhttp.Call call = getValidatorSetCall(height, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get a validator set a certain height
      * 
      * @param height Block height (required)
-     * @return Object
+     * @return InlineResponse2002
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getValidatorSet(BigDecimal height) throws ApiException {
-        ApiResponse<Object> resp = getValidatorSetWithHttpInfo(height);
+    public InlineResponse2002 getValidatorSet(BigDecimal height) throws ApiException {
+        ApiResponse<InlineResponse2002> resp = getValidatorSetWithHttpInfo(height);
         return resp.getData();
     }
 
@@ -721,12 +709,12 @@ public class TendermintApi {
      * Get a validator set a certain height
      * 
      * @param height Block height (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse2002&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getValidatorSetWithHttpInfo(BigDecimal height) throws ApiException {
+    public ApiResponse<InlineResponse2002> getValidatorSetWithHttpInfo(BigDecimal height) throws ApiException {
         com.squareup.okhttp.Call call = getValidatorSetValidateBeforeCall(height, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse2002>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -738,7 +726,7 @@ public class TendermintApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getValidatorSetAsync(BigDecimal height, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getValidatorSetAsync(BigDecimal height, final ApiCallback<InlineResponse2002> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -760,7 +748,7 @@ public class TendermintApi {
         }
 
         com.squareup.okhttp.Call call = getValidatorSetValidateBeforeCall(height, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse2002>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

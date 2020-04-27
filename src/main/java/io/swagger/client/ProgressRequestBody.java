@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client;
 
 import com.squareup.okhttp.MediaType;

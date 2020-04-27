@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,14 +20,15 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import io.swagger.client.model.BaseMarket;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+
 /**
  * MarketInfo
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-26T10:53:15.911+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
 public class MarketInfo extends BaseMarket {
   @SerializedName("last_executed_price")
   private String lastExecutedPrice = null;
@@ -43,7 +45,7 @@ public class MarketInfo extends BaseMarket {
    * Get lastExecutedPrice
    * @return lastExecutedPrice
   **/
-  @Schema(example = "0.00002", description = "")
+  @ApiModelProperty(example = "0.00002", value = "")
   public String getLastExecutedPrice() {
     return lastExecutedPrice;
   }
@@ -61,7 +63,7 @@ public class MarketInfo extends BaseMarket {
    * Get creator
    * @return creator
   **/
-  @Schema(example = "coinex1dmz7e2fddhejdz5n7e3qc5szx3zn2gj3ta8rwj", description = "")
+  @ApiModelProperty(example = "coinex1dmz7e2fddhejdz5n7e3qc5szx3zn2gj3ta8rwj", value = "")
   public String getCreator() {
     return creator;
   }
@@ -72,7 +74,7 @@ public class MarketInfo extends BaseMarket {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -106,7 +108,7 @@ public class MarketInfo extends BaseMarket {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -114,3 +116,4 @@ public class MarketInfo extends BaseMarket {
   }
 
 }
+

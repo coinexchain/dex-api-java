@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,15 +20,16 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * CommentRef
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-26T10:53:15.911+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
 public class CommentRef {
   @SerializedName("id")
   private String id = null;
@@ -53,7 +55,7 @@ public class CommentRef {
    * Get id
    * @return id
   **/
-  @Schema(example = "9883409", required = true, description = "")
+  @ApiModelProperty(example = "9883409", required = true, value = "")
   public String getId() {
     return id;
   }
@@ -71,7 +73,7 @@ public class CommentRef {
    * Get rewardTarget
    * @return rewardTarget
   **/
-  @Schema(example = "coinex1qwl879nx9t6kef4supyazayf7vjhennyjqwjgr", required = true, description = "")
+  @ApiModelProperty(example = "coinex1qwl879nx9t6kef4supyazayf7vjhennyjqwjgr", required = true, value = "")
   public String getRewardTarget() {
     return rewardTarget;
   }
@@ -89,7 +91,7 @@ public class CommentRef {
    * Get rewardToken
    * @return rewardToken
   **/
-  @Schema(example = "cet", required = true, description = "")
+  @ApiModelProperty(example = "cet", required = true, value = "")
   public String getRewardToken() {
     return rewardToken;
   }
@@ -107,7 +109,7 @@ public class CommentRef {
    * Get rewardAmount
    * @return rewardAmount
   **/
-  @Schema(example = "200000000", required = true, description = "")
+  @ApiModelProperty(example = "200000000", required = true, value = "")
   public String getRewardAmount() {
     return rewardAmount;
   }
@@ -130,7 +132,7 @@ public class CommentRef {
    * Get attitudes
    * @return attitudes
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public List<Integer> getAttitudes() {
     return attitudes;
   }
@@ -141,7 +143,7 @@ public class CommentRef {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -180,7 +182,7 @@ public class CommentRef {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -188,3 +190,4 @@ public class CommentRef {
   }
 
 }
+

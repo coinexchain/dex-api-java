@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,23 +20,27 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import io.swagger.client.model.Coin;
 import io.swagger.client.model.TallyResult;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.client.model.TextProposalContent;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 /**
  * TextProposal
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-26T10:53:15.911+08:00[Asia/Shanghai]")
-public class TextProposal {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
+public class TextProposal extends HashMap<String, Object> {
   @SerializedName("id")
   private String id = null;
 
   @SerializedName("content")
-  private Object content = null;
+  private TextProposalContent content = null;
 
   @SerializedName("deposit_end_time")
   private String depositEndTime = null;
@@ -67,7 +72,7 @@ public class TextProposal {
    * Get id
    * @return id
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getId() {
     return id;
   }
@@ -76,7 +81,7 @@ public class TextProposal {
     this.id = id;
   }
 
-  public TextProposal content(Object content) {
+  public TextProposal content(TextProposalContent content) {
     this.content = content;
     return this;
   }
@@ -85,12 +90,12 @@ public class TextProposal {
    * Get content
    * @return content
   **/
-  @Schema(required = true, description = "")
-  public Object getContent() {
+  @ApiModelProperty(required = true, value = "")
+  public TextProposalContent getContent() {
     return content;
   }
 
-  public void setContent(Object content) {
+  public void setContent(TextProposalContent content) {
     this.content = content;
   }
 
@@ -103,7 +108,7 @@ public class TextProposal {
    * Get depositEndTime
    * @return depositEndTime
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getDepositEndTime() {
     return depositEndTime;
   }
@@ -121,7 +126,7 @@ public class TextProposal {
    * Get proposalStatus
    * @return proposalStatus
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getProposalStatus() {
     return proposalStatus;
   }
@@ -139,7 +144,7 @@ public class TextProposal {
    * Get finalTallyResult
    * @return finalTallyResult
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public TallyResult getFinalTallyResult() {
     return finalTallyResult;
   }
@@ -157,7 +162,7 @@ public class TextProposal {
    * Get submitTime
    * @return submitTime
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getSubmitTime() {
     return submitTime;
   }
@@ -180,7 +185,7 @@ public class TextProposal {
    * Get totalDeposit
    * @return totalDeposit
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public List<Coin> getTotalDeposit() {
     return totalDeposit;
   }
@@ -198,7 +203,7 @@ public class TextProposal {
    * Get votingStartTime
    * @return votingStartTime
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getVotingStartTime() {
     return votingStartTime;
   }
@@ -216,7 +221,7 @@ public class TextProposal {
    * Get votingEndTime
    * @return votingEndTime
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getVotingEndTime() {
     return votingEndTime;
   }
@@ -227,7 +232,7 @@ public class TextProposal {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -243,12 +248,13 @@ public class TextProposal {
         Objects.equals(this.submitTime, textProposal.submitTime) &&
         Objects.equals(this.totalDeposit, textProposal.totalDeposit) &&
         Objects.equals(this.votingStartTime, textProposal.votingStartTime) &&
-        Objects.equals(this.votingEndTime, textProposal.votingEndTime);
+        Objects.equals(this.votingEndTime, textProposal.votingEndTime) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, content, depositEndTime, proposalStatus, finalTallyResult, submitTime, totalDeposit, votingStartTime, votingEndTime);
+    return Objects.hash(id, content, depositEndTime, proposalStatus, finalTallyResult, submitTime, totalDeposit, votingStartTime, votingEndTime, super.hashCode());
   }
 
 
@@ -256,7 +262,7 @@ public class TextProposal {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TextProposal {\n");
-    
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    depositEndTime: ").append(toIndentedString(depositEndTime)).append("\n");
@@ -274,7 +280,7 @@ public class TextProposal {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -282,3 +288,4 @@ public class TextProposal {
   }
 
 }
+

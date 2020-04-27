@@ -1,6 +1,6 @@
 # AssetApi
 
-All URIs are relative to *https://dex-api.coinex.org/*
+All URIs are relative to *https://dex-api.coinex.org*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -22,9 +22,10 @@ Method | HTTP request | Description
 [**unForbidAddr**](AssetApi.md#unForbidAddr) | **POST** /asset/tokens/{symbol}/unforbidden/addresses | UnForbid address
 [**unFrobidToken**](AssetApi.md#unFrobidToken) | **POST** /asset/tokens/{symbol}/unforbids | UnForbid token
 
+
 <a name="addWhitelist"></a>
 # **addWhitelist**
-> StdTx addWhitelist(body, symbol)
+> StdTx addWhitelist(symbol, whitelist)
 
 Add forbid whitelist
 
@@ -38,10 +39,10 @@ Add forbiddable token whitelist addr
 
 
 AssetApi apiInstance = new AssetApi();
-Whitelist body = new Whitelist(); // Whitelist | token whitelist addr
 String symbol = "symbol_example"; // String | token symbol
+Whitelist whitelist = new Whitelist(); // Whitelist | token whitelist addr
 try {
-    StdTx result = apiInstance.addWhitelist(body, symbol);
+    StdTx result = apiInstance.addWhitelist(symbol, whitelist);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AssetApi#addWhitelist");
@@ -53,8 +54,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Whitelist**](Whitelist.md)| token whitelist addr |
  **symbol** | **String**| token symbol |
+ **whitelist** | [**Whitelist**](Whitelist.md)| token whitelist addr |
 
 ### Return type
 
@@ -71,7 +72,7 @@ No authorization required
 
 <a name="burnToken"></a>
 # **burnToken**
-> StdTx burnToken(body, symbol)
+> StdTx burnToken(symbol, amount)
 
 Burn token
 
@@ -85,10 +86,10 @@ Burn burnable token
 
 
 AssetApi apiInstance = new AssetApi();
-Object body = null; // Object | burn token amount
 String symbol = "symbol_example"; // String | token symbol
+Amount2 amount = new Amount2(); // Amount2 | burn token amount
 try {
-    StdTx result = apiInstance.burnToken(body, symbol);
+    StdTx result = apiInstance.burnToken(symbol, amount);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AssetApi#burnToken");
@@ -100,8 +101,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)| burn token amount |
  **symbol** | **String**| token symbol |
+ **amount** | [**Amount2**](Amount2.md)| burn token amount |
 
 ### Return type
 
@@ -118,7 +119,7 @@ No authorization required
 
 <a name="forbidAddr"></a>
 # **forbidAddr**
-> StdTx forbidAddr(body, symbol)
+> StdTx forbidAddr(symbol, addresses)
 
 Forbid address
 
@@ -132,10 +133,10 @@ Add forbidden addresses
 
 
 AssetApi apiInstance = new AssetApi();
-Addresses body = new Addresses(); // Addresses | forbidden addresses
 String symbol = "symbol_example"; // String | token symbol
+Addresses addresses = new Addresses(); // Addresses | forbidden addresses
 try {
-    StdTx result = apiInstance.forbidAddr(body, symbol);
+    StdTx result = apiInstance.forbidAddr(symbol, addresses);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AssetApi#forbidAddr");
@@ -147,8 +148,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Addresses**](Addresses.md)| forbidden addresses |
  **symbol** | **String**| token symbol |
+ **addresses** | [**Addresses**](Addresses.md)| forbidden addresses |
 
 ### Return type
 
@@ -165,7 +166,7 @@ No authorization required
 
 <a name="forbidToken"></a>
 # **forbidToken**
-> StdTx forbidToken(body, symbol)
+> StdTx forbidToken(symbol, baseReq)
 
 Forbid token
 
@@ -179,10 +180,10 @@ Forbid forbiddable token
 
 
 AssetApi apiInstance = new AssetApi();
-Object body = null; // Object | base req
 String symbol = "symbol_example"; // String | token symbol
+BaseReq baseReq = new BaseReq(); // BaseReq | base req
 try {
-    StdTx result = apiInstance.forbidToken(body, symbol);
+    StdTx result = apiInstance.forbidToken(symbol, baseReq);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AssetApi#forbidToken");
@@ -194,8 +195,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)| base req |
  **symbol** | **String**| token symbol |
+ **baseReq** | [**BaseReq**](BaseReq.md)| base req |
 
 ### Return type
 
@@ -212,7 +213,7 @@ No authorization required
 
 <a name="getAssetParams"></a>
 # **getAssetParams**
-> Object getAssetParams()
+> InlineResponse20037 getAssetParams()
 
 Get the current asset parameters
 
@@ -225,7 +226,7 @@ Get the current asset parameters
 
 AssetApi apiInstance = new AssetApi();
 try {
-    Object result = apiInstance.getAssetParams();
+    InlineResponse20037 result = apiInstance.getAssetParams();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AssetApi#getAssetParams");
@@ -238,7 +239,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Object**
+[**InlineResponse20037**](InlineResponse20037.md)
 
 ### Authorization
 
@@ -251,7 +252,7 @@ No authorization required
 
 <a name="getForbiddenAddresses"></a>
 # **getForbiddenAddresses**
-> Object getForbiddenAddresses(symbol)
+> InlineResponse20040 getForbiddenAddresses(symbol)
 
 query forbidden addresses
 
@@ -267,7 +268,7 @@ Get forbidden addresses with provided &#x60;symbol&#x60;
 AssetApi apiInstance = new AssetApi();
 String symbol = "symbol_example"; // String | token symbol
 try {
-    Object result = apiInstance.getForbiddenAddresses(symbol);
+    InlineResponse20040 result = apiInstance.getForbiddenAddresses(symbol);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AssetApi#getForbiddenAddresses");
@@ -283,7 +284,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse20040**](InlineResponse20040.md)
 
 ### Authorization
 
@@ -296,7 +297,7 @@ No authorization required
 
 <a name="getReservedSymbols"></a>
 # **getReservedSymbols**
-> Object getReservedSymbols()
+> InlineResponse20041 getReservedSymbols()
 
 List reserved symbols
 
@@ -311,7 +312,7 @@ List all reserved symbols
 
 AssetApi apiInstance = new AssetApi();
 try {
-    Object result = apiInstance.getReservedSymbols();
+    InlineResponse20041 result = apiInstance.getReservedSymbols();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AssetApi#getReservedSymbols");
@@ -324,7 +325,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Object**
+[**InlineResponse20041**](InlineResponse20041.md)
 
 ### Authorization
 
@@ -337,7 +338,7 @@ No authorization required
 
 <a name="getToken"></a>
 # **getToken**
-> Object getToken(symbol)
+> InlineResponse20039 getToken(symbol)
 
 queryToken
 
@@ -353,7 +354,7 @@ Get token with provided &#x60;symbol&#x60;
 AssetApi apiInstance = new AssetApi();
 String symbol = "symbol_example"; // String | token symbol
 try {
-    Object result = apiInstance.getToken(symbol);
+    InlineResponse20039 result = apiInstance.getToken(symbol);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AssetApi#getToken");
@@ -369,7 +370,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse20039**](InlineResponse20039.md)
 
 ### Authorization
 
@@ -382,7 +383,7 @@ No authorization required
 
 <a name="getTokenList"></a>
 # **getTokenList**
-> Object getTokenList()
+> InlineResponse20038 getTokenList()
 
 List tokens
 
@@ -397,7 +398,7 @@ List all existing tokens
 
 AssetApi apiInstance = new AssetApi();
 try {
-    Object result = apiInstance.getTokenList();
+    InlineResponse20038 result = apiInstance.getTokenList();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AssetApi#getTokenList");
@@ -410,7 +411,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Object**
+[**InlineResponse20038**](InlineResponse20038.md)
 
 ### Authorization
 
@@ -423,7 +424,7 @@ No authorization required
 
 <a name="getWhitelist"></a>
 # **getWhitelist**
-> Object getWhitelist(symbol)
+> InlineResponse20040 getWhitelist(symbol)
 
 queryWhitelist
 
@@ -439,7 +440,7 @@ Get token whitelist with provided &#x60;symbol&#x60;
 AssetApi apiInstance = new AssetApi();
 String symbol = "symbol_example"; // String | token symbol
 try {
-    Object result = apiInstance.getWhitelist(symbol);
+    InlineResponse20040 result = apiInstance.getWhitelist(symbol);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AssetApi#getWhitelist");
@@ -455,7 +456,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse20040**](InlineResponse20040.md)
 
 ### Authorization
 
@@ -468,7 +469,7 @@ No authorization required
 
 <a name="issueToken"></a>
 # **issueToken**
-> StdTx issueToken(body)
+> StdTx issueToken(tokenInfo)
 
 Issue token
 
@@ -482,9 +483,9 @@ Issue a new Token
 
 
 AssetApi apiInstance = new AssetApi();
-IssueToken body = new IssueToken(); // IssueToken | the detail info about the Token to issue
+IssueToken tokenInfo = new IssueToken(); // IssueToken | the detail info about the Token to issue
 try {
-    StdTx result = apiInstance.issueToken(body);
+    StdTx result = apiInstance.issueToken(tokenInfo);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AssetApi#issueToken");
@@ -496,7 +497,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**IssueToken**](IssueToken.md)| the detail info about the Token to issue |
+ **tokenInfo** | [**IssueToken**](IssueToken.md)| the detail info about the Token to issue |
 
 ### Return type
 
@@ -513,7 +514,7 @@ No authorization required
 
 <a name="mintToken"></a>
 # **mintToken**
-> StdTx mintToken(body, symbol)
+> StdTx mintToken(symbol, amount)
 
 Mint token
 
@@ -527,10 +528,10 @@ Mint mintable token
 
 
 AssetApi apiInstance = new AssetApi();
-Object body = null; // Object | mint token amount
 String symbol = "symbol_example"; // String | token symbol
+Amount1 amount = new Amount1(); // Amount1 | mint token amount
 try {
-    StdTx result = apiInstance.mintToken(body, symbol);
+    StdTx result = apiInstance.mintToken(symbol, amount);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AssetApi#mintToken");
@@ -542,8 +543,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)| mint token amount |
  **symbol** | **String**| token symbol |
+ **amount** | [**Amount1**](Amount1.md)| mint token amount |
 
 ### Return type
 
@@ -560,7 +561,7 @@ No authorization required
 
 <a name="modifyTokenInfo"></a>
 # **modifyTokenInfo**
-> StdTx modifyTokenInfo(body, symbol)
+> StdTx modifyTokenInfo(symbol, info)
 
 Modify token info
 
@@ -574,10 +575,10 @@ Modify token info
 
 
 AssetApi apiInstance = new AssetApi();
-Object body = null; // Object | new token info
 String symbol = "symbol_example"; // String | token symbol
+Info info = new Info(); // Info | new token info
 try {
-    StdTx result = apiInstance.modifyTokenInfo(body, symbol);
+    StdTx result = apiInstance.modifyTokenInfo(symbol, info);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AssetApi#modifyTokenInfo");
@@ -589,8 +590,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)| new token info |
  **symbol** | **String**| token symbol |
+ **info** | [**Info**](Info.md)| new token info |
 
 ### Return type
 
@@ -607,7 +608,7 @@ No authorization required
 
 <a name="removeWhitelist"></a>
 # **removeWhitelist**
-> StdTx removeWhitelist(body, symbol)
+> StdTx removeWhitelist(symbol, whitelist)
 
 Remove forbid whitelist
 
@@ -621,10 +622,10 @@ Remove forbiddable token whitelist addr
 
 
 AssetApi apiInstance = new AssetApi();
-Whitelist body = new Whitelist(); // Whitelist | token whitelist addr
 String symbol = "symbol_example"; // String | token symbol
+Whitelist whitelist = new Whitelist(); // Whitelist | token whitelist addr
 try {
-    StdTx result = apiInstance.removeWhitelist(body, symbol);
+    StdTx result = apiInstance.removeWhitelist(symbol, whitelist);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AssetApi#removeWhitelist");
@@ -636,8 +637,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Whitelist**](Whitelist.md)| token whitelist addr |
  **symbol** | **String**| token symbol |
+ **whitelist** | [**Whitelist**](Whitelist.md)| token whitelist addr |
 
 ### Return type
 
@@ -654,7 +655,7 @@ No authorization required
 
 <a name="transferOwnership"></a>
 # **transferOwnership**
-> StdTx transferOwnership(body, symbol)
+> StdTx transferOwnership(symbol, newOwner)
 
 Transfer ownership
 
@@ -668,10 +669,10 @@ Transfer token owner ship
 
 
 AssetApi apiInstance = new AssetApi();
-Object body = null; // Object | transfer ownership to new owner
 String symbol = "symbol_example"; // String | token symbol
+NewOwner newOwner = new NewOwner(); // NewOwner | transfer ownership to new owner
 try {
-    StdTx result = apiInstance.transferOwnership(body, symbol);
+    StdTx result = apiInstance.transferOwnership(symbol, newOwner);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AssetApi#transferOwnership");
@@ -683,8 +684,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)| transfer ownership to new owner |
  **symbol** | **String**| token symbol |
+ **newOwner** | [**NewOwner**](NewOwner.md)| transfer ownership to new owner |
 
 ### Return type
 
@@ -701,7 +702,7 @@ No authorization required
 
 <a name="unForbidAddr"></a>
 # **unForbidAddr**
-> StdTx unForbidAddr(body, symbol)
+> StdTx unForbidAddr(symbol, addresses)
 
 UnForbid address
 
@@ -715,10 +716,10 @@ Remove forbidden addresses
 
 
 AssetApi apiInstance = new AssetApi();
-Addresses body = new Addresses(); // Addresses | un forbidden addresses
 String symbol = "symbol_example"; // String | token symbol
+Addresses addresses = new Addresses(); // Addresses | un forbidden addresses
 try {
-    StdTx result = apiInstance.unForbidAddr(body, symbol);
+    StdTx result = apiInstance.unForbidAddr(symbol, addresses);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AssetApi#unForbidAddr");
@@ -730,8 +731,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Addresses**](Addresses.md)| un forbidden addresses |
  **symbol** | **String**| token symbol |
+ **addresses** | [**Addresses**](Addresses.md)| un forbidden addresses |
 
 ### Return type
 
@@ -748,7 +749,7 @@ No authorization required
 
 <a name="unFrobidToken"></a>
 # **unFrobidToken**
-> StdTx unFrobidToken(body, symbol)
+> StdTx unFrobidToken(symbol, baseReq)
 
 UnForbid token
 
@@ -762,10 +763,10 @@ UnForbid forbiddable token
 
 
 AssetApi apiInstance = new AssetApi();
-Object body = null; // Object | base req
 String symbol = "symbol_example"; // String | token symbol
+BaseReq1 baseReq = new BaseReq1(); // BaseReq1 | base req
 try {
-    StdTx result = apiInstance.unFrobidToken(body, symbol);
+    StdTx result = apiInstance.unFrobidToken(symbol, baseReq);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AssetApi#unFrobidToken");
@@ -777,8 +778,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)| base req |
  **symbol** | **String**| token symbol |
+ **baseReq** | [**BaseReq1**](BaseReq1.md)| base req |
 
 ### Return type
 

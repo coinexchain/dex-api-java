@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,15 +20,18 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import io.swagger.client.model.Coin;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * LockedCoin
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-26T10:53:15.911+08:00[Asia/Shanghai]")
-public class LockedCoin {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
+public class LockedCoin extends HashMap<String, Object> {
   @SerializedName("coin")
   private Coin coin = null;
 
@@ -52,7 +56,7 @@ public class LockedCoin {
    * Get coin
    * @return coin
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public Coin getCoin() {
     return coin;
   }
@@ -70,7 +74,7 @@ public class LockedCoin {
    * Get unlockTime
    * @return unlockTime
   **/
-  @Schema(example = "1559549834", required = true, description = "")
+  @ApiModelProperty(example = "1559549834", required = true, value = "")
   public String getUnlockTime() {
     return unlockTime;
   }
@@ -88,7 +92,7 @@ public class LockedCoin {
    * Get fromAddress
    * @return fromAddress
   **/
-  @Schema(example = "coinex1y5kdxnzn2tfwayyntf2n28q8q2s80mcul852ke", description = "")
+  @ApiModelProperty(example = "coinex1y5kdxnzn2tfwayyntf2n28q8q2s80mcul852ke", value = "")
   public String getFromAddress() {
     return fromAddress;
   }
@@ -106,7 +110,7 @@ public class LockedCoin {
    * Get supervisor
    * @return supervisor
   **/
-  @Schema(example = "coinex1dmz7e2fddhejdz5n7e3qc5szx3zn2gj3ta8rwj", description = "")
+  @ApiModelProperty(example = "coinex1dmz7e2fddhejdz5n7e3qc5szx3zn2gj3ta8rwj", value = "")
   public String getSupervisor() {
     return supervisor;
   }
@@ -124,7 +128,7 @@ public class LockedCoin {
    * Get reward
    * @return reward
   **/
-  @Schema(example = "0", description = "")
+  @ApiModelProperty(example = "0", value = "")
   public String getReward() {
     return reward;
   }
@@ -135,7 +139,7 @@ public class LockedCoin {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -147,12 +151,13 @@ public class LockedCoin {
         Objects.equals(this.unlockTime, lockedCoin.unlockTime) &&
         Objects.equals(this.fromAddress, lockedCoin.fromAddress) &&
         Objects.equals(this.supervisor, lockedCoin.supervisor) &&
-        Objects.equals(this.reward, lockedCoin.reward);
+        Objects.equals(this.reward, lockedCoin.reward) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(coin, unlockTime, fromAddress, supervisor, reward);
+    return Objects.hash(coin, unlockTime, fromAddress, supervisor, reward, super.hashCode());
   }
 
 
@@ -160,7 +165,7 @@ public class LockedCoin {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LockedCoin {\n");
-    
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    coin: ").append(toIndentedString(coin)).append("\n");
     sb.append("    unlockTime: ").append(toIndentedString(unlockTime)).append("\n");
     sb.append("    fromAddress: ").append(toIndentedString(fromAddress)).append("\n");
@@ -174,7 +179,7 @@ public class LockedCoin {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -182,3 +187,4 @@ public class LockedCoin {
   }
 
 }
+

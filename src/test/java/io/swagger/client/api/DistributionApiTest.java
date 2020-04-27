@@ -10,11 +10,22 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
+import io.swagger.client.model.Amount;
 import io.swagger.client.model.BroadcastTxCommitResult;
+import io.swagger.client.model.InlineResponse20029;
+import io.swagger.client.model.InlineResponse20030;
+import io.swagger.client.model.InlineResponse20031;
+import io.swagger.client.model.InlineResponse20032;
+import io.swagger.client.model.InlineResponse20033;
 import io.swagger.client.model.StdTx;
+import io.swagger.client.model.WithdrawRequestBody;
+import io.swagger.client.model.WithdrawRequestBody1;
+import io.swagger.client.model.WithdrawRequestBody2;
+import io.swagger.client.model.WithdrawRequestBody3;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -31,6 +42,7 @@ public class DistributionApiTest {
 
     private final DistributionApi api = new DistributionApi();
 
+    
     /**
      * Donate to the community pool
      *
@@ -41,12 +53,13 @@ public class DistributionApiTest {
      */
     @Test
     public void donateToCommunityPoolTest() throws ApiException {
-        Object body = null;
         String accAddress = null;
-        StdTx response = api.donateToCommunityPool(body, accAddress);
+        Amount amount = null;
+        StdTx response = api.donateToCommunityPool(accAddress, amount);
 
         // TODO: test validations
     }
+    
     /**
      * Get the total rewards balance from all delegations
      *
@@ -58,10 +71,11 @@ public class DistributionApiTest {
     @Test
     public void getAllRewardsTest() throws ApiException {
         String delegatorAddr = null;
-        Object response = api.getAllRewards(delegatorAddr);
+        InlineResponse20029 response = api.getAllRewards(delegatorAddr);
 
         // TODO: test validations
     }
+    
     /**
      * Community pool parameters
      *
@@ -76,6 +90,7 @@ public class DistributionApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Validator distribution information
      *
@@ -87,10 +102,11 @@ public class DistributionApiTest {
     @Test
     public void getDistributionInfoTest() throws ApiException {
         String validatorAddr = null;
-        Object response = api.getDistributionInfo(validatorAddr);
+        InlineResponse20032 response = api.getDistributionInfo(validatorAddr);
 
         // TODO: test validations
     }
+    
     /**
      * Fee distribution parameters
      *
@@ -101,10 +117,11 @@ public class DistributionApiTest {
      */
     @Test
     public void getDistributionParamsTest() throws ApiException {
-        Object response = api.getDistributionParams();
+        InlineResponse20033 response = api.getDistributionParams();
 
         // TODO: test validations
     }
+    
     /**
      * Fee distribution outstanding rewards of a single validator
      *
@@ -120,6 +137,7 @@ public class DistributionApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Query a delegation reward
      *
@@ -132,10 +150,11 @@ public class DistributionApiTest {
     public void getRewardByValidatorTest() throws ApiException {
         String delegatorAddr = null;
         String validatorAddr = null;
-        Object response = api.getRewardByValidator(delegatorAddr, validatorAddr);
+        InlineResponse20030 response = api.getRewardByValidator(delegatorAddr, validatorAddr);
 
         // TODO: test validations
     }
+    
     /**
      * Commission and self-delegation rewards of a single validator
      *
@@ -147,14 +166,15 @@ public class DistributionApiTest {
     @Test
     public void getValidatorRewardsTest() throws ApiException {
         String validatorAddr = null;
-        Object response = api.getValidatorRewards(validatorAddr);
+        InlineResponse20030 response = api.getValidatorRewards(validatorAddr);
 
         // TODO: test validations
     }
+    
     /**
      * Get the rewards withdrawal address
      *
-     * Get the delegations&#x27; rewards withdrawal address. This is the address in which the user will receive the reward funds
+     * Get the delegations&#39; rewards withdrawal address. This is the address in which the user will receive the reward funds
      *
      * @throws ApiException
      *          if the Api call fails
@@ -162,14 +182,15 @@ public class DistributionApiTest {
     @Test
     public void getWithdrawAddressTest() throws ApiException {
         String delegatorAddr = null;
-        Object response = api.getWithdrawAddress(delegatorAddr);
+        InlineResponse20031 response = api.getWithdrawAddress(delegatorAddr);
 
         // TODO: test validations
     }
+    
     /**
      * Replace the rewards withdrawal address
      *
-     * Replace the delegations&#x27; rewards withdrawal address for a new one.
+     * Replace the delegations&#39; rewards withdrawal address for a new one.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -177,15 +198,16 @@ public class DistributionApiTest {
     @Test
     public void setWithdrawAddressTest() throws ApiException {
         String delegatorAddr = null;
-        Object body = null;
-        BroadcastTxCommitResult response = api.setWithdrawAddress(delegatorAddr, body);
+        WithdrawRequestBody2 withdrawRequestBody = null;
+        BroadcastTxCommitResult response = api.setWithdrawAddress(delegatorAddr, withdrawRequestBody);
 
         // TODO: test validations
     }
+    
     /**
-     * Withdraw all the delegator&#x27;s delegation rewards
+     * Withdraw all the delegator&#39;s delegation rewards
      *
-     * Withdraw all the delegator&#x27;s delegation rewards
+     * Withdraw all the delegator&#39;s delegation rewards
      *
      * @throws ApiException
      *          if the Api call fails
@@ -193,15 +215,16 @@ public class DistributionApiTest {
     @Test
     public void withdrawAllRewardsTest() throws ApiException {
         String delegatorAddr = null;
-        Object body = null;
-        BroadcastTxCommitResult response = api.withdrawAllRewards(delegatorAddr, body);
+        WithdrawRequestBody withdrawRequestBody = null;
+        BroadcastTxCommitResult response = api.withdrawAllRewards(delegatorAddr, withdrawRequestBody);
 
         // TODO: test validations
     }
+    
     /**
-     * Withdraw the validator&#x27;s rewards
+     * Withdraw the validator&#39;s rewards
      *
-     * Withdraw the validator&#x27;s self-delegation and commissions rewards
+     * Withdraw the validator&#39;s self-delegation and commissions rewards
      *
      * @throws ApiException
      *          if the Api call fails
@@ -209,15 +232,16 @@ public class DistributionApiTest {
     @Test
     public void withdrawAllValidatorRewardsTest() throws ApiException {
         String validatorAddr = null;
-        Object body = null;
-        BroadcastTxCommitResult response = api.withdrawAllValidatorRewards(validatorAddr, body);
+        WithdrawRequestBody3 withdrawRequestBody = null;
+        BroadcastTxCommitResult response = api.withdrawAllValidatorRewards(validatorAddr, withdrawRequestBody);
 
         // TODO: test validations
     }
+    
     /**
      * Withdraw a delegation reward
      *
-     * Withdraw a delegator&#x27;s delegation reward from a single validator
+     * Withdraw a delegator&#39;s delegation reward from a single validator
      *
      * @throws ApiException
      *          if the Api call fails
@@ -226,9 +250,10 @@ public class DistributionApiTest {
     public void withdrawRewardsByValidatorTest() throws ApiException {
         String delegatorAddr = null;
         String validatorAddr = null;
-        Object body = null;
-        BroadcastTxCommitResult response = api.withdrawRewardsByValidator(delegatorAddr, validatorAddr, body);
+        WithdrawRequestBody1 withdrawRequestBody = null;
+        BroadcastTxCommitResult response = api.withdrawRewardsByValidator(delegatorAddr, validatorAddr, withdrawRequestBody);
 
         // TODO: test validations
     }
+    
 }

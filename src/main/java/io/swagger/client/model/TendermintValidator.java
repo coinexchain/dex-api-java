@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,14 +20,17 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * TendermintValidator
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-26T10:53:15.911+08:00[Asia/Shanghai]")
-public class TendermintValidator {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
+public class TendermintValidator extends HashMap<String, Object> {
   @SerializedName("address")
   private String address = null;
 
@@ -48,7 +52,7 @@ public class TendermintValidator {
    * Get address
    * @return address
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getAddress() {
     return address;
   }
@@ -66,7 +70,7 @@ public class TendermintValidator {
    * Get pubKey
    * @return pubKey
   **/
-  @Schema(example = "coinexvalconspub1zcjduepq7sjfglw7ra4mjxpw4ph7dtdhdheh7nz8dfgl6t8u2n5szuuql9mqsrwquu", required = true, description = "")
+  @ApiModelProperty(example = "coinexvalconspub1zcjduepq7sjfglw7ra4mjxpw4ph7dtdhdheh7nz8dfgl6t8u2n5szuuql9mqsrwquu", required = true, value = "")
   public String getPubKey() {
     return pubKey;
   }
@@ -84,7 +88,7 @@ public class TendermintValidator {
    * Get votingPower
    * @return votingPower
   **/
-  @Schema(example = "1000", required = true, description = "")
+  @ApiModelProperty(example = "1000", required = true, value = "")
   public String getVotingPower() {
     return votingPower;
   }
@@ -102,7 +106,7 @@ public class TendermintValidator {
    * Get proposerPriority
    * @return proposerPriority
   **/
-  @Schema(example = "1000", required = true, description = "")
+  @ApiModelProperty(example = "1000", required = true, value = "")
   public String getProposerPriority() {
     return proposerPriority;
   }
@@ -113,7 +117,7 @@ public class TendermintValidator {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -124,12 +128,13 @@ public class TendermintValidator {
     return Objects.equals(this.address, tendermintValidator.address) &&
         Objects.equals(this.pubKey, tendermintValidator.pubKey) &&
         Objects.equals(this.votingPower, tendermintValidator.votingPower) &&
-        Objects.equals(this.proposerPriority, tendermintValidator.proposerPriority);
+        Objects.equals(this.proposerPriority, tendermintValidator.proposerPriority) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, pubKey, votingPower, proposerPriority);
+    return Objects.hash(address, pubKey, votingPower, proposerPriority, super.hashCode());
   }
 
 
@@ -137,7 +142,7 @@ public class TendermintValidator {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TendermintValidator {\n");
-    
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    pubKey: ").append(toIndentedString(pubKey)).append("\n");
     sb.append("    votingPower: ").append(toIndentedString(votingPower)).append("\n");
@@ -150,7 +155,7 @@ public class TendermintValidator {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -158,3 +163,4 @@ public class TendermintValidator {
   }
 
 }
+

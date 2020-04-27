@@ -1,3 +1,4 @@
+
 # PaginatedQueryTxs
 
 ## Properties
@@ -9,3 +10,6 @@ Name | Type | Description | Notes
 **pageTotal** | [**BigDecimal**](BigDecimal.md) |  | 
 **limit** | [**BigDecimal**](BigDecimal.md) |  | 
 **txs** | [**List&lt;TxQuery&gt;**](TxQuery.md) |  | 
+
+
+

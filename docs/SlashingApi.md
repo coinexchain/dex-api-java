@@ -1,6 +1,6 @@
 # SlashingApi
 
-All URIs are relative to *https://dex-api.coinex.org/*
+All URIs are relative to *https://dex-api.coinex.org*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,9 +9,10 @@ Method | HTTP request | Description
 [**getSlashingParams**](SlashingApi.md#getSlashingParams) | **GET** /slashing/parameters | Get the current slashing parameters
 [**unjailValidator**](SlashingApi.md#unjailValidator) | **POST** /slashing/validators/{validatorAddr}/unjail | Unjail a jailed validator
 
+
 <a name="getSigningInfo"></a>
 # **getSigningInfo**
-> Object getSigningInfo(validatorPubKey)
+> InlineResponse20015 getSigningInfo(validatorPubKey)
 
 Get sign info of given validator
 
@@ -27,7 +28,7 @@ Get sign info of given validator
 SlashingApi apiInstance = new SlashingApi();
 String validatorPubKey = "validatorPubKey_example"; // String | Bech32 validator public key
 try {
-    Object result = apiInstance.getSigningInfo(validatorPubKey);
+    InlineResponse20015 result = apiInstance.getSigningInfo(validatorPubKey);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SlashingApi#getSigningInfo");
@@ -43,7 +44,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse20015**](InlineResponse20015.md)
 
 ### Authorization
 
@@ -56,7 +57,7 @@ No authorization required
 
 <a name="getSigningInfos"></a>
 # **getSigningInfos**
-> Object getSigningInfos(page, limit)
+> InlineResponse20016 getSigningInfos(page, limit)
 
 Get sign info of given all validators
 
@@ -73,7 +74,7 @@ SlashingApi apiInstance = new SlashingApi();
 Integer page = 56; // Integer | Page number
 Integer limit = 56; // Integer | Maximum number of items per page
 try {
-    Object result = apiInstance.getSigningInfos(page, limit);
+    InlineResponse20016 result = apiInstance.getSigningInfos(page, limit);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SlashingApi#getSigningInfos");
@@ -90,7 +91,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse20016**](InlineResponse20016.md)
 
 ### Authorization
 
@@ -103,7 +104,7 @@ No authorization required
 
 <a name="getSlashingParams"></a>
 # **getSlashingParams**
-> Object getSlashingParams()
+> InlineResponse20017 getSlashingParams()
 
 Get the current slashing parameters
 
@@ -116,7 +117,7 @@ Get the current slashing parameters
 
 SlashingApi apiInstance = new SlashingApi();
 try {
-    Object result = apiInstance.getSlashingParams();
+    InlineResponse20017 result = apiInstance.getSlashingParams();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SlashingApi#getSlashingParams");
@@ -129,7 +130,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Object**
+[**InlineResponse20017**](InlineResponse20017.md)
 
 ### Authorization
 
@@ -142,7 +143,7 @@ No authorization required
 
 <a name="unjailValidator"></a>
 # **unjailValidator**
-> BroadcastTxCommitResult unjailValidator(body, validatorAddr)
+> BroadcastTxCommitResult unjailValidator(validatorAddr, unjailBody)
 
 Unjail a jailed validator
 
@@ -156,10 +157,10 @@ Send transaction to unjail a jailed validator
 
 
 SlashingApi apiInstance = new SlashingApi();
-Object body = null; // Object | 
 String validatorAddr = "validatorAddr_example"; // String | Bech32 validator address
+UnjailBody unjailBody = new UnjailBody(); // UnjailBody | 
 try {
-    BroadcastTxCommitResult result = apiInstance.unjailValidator(body, validatorAddr);
+    BroadcastTxCommitResult result = apiInstance.unjailValidator(validatorAddr, unjailBody);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SlashingApi#unjailValidator");
@@ -171,8 +172,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)|  |
  **validatorAddr** | **String**| Bech32 validator address |
+ **unjailBody** | [**UnjailBody**](UnjailBody.md)|  |
 
 ### Return type
 

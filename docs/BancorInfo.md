@@ -1,3 +1,4 @@
+
 # BancorInfo
 
 ## Properties
@@ -16,3 +17,6 @@ Name | Type | Description | Notes
 **stockInPool** | **String** |  | 
 **moneyInPool** | **String** |  | 
 **earliestCancelTime** | **String** |  | 
+
+
+

@@ -10,9 +10,14 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
+import io.swagger.client.model.AliasUpdateReq;
+import io.swagger.client.model.InlineResponse20048;
+import io.swagger.client.model.InlineResponse20049;
+import io.swagger.client.model.InlineResponse20050;
 import io.swagger.client.model.StdTx;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -30,6 +35,7 @@ public class AliasApiTest {
 
     private final AliasApi api = new AliasApi();
 
+    
     /**
      * Given an alias, query the corresponding address
      *
@@ -41,10 +47,11 @@ public class AliasApiTest {
     @Test
     public void getAddressFromAliasTest() throws ApiException {
         String alias = null;
-        Object response = api.getAddressFromAlias(alias);
+        InlineResponse20048 response = api.getAddressFromAlias(alias);
 
         // TODO: test validations
     }
+    
     /**
      * Get the current alias parameters
      *
@@ -55,12 +62,13 @@ public class AliasApiTest {
      */
     @Test
     public void getAliasParamsTest() throws ApiException {
-        Object response = api.getAliasParams();
+        InlineResponse20050 response = api.getAliasParams();
 
         // TODO: test validations
     }
+    
     /**
-     * Given an account&#x27;s address, query all the corresponding aliases
+     * Given an account&#39;s address, query all the corresponding aliases
      *
      * 
      *
@@ -70,10 +78,11 @@ public class AliasApiTest {
     @Test
     public void getAliasesFromAddressTest() throws ApiException {
         String address = null;
-        Object response = api.getAliasesFromAddress(address);
+        InlineResponse20049 response = api.getAliasesFromAddress(address);
 
         // TODO: test validations
     }
+    
     /**
      * Add or remove alias for an address
      *
@@ -84,9 +93,10 @@ public class AliasApiTest {
      */
     @Test
     public void updateAliasTest() throws ApiException {
-        Object body = null;
-        StdTx response = api.updateAlias(body);
+        AliasUpdateReq aliasUpdateReq = null;
+        StdTx response = api.updateAlias(aliasUpdateReq);
 
         // TODO: test validations
     }
+    
 }

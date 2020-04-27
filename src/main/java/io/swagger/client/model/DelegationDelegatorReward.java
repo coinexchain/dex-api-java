@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,17 +20,20 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import io.swagger.client.model.Coin;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 /**
  * DelegationDelegatorReward
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-26T10:53:15.911+08:00[Asia/Shanghai]")
-public class DelegationDelegatorReward {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
+public class DelegationDelegatorReward extends HashMap<String, Object> {
   @SerializedName("validator_address")
   private String validatorAddress = null;
 
@@ -45,7 +49,7 @@ public class DelegationDelegatorReward {
    * Get validatorAddress
    * @return validatorAddress
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getValidatorAddress() {
     return validatorAddress;
   }
@@ -68,7 +72,7 @@ public class DelegationDelegatorReward {
    * Get reward
    * @return reward
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public List<Coin> getReward() {
     return reward;
   }
@@ -79,7 +83,7 @@ public class DelegationDelegatorReward {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -88,12 +92,13 @@ public class DelegationDelegatorReward {
     }
     DelegationDelegatorReward delegationDelegatorReward = (DelegationDelegatorReward) o;
     return Objects.equals(this.validatorAddress, delegationDelegatorReward.validatorAddress) &&
-        Objects.equals(this.reward, delegationDelegatorReward.reward);
+        Objects.equals(this.reward, delegationDelegatorReward.reward) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(validatorAddress, reward);
+    return Objects.hash(validatorAddress, reward, super.hashCode());
   }
 
 
@@ -101,7 +106,7 @@ public class DelegationDelegatorReward {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DelegationDelegatorReward {\n");
-    
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    validatorAddress: ").append(toIndentedString(validatorAddress)).append("\n");
     sb.append("    reward: ").append(toIndentedString(reward)).append("\n");
     sb.append("}");
@@ -112,7 +117,7 @@ public class DelegationDelegatorReward {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -120,3 +125,4 @@ public class DelegationDelegatorReward {
   }
 
 }
+

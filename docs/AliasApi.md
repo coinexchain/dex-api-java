@@ -1,17 +1,18 @@
 # AliasApi
 
-All URIs are relative to *https://dex-api.coinex.org/*
+All URIs are relative to *https://dex-api.coinex.org*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getAddressFromAlias**](AliasApi.md#getAddressFromAlias) | **GET** /alias/address-of-alias/{alias} | Given an alias, query the corresponding address
 [**getAliasParams**](AliasApi.md#getAliasParams) | **GET** /alias/parameters | Get the current alias parameters
-[**getAliasesFromAddress**](AliasApi.md#getAliasesFromAddress) | **GET** /alias/aliases-of-address/{address} | Given an account&#x27;s address, query all the corresponding aliases
+[**getAliasesFromAddress**](AliasApi.md#getAliasesFromAddress) | **GET** /alias/aliases-of-address/{address} | Given an account&#39;s address, query all the corresponding aliases
 [**updateAlias**](AliasApi.md#updateAlias) | **POST** /alias/update | Add or remove alias for an address
+
 
 <a name="getAddressFromAlias"></a>
 # **getAddressFromAlias**
-> Object getAddressFromAlias(alias)
+> InlineResponse20048 getAddressFromAlias(alias)
 
 Given an alias, query the corresponding address
 
@@ -25,7 +26,7 @@ Given an alias, query the corresponding address
 AliasApi apiInstance = new AliasApi();
 String alias = "alias_example"; // String | The alias to be queried
 try {
-    Object result = apiInstance.getAddressFromAlias(alias);
+    InlineResponse20048 result = apiInstance.getAddressFromAlias(alias);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AliasApi#getAddressFromAlias");
@@ -41,7 +42,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse20048**](InlineResponse20048.md)
 
 ### Authorization
 
@@ -49,12 +50,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="getAliasParams"></a>
 # **getAliasParams**
-> Object getAliasParams()
+> InlineResponse20050 getAliasParams()
 
 Get the current alias parameters
 
@@ -67,7 +68,7 @@ Get the current alias parameters
 
 AliasApi apiInstance = new AliasApi();
 try {
-    Object result = apiInstance.getAliasParams();
+    InlineResponse20050 result = apiInstance.getAliasParams();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AliasApi#getAliasParams");
@@ -80,7 +81,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Object**
+[**InlineResponse20050**](InlineResponse20050.md)
 
 ### Authorization
 
@@ -93,9 +94,9 @@ No authorization required
 
 <a name="getAliasesFromAddress"></a>
 # **getAliasesFromAddress**
-> Object getAliasesFromAddress(address)
+> InlineResponse20049 getAliasesFromAddress(address)
 
-Given an account&#x27;s address, query all the corresponding aliases
+Given an account&#39;s address, query all the corresponding aliases
 
 ### Example
 ```java
@@ -107,7 +108,7 @@ Given an account&#x27;s address, query all the corresponding aliases
 AliasApi apiInstance = new AliasApi();
 String address = "address_example"; // String | The account's address to be queried
 try {
-    Object result = apiInstance.getAliasesFromAddress(address);
+    InlineResponse20049 result = apiInstance.getAliasesFromAddress(address);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AliasApi#getAliasesFromAddress");
@@ -119,11 +120,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **address** | **String**| The account&#x27;s address to be queried |
+ **address** | **String**| The account&#39;s address to be queried |
 
 ### Return type
 
-**Object**
+[**InlineResponse20049**](InlineResponse20049.md)
 
 ### Authorization
 
@@ -131,12 +132,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="updateAlias"></a>
 # **updateAlias**
-> StdTx updateAlias(body)
+> StdTx updateAlias(aliasUpdateReq)
 
 Add or remove alias for an address
 
@@ -148,9 +149,9 @@ Add or remove alias for an address
 
 
 AliasApi apiInstance = new AliasApi();
-Object body = null; // Object | update an address's aliases
+AliasUpdateReq aliasUpdateReq = new AliasUpdateReq(); // AliasUpdateReq | update an address's aliases
 try {
-    StdTx result = apiInstance.updateAlias(body);
+    StdTx result = apiInstance.updateAlias(aliasUpdateReq);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AliasApi#updateAlias");
@@ -162,7 +163,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)| update an address&#x27;s aliases |
+ **aliasUpdateReq** | [**AliasUpdateReq**](AliasUpdateReq.md)| update an address&#39;s aliases |
 
 ### Return type
 

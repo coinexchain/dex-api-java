@@ -1,6 +1,6 @@
 # MarketApi
 
-All URIs are relative to *https://dex-api.coinex.org/*
+All URIs are relative to *https://dex-api.coinex.org*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -12,14 +12,15 @@ Method | HTTP request | Description
 [**getMarketParams**](MarketApi.md#getMarketParams) | **GET** /market/parameters | Get the current market parameters
 [**getOrder**](MarketApi.md#getOrder) | **GET** /market/orders/{order-id} | Query order info
 [**getOrders**](MarketApi.md#getOrders) | **GET** /market/orders/account/{address} | Query user order-id list
-[**getOrdersInMarket**](MarketApi.md#getOrdersInMarket) | **GET** /market/orderbook/{stock}/{money} | Query trading-pair&#x27;s orderbook
+[**getOrdersInMarket**](MarketApi.md#getOrdersInMarket) | **GET** /market/orderbook/{stock}/{money} | Query trading-pair&#39;s orderbook
 [**getTradingPair**](MarketApi.md#getTradingPair) | **GET** /market/trading-pairs/{stock}/{money} | Query trading-pair info
 [**modifyPricePrecision**](MarketApi.md#modifyPricePrecision) | **POST** /market/price-precision | Modify the price precision of the trading pair in the dex
 [**queryTradingPairs**](MarketApi.md#queryTradingPairs) | **GET** /market/exist-trading-pairs | Query all trading-pair infos in blockchain
 
+
 <a name="cancelOrder"></a>
 # **cancelOrder**
-> StdTx cancelOrder(body)
+> StdTx cancelOrder(orderInfo)
 
 Cancel the order
 
@@ -31,9 +32,9 @@ Cancel the order
 
 
 MarketApi apiInstance = new MarketApi();
-Object body = null; // Object | cancel order tx
+OrderInfo orderInfo = new OrderInfo(); // OrderInfo | cancel order tx
 try {
-    StdTx result = apiInstance.cancelOrder(body);
+    StdTx result = apiInstance.cancelOrder(orderInfo);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MarketApi#cancelOrder");
@@ -45,7 +46,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)| cancel order tx |
+ **orderInfo** | [**OrderInfo**](OrderInfo.md)| cancel order tx |
 
 ### Return type
 
@@ -62,7 +63,7 @@ No authorization required
 
 <a name="cancelTradingPair"></a>
 # **cancelTradingPair**
-> StdTx cancelTradingPair(body)
+> StdTx cancelTradingPair(info)
 
 Cancel the trading-pair
 
@@ -74,9 +75,9 @@ Cancel the trading-pair
 
 
 MarketApi apiInstance = new MarketApi();
-Object body = null; // Object | cancel trading-pair in dex
+Info2 info = new Info2(); // Info2 | cancel trading-pair in dex
 try {
-    StdTx result = apiInstance.cancelTradingPair(body);
+    StdTx result = apiInstance.cancelTradingPair(info);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MarketApi#cancelTradingPair");
@@ -88,7 +89,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)| cancel trading-pair in dex |
+ **info** | [**Info2**](Info2.md)| cancel trading-pair in dex |
 
 ### Return type
 
@@ -105,7 +106,7 @@ No authorization required
 
 <a name="createGteOrder"></a>
 # **createGteOrder**
-> StdTx createGteOrder(body)
+> StdTx createGteOrder(orderInfo)
 
 Create GTE order in blockchain
 
@@ -117,9 +118,9 @@ Create GTE order in blockchain
 
 
 MarketApi apiInstance = new MarketApi();
-Object body = null; // Object | create order tx
+object orderInfo = new object(); // object | create order tx
 try {
-    StdTx result = apiInstance.createGteOrder(body);
+    StdTx result = apiInstance.createGteOrder(orderInfo);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MarketApi#createGteOrder");
@@ -131,7 +132,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)| create order tx |
+ **orderInfo** | [**object**](.md)| create order tx |
 
 ### Return type
 
@@ -148,7 +149,7 @@ No authorization required
 
 <a name="createIocOrder"></a>
 # **createIocOrder**
-> StdTx createIocOrder(body)
+> StdTx createIocOrder(orderInfo)
 
 Create IOC order in blockchain
 
@@ -160,9 +161,9 @@ Create IOC order in blockchain
 
 
 MarketApi apiInstance = new MarketApi();
-Object body = null; // Object | create order tx
+object orderInfo = new object(); // object | create order tx
 try {
-    StdTx result = apiInstance.createIocOrder(body);
+    StdTx result = apiInstance.createIocOrder(orderInfo);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MarketApi#createIocOrder");
@@ -174,7 +175,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)| create order tx |
+ **orderInfo** | [**object**](.md)| create order tx |
 
 ### Return type
 
@@ -191,7 +192,7 @@ No authorization required
 
 <a name="createTradingPair"></a>
 # **createTradingPair**
-> StdTx createTradingPair(body)
+> StdTx createTradingPair(info)
 
 Create trading-pair in blockchain
 
@@ -203,9 +204,9 @@ Create trading-pair in blockchain
 
 
 MarketApi apiInstance = new MarketApi();
-Object body = null; // Object | Create trading-pair
+object info = new object(); // object | Create trading-pair
 try {
-    StdTx result = apiInstance.createTradingPair(body);
+    StdTx result = apiInstance.createTradingPair(info);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MarketApi#createTradingPair");
@@ -217,7 +218,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)| Create trading-pair |
+ **info** | [**object**](.md)| Create trading-pair |
 
 ### Return type
 
@@ -234,7 +235,7 @@ No authorization required
 
 <a name="getMarketParams"></a>
 # **getMarketParams**
-> Object getMarketParams()
+> InlineResponse20042 getMarketParams()
 
 Get the current market parameters
 
@@ -247,7 +248,7 @@ Get the current market parameters
 
 MarketApi apiInstance = new MarketApi();
 try {
-    Object result = apiInstance.getMarketParams();
+    InlineResponse20042 result = apiInstance.getMarketParams();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MarketApi#getMarketParams");
@@ -260,7 +261,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Object**
+[**InlineResponse20042**](InlineResponse20042.md)
 
 ### Authorization
 
@@ -273,7 +274,7 @@ No authorization required
 
 <a name="getOrder"></a>
 # **getOrder**
-> Object getOrder(orderId)
+> InlineResponse20046 getOrder(orderId)
 
 Query order info
 
@@ -287,7 +288,7 @@ Query order info
 MarketApi apiInstance = new MarketApi();
 String orderId = "orderId_example"; // String | The order id
 try {
-    Object result = apiInstance.getOrder(orderId);
+    InlineResponse20046 result = apiInstance.getOrder(orderId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MarketApi#getOrder");
@@ -303,7 +304,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse20046**](InlineResponse20046.md)
 
 ### Authorization
 
@@ -316,7 +317,7 @@ No authorization required
 
 <a name="getOrders"></a>
 # **getOrders**
-> Object getOrders(address)
+> InlineResponse20047 getOrders(address)
 
 Query user order-id list
 
@@ -330,7 +331,7 @@ Query user order-id list
 MarketApi apiInstance = new MarketApi();
 String address = "address_example"; // String | The user address
 try {
-    Object result = apiInstance.getOrders(address);
+    InlineResponse20047 result = apiInstance.getOrders(address);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MarketApi#getOrders");
@@ -346,7 +347,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse20047**](InlineResponse20047.md)
 
 ### Authorization
 
@@ -359,9 +360,9 @@ No authorization required
 
 <a name="getOrdersInMarket"></a>
 # **getOrdersInMarket**
-> Object getOrdersInMarket(stock, money)
+> InlineResponse20045 getOrdersInMarket(stock, money)
 
-Query trading-pair&#x27;s orderbook
+Query trading-pair&#39;s orderbook
 
 ### Example
 ```java
@@ -374,7 +375,7 @@ MarketApi apiInstance = new MarketApi();
 String stock = "stock_example"; // String | stock symbol
 String money = "money_example"; // String | money symbol
 try {
-    Object result = apiInstance.getOrdersInMarket(stock, money);
+    InlineResponse20045 result = apiInstance.getOrdersInMarket(stock, money);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MarketApi#getOrdersInMarket");
@@ -391,7 +392,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse20045**](InlineResponse20045.md)
 
 ### Authorization
 
@@ -404,7 +405,7 @@ No authorization required
 
 <a name="getTradingPair"></a>
 # **getTradingPair**
-> Object getTradingPair(stock, money)
+> InlineResponse20044 getTradingPair(stock, money)
 
 Query trading-pair info
 
@@ -419,7 +420,7 @@ MarketApi apiInstance = new MarketApi();
 String stock = "stock_example"; // String | stock symbol
 String money = "money_example"; // String | money symbol
 try {
-    Object result = apiInstance.getTradingPair(stock, money);
+    InlineResponse20044 result = apiInstance.getTradingPair(stock, money);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MarketApi#getTradingPair");
@@ -436,7 +437,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse20044**](InlineResponse20044.md)
 
 ### Authorization
 
@@ -449,7 +450,7 @@ No authorization required
 
 <a name="modifyPricePrecision"></a>
 # **modifyPricePrecision**
-> StdTx modifyPricePrecision(body)
+> StdTx modifyPricePrecision(info)
 
 Modify the price precision of the trading pair in the dex
 
@@ -461,9 +462,9 @@ Modify the price precision of the trading pair in the dex
 
 
 MarketApi apiInstance = new MarketApi();
-Object body = null; // Object | trading-pair, price-precision as params
+Info1 info = new Info1(); // Info1 | trading-pair, price-precision as params
 try {
-    StdTx result = apiInstance.modifyPricePrecision(body);
+    StdTx result = apiInstance.modifyPricePrecision(info);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MarketApi#modifyPricePrecision");
@@ -475,7 +476,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)| trading-pair, price-precision as params |
+ **info** | [**Info1**](Info1.md)| trading-pair, price-precision as params |
 
 ### Return type
 
@@ -492,7 +493,7 @@ No authorization required
 
 <a name="queryTradingPairs"></a>
 # **queryTradingPairs**
-> Object queryTradingPairs()
+> InlineResponse20043 queryTradingPairs()
 
 Query all trading-pair infos in blockchain
 
@@ -505,7 +506,7 @@ Query all trading-pair infos in blockchain
 
 MarketApi apiInstance = new MarketApi();
 try {
-    Object result = apiInstance.queryTradingPairs();
+    InlineResponse20043 result = apiInstance.queryTradingPairs();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MarketApi#queryTradingPairs");
@@ -518,7 +519,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Object**
+[**InlineResponse20043**](InlineResponse20043.md)
 
 ### Authorization
 
@@ -526,6 +527,6 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 

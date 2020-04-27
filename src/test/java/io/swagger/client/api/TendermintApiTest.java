@@ -10,11 +10,15 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
 import java.math.BigDecimal;
 import io.swagger.client.model.BlockQuery;
+import io.swagger.client.model.InlineResponse200;
+import io.swagger.client.model.InlineResponse2001;
+import io.swagger.client.model.InlineResponse2002;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -31,6 +35,7 @@ public class TendermintApiTest {
 
     private final TendermintApi api = new TendermintApi();
 
+    
     /**
      * Get a block at a certain height
      *
@@ -46,6 +51,7 @@ public class TendermintApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Get the latest block
      *
@@ -60,6 +66,7 @@ public class TendermintApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Get the latest validator set
      *
@@ -70,10 +77,11 @@ public class TendermintApiTest {
      */
     @Test
     public void getLatestValidatorSetTest() throws ApiException {
-        Object response = api.getLatestValidatorSet();
+        InlineResponse2001 response = api.getLatestValidatorSet();
 
         // TODO: test validations
     }
+    
     /**
      * The properties of the connected node
      *
@@ -84,10 +92,11 @@ public class TendermintApiTest {
      */
     @Test
     public void getNodeInfoTest() throws ApiException {
-        Object response = api.getNodeInfo();
+        InlineResponse200 response = api.getNodeInfo();
 
         // TODO: test validations
     }
+    
     /**
      * Syncing state of node
      *
@@ -102,6 +111,7 @@ public class TendermintApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Get a validator set a certain height
      *
@@ -113,8 +123,9 @@ public class TendermintApiTest {
     @Test
     public void getValidatorSetTest() throws ApiException {
         BigDecimal height = null;
-        Object response = api.getValidatorSet(height);
+        InlineResponse2002 response = api.getValidatorSet(height);
 
         // TODO: test validations
     }
+    
 }

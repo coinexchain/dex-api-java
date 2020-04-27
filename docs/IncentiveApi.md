@@ -1,14 +1,15 @@
 # IncentiveApi
 
-All URIs are relative to *https://dex-api.coinex.org/*
+All URIs are relative to *https://dex-api.coinex.org*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getIncentiveParams**](IncentiveApi.md#getIncentiveParams) | **GET** /incentive/parameters | Get the current incentive parameters
 
+
 <a name="getIncentiveParams"></a>
 # **getIncentiveParams**
-> Object getIncentiveParams()
+> InlineResponse20036 getIncentiveParams()
 
 Get the current incentive parameters
 
@@ -21,7 +22,7 @@ Get the current incentive parameters
 
 IncentiveApi apiInstance = new IncentiveApi();
 try {
-    Object result = apiInstance.getIncentiveParams();
+    InlineResponse20036 result = apiInstance.getIncentiveParams();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling IncentiveApi#getIncentiveParams");
@@ -34,7 +35,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Object**
+[**InlineResponse20036**](InlineResponse20036.md)
 
 ### Authorization
 

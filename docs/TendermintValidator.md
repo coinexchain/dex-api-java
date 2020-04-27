@@ -1,3 +1,4 @@
+
 # TendermintValidator
 
 ## Properties
@@ -7,3 +8,6 @@ Name | Type | Description | Notes
 **pubKey** | **String** |  | 
 **votingPower** | **String** |  | 
 **proposerPriority** | **String** |  | 
+
+
+

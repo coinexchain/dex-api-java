@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,28 +20,31 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import io.swagger.client.model.Msg;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.client.model.StdTxCoreFee;
+import io.swagger.client.model.StdTxCoreSignatures;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * StdTxCore
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-26T10:53:15.911+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
 public class StdTxCore {
   @SerializedName("msg")
   private List<Msg> msg = null;
 
   @SerializedName("fee")
-  private Object fee = null;
+  private StdTxCoreFee fee = null;
 
   @SerializedName("memo")
   private String memo = null;
 
   @SerializedName("signatures")
-  private List<Object> signatures = new ArrayList<Object>();
+  private List<StdTxCoreSignatures> signatures = new ArrayList<StdTxCoreSignatures>();
 
   public StdTxCore msg(List<Msg> msg) {
     this.msg = msg;
@@ -59,7 +63,7 @@ public class StdTxCore {
    * Get msg
    * @return msg
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public List<Msg> getMsg() {
     return msg;
   }
@@ -68,7 +72,7 @@ public class StdTxCore {
     this.msg = msg;
   }
 
-  public StdTxCore fee(Object fee) {
+  public StdTxCore fee(StdTxCoreFee fee) {
     this.fee = fee;
     return this;
   }
@@ -77,12 +81,12 @@ public class StdTxCore {
    * Get fee
    * @return fee
   **/
-  @Schema(required = true, description = "")
-  public Object getFee() {
+  @ApiModelProperty(required = true, value = "")
+  public StdTxCoreFee getFee() {
     return fee;
   }
 
-  public void setFee(Object fee) {
+  public void setFee(StdTxCoreFee fee) {
     this.fee = fee;
   }
 
@@ -95,7 +99,7 @@ public class StdTxCore {
    * Get memo
    * @return memo
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getMemo() {
     return memo;
   }
@@ -104,12 +108,12 @@ public class StdTxCore {
     this.memo = memo;
   }
 
-  public StdTxCore signatures(List<Object> signatures) {
+  public StdTxCore signatures(List<StdTxCoreSignatures> signatures) {
     this.signatures = signatures;
     return this;
   }
 
-  public StdTxCore addSignaturesItem(Object signaturesItem) {
+  public StdTxCore addSignaturesItem(StdTxCoreSignatures signaturesItem) {
     this.signatures.add(signaturesItem);
     return this;
   }
@@ -118,18 +122,18 @@ public class StdTxCore {
    * Get signatures
    * @return signatures
   **/
-  @Schema(required = true, description = "")
-  public List<Object> getSignatures() {
+  @ApiModelProperty(required = true, value = "")
+  public List<StdTxCoreSignatures> getSignatures() {
     return signatures;
   }
 
-  public void setSignatures(List<Object> signatures) {
+  public void setSignatures(List<StdTxCoreSignatures> signatures) {
     this.signatures = signatures;
   }
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -166,7 +170,7 @@ public class StdTxCore {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -174,3 +178,4 @@ public class StdTxCore {
   }
 
 }
+

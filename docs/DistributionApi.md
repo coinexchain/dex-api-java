@@ -1,6 +1,6 @@
 # DistributionApi
 
-All URIs are relative to *https://dex-api.coinex.org/*
+All URIs are relative to *https://dex-api.coinex.org*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -14,13 +14,14 @@ Method | HTTP request | Description
 [**getValidatorRewards**](DistributionApi.md#getValidatorRewards) | **GET** /distribution/validators/{validatorAddr}/rewards | Commission and self-delegation rewards of a single validator
 [**getWithdrawAddress**](DistributionApi.md#getWithdrawAddress) | **GET** /distribution/delegators/{delegatorAddr}/withdraw_address | Get the rewards withdrawal address
 [**setWithdrawAddress**](DistributionApi.md#setWithdrawAddress) | **POST** /distribution/delegators/{delegatorAddr}/withdraw_address | Replace the rewards withdrawal address
-[**withdrawAllRewards**](DistributionApi.md#withdrawAllRewards) | **POST** /distribution/delegators/{delegatorAddr}/rewards | Withdraw all the delegator&#x27;s delegation rewards
-[**withdrawAllValidatorRewards**](DistributionApi.md#withdrawAllValidatorRewards) | **POST** /distribution/validators/{validatorAddr}/rewards | Withdraw the validator&#x27;s rewards
+[**withdrawAllRewards**](DistributionApi.md#withdrawAllRewards) | **POST** /distribution/delegators/{delegatorAddr}/rewards | Withdraw all the delegator&#39;s delegation rewards
+[**withdrawAllValidatorRewards**](DistributionApi.md#withdrawAllValidatorRewards) | **POST** /distribution/validators/{validatorAddr}/rewards | Withdraw the validator&#39;s rewards
 [**withdrawRewardsByValidator**](DistributionApi.md#withdrawRewardsByValidator) | **POST** /distribution/delegators/{delegatorAddr}/rewards/{validatorAddr} | Withdraw a delegation reward
+
 
 <a name="donateToCommunityPool"></a>
 # **donateToCommunityPool**
-> StdTx donateToCommunityPool(body, accAddress)
+> StdTx donateToCommunityPool(accAddress, amount)
 
 Donate to the community pool
 
@@ -34,10 +35,10 @@ Donate some amount of cet to the community pool
 
 
 DistributionApi apiInstance = new DistributionApi();
-Object body = null; // Object | Amount of cet to donate
 String accAddress = "accAddress_example"; // String | Account address of the user
+Amount amount = new Amount(); // Amount | Amount of cet to donate
 try {
-    StdTx result = apiInstance.donateToCommunityPool(body, accAddress);
+    StdTx result = apiInstance.donateToCommunityPool(accAddress, amount);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DistributionApi#donateToCommunityPool");
@@ -49,8 +50,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)| Amount of cet to donate |
  **accAddress** | **String**| Account address of the user |
+ **amount** | [**Amount**](Amount.md)| Amount of cet to donate |
 
 ### Return type
 
@@ -67,7 +68,7 @@ No authorization required
 
 <a name="getAllRewards"></a>
 # **getAllRewards**
-> Object getAllRewards(delegatorAddr)
+> InlineResponse20029 getAllRewards(delegatorAddr)
 
 Get the total rewards balance from all delegations
 
@@ -83,7 +84,7 @@ Get the sum of all the rewards earned by delegations by a single delegator
 DistributionApi apiInstance = new DistributionApi();
 String delegatorAddr = "delegatorAddr_example"; // String | Bech32 AccAddress of Delegator
 try {
-    Object result = apiInstance.getAllRewards(delegatorAddr);
+    InlineResponse20029 result = apiInstance.getAllRewards(delegatorAddr);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DistributionApi#getAllRewards");
@@ -99,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse20029**](InlineResponse20029.md)
 
 ### Authorization
 
@@ -151,7 +152,7 @@ No authorization required
 
 <a name="getDistributionInfo"></a>
 # **getDistributionInfo**
-> Object getDistributionInfo(validatorAddr)
+> InlineResponse20032 getDistributionInfo(validatorAddr)
 
 Validator distribution information
 
@@ -167,7 +168,7 @@ Query the distribution information of a single validator
 DistributionApi apiInstance = new DistributionApi();
 String validatorAddr = "validatorAddr_example"; // String | Bech32 OperatorAddress of validator
 try {
-    Object result = apiInstance.getDistributionInfo(validatorAddr);
+    InlineResponse20032 result = apiInstance.getDistributionInfo(validatorAddr);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DistributionApi#getDistributionInfo");
@@ -183,7 +184,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse20032**](InlineResponse20032.md)
 
 ### Authorization
 
@@ -196,7 +197,7 @@ No authorization required
 
 <a name="getDistributionParams"></a>
 # **getDistributionParams**
-> Object getDistributionParams()
+> InlineResponse20033 getDistributionParams()
 
 Fee distribution parameters
 
@@ -209,7 +210,7 @@ Fee distribution parameters
 
 DistributionApi apiInstance = new DistributionApi();
 try {
-    Object result = apiInstance.getDistributionParams();
+    InlineResponse20033 result = apiInstance.getDistributionParams();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DistributionApi#getDistributionParams");
@@ -222,7 +223,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Object**
+[**InlineResponse20033**](InlineResponse20033.md)
 
 ### Authorization
 
@@ -278,7 +279,7 @@ No authorization required
 
 <a name="getRewardByValidator"></a>
 # **getRewardByValidator**
-> Object getRewardByValidator(delegatorAddr, validatorAddr)
+> InlineResponse20030 getRewardByValidator(delegatorAddr, validatorAddr)
 
 Query a delegation reward
 
@@ -295,7 +296,7 @@ DistributionApi apiInstance = new DistributionApi();
 String delegatorAddr = "delegatorAddr_example"; // String | Bech32 AccAddress of Delegator
 String validatorAddr = "validatorAddr_example"; // String | Bech32 OperatorAddress of validator
 try {
-    Object result = apiInstance.getRewardByValidator(delegatorAddr, validatorAddr);
+    InlineResponse20030 result = apiInstance.getRewardByValidator(delegatorAddr, validatorAddr);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DistributionApi#getRewardByValidator");
@@ -312,7 +313,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse20030**](InlineResponse20030.md)
 
 ### Authorization
 
@@ -325,7 +326,7 @@ No authorization required
 
 <a name="getValidatorRewards"></a>
 # **getValidatorRewards**
-> Object getValidatorRewards(validatorAddr)
+> InlineResponse20030 getValidatorRewards(validatorAddr)
 
 Commission and self-delegation rewards of a single validator
 
@@ -341,7 +342,7 @@ Query the commission and self-delegation rewards of validator.
 DistributionApi apiInstance = new DistributionApi();
 String validatorAddr = "validatorAddr_example"; // String | Bech32 OperatorAddress of validator
 try {
-    Object result = apiInstance.getValidatorRewards(validatorAddr);
+    InlineResponse20030 result = apiInstance.getValidatorRewards(validatorAddr);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DistributionApi#getValidatorRewards");
@@ -357,7 +358,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse20030**](InlineResponse20030.md)
 
 ### Authorization
 
@@ -370,11 +371,11 @@ No authorization required
 
 <a name="getWithdrawAddress"></a>
 # **getWithdrawAddress**
-> Object getWithdrawAddress(delegatorAddr)
+> InlineResponse20031 getWithdrawAddress(delegatorAddr)
 
 Get the rewards withdrawal address
 
-Get the delegations&#x27; rewards withdrawal address. This is the address in which the user will receive the reward funds
+Get the delegations&#39; rewards withdrawal address. This is the address in which the user will receive the reward funds
 
 ### Example
 ```java
@@ -386,7 +387,7 @@ Get the delegations&#x27; rewards withdrawal address. This is the address in whi
 DistributionApi apiInstance = new DistributionApi();
 String delegatorAddr = "delegatorAddr_example"; // String | Bech32 AccAddress of Delegator
 try {
-    Object result = apiInstance.getWithdrawAddress(delegatorAddr);
+    InlineResponse20031 result = apiInstance.getWithdrawAddress(delegatorAddr);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DistributionApi#getWithdrawAddress");
@@ -402,7 +403,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse20031**](InlineResponse20031.md)
 
 ### Authorization
 
@@ -415,11 +416,11 @@ No authorization required
 
 <a name="setWithdrawAddress"></a>
 # **setWithdrawAddress**
-> BroadcastTxCommitResult setWithdrawAddress(delegatorAddr, body)
+> BroadcastTxCommitResult setWithdrawAddress(delegatorAddr, withdrawRequestBody)
 
 Replace the rewards withdrawal address
 
-Replace the delegations&#x27; rewards withdrawal address for a new one.
+Replace the delegations&#39; rewards withdrawal address for a new one.
 
 ### Example
 ```java
@@ -430,9 +431,9 @@ Replace the delegations&#x27; rewards withdrawal address for a new one.
 
 DistributionApi apiInstance = new DistributionApi();
 String delegatorAddr = "delegatorAddr_example"; // String | Bech32 AccAddress of Delegator
-Object body = null; // Object | 
+WithdrawRequestBody2 withdrawRequestBody = new WithdrawRequestBody2(); // WithdrawRequestBody2 | 
 try {
-    BroadcastTxCommitResult result = apiInstance.setWithdrawAddress(delegatorAddr, body);
+    BroadcastTxCommitResult result = apiInstance.setWithdrawAddress(delegatorAddr, withdrawRequestBody);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DistributionApi#setWithdrawAddress");
@@ -445,7 +446,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **delegatorAddr** | **String**| Bech32 AccAddress of Delegator |
- **body** | [**Object**](Object.md)|  | [optional]
+ **withdrawRequestBody** | [**WithdrawRequestBody2**](WithdrawRequestBody2.md)|  | [optional]
 
 ### Return type
 
@@ -462,11 +463,11 @@ No authorization required
 
 <a name="withdrawAllRewards"></a>
 # **withdrawAllRewards**
-> BroadcastTxCommitResult withdrawAllRewards(delegatorAddr, body)
+> BroadcastTxCommitResult withdrawAllRewards(delegatorAddr, withdrawRequestBody)
 
-Withdraw all the delegator&#x27;s delegation rewards
+Withdraw all the delegator&#39;s delegation rewards
 
-Withdraw all the delegator&#x27;s delegation rewards
+Withdraw all the delegator&#39;s delegation rewards
 
 ### Example
 ```java
@@ -477,9 +478,9 @@ Withdraw all the delegator&#x27;s delegation rewards
 
 DistributionApi apiInstance = new DistributionApi();
 String delegatorAddr = "delegatorAddr_example"; // String | Bech32 AccAddress of Delegator
-Object body = null; // Object | 
+WithdrawRequestBody withdrawRequestBody = new WithdrawRequestBody(); // WithdrawRequestBody | 
 try {
-    BroadcastTxCommitResult result = apiInstance.withdrawAllRewards(delegatorAddr, body);
+    BroadcastTxCommitResult result = apiInstance.withdrawAllRewards(delegatorAddr, withdrawRequestBody);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DistributionApi#withdrawAllRewards");
@@ -492,7 +493,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **delegatorAddr** | **String**| Bech32 AccAddress of Delegator |
- **body** | [**Object**](Object.md)|  | [optional]
+ **withdrawRequestBody** | [**WithdrawRequestBody**](WithdrawRequestBody.md)|  | [optional]
 
 ### Return type
 
@@ -509,11 +510,11 @@ No authorization required
 
 <a name="withdrawAllValidatorRewards"></a>
 # **withdrawAllValidatorRewards**
-> BroadcastTxCommitResult withdrawAllValidatorRewards(validatorAddr, body)
+> BroadcastTxCommitResult withdrawAllValidatorRewards(validatorAddr, withdrawRequestBody)
 
-Withdraw the validator&#x27;s rewards
+Withdraw the validator&#39;s rewards
 
-Withdraw the validator&#x27;s self-delegation and commissions rewards
+Withdraw the validator&#39;s self-delegation and commissions rewards
 
 ### Example
 ```java
@@ -524,9 +525,9 @@ Withdraw the validator&#x27;s self-delegation and commissions rewards
 
 DistributionApi apiInstance = new DistributionApi();
 String validatorAddr = "validatorAddr_example"; // String | Bech32 OperatorAddress of validator
-Object body = null; // Object | 
+WithdrawRequestBody3 withdrawRequestBody = new WithdrawRequestBody3(); // WithdrawRequestBody3 | 
 try {
-    BroadcastTxCommitResult result = apiInstance.withdrawAllValidatorRewards(validatorAddr, body);
+    BroadcastTxCommitResult result = apiInstance.withdrawAllValidatorRewards(validatorAddr, withdrawRequestBody);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DistributionApi#withdrawAllValidatorRewards");
@@ -539,7 +540,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **validatorAddr** | **String**| Bech32 OperatorAddress of validator |
- **body** | [**Object**](Object.md)|  | [optional]
+ **withdrawRequestBody** | [**WithdrawRequestBody3**](WithdrawRequestBody3.md)|  | [optional]
 
 ### Return type
 
@@ -556,11 +557,11 @@ No authorization required
 
 <a name="withdrawRewardsByValidator"></a>
 # **withdrawRewardsByValidator**
-> BroadcastTxCommitResult withdrawRewardsByValidator(delegatorAddr, validatorAddr, body)
+> BroadcastTxCommitResult withdrawRewardsByValidator(delegatorAddr, validatorAddr, withdrawRequestBody)
 
 Withdraw a delegation reward
 
-Withdraw a delegator&#x27;s delegation reward from a single validator
+Withdraw a delegator&#39;s delegation reward from a single validator
 
 ### Example
 ```java
@@ -572,9 +573,9 @@ Withdraw a delegator&#x27;s delegation reward from a single validator
 DistributionApi apiInstance = new DistributionApi();
 String delegatorAddr = "delegatorAddr_example"; // String | Bech32 AccAddress of Delegator
 String validatorAddr = "validatorAddr_example"; // String | Bech32 OperatorAddress of validator
-Object body = null; // Object | 
+WithdrawRequestBody1 withdrawRequestBody = new WithdrawRequestBody1(); // WithdrawRequestBody1 | 
 try {
-    BroadcastTxCommitResult result = apiInstance.withdrawRewardsByValidator(delegatorAddr, validatorAddr, body);
+    BroadcastTxCommitResult result = apiInstance.withdrawRewardsByValidator(delegatorAddr, validatorAddr, withdrawRequestBody);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DistributionApi#withdrawRewardsByValidator");
@@ -588,7 +589,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **delegatorAddr** | **String**| Bech32 AccAddress of Delegator |
  **validatorAddr** | **String**| Bech32 OperatorAddress of validator |
- **body** | [**Object**](Object.md)|  | [optional]
+ **withdrawRequestBody** | [**WithdrawRequestBody1**](WithdrawRequestBody1.md)|  | [optional]
 
 ### Return type
 

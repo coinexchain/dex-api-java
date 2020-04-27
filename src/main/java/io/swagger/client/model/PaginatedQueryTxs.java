@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,18 +20,21 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import io.swagger.client.model.TxQuery;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 /**
  * PaginatedQueryTxs
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-26T10:53:15.911+08:00[Asia/Shanghai]")
-public class PaginatedQueryTxs {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
+public class PaginatedQueryTxs extends HashMap<String, Object> {
   @SerializedName("total_count")
   private BigDecimal totalCount = null;
 
@@ -58,7 +62,7 @@ public class PaginatedQueryTxs {
    * Get totalCount
    * @return totalCount
   **/
-  @Schema(example = "1.0", required = true, description = "")
+  @ApiModelProperty(example = "1.0", required = true, value = "")
   public BigDecimal getTotalCount() {
     return totalCount;
   }
@@ -76,7 +80,7 @@ public class PaginatedQueryTxs {
    * Get count
    * @return count
   **/
-  @Schema(example = "1.0", required = true, description = "")
+  @ApiModelProperty(example = "1.0", required = true, value = "")
   public BigDecimal getCount() {
     return count;
   }
@@ -94,7 +98,7 @@ public class PaginatedQueryTxs {
    * Get pageNumber
    * @return pageNumber
   **/
-  @Schema(example = "1.0", required = true, description = "")
+  @ApiModelProperty(example = "1.0", required = true, value = "")
   public BigDecimal getPageNumber() {
     return pageNumber;
   }
@@ -112,7 +116,7 @@ public class PaginatedQueryTxs {
    * Get pageTotal
    * @return pageTotal
   **/
-  @Schema(example = "1.0", required = true, description = "")
+  @ApiModelProperty(example = "1.0", required = true, value = "")
   public BigDecimal getPageTotal() {
     return pageTotal;
   }
@@ -130,7 +134,7 @@ public class PaginatedQueryTxs {
    * Get limit
    * @return limit
   **/
-  @Schema(example = "30.0", required = true, description = "")
+  @ApiModelProperty(example = "30.0", required = true, value = "")
   public BigDecimal getLimit() {
     return limit;
   }
@@ -153,7 +157,7 @@ public class PaginatedQueryTxs {
    * Get txs
    * @return txs
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public List<TxQuery> getTxs() {
     return txs;
   }
@@ -164,7 +168,7 @@ public class PaginatedQueryTxs {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -177,12 +181,13 @@ public class PaginatedQueryTxs {
         Objects.equals(this.pageNumber, paginatedQueryTxs.pageNumber) &&
         Objects.equals(this.pageTotal, paginatedQueryTxs.pageTotal) &&
         Objects.equals(this.limit, paginatedQueryTxs.limit) &&
-        Objects.equals(this.txs, paginatedQueryTxs.txs);
+        Objects.equals(this.txs, paginatedQueryTxs.txs) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalCount, count, pageNumber, pageTotal, limit, txs);
+    return Objects.hash(totalCount, count, pageNumber, pageTotal, limit, txs, super.hashCode());
   }
 
 
@@ -190,7 +195,7 @@ public class PaginatedQueryTxs {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaginatedQueryTxs {\n");
-    
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
@@ -205,7 +210,7 @@ public class PaginatedQueryTxs {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -213,3 +218,4 @@ public class PaginatedQueryTxs {
   }
 
 }
+

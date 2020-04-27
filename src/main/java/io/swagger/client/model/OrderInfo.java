@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,207 +20,63 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.client.model.Order;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.client.model.BaseReq;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * OrderInfo
  */
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
+public class OrderInfo extends HashMap<String, Object> {
+  @SerializedName("base_req")
+  private BaseReq baseReq = null;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-26T10:53:15.911+08:00[Asia/Shanghai]")
-public class OrderInfo extends Order {
-  @SerializedName("sender")
-  private String sender = null;
+  @SerializedName("order_id")
+  private String orderId = null;
 
-  @SerializedName("sequence")
-  private String sequence = null;
-
-  @SerializedName("time_in_force")
-  private String timeInForce = null;
-
-  @SerializedName("height")
-  private String height = null;
-
-  @SerializedName("frozen_fee")
-  private String frozenFee = null;
-
-  @SerializedName("left_stock")
-  private String leftStock = null;
-
-  @SerializedName("freeze")
-  private String freeze = null;
-
-  @SerializedName("DealStock")
-  private String dealStock = null;
-
-  @SerializedName("DealMoney")
-  private String dealMoney = null;
-
-  public OrderInfo sender(String sender) {
-    this.sender = sender;
+  public OrderInfo baseReq(BaseReq baseReq) {
+    this.baseReq = baseReq;
     return this;
   }
 
    /**
-   * Get sender
-   * @return sender
+   * Get baseReq
+   * @return baseReq
   **/
-  @Schema(example = "coinex1dmz7e2fddhejdz5n7e3qc5szx3zn2gj3ta8rwj", description = "")
-  public String getSender() {
-    return sender;
+  @ApiModelProperty(required = true, value = "")
+  public BaseReq getBaseReq() {
+    return baseReq;
   }
 
-  public void setSender(String sender) {
-    this.sender = sender;
+  public void setBaseReq(BaseReq baseReq) {
+    this.baseReq = baseReq;
   }
 
-  public OrderInfo sequence(String sequence) {
-    this.sequence = sequence;
+  public OrderInfo orderId(String orderId) {
+    this.orderId = orderId;
     return this;
   }
 
    /**
-   * Get sequence
-   * @return sequence
+   * Get orderId
+   * @return orderId
   **/
-  @Schema(example = "8", description = "")
-  public String getSequence() {
-    return sequence;
+  @ApiModelProperty(example = "coinex1dmz7e2fddhejdz5n7e3qc5szx3zn2gj3ta8rwj-1", required = true, value = "")
+  public String getOrderId() {
+    return orderId;
   }
 
-  public void setSequence(String sequence) {
-    this.sequence = sequence;
-  }
-
-  public OrderInfo timeInForce(String timeInForce) {
-    this.timeInForce = timeInForce;
-    return this;
-  }
-
-   /**
-   * Get timeInForce
-   * @return timeInForce
-  **/
-  @Schema(example = "1", description = "")
-  public String getTimeInForce() {
-    return timeInForce;
-  }
-
-  public void setTimeInForce(String timeInForce) {
-    this.timeInForce = timeInForce;
-  }
-
-  public OrderInfo height(String height) {
-    this.height = height;
-    return this;
-  }
-
-   /**
-   * Get height
-   * @return height
-  **/
-  @Schema(example = "10", description = "")
-  public String getHeight() {
-    return height;
-  }
-
-  public void setHeight(String height) {
-    this.height = height;
-  }
-
-  public OrderInfo frozenFee(String frozenFee) {
-    this.frozenFee = frozenFee;
-    return this;
-  }
-
-   /**
-   * Get frozenFee
-   * @return frozenFee
-  **/
-  @Schema(example = "100", description = "")
-  public String getFrozenFee() {
-    return frozenFee;
-  }
-
-  public void setFrozenFee(String frozenFee) {
-    this.frozenFee = frozenFee;
-  }
-
-  public OrderInfo leftStock(String leftStock) {
-    this.leftStock = leftStock;
-    return this;
-  }
-
-   /**
-   * Get leftStock
-   * @return leftStock
-  **/
-  @Schema(example = "100", description = "")
-  public String getLeftStock() {
-    return leftStock;
-  }
-
-  public void setLeftStock(String leftStock) {
-    this.leftStock = leftStock;
-  }
-
-  public OrderInfo freeze(String freeze) {
-    this.freeze = freeze;
-    return this;
-  }
-
-   /**
-   * Get freeze
-   * @return freeze
-  **/
-  @Schema(example = "100", description = "")
-  public String getFreeze() {
-    return freeze;
-  }
-
-  public void setFreeze(String freeze) {
-    this.freeze = freeze;
-  }
-
-  public OrderInfo dealStock(String dealStock) {
-    this.dealStock = dealStock;
-    return this;
-  }
-
-   /**
-   * Get dealStock
-   * @return dealStock
-  **/
-  @Schema(example = "100", description = "")
-  public String getDealStock() {
-    return dealStock;
-  }
-
-  public void setDealStock(String dealStock) {
-    this.dealStock = dealStock;
-  }
-
-  public OrderInfo dealMoney(String dealMoney) {
-    this.dealMoney = dealMoney;
-    return this;
-  }
-
-   /**
-   * Get dealMoney
-   * @return dealMoney
-  **/
-  @Schema(example = "100", description = "")
-  public String getDealMoney() {
-    return dealMoney;
-  }
-
-  public void setDealMoney(String dealMoney) {
-    this.dealMoney = dealMoney;
+  public void setOrderId(String orderId) {
+    this.orderId = orderId;
   }
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -227,21 +84,14 @@ public class OrderInfo extends Order {
       return false;
     }
     OrderInfo orderInfo = (OrderInfo) o;
-    return Objects.equals(this.sender, orderInfo.sender) &&
-        Objects.equals(this.sequence, orderInfo.sequence) &&
-        Objects.equals(this.timeInForce, orderInfo.timeInForce) &&
-        Objects.equals(this.height, orderInfo.height) &&
-        Objects.equals(this.frozenFee, orderInfo.frozenFee) &&
-        Objects.equals(this.leftStock, orderInfo.leftStock) &&
-        Objects.equals(this.freeze, orderInfo.freeze) &&
-        Objects.equals(this.dealStock, orderInfo.dealStock) &&
-        Objects.equals(this.dealMoney, orderInfo.dealMoney) &&
+    return Objects.equals(this.baseReq, orderInfo.baseReq) &&
+        Objects.equals(this.orderId, orderInfo.orderId) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sender, sequence, timeInForce, height, frozenFee, leftStock, freeze, dealStock, dealMoney, super.hashCode());
+    return Objects.hash(baseReq, orderId, super.hashCode());
   }
 
 
@@ -250,15 +100,8 @@ public class OrderInfo extends Order {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrderInfo {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    sender: ").append(toIndentedString(sender)).append("\n");
-    sb.append("    sequence: ").append(toIndentedString(sequence)).append("\n");
-    sb.append("    timeInForce: ").append(toIndentedString(timeInForce)).append("\n");
-    sb.append("    height: ").append(toIndentedString(height)).append("\n");
-    sb.append("    frozenFee: ").append(toIndentedString(frozenFee)).append("\n");
-    sb.append("    leftStock: ").append(toIndentedString(leftStock)).append("\n");
-    sb.append("    freeze: ").append(toIndentedString(freeze)).append("\n");
-    sb.append("    dealStock: ").append(toIndentedString(dealStock)).append("\n");
-    sb.append("    dealMoney: ").append(toIndentedString(dealMoney)).append("\n");
+    sb.append("    baseReq: ").append(toIndentedString(baseReq)).append("\n");
+    sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -267,7 +110,7 @@ public class OrderInfo extends Order {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -275,3 +118,4 @@ public class OrderInfo extends Order {
   }
 
 }
+

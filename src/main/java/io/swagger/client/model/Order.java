@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,13 +20,14 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+
 /**
  * Order
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-26T10:53:15.911+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
 public class Order {
   @SerializedName("order_type")
   private Integer orderType = null;
@@ -57,7 +59,7 @@ public class Order {
    * The identify of the price limit : 2; (Currently, only price limit orders are supported)
    * @return orderType
   **/
-  @Schema(example = "2", required = true, description = "The identify of the price limit : 2; (Currently, only price limit orders are supported)")
+  @ApiModelProperty(example = "2", required = true, value = "The identify of the price limit : 2; (Currently, only price limit orders are supported)")
   public Integer getOrderType() {
     return orderType;
   }
@@ -75,7 +77,7 @@ public class Order {
    * Get tradingPair
    * @return tradingPair
   **/
-  @Schema(example = "abc/cet", required = true, description = "")
+  @ApiModelProperty(example = "abc/cet", required = true, value = "")
   public String getTradingPair() {
     return tradingPair;
   }
@@ -93,7 +95,7 @@ public class Order {
    * Get pricePrecision
    * @return pricePrecision
   **/
-  @Schema(example = "9", description = "")
+  @ApiModelProperty(example = "9", value = "")
   public String getPricePrecision() {
     return pricePrecision;
   }
@@ -111,7 +113,7 @@ public class Order {
    * Get price
    * @return price
   **/
-  @Schema(example = "1000", required = true, description = "")
+  @ApiModelProperty(example = "1000", required = true, value = "")
   public String getPrice() {
     return price;
   }
@@ -129,7 +131,7 @@ public class Order {
    * Get quantity
    * @return quantity
   **/
-  @Schema(example = "12320", required = true, description = "")
+  @ApiModelProperty(example = "12320", required = true, value = "")
   public String getQuantity() {
     return quantity;
   }
@@ -147,7 +149,7 @@ public class Order {
    * The buying or selling direction of an order.(buy : 1; sell : 2)
    * @return side
   **/
-  @Schema(example = "1", required = true, description = "The buying or selling direction of an order.(buy : 1; sell : 2)")
+  @ApiModelProperty(example = "1", required = true, value = "The buying or selling direction of an order.(buy : 1; sell : 2)")
   public Integer getSide() {
     return side;
   }
@@ -165,7 +167,7 @@ public class Order {
    * A transaction can contain multiple order creation messages, the identify field was added to the order creation message to give each order a unique ID. So the order ID consists of user address, user sequence, identify.
    * @return identify
   **/
-  @Schema(example = "1", required = true, description = "A transaction can contain multiple order creation messages, the identify field was added to the order creation message to give each order a unique ID. So the order ID consists of user address, user sequence, identify.")
+  @ApiModelProperty(example = "1", required = true, value = "A transaction can contain multiple order creation messages, the identify field was added to the order creation message to give each order a unique ID. So the order ID consists of user address, user sequence, identify.")
   public Integer getIdentify() {
     return identify;
   }
@@ -176,7 +178,7 @@ public class Order {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -219,7 +221,7 @@ public class Order {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -227,3 +229,4 @@ public class Order {
   }
 
 }
+

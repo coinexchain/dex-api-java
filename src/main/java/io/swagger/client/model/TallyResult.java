@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,14 +20,17 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * TallyResult
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-26T10:53:15.911+08:00[Asia/Shanghai]")
-public class TallyResult {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
+public class TallyResult extends HashMap<String, Object> {
   @SerializedName("yes")
   private String yes = null;
 
@@ -48,7 +52,7 @@ public class TallyResult {
    * Get yes
    * @return yes
   **/
-  @Schema(example = "0.0000000000", required = true, description = "")
+  @ApiModelProperty(example = "0.0000000000", required = true, value = "")
   public String getYes() {
     return yes;
   }
@@ -66,7 +70,7 @@ public class TallyResult {
    * Get abstain
    * @return abstain
   **/
-  @Schema(example = "0.0000000000", required = true, description = "")
+  @ApiModelProperty(example = "0.0000000000", required = true, value = "")
   public String getAbstain() {
     return abstain;
   }
@@ -84,7 +88,7 @@ public class TallyResult {
    * Get no
    * @return no
   **/
-  @Schema(example = "0.0000000000", required = true, description = "")
+  @ApiModelProperty(example = "0.0000000000", required = true, value = "")
   public String getNo() {
     return no;
   }
@@ -102,7 +106,7 @@ public class TallyResult {
    * Get noWithVeto
    * @return noWithVeto
   **/
-  @Schema(example = "0.0000000000", required = true, description = "")
+  @ApiModelProperty(example = "0.0000000000", required = true, value = "")
   public String getNoWithVeto() {
     return noWithVeto;
   }
@@ -113,7 +117,7 @@ public class TallyResult {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -124,12 +128,13 @@ public class TallyResult {
     return Objects.equals(this.yes, tallyResult.yes) &&
         Objects.equals(this.abstain, tallyResult.abstain) &&
         Objects.equals(this.no, tallyResult.no) &&
-        Objects.equals(this.noWithVeto, tallyResult.noWithVeto);
+        Objects.equals(this.noWithVeto, tallyResult.noWithVeto) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(yes, abstain, no, noWithVeto);
+    return Objects.hash(yes, abstain, no, noWithVeto, super.hashCode());
   }
 
 
@@ -137,7 +142,7 @@ public class TallyResult {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TallyResult {\n");
-    
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    yes: ").append(toIndentedString(yes)).append("\n");
     sb.append("    abstain: ").append(toIndentedString(abstain)).append("\n");
     sb.append("    no: ").append(toIndentedString(no)).append("\n");
@@ -150,7 +155,7 @@ public class TallyResult {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -158,3 +163,4 @@ public class TallyResult {
   }
 
 }
+

@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,15 +20,18 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.client.model.BroadcastTxCommitResultEvents;
+import io.swagger.client.model.BroadcastTxCommitResultLogs;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * BroadcastTxCommitResult
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-26T10:53:15.911+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
 public class BroadcastTxCommitResult {
   @SerializedName("height")
   private String height = null;
@@ -45,7 +49,7 @@ public class BroadcastTxCommitResult {
   private String rawLog = null;
 
   @SerializedName("logs")
-  private List<Object> logs = null;
+  private List<BroadcastTxCommitResultLogs> logs = null;
 
   @SerializedName("info")
   private String info = null;
@@ -57,7 +61,7 @@ public class BroadcastTxCommitResult {
   private String gasUsed = null;
 
   @SerializedName("events")
-  private List<Object> events = null;
+  private List<BroadcastTxCommitResultEvents> events = null;
 
   @SerializedName("codespace")
   private String codespace = null;
@@ -77,7 +81,7 @@ public class BroadcastTxCommitResult {
    * Get height
    * @return height
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public String getHeight() {
     return height;
   }
@@ -95,7 +99,7 @@ public class BroadcastTxCommitResult {
    * Get txhash
    * @return txhash
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public String getTxhash() {
     return txhash;
   }
@@ -113,7 +117,7 @@ public class BroadcastTxCommitResult {
    * Get code
    * @return code
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public Integer getCode() {
     return code;
   }
@@ -131,7 +135,7 @@ public class BroadcastTxCommitResult {
    * Get data
    * @return data
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public String getData() {
     return data;
   }
@@ -149,7 +153,7 @@ public class BroadcastTxCommitResult {
    * Get rawLog
    * @return rawLog
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public String getRawLog() {
     return rawLog;
   }
@@ -158,14 +162,14 @@ public class BroadcastTxCommitResult {
     this.rawLog = rawLog;
   }
 
-  public BroadcastTxCommitResult logs(List<Object> logs) {
+  public BroadcastTxCommitResult logs(List<BroadcastTxCommitResultLogs> logs) {
     this.logs = logs;
     return this;
   }
 
-  public BroadcastTxCommitResult addLogsItem(Object logsItem) {
+  public BroadcastTxCommitResult addLogsItem(BroadcastTxCommitResultLogs logsItem) {
     if (this.logs == null) {
-      this.logs = new ArrayList<Object>();
+      this.logs = new ArrayList<BroadcastTxCommitResultLogs>();
     }
     this.logs.add(logsItem);
     return this;
@@ -175,12 +179,12 @@ public class BroadcastTxCommitResult {
    * Get logs
    * @return logs
   **/
-  @Schema(description = "")
-  public List<Object> getLogs() {
+  @ApiModelProperty(value = "")
+  public List<BroadcastTxCommitResultLogs> getLogs() {
     return logs;
   }
 
-  public void setLogs(List<Object> logs) {
+  public void setLogs(List<BroadcastTxCommitResultLogs> logs) {
     this.logs = logs;
   }
 
@@ -193,7 +197,7 @@ public class BroadcastTxCommitResult {
    * Get info
    * @return info
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public String getInfo() {
     return info;
   }
@@ -211,7 +215,7 @@ public class BroadcastTxCommitResult {
    * Get gasWanted
    * @return gasWanted
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public String getGasWanted() {
     return gasWanted;
   }
@@ -229,7 +233,7 @@ public class BroadcastTxCommitResult {
    * Get gasUsed
    * @return gasUsed
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public String getGasUsed() {
     return gasUsed;
   }
@@ -238,14 +242,14 @@ public class BroadcastTxCommitResult {
     this.gasUsed = gasUsed;
   }
 
-  public BroadcastTxCommitResult events(List<Object> events) {
+  public BroadcastTxCommitResult events(List<BroadcastTxCommitResultEvents> events) {
     this.events = events;
     return this;
   }
 
-  public BroadcastTxCommitResult addEventsItem(Object eventsItem) {
+  public BroadcastTxCommitResult addEventsItem(BroadcastTxCommitResultEvents eventsItem) {
     if (this.events == null) {
-      this.events = new ArrayList<Object>();
+      this.events = new ArrayList<BroadcastTxCommitResultEvents>();
     }
     this.events.add(eventsItem);
     return this;
@@ -255,12 +259,12 @@ public class BroadcastTxCommitResult {
    * Get events
    * @return events
   **/
-  @Schema(description = "")
-  public List<Object> getEvents() {
+  @ApiModelProperty(value = "")
+  public List<BroadcastTxCommitResultEvents> getEvents() {
     return events;
   }
 
-  public void setEvents(List<Object> events) {
+  public void setEvents(List<BroadcastTxCommitResultEvents> events) {
     this.events = events;
   }
 
@@ -273,7 +277,7 @@ public class BroadcastTxCommitResult {
    * Get codespace
    * @return codespace
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public String getCodespace() {
     return codespace;
   }
@@ -291,7 +295,7 @@ public class BroadcastTxCommitResult {
    * Get tx
    * @return tx
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public Object getTx() {
     return tx;
   }
@@ -309,7 +313,7 @@ public class BroadcastTxCommitResult {
    * Get timestamp
    * @return timestamp
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public String getTimestamp() {
     return timestamp;
   }
@@ -320,7 +324,7 @@ public class BroadcastTxCommitResult {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -375,7 +379,7 @@ public class BroadcastTxCommitResult {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -383,3 +387,4 @@ public class BroadcastTxCommitResult {
   }
 
 }
+

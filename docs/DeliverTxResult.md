@@ -1,3 +1,4 @@
+
 # DeliverTxResult
 
 ## Properties
@@ -10,3 +11,6 @@ Name | Type | Description | Notes
 **info** | **String** |  |  [optional]
 **log** | **String** |  |  [optional]
 **tags** | [**List&lt;KVPair&gt;**](KVPair.md) |  |  [optional]
+
+
+

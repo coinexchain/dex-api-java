@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,19 +20,23 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.client.model.TokenValue;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Token
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-26T10:53:15.911+08:00[Asia/Shanghai]")
-public class Token {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
+public class Token extends HashMap<String, Object> {
   @SerializedName("type")
   private String type = null;
 
   @SerializedName("value")
-  private Object value = null;
+  private TokenValue value = null;
 
   public Token type(String type) {
     this.type = type;
@@ -42,7 +47,7 @@ public class Token {
    * Get type
    * @return type
   **/
-  @Schema(example = "asset/BaseToken", required = true, description = "")
+  @ApiModelProperty(example = "asset/BaseToken", required = true, value = "")
   public String getType() {
     return type;
   }
@@ -51,7 +56,7 @@ public class Token {
     this.type = type;
   }
 
-  public Token value(Object value) {
+  public Token value(TokenValue value) {
     this.value = value;
     return this;
   }
@@ -60,18 +65,18 @@ public class Token {
    * Get value
    * @return value
   **/
-  @Schema(required = true, description = "")
-  public Object getValue() {
+  @ApiModelProperty(required = true, value = "")
+  public TokenValue getValue() {
     return value;
   }
 
-  public void setValue(Object value) {
+  public void setValue(TokenValue value) {
     this.value = value;
   }
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -80,12 +85,13 @@ public class Token {
     }
     Token token = (Token) o;
     return Objects.equals(this.type, token.type) &&
-        Objects.equals(this.value, token.value);
+        Objects.equals(this.value, token.value) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, value);
+    return Objects.hash(type, value, super.hashCode());
   }
 
 
@@ -93,7 +99,7 @@ public class Token {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Token {\n");
-    
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
@@ -104,7 +110,7 @@ public class Token {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -112,3 +118,4 @@ public class Token {
   }
 
 }
+

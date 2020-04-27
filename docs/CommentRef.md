@@ -1,3 +1,4 @@
+
 # CommentRef
 
 ## Properties
@@ -8,3 +9,6 @@ Name | Type | Description | Notes
 **rewardToken** | **String** |  | 
 **rewardAmount** | **String** |  | 
 **attitudes** | **List&lt;Integer&gt;** |  | 
+
+
+

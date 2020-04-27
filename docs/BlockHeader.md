@@ -1,3 +1,4 @@
+
 # BlockHeader
 
 ## Properties
@@ -18,4 +19,7 @@ Name | Type | Description | Notes
 **lastResultsHash** | **String** |  | 
 **evidenceHash** | **String** |  | 
 **proposerAddress** | **String** |  | 
-**version** | **Object** |  | 
+**version** | [**BlockHeaderVersion**](BlockHeaderVersion.md) |  | 
+
+
+

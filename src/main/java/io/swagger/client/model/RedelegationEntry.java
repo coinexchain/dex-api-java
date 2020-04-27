@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,14 +20,17 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * RedelegationEntry
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-26T10:53:15.911+08:00[Asia/Shanghai]")
-public class RedelegationEntry {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
+public class RedelegationEntry extends HashMap<String, Object> {
   @SerializedName("creation_height")
   private Integer creationHeight = null;
 
@@ -51,7 +55,7 @@ public class RedelegationEntry {
    * Get creationHeight
    * @return creationHeight
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public Integer getCreationHeight() {
     return creationHeight;
   }
@@ -69,7 +73,7 @@ public class RedelegationEntry {
    * Get completionTime
    * @return completionTime
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getCompletionTime() {
     return completionTime;
   }
@@ -87,7 +91,7 @@ public class RedelegationEntry {
    * Get initialBalance
    * @return initialBalance
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getInitialBalance() {
     return initialBalance;
   }
@@ -105,7 +109,7 @@ public class RedelegationEntry {
    * Get sharesDst
    * @return sharesDst
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getSharesDst() {
     return sharesDst;
   }
@@ -123,7 +127,7 @@ public class RedelegationEntry {
    * Get balance
    * @return balance
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getBalance() {
     return balance;
   }
@@ -134,7 +138,7 @@ public class RedelegationEntry {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -146,12 +150,13 @@ public class RedelegationEntry {
         Objects.equals(this.completionTime, redelegationEntry.completionTime) &&
         Objects.equals(this.initialBalance, redelegationEntry.initialBalance) &&
         Objects.equals(this.sharesDst, redelegationEntry.sharesDst) &&
-        Objects.equals(this.balance, redelegationEntry.balance);
+        Objects.equals(this.balance, redelegationEntry.balance) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationHeight, completionTime, initialBalance, sharesDst, balance);
+    return Objects.hash(creationHeight, completionTime, initialBalance, sharesDst, balance, super.hashCode());
   }
 
 
@@ -159,7 +164,7 @@ public class RedelegationEntry {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RedelegationEntry {\n");
-    
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    creationHeight: ").append(toIndentedString(creationHeight)).append("\n");
     sb.append("    completionTime: ").append(toIndentedString(completionTime)).append("\n");
     sb.append("    initialBalance: ").append(toIndentedString(initialBalance)).append("\n");
@@ -173,7 +178,7 @@ public class RedelegationEntry {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -181,3 +186,4 @@ public class RedelegationEntry {
   }
 
 }
+

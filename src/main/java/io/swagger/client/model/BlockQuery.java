@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,22 +20,24 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import io.swagger.client.model.Block;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.client.model.BlockQueryBlockMeta;
 import java.io.IOException;
+
 /**
  * BlockQuery
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-26T10:53:15.911+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
 public class BlockQuery {
   @SerializedName("block_meta")
-  private Object blockMeta = null;
+  private BlockQueryBlockMeta blockMeta = null;
 
   @SerializedName("block")
   private Block block = null;
 
-  public BlockQuery blockMeta(Object blockMeta) {
+  public BlockQuery blockMeta(BlockQueryBlockMeta blockMeta) {
     this.blockMeta = blockMeta;
     return this;
   }
@@ -43,12 +46,12 @@ public class BlockQuery {
    * Get blockMeta
    * @return blockMeta
   **/
-  @Schema(description = "")
-  public Object getBlockMeta() {
+  @ApiModelProperty(value = "")
+  public BlockQueryBlockMeta getBlockMeta() {
     return blockMeta;
   }
 
-  public void setBlockMeta(Object blockMeta) {
+  public void setBlockMeta(BlockQueryBlockMeta blockMeta) {
     this.blockMeta = blockMeta;
   }
 
@@ -61,7 +64,7 @@ public class BlockQuery {
    * Get block
    * @return block
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public Block getBlock() {
     return block;
   }
@@ -72,7 +75,7 @@ public class BlockQuery {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -105,7 +108,7 @@ public class BlockQuery {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -113,3 +116,4 @@ public class BlockQuery {
   }
 
 }
+

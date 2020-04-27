@@ -10,9 +10,13 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
+import io.swagger.client.model.FollowupCommentReq;
+import io.swagger.client.model.NewThreadReq;
+import io.swagger.client.model.RewardCommentsReq;
 import io.swagger.client.model.StdTx;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -30,6 +34,7 @@ public class CommentApiTest {
 
     private final CommentApi api = new CommentApi();
 
+    
     /**
      * Post a follow-up comment under some thread
      *
@@ -40,11 +45,12 @@ public class CommentApiTest {
      */
     @Test
     public void followupCommentTest() throws ApiException {
-        Object body = null;
-        StdTx response = api.followupComment(body);
+        FollowupCommentReq followupCommentReq = null;
+        StdTx response = api.followupComment(followupCommentReq);
 
         // TODO: test validations
     }
+    
     /**
      * Post a new comment to open a new thread
      *
@@ -55,11 +61,12 @@ public class CommentApiTest {
      */
     @Test
     public void newThreadTest() throws ApiException {
-        Object body = null;
-        StdTx response = api.newThread(body);
+        NewThreadReq newThreadReq = null;
+        StdTx response = api.newThread(newThreadReq);
 
         // TODO: test validations
     }
+    
     /**
      * reward some comments with coins
      *
@@ -70,9 +77,10 @@ public class CommentApiTest {
      */
     @Test
     public void rewardCommentsTest() throws ApiException {
-        Object body = null;
-        StdTx response = api.rewardComments(body);
+        RewardCommentsReq rewardCommentsReq = null;
+        StdTx response = api.rewardComments(rewardCommentsReq);
 
         // TODO: test validations
     }
+    
 }

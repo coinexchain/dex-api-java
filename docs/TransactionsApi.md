@@ -1,6 +1,6 @@
 # TransactionsApi
 
-All URIs are relative to *https://dex-api.coinex.org/*
+All URIs are relative to *https://dex-api.coinex.org*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,9 +9,10 @@ Method | HTTP request | Description
 [**getTxByHash**](TransactionsApi.md#getTxByHash) | **GET** /txs/{hash} | Get a Tx by hash
 [**searchTx**](TransactionsApi.md#searchTx) | **GET** /txs | Search transactions
 
+
 <a name="broadcastTx"></a>
 # **broadcastTx**
-> BroadcastTxCommitResult broadcastTx(body)
+> BroadcastTxCommitResult broadcastTx(txBroadcast)
 
 Broadcast a signed tx
 
@@ -25,9 +26,9 @@ Broadcast a signed tx to a full node
 
 
 TransactionsApi apiInstance = new TransactionsApi();
-Object body = null; // Object | The tx must be a signed StdTx. The supported broadcast modes include `"block"`(return after tx commit), `"sync"`(return afer CheckTx) and `"async"`(return right away).
+TxBroadcast txBroadcast = new TxBroadcast(); // TxBroadcast | The tx must be a signed StdTx. The supported broadcast modes include `\"block\"`(return after tx commit), `\"sync\"`(return afer CheckTx) and `\"async\"`(return right away).
 try {
-    BroadcastTxCommitResult result = apiInstance.broadcastTx(body);
+    BroadcastTxCommitResult result = apiInstance.broadcastTx(txBroadcast);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TransactionsApi#broadcastTx");
@@ -39,7 +40,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)| The tx must be a signed StdTx. The supported broadcast modes include &#x60;&quot;block&quot;&#x60;(return after tx commit), &#x60;&quot;sync&quot;&#x60;(return afer CheckTx) and &#x60;&quot;async&quot;&#x60;(return right away). |
+ **txBroadcast** | [**TxBroadcast**](TxBroadcast.md)| The tx must be a signed StdTx. The supported broadcast modes include &#x60;\&quot;block\&quot;&#x60;(return after tx commit), &#x60;\&quot;sync\&quot;&#x60;(return afer CheckTx) and &#x60;\&quot;async\&quot;&#x60;(return right away). |
 
 ### Return type
 
@@ -56,7 +57,7 @@ No authorization required
 
 <a name="encodeTx"></a>
 # **encodeTx**
-> Object encodeTx(body)
+> InlineResponse2003 encodeTx(tx)
 
 Encode a transaction to the Amino wire format
 
@@ -70,9 +71,9 @@ Encode a transaction (signed or not) from JSON to base64-encoded Amino serialize
 
 
 TransactionsApi apiInstance = new TransactionsApi();
-Object body = null; // Object | The tx to encode
+Tx tx = new Tx(); // Tx | The tx to encode
 try {
-    Object result = apiInstance.encodeTx(body);
+    InlineResponse2003 result = apiInstance.encodeTx(tx);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TransactionsApi#encodeTx");
@@ -84,11 +85,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)| The tx to encode |
+ **tx** | [**Tx**](Tx.md)| The tx to encode |
 
 ### Return type
 
-**Object**
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -175,8 +176,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **messageAction** | **String**| transaction events such as &#x27;message.action&#x3D;send&#x27; which results in the following endpoint: &#x27;GET /txs?message.action&#x3D;send&#x27; | [optional]
- **messageSender** | **String**| transaction tags with sender: &#x27;GET /txs?message.action&#x3D;send&amp;message.sender&#x3D;cosmos16xyempempp92x9hyzz9wrgf94r6j9h5f06pxxv&#x27; | [optional]
+ **messageAction** | **String**| transaction events such as &#39;message.action&#x3D;send&#39; which results in the following endpoint: &#39;GET /txs?message.action&#x3D;send&#39; | [optional]
+ **messageSender** | **String**| transaction tags with sender: &#39;GET /txs?message.action&#x3D;send&amp;message.sender&#x3D;cosmos16xyempempp92x9hyzz9wrgf94r6j9h5f06pxxv&#39; | [optional]
  **page** | **Integer**| Page number | [optional]
  **limit** | **Integer**| Maximum number of items per page | [optional]
 

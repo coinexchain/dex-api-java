@@ -10,9 +10,15 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
+import io.swagger.client.model.BancorCancel;
+import io.swagger.client.model.BancorInit;
+import io.swagger.client.model.BancorTrade;
+import io.swagger.client.model.InlineResponse20051;
+import io.swagger.client.model.InlineResponse20052;
 import io.swagger.client.model.StdTx;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -30,6 +36,7 @@ public class BancorliteApiTest {
 
     private final BancorliteApi api = new BancorliteApi();
 
+    
     /**
      * cancel bancor
      *
@@ -40,11 +47,12 @@ public class BancorliteApiTest {
      */
     @Test
     public void bancorCancelTest() throws ApiException {
-        Object body = null;
-        StdTx response = api.bancorCancel(body);
+        BancorCancel bancorCancel = null;
+        StdTx response = api.bancorCancel(bancorCancel);
 
         // TODO: test validations
     }
+    
     /**
      * create bancor
      *
@@ -55,11 +63,12 @@ public class BancorliteApiTest {
      */
     @Test
     public void bancorInitTest() throws ApiException {
-        Object body = null;
-        StdTx response = api.bancorInit(body);
+        BancorInit bancorInit = null;
+        StdTx response = api.bancorInit(bancorInit);
 
         // TODO: test validations
     }
+    
     /**
      * trade with bancor
      *
@@ -70,11 +79,12 @@ public class BancorliteApiTest {
      */
     @Test
     public void bancorTradeTest() throws ApiException {
-        Object body = null;
-        StdTx response = api.bancorTrade(body);
+        BancorTrade bancorTrade = null;
+        StdTx response = api.bancorTrade(bancorTrade);
 
         // TODO: test validations
     }
+    
     /**
      * get the bancor pool info
      *
@@ -90,6 +100,7 @@ public class BancorliteApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * get all bancor infos
      *
@@ -100,10 +111,11 @@ public class BancorliteApiTest {
      */
     @Test
     public void getBancorInfosTest() throws ApiException {
-        Object response = api.getBancorInfos();
+        InlineResponse20052 response = api.getBancorInfos();
 
         // TODO: test validations
     }
+    
     /**
      * Get the current bancorlite parameters
      *
@@ -114,8 +126,9 @@ public class BancorliteApiTest {
      */
     @Test
     public void getBancorliteParamsTest() throws ApiException {
-        Object response = api.getBancorliteParams();
+        InlineResponse20051 response = api.getBancorliteParams();
 
         // TODO: test validations
     }
+    
 }

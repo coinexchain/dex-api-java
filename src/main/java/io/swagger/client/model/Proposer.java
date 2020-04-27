@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,14 +20,17 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Proposer
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-26T10:53:15.911+08:00[Asia/Shanghai]")
-public class Proposer {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
+public class Proposer extends HashMap<String, Object> {
   @SerializedName("proposal_id")
   private String proposalId = null;
 
@@ -42,7 +46,7 @@ public class Proposer {
    * Get proposalId
    * @return proposalId
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getProposalId() {
     return proposalId;
   }
@@ -60,7 +64,7 @@ public class Proposer {
    * Get proposer
    * @return proposer
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getProposer() {
     return proposer;
   }
@@ -71,7 +75,7 @@ public class Proposer {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -80,12 +84,13 @@ public class Proposer {
     }
     Proposer proposer = (Proposer) o;
     return Objects.equals(this.proposalId, proposer.proposalId) &&
-        Objects.equals(this.proposer, proposer.proposer);
+        Objects.equals(this.proposer, proposer.proposer) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(proposalId, proposer);
+    return Objects.hash(proposalId, proposer, super.hashCode());
   }
 
 
@@ -93,7 +98,7 @@ public class Proposer {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Proposer {\n");
-    
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    proposalId: ").append(toIndentedString(proposalId)).append("\n");
     sb.append("    proposer: ").append(toIndentedString(proposer)).append("\n");
     sb.append("}");
@@ -104,7 +109,7 @@ public class Proposer {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -112,3 +117,4 @@ public class Proposer {
   }
 
 }
+

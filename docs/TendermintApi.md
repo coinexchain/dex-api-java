@@ -1,6 +1,6 @@
 # TendermintApi
 
-All URIs are relative to *https://dex-api.coinex.org/*
+All URIs are relative to *https://dex-api.coinex.org*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**getNodeInfo**](TendermintApi.md#getNodeInfo) | **GET** /node_info | The properties of the connected node
 [**getSyncing**](TendermintApi.md#getSyncing) | **GET** /syncing | Syncing state of node
 [**getValidatorSet**](TendermintApi.md#getValidatorSet) | **GET** /validatorsets/{height} | Get a validator set a certain height
+
 
 <a name="getBlock"></a>
 # **getBlock**
@@ -95,7 +96,7 @@ No authorization required
 
 <a name="getLatestValidatorSet"></a>
 # **getLatestValidatorSet**
-> Object getLatestValidatorSet()
+> InlineResponse2001 getLatestValidatorSet()
 
 Get the latest validator set
 
@@ -108,7 +109,7 @@ Get the latest validator set
 
 TendermintApi apiInstance = new TendermintApi();
 try {
-    Object result = apiInstance.getLatestValidatorSet();
+    InlineResponse2001 result = apiInstance.getLatestValidatorSet();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TendermintApi#getLatestValidatorSet");
@@ -121,7 +122,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Object**
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 
@@ -134,7 +135,7 @@ No authorization required
 
 <a name="getNodeInfo"></a>
 # **getNodeInfo**
-> Object getNodeInfo()
+> InlineResponse200 getNodeInfo()
 
 The properties of the connected node
 
@@ -149,7 +150,7 @@ Information about the connected node
 
 TendermintApi apiInstance = new TendermintApi();
 try {
-    Object result = apiInstance.getNodeInfo();
+    InlineResponse200 result = apiInstance.getNodeInfo();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TendermintApi#getNodeInfo");
@@ -162,7 +163,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Object**
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 
@@ -215,7 +216,7 @@ No authorization required
 
 <a name="getValidatorSet"></a>
 # **getValidatorSet**
-> Object getValidatorSet(height)
+> InlineResponse2002 getValidatorSet(height)
 
 Get a validator set a certain height
 
@@ -229,7 +230,7 @@ Get a validator set a certain height
 TendermintApi apiInstance = new TendermintApi();
 BigDecimal height = new BigDecimal(); // BigDecimal | Block height
 try {
-    Object result = apiInstance.getValidatorSet(height);
+    InlineResponse2002 result = apiInstance.getValidatorSet(height);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TendermintApi#getValidatorSet");
@@ -245,7 +246,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 

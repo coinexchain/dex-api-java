@@ -10,9 +10,14 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
+import io.swagger.client.model.Account;
+import io.swagger.client.model.Account1;
+import io.swagger.client.model.InlineResponse20035;
+import io.swagger.client.model.PostTxBody;
 import io.swagger.client.model.StdTx;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -30,6 +35,7 @@ public class BankApiTest {
 
     private final BankApi api = new BankApi();
 
+    
     /**
      * Get the account balances
      *
@@ -45,6 +51,7 @@ public class BankApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Get the current bankx parameters
      *
@@ -55,10 +62,11 @@ public class BankApiTest {
      */
     @Test
     public void getBankParamsTest() throws ApiException {
-        Object response = api.getBankParams();
+        InlineResponse20035 response = api.getBankParams();
 
         // TODO: test validations
     }
+    
     /**
      * Send coins from one account to another
      *
@@ -69,12 +77,13 @@ public class BankApiTest {
      */
     @Test
     public void sendCoinsTest() throws ApiException {
-        Object body = null;
         String address = null;
-        StdTx response = api.sendCoins(body, address);
+        Account account = null;
+        StdTx response = api.sendCoins(address, account);
 
         // TODO: test validations
     }
+    
     /**
      * Mark if memo is required to receive coins
      *
@@ -85,11 +94,12 @@ public class BankApiTest {
      */
     @Test
     public void setMemoRequiredTest() throws ApiException {
-        Object body = null;
-        StdTx response = api.setMemoRequired(body);
+        Account1 account = null;
+        StdTx response = api.setMemoRequired(account);
 
         // TODO: test validations
     }
+    
     /**
      * Operate a supervised transfer
      *
@@ -100,10 +110,11 @@ public class BankApiTest {
      */
     @Test
     public void transferSupervisedCoinsTest() throws ApiException {
-        Object body = null;
         String address = null;
-        StdTx response = api.transferSupervisedCoins(body, address);
+        PostTxBody postTxBody = null;
+        StdTx response = api.transferSupervisedCoins(address, postTxBody);
 
         // TODO: test validations
     }
+    
 }

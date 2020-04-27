@@ -10,25 +10,25 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import io.gsonfire.GsonFireBuilder;
-import io.gsonfire.PostProcessor;
-import io.gsonfire.TypeSelector;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.internal.bind.util.ISO8601Utils;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.google.gson.JsonElement;
+import io.gsonfire.GsonFireBuilder;
+import io.gsonfire.TypeSelector;
 import org.threeten.bp.LocalDate;
 import org.threeten.bp.OffsetDateTime;
 import org.threeten.bp.format.DateTimeFormatter;
 
 import io.swagger.client.model.*;
+import okio.ByteString;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -47,73 +47,24 @@ public class JSON {
     private SqlDateTypeAdapter sqlDateTypeAdapter = new SqlDateTypeAdapter();
     private OffsetDateTimeTypeAdapter offsetDateTimeTypeAdapter = new OffsetDateTimeTypeAdapter();
     private LocalDateTypeAdapter localDateTypeAdapter = new LocalDateTypeAdapter();
+    private ByteArrayAdapter byteArrayAdapter = new ByteArrayAdapter();
 
     public static GsonBuilder createGson() {
         GsonFireBuilder fireBuilder = new GsonFireBuilder()
-          .registerTypeSelector(BaseMarket.class, new TypeSelector<BaseMarket>() {
+          .registerTypeSelector(BaseMarket.class, new TypeSelector() {
             @Override
-            public Class<? extends BaseMarket> getClassForElement(JsonElement readElement) {
-                Map<String, Class<? extends BaseMarket>> classByDiscriminatorValue = new HashMap<>();
-                    classByDiscriminatorValue.put("MarketInfo".toUpperCase(), MarketInfo.class);
-                    classByDiscriminatorValue.put("BaseMarket".toUpperCase(), BaseMarket.class);
+            public Class getClassForElement(JsonElement readElement) {
+                Map classByDiscriminatorValue = new HashMap();
+                classByDiscriminatorValue.put("MarketInfo".toUpperCase(), MarketInfo.class);
+                classByDiscriminatorValue.put("BaseMarket".toUpperCase(), BaseMarket.class);
                 return getClassByDiscriminator(
-                            classByDiscriminatorValue,
-                            getDiscriminatorValue(readElement, ""));
+                                           classByDiscriminatorValue,
+                                           getDiscriminatorValue(readElement, ""));
             }
-          })
-          .registerPostProcessor(BaseMarket.class, new PostProcessor<BaseMarket>() {
-              @Override
-              public void postDeserialize(BaseMarket result, JsonElement src, Gson gson) {
-
-              }
-
-              @Override
-              public void postSerialize(JsonElement result, BaseMarket src, Gson gson) {
-                  Map<Class<? extends BaseMarket>, String> discriminatorValueByClass = new HashMap<>();
-                      discriminatorValueByClass.put(MarketInfo.class, "MarketInfo");
-                      discriminatorValueByClass.put(BaseMarket.class, "BaseMarket");
-                  if(result instanceof JsonObject)
-                  {
-                      if(!((JsonObject) result).has(""))
-                      {
-                          ((JsonObject) result).addProperty("", discriminatorValueByClass.get(src.getClass()));
-                      }
-                  }
-              }
-          })
-          .registerTypeSelector(Order.class, new TypeSelector<Order>() {
-            @Override
-            public Class<? extends Order> getClassForElement(JsonElement readElement) {
-                Map<String, Class<? extends Order>> classByDiscriminatorValue = new HashMap<>();
-                    classByDiscriminatorValue.put("OrderInfo".toUpperCase(), OrderInfo.class);
-                    classByDiscriminatorValue.put("Order".toUpperCase(), Order.class);
-                return getClassByDiscriminator(
-                            classByDiscriminatorValue,
-                            getDiscriminatorValue(readElement, ""));
-            }
-          })
-          .registerPostProcessor(Order.class, new PostProcessor<Order>() {
-              @Override
-              public void postDeserialize(Order result, JsonElement src, Gson gson) {
-
-              }
-
-              @Override
-              public void postSerialize(JsonElement result, Order src, Gson gson) {
-                  Map<Class<? extends Order>, String> discriminatorValueByClass = new HashMap<>();
-                      discriminatorValueByClass.put(OrderInfo.class, "OrderInfo");
-                      discriminatorValueByClass.put(Order.class, "Order");
-                  if(result instanceof JsonObject)
-                  {
-                      if(!((JsonObject) result).has(""))
-                      {
-                          ((JsonObject) result).addProperty("", discriminatorValueByClass.get(src.getClass()));
-                      }
-                  }
-              }
           })
         ;
-        return fireBuilder.createGsonBuilder();
+        GsonBuilder builder = fireBuilder.createGsonBuilder();
+        return builder;
     }
 
     private static String getDiscriminatorValue(JsonElement readElement, String discriminatorField) {
@@ -124,8 +75,8 @@ public class JSON {
         return element.getAsString();
     }
 
-    private static <T> Class<? extends T> getClassByDiscriminator(Map<String, Class<? extends T>> classByDiscriminatorValue, String discriminatorValue) {
-        Class<? extends T> clazz = classByDiscriminatorValue.get(discriminatorValue.toUpperCase());
+    private static Class getClassByDiscriminator(Map classByDiscriminatorValue, String discriminatorValue) {
+        Class clazz = (Class) classByDiscriminatorValue.get(discriminatorValue.toUpperCase());
         if(null == clazz) {
             throw new IllegalArgumentException("cannot determine model class of name: <" + discriminatorValue + ">");
         }
@@ -138,6 +89,7 @@ public class JSON {
             .registerTypeAdapter(java.sql.Date.class, sqlDateTypeAdapter)
             .registerTypeAdapter(OffsetDateTime.class, offsetDateTimeTypeAdapter)
             .registerTypeAdapter(LocalDate.class, localDateTypeAdapter)
+            .registerTypeAdapter(byte[].class, byteArrayAdapter)
             .create();
     }
 
@@ -201,6 +153,34 @@ public class JSON {
             if (returnType.equals(String.class))
                 return (T) body;
             else throw (e);
+        }
+    }
+
+    /**
+     * Gson TypeAdapter for Byte Array type
+     */
+    public class ByteArrayAdapter extends TypeAdapter<byte[]> {
+
+        @Override
+        public void write(JsonWriter out, byte[] value) throws IOException {
+            if (value == null) {
+                out.nullValue();
+            } else {
+                out.value(ByteString.of(value).base64());
+            }
+        }
+
+        @Override
+        public byte[] read(JsonReader in) throws IOException {
+            switch (in.peek()) {
+                case NULL:
+                    in.nextNull();
+                    return null;
+                default:
+                    String bytesAsBase64 = in.nextString();
+                    ByteString byteString = ByteString.decodeBase64(bytesAsBase64);
+                    return byteString.toByteArray();
+            }
         }
     }
 

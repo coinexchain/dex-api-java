@@ -10,11 +10,23 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
 import io.swagger.client.model.Addresses;
+import io.swagger.client.model.Amount1;
+import io.swagger.client.model.Amount2;
+import io.swagger.client.model.BaseReq;
+import io.swagger.client.model.BaseReq1;
+import io.swagger.client.model.Info;
+import io.swagger.client.model.InlineResponse20037;
+import io.swagger.client.model.InlineResponse20038;
+import io.swagger.client.model.InlineResponse20039;
+import io.swagger.client.model.InlineResponse20040;
+import io.swagger.client.model.InlineResponse20041;
 import io.swagger.client.model.IssueToken;
+import io.swagger.client.model.NewOwner;
 import io.swagger.client.model.StdTx;
 import io.swagger.client.model.Whitelist;
 import org.junit.Test;
@@ -33,6 +45,7 @@ public class AssetApiTest {
 
     private final AssetApi api = new AssetApi();
 
+    
     /**
      * Add forbid whitelist
      *
@@ -43,12 +56,13 @@ public class AssetApiTest {
      */
     @Test
     public void addWhitelistTest() throws ApiException {
-        Whitelist body = null;
         String symbol = null;
-        StdTx response = api.addWhitelist(body, symbol);
+        Whitelist whitelist = null;
+        StdTx response = api.addWhitelist(symbol, whitelist);
 
         // TODO: test validations
     }
+    
     /**
      * Burn token
      *
@@ -59,12 +73,13 @@ public class AssetApiTest {
      */
     @Test
     public void burnTokenTest() throws ApiException {
-        Object body = null;
         String symbol = null;
-        StdTx response = api.burnToken(body, symbol);
+        Amount2 amount = null;
+        StdTx response = api.burnToken(symbol, amount);
 
         // TODO: test validations
     }
+    
     /**
      * Forbid address
      *
@@ -75,12 +90,13 @@ public class AssetApiTest {
      */
     @Test
     public void forbidAddrTest() throws ApiException {
-        Addresses body = null;
         String symbol = null;
-        StdTx response = api.forbidAddr(body, symbol);
+        Addresses addresses = null;
+        StdTx response = api.forbidAddr(symbol, addresses);
 
         // TODO: test validations
     }
+    
     /**
      * Forbid token
      *
@@ -91,12 +107,13 @@ public class AssetApiTest {
      */
     @Test
     public void forbidTokenTest() throws ApiException {
-        Object body = null;
         String symbol = null;
-        StdTx response = api.forbidToken(body, symbol);
+        BaseReq baseReq = null;
+        StdTx response = api.forbidToken(symbol, baseReq);
 
         // TODO: test validations
     }
+    
     /**
      * Get the current asset parameters
      *
@@ -107,10 +124,11 @@ public class AssetApiTest {
      */
     @Test
     public void getAssetParamsTest() throws ApiException {
-        Object response = api.getAssetParams();
+        InlineResponse20037 response = api.getAssetParams();
 
         // TODO: test validations
     }
+    
     /**
      * query forbidden addresses
      *
@@ -122,10 +140,11 @@ public class AssetApiTest {
     @Test
     public void getForbiddenAddressesTest() throws ApiException {
         String symbol = null;
-        Object response = api.getForbiddenAddresses(symbol);
+        InlineResponse20040 response = api.getForbiddenAddresses(symbol);
 
         // TODO: test validations
     }
+    
     /**
      * List reserved symbols
      *
@@ -136,10 +155,11 @@ public class AssetApiTest {
      */
     @Test
     public void getReservedSymbolsTest() throws ApiException {
-        Object response = api.getReservedSymbols();
+        InlineResponse20041 response = api.getReservedSymbols();
 
         // TODO: test validations
     }
+    
     /**
      * queryToken
      *
@@ -151,10 +171,11 @@ public class AssetApiTest {
     @Test
     public void getTokenTest() throws ApiException {
         String symbol = null;
-        Object response = api.getToken(symbol);
+        InlineResponse20039 response = api.getToken(symbol);
 
         // TODO: test validations
     }
+    
     /**
      * List tokens
      *
@@ -165,10 +186,11 @@ public class AssetApiTest {
      */
     @Test
     public void getTokenListTest() throws ApiException {
-        Object response = api.getTokenList();
+        InlineResponse20038 response = api.getTokenList();
 
         // TODO: test validations
     }
+    
     /**
      * queryWhitelist
      *
@@ -180,10 +202,11 @@ public class AssetApiTest {
     @Test
     public void getWhitelistTest() throws ApiException {
         String symbol = null;
-        Object response = api.getWhitelist(symbol);
+        InlineResponse20040 response = api.getWhitelist(symbol);
 
         // TODO: test validations
     }
+    
     /**
      * Issue token
      *
@@ -194,11 +217,12 @@ public class AssetApiTest {
      */
     @Test
     public void issueTokenTest() throws ApiException {
-        IssueToken body = null;
-        StdTx response = api.issueToken(body);
+        IssueToken tokenInfo = null;
+        StdTx response = api.issueToken(tokenInfo);
 
         // TODO: test validations
     }
+    
     /**
      * Mint token
      *
@@ -209,12 +233,13 @@ public class AssetApiTest {
      */
     @Test
     public void mintTokenTest() throws ApiException {
-        Object body = null;
         String symbol = null;
-        StdTx response = api.mintToken(body, symbol);
+        Amount1 amount = null;
+        StdTx response = api.mintToken(symbol, amount);
 
         // TODO: test validations
     }
+    
     /**
      * Modify token info
      *
@@ -225,12 +250,13 @@ public class AssetApiTest {
      */
     @Test
     public void modifyTokenInfoTest() throws ApiException {
-        Object body = null;
         String symbol = null;
-        StdTx response = api.modifyTokenInfo(body, symbol);
+        Info info = null;
+        StdTx response = api.modifyTokenInfo(symbol, info);
 
         // TODO: test validations
     }
+    
     /**
      * Remove forbid whitelist
      *
@@ -241,12 +267,13 @@ public class AssetApiTest {
      */
     @Test
     public void removeWhitelistTest() throws ApiException {
-        Whitelist body = null;
         String symbol = null;
-        StdTx response = api.removeWhitelist(body, symbol);
+        Whitelist whitelist = null;
+        StdTx response = api.removeWhitelist(symbol, whitelist);
 
         // TODO: test validations
     }
+    
     /**
      * Transfer ownership
      *
@@ -257,12 +284,13 @@ public class AssetApiTest {
      */
     @Test
     public void transferOwnershipTest() throws ApiException {
-        Object body = null;
         String symbol = null;
-        StdTx response = api.transferOwnership(body, symbol);
+        NewOwner newOwner = null;
+        StdTx response = api.transferOwnership(symbol, newOwner);
 
         // TODO: test validations
     }
+    
     /**
      * UnForbid address
      *
@@ -273,12 +301,13 @@ public class AssetApiTest {
      */
     @Test
     public void unForbidAddrTest() throws ApiException {
-        Addresses body = null;
         String symbol = null;
-        StdTx response = api.unForbidAddr(body, symbol);
+        Addresses addresses = null;
+        StdTx response = api.unForbidAddr(symbol, addresses);
 
         // TODO: test validations
     }
+    
     /**
      * UnForbid token
      *
@@ -289,10 +318,11 @@ public class AssetApiTest {
      */
     @Test
     public void unFrobidTokenTest() throws ApiException {
-        Object body = null;
         String symbol = null;
-        StdTx response = api.unFrobidToken(body, symbol);
+        BaseReq1 baseReq = null;
+        StdTx response = api.unFrobidToken(symbol, baseReq);
 
         // TODO: test validations
     }
+    
 }

@@ -10,11 +10,15 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
 import io.swagger.client.model.BroadcastTxCommitResult;
+import io.swagger.client.model.InlineResponse2003;
 import io.swagger.client.model.PaginatedQueryTxs;
+import io.swagger.client.model.Tx;
+import io.swagger.client.model.TxBroadcast;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -31,6 +35,7 @@ public class TransactionsApiTest {
 
     private final TransactionsApi api = new TransactionsApi();
 
+    
     /**
      * Broadcast a signed tx
      *
@@ -41,11 +46,12 @@ public class TransactionsApiTest {
      */
     @Test
     public void broadcastTxTest() throws ApiException {
-        Object body = null;
-        BroadcastTxCommitResult response = api.broadcastTx(body);
+        TxBroadcast txBroadcast = null;
+        BroadcastTxCommitResult response = api.broadcastTx(txBroadcast);
 
         // TODO: test validations
     }
+    
     /**
      * Encode a transaction to the Amino wire format
      *
@@ -56,11 +62,12 @@ public class TransactionsApiTest {
      */
     @Test
     public void encodeTxTest() throws ApiException {
-        Object body = null;
-        Object response = api.encodeTx(body);
+        Tx tx = null;
+        InlineResponse2003 response = api.encodeTx(tx);
 
         // TODO: test validations
     }
+    
     /**
      * Get a Tx by hash
      *
@@ -76,6 +83,7 @@ public class TransactionsApiTest {
 
         // TODO: test validations
     }
+    
     /**
      * Search transactions
      *
@@ -94,4 +102,5 @@ public class TransactionsApiTest {
 
         // TODO: test validations
     }
+    
 }

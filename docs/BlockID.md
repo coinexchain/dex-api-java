@@ -1,7 +1,11 @@
+
 # BlockID
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **hash** | **String** |  | 
-**parts** | **Object** |  | 
+**parts** | [**BlockIDParts**](BlockIDParts.md) |  | 
+
+
+

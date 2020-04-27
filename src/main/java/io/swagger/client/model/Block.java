@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,16 +20,19 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.client.model.BlockEvidence;
 import io.swagger.client.model.BlockHeader;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.client.model.BlockLastCommit;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * Block
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-26T10:53:15.911+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
 public class Block {
   @SerializedName("header")
   private BlockHeader header = null;
@@ -37,10 +41,10 @@ public class Block {
   private List<String> txs = null;
 
   @SerializedName("evidence")
-  private Object evidence = null;
+  private BlockEvidence evidence = null;
 
   @SerializedName("last_commit")
-  private Object lastCommit = null;
+  private BlockLastCommit lastCommit = null;
 
   public Block header(BlockHeader header) {
     this.header = header;
@@ -51,7 +55,7 @@ public class Block {
    * Get header
    * @return header
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public BlockHeader getHeader() {
     return header;
   }
@@ -77,7 +81,7 @@ public class Block {
    * Get txs
    * @return txs
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public List<String> getTxs() {
     return txs;
   }
@@ -86,7 +90,7 @@ public class Block {
     this.txs = txs;
   }
 
-  public Block evidence(Object evidence) {
+  public Block evidence(BlockEvidence evidence) {
     this.evidence = evidence;
     return this;
   }
@@ -95,16 +99,16 @@ public class Block {
    * Get evidence
    * @return evidence
   **/
-  @Schema(description = "")
-  public Object getEvidence() {
+  @ApiModelProperty(value = "")
+  public BlockEvidence getEvidence() {
     return evidence;
   }
 
-  public void setEvidence(Object evidence) {
+  public void setEvidence(BlockEvidence evidence) {
     this.evidence = evidence;
   }
 
-  public Block lastCommit(Object lastCommit) {
+  public Block lastCommit(BlockLastCommit lastCommit) {
     this.lastCommit = lastCommit;
     return this;
   }
@@ -113,18 +117,18 @@ public class Block {
    * Get lastCommit
    * @return lastCommit
   **/
-  @Schema(description = "")
-  public Object getLastCommit() {
+  @ApiModelProperty(value = "")
+  public BlockLastCommit getLastCommit() {
     return lastCommit;
   }
 
-  public void setLastCommit(Object lastCommit) {
+  public void setLastCommit(BlockLastCommit lastCommit) {
     this.lastCommit = lastCommit;
   }
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -161,7 +165,7 @@ public class Block {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -169,3 +173,4 @@ public class Block {
   }
 
 }
+

@@ -1,6 +1,6 @@
 # CommentApi
 
-All URIs are relative to *https://dex-api.coinex.org/*
+All URIs are relative to *https://dex-api.coinex.org*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,9 +8,10 @@ Method | HTTP request | Description
 [**newThread**](CommentApi.md#newThread) | **POST** /comment/new-thread | Post a new comment to open a new thread
 [**rewardComments**](CommentApi.md#rewardComments) | **POST** /comment/reward-comments | reward some comments with coins
 
+
 <a name="followupComment"></a>
 # **followupComment**
-> StdTx followupComment(body)
+> StdTx followupComment(followupCommentReq)
 
 Post a follow-up comment under some thread
 
@@ -22,9 +23,9 @@ Post a follow-up comment under some thread
 
 
 CommentApi apiInstance = new CommentApi();
-Object body = null; // Object | Post a follow-up comment
+FollowupCommentReq followupCommentReq = new FollowupCommentReq(); // FollowupCommentReq | Post a follow-up comment
 try {
-    StdTx result = apiInstance.followupComment(body);
+    StdTx result = apiInstance.followupComment(followupCommentReq);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CommentApi#followupComment");
@@ -36,7 +37,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)| Post a follow-up comment |
+ **followupCommentReq** | [**FollowupCommentReq**](FollowupCommentReq.md)| Post a follow-up comment |
 
 ### Return type
 
@@ -53,7 +54,7 @@ No authorization required
 
 <a name="newThread"></a>
 # **newThread**
-> StdTx newThread(body)
+> StdTx newThread(newThreadReq)
 
 Post a new comment to open a new thread
 
@@ -65,9 +66,9 @@ Post a new comment to open a new thread
 
 
 CommentApi apiInstance = new CommentApi();
-Object body = null; // Object | open a new thread
+NewThreadReq newThreadReq = new NewThreadReq(); // NewThreadReq | open a new thread
 try {
-    StdTx result = apiInstance.newThread(body);
+    StdTx result = apiInstance.newThread(newThreadReq);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CommentApi#newThread");
@@ -79,7 +80,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)| open a new thread |
+ **newThreadReq** | [**NewThreadReq**](NewThreadReq.md)| open a new thread |
 
 ### Return type
 
@@ -96,7 +97,7 @@ No authorization required
 
 <a name="rewardComments"></a>
 # **rewardComments**
-> StdTx rewardComments(body)
+> StdTx rewardComments(rewardCommentsReq)
 
 reward some comments with coins
 
@@ -108,9 +109,9 @@ reward some comments with coins
 
 
 CommentApi apiInstance = new CommentApi();
-Object body = null; // Object | reward some comments
+RewardCommentsReq rewardCommentsReq = new RewardCommentsReq(); // RewardCommentsReq | reward some comments
 try {
-    StdTx result = apiInstance.rewardComments(body);
+    StdTx result = apiInstance.rewardComments(rewardCommentsReq);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CommentApi#rewardComments");
@@ -122,7 +123,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)| reward some comments |
+ **rewardCommentsReq** | [**RewardCommentsReq**](RewardCommentsReq.md)| reward some comments |
 
 ### Return type
 

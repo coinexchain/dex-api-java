@@ -1,6 +1,6 @@
 # BancorliteApi
 
-All URIs are relative to *https://dex-api.coinex.org/*
+All URIs are relative to *https://dex-api.coinex.org*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,9 +11,10 @@ Method | HTTP request | Description
 [**getBancorInfos**](BancorliteApi.md#getBancorInfos) | **GET** /bancorlite/infos | get all bancor infos
 [**getBancorliteParams**](BancorliteApi.md#getBancorliteParams) | **GET** /bancorlite/parameters | Get the current bancorlite parameters
 
+
 <a name="bancorCancel"></a>
 # **bancorCancel**
-> StdTx bancorCancel(body)
+> StdTx bancorCancel(bancorCancel)
 
 cancel bancor
 
@@ -25,9 +26,9 @@ cancel bancor
 
 
 BancorliteApi apiInstance = new BancorliteApi();
-Object body = null; // Object | cancel bancor
+BancorCancel bancorCancel = new BancorCancel(); // BancorCancel | cancel bancor
 try {
-    StdTx result = apiInstance.bancorCancel(body);
+    StdTx result = apiInstance.bancorCancel(bancorCancel);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling BancorliteApi#bancorCancel");
@@ -39,7 +40,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)| cancel bancor |
+ **bancorCancel** | [**BancorCancel**](BancorCancel.md)| cancel bancor |
 
 ### Return type
 
@@ -56,7 +57,7 @@ No authorization required
 
 <a name="bancorInit"></a>
 # **bancorInit**
-> StdTx bancorInit(body)
+> StdTx bancorInit(bancorInit)
 
 create bancor
 
@@ -68,9 +69,9 @@ create bancor
 
 
 BancorliteApi apiInstance = new BancorliteApi();
-Object body = null; // Object | create bancor
+BancorInit bancorInit = new BancorInit(); // BancorInit | create bancor
 try {
-    StdTx result = apiInstance.bancorInit(body);
+    StdTx result = apiInstance.bancorInit(bancorInit);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling BancorliteApi#bancorInit");
@@ -82,7 +83,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)| create bancor |
+ **bancorInit** | [**BancorInit**](BancorInit.md)| create bancor |
 
 ### Return type
 
@@ -99,7 +100,7 @@ No authorization required
 
 <a name="bancorTrade"></a>
 # **bancorTrade**
-> StdTx bancorTrade(body)
+> StdTx bancorTrade(bancorTrade)
 
 trade with bancor
 
@@ -111,9 +112,9 @@ trade with bancor
 
 
 BancorliteApi apiInstance = new BancorliteApi();
-Object body = null; // Object | trade with bancor
+BancorTrade bancorTrade = new BancorTrade(); // BancorTrade | trade with bancor
 try {
-    StdTx result = apiInstance.bancorTrade(body);
+    StdTx result = apiInstance.bancorTrade(bancorTrade);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling BancorliteApi#bancorTrade");
@@ -125,7 +126,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)| trade with bancor |
+ **bancorTrade** | [**BancorTrade**](BancorTrade.md)| trade with bancor |
 
 ### Return type
 
@@ -185,7 +186,7 @@ No authorization required
 
 <a name="getBancorInfos"></a>
 # **getBancorInfos**
-> Object getBancorInfos()
+> InlineResponse20052 getBancorInfos()
 
 get all bancor infos
 
@@ -198,7 +199,7 @@ get all bancor infos
 
 BancorliteApi apiInstance = new BancorliteApi();
 try {
-    Object result = apiInstance.getBancorInfos();
+    InlineResponse20052 result = apiInstance.getBancorInfos();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling BancorliteApi#getBancorInfos");
@@ -211,7 +212,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Object**
+[**InlineResponse20052**](InlineResponse20052.md)
 
 ### Authorization
 
@@ -224,7 +225,7 @@ No authorization required
 
 <a name="getBancorliteParams"></a>
 # **getBancorliteParams**
-> Object getBancorliteParams()
+> InlineResponse20051 getBancorliteParams()
 
 Get the current bancorlite parameters
 
@@ -237,7 +238,7 @@ Get the current bancorlite parameters
 
 BancorliteApi apiInstance = new BancorliteApi();
 try {
-    Object result = apiInstance.getBancorliteParams();
+    InlineResponse20051 result = apiInstance.getBancorliteParams();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling BancorliteApi#getBancorliteParams");
@@ -250,7 +251,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Object**
+[**InlineResponse20051**](InlineResponse20051.md)
 
 ### Authorization
 

@@ -1,6 +1,6 @@
 # BankApi
 
-All URIs are relative to *https://dex-api.coinex.org/*
+All URIs are relative to *https://dex-api.coinex.org*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**sendCoins**](BankApi.md#sendCoins) | **POST** /bank/accounts/{address}/transfers | Send coins from one account to another
 [**setMemoRequired**](BankApi.md#setMemoRequired) | **POST** /bank/accounts/memo | Mark if memo is required to receive coins
 [**transferSupervisedCoins**](BankApi.md#transferSupervisedCoins) | **POST** /bank/accounts/{address}/supervised_transfers | Operate a supervised transfer
+
 
 <a name="getAddressBalances"></a>
 # **getAddressBalances**
@@ -55,7 +56,7 @@ No authorization required
 
 <a name="getBankParams"></a>
 # **getBankParams**
-> Object getBankParams()
+> InlineResponse20035 getBankParams()
 
 Get the current bankx parameters
 
@@ -68,7 +69,7 @@ Get the current bankx parameters
 
 BankApi apiInstance = new BankApi();
 try {
-    Object result = apiInstance.getBankParams();
+    InlineResponse20035 result = apiInstance.getBankParams();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling BankApi#getBankParams");
@@ -81,7 +82,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Object**
+[**InlineResponse20035**](InlineResponse20035.md)
 
 ### Authorization
 
@@ -94,7 +95,7 @@ No authorization required
 
 <a name="sendCoins"></a>
 # **sendCoins**
-> StdTx sendCoins(body, address)
+> StdTx sendCoins(address, account)
 
 Send coins from one account to another
 
@@ -106,10 +107,10 @@ Send coins from one account to another
 
 
 BankApi apiInstance = new BankApi();
-Object body = null; // Object | The sender and tx information
 String address = "address_example"; // String | Account address in bech32 format
+Account account = new Account(); // Account | The sender and tx information
 try {
-    StdTx result = apiInstance.sendCoins(body, address);
+    StdTx result = apiInstance.sendCoins(address, account);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling BankApi#sendCoins");
@@ -121,8 +122,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)| The sender and tx information |
  **address** | **String**| Account address in bech32 format |
+ **account** | [**Account**](Account.md)| The sender and tx information |
 
 ### Return type
 
@@ -139,7 +140,7 @@ No authorization required
 
 <a name="setMemoRequired"></a>
 # **setMemoRequired**
-> StdTx setMemoRequired(body)
+> StdTx setMemoRequired(account)
 
 Mark if memo is required to receive coins
 
@@ -151,9 +152,9 @@ Mark if memo is required to receive coins
 
 
 BankApi apiInstance = new BankApi();
-Object body = null; // Object | The mark
+Account1 account = new Account1(); // Account1 | The mark
 try {
-    StdTx result = apiInstance.setMemoRequired(body);
+    StdTx result = apiInstance.setMemoRequired(account);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling BankApi#setMemoRequired");
@@ -165,7 +166,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)| The mark |
+ **account** | [**Account1**](Account1.md)| The mark |
 
 ### Return type
 
@@ -182,7 +183,7 @@ No authorization required
 
 <a name="transferSupervisedCoins"></a>
 # **transferSupervisedCoins**
-> StdTx transferSupervisedCoins(body, address)
+> StdTx transferSupervisedCoins(address, postTxBody)
 
 Operate a supervised transfer
 
@@ -194,10 +195,10 @@ Operate a supervised transfer
 
 
 BankApi apiInstance = new BankApi();
-Object body = null; // Object | The sender and tx information
 String address = "address_example"; // String | Account address in bech32 format
+PostTxBody postTxBody = new PostTxBody(); // PostTxBody | The sender and tx information
 try {
-    StdTx result = apiInstance.transferSupervisedCoins(body, address);
+    StdTx result = apiInstance.transferSupervisedCoins(address, postTxBody);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling BankApi#transferSupervisedCoins");
@@ -209,8 +210,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Object**](Object.md)| The sender and tx information |
  **address** | **String**| Account address in bech32 format |
+ **postTxBody** | [**PostTxBody**](PostTxBody.md)| The sender and tx information |
 
 ### Return type
 

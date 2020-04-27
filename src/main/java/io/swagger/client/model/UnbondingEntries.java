@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,14 +20,17 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * UnbondingEntries
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-26T10:53:15.911+08:00[Asia/Shanghai]")
-public class UnbondingEntries {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
+public class UnbondingEntries extends HashMap<String, Object> {
   @SerializedName("initial_balance")
   private String initialBalance = null;
 
@@ -48,7 +52,7 @@ public class UnbondingEntries {
    * Get initialBalance
    * @return initialBalance
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getInitialBalance() {
     return initialBalance;
   }
@@ -66,7 +70,7 @@ public class UnbondingEntries {
    * Get balance
    * @return balance
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getBalance() {
     return balance;
   }
@@ -84,7 +88,7 @@ public class UnbondingEntries {
    * Get creationHeight
    * @return creationHeight
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getCreationHeight() {
     return creationHeight;
   }
@@ -102,7 +106,7 @@ public class UnbondingEntries {
    * Get completionTime
    * @return completionTime
   **/
-  @Schema(required = true, description = "")
+  @ApiModelProperty(required = true, value = "")
   public String getCompletionTime() {
     return completionTime;
   }
@@ -113,7 +117,7 @@ public class UnbondingEntries {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -124,12 +128,13 @@ public class UnbondingEntries {
     return Objects.equals(this.initialBalance, unbondingEntries.initialBalance) &&
         Objects.equals(this.balance, unbondingEntries.balance) &&
         Objects.equals(this.creationHeight, unbondingEntries.creationHeight) &&
-        Objects.equals(this.completionTime, unbondingEntries.completionTime);
+        Objects.equals(this.completionTime, unbondingEntries.completionTime) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(initialBalance, balance, creationHeight, completionTime);
+    return Objects.hash(initialBalance, balance, creationHeight, completionTime, super.hashCode());
   }
 
 
@@ -137,7 +142,7 @@ public class UnbondingEntries {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UnbondingEntries {\n");
-    
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    initialBalance: ").append(toIndentedString(initialBalance)).append("\n");
     sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
     sb.append("    creationHeight: ").append(toIndentedString(creationHeight)).append("\n");
@@ -150,7 +155,7 @@ public class UnbondingEntries {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -158,3 +163,4 @@ public class UnbondingEntries {
   }
 
 }
+

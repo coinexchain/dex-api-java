@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.api;
 
 import io.swagger.client.ApiCallback;
@@ -27,6 +28,10 @@ import java.io.IOException;
 
 
 import io.swagger.client.model.BroadcastTxCommitResult;
+import io.swagger.client.model.InlineResponse20015;
+import io.swagger.client.model.InlineResponse20016;
+import io.swagger.client.model.InlineResponse20017;
+import io.swagger.client.model.UnjailBody;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -63,7 +68,7 @@ public class SlashingApi {
      */
     public com.squareup.okhttp.Call getSigningInfoCall(String validatorPubKey, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/slashing/validators/{validatorPubKey}/signing_info"
             .replaceAll("\\{" + "validatorPubKey" + "\\}", apiClient.escapeString(validatorPubKey.toString()));
@@ -90,7 +95,7 @@ public class SlashingApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -102,32 +107,30 @@ public class SlashingApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getSigningInfoValidateBeforeCall(String validatorPubKey, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'validatorPubKey' is set
         if (validatorPubKey == null) {
             throw new ApiException("Missing the required parameter 'validatorPubKey' when calling getSigningInfo(Async)");
         }
         
+
         com.squareup.okhttp.Call call = getSigningInfoCall(validatorPubKey, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get sign info of given validator
      * Get sign info of given validator
      * @param validatorPubKey Bech32 validator public key (required)
-     * @return Object
+     * @return InlineResponse20015
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getSigningInfo(String validatorPubKey) throws ApiException {
-        ApiResponse<Object> resp = getSigningInfoWithHttpInfo(validatorPubKey);
+    public InlineResponse20015 getSigningInfo(String validatorPubKey) throws ApiException {
+        ApiResponse<InlineResponse20015> resp = getSigningInfoWithHttpInfo(validatorPubKey);
         return resp.getData();
     }
 
@@ -135,12 +138,12 @@ public class SlashingApi {
      * Get sign info of given validator
      * Get sign info of given validator
      * @param validatorPubKey Bech32 validator public key (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse20015&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getSigningInfoWithHttpInfo(String validatorPubKey) throws ApiException {
+    public ApiResponse<InlineResponse20015> getSigningInfoWithHttpInfo(String validatorPubKey) throws ApiException {
         com.squareup.okhttp.Call call = getSigningInfoValidateBeforeCall(validatorPubKey, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20015>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -152,7 +155,7 @@ public class SlashingApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSigningInfoAsync(String validatorPubKey, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getSigningInfoAsync(String validatorPubKey, final ApiCallback<InlineResponse20015> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -174,7 +177,7 @@ public class SlashingApi {
         }
 
         com.squareup.okhttp.Call call = getSigningInfoValidateBeforeCall(validatorPubKey, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20015>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -189,7 +192,7 @@ public class SlashingApi {
      */
     public com.squareup.okhttp.Call getSigningInfosCall(Integer page, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/slashing/signing_infos";
 
@@ -219,7 +222,7 @@ public class SlashingApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -231,25 +234,24 @@ public class SlashingApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getSigningInfosValidateBeforeCall(Integer page, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'page' is set
         if (page == null) {
             throw new ApiException("Missing the required parameter 'page' when calling getSigningInfos(Async)");
         }
+        
         // verify the required parameter 'limit' is set
         if (limit == null) {
             throw new ApiException("Missing the required parameter 'limit' when calling getSigningInfos(Async)");
         }
         
+
         com.squareup.okhttp.Call call = getSigningInfosCall(page, limit, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -257,11 +259,11 @@ public class SlashingApi {
      * Get sign info of all validators
      * @param page Page number (required)
      * @param limit Maximum number of items per page (required)
-     * @return Object
+     * @return InlineResponse20016
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getSigningInfos(Integer page, Integer limit) throws ApiException {
-        ApiResponse<Object> resp = getSigningInfosWithHttpInfo(page, limit);
+    public InlineResponse20016 getSigningInfos(Integer page, Integer limit) throws ApiException {
+        ApiResponse<InlineResponse20016> resp = getSigningInfosWithHttpInfo(page, limit);
         return resp.getData();
     }
 
@@ -270,12 +272,12 @@ public class SlashingApi {
      * Get sign info of all validators
      * @param page Page number (required)
      * @param limit Maximum number of items per page (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse20016&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getSigningInfosWithHttpInfo(Integer page, Integer limit) throws ApiException {
+    public ApiResponse<InlineResponse20016> getSigningInfosWithHttpInfo(Integer page, Integer limit) throws ApiException {
         com.squareup.okhttp.Call call = getSigningInfosValidateBeforeCall(page, limit, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20016>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -288,7 +290,7 @@ public class SlashingApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSigningInfosAsync(Integer page, Integer limit, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getSigningInfosAsync(Integer page, Integer limit, final ApiCallback<InlineResponse20016> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -310,7 +312,7 @@ public class SlashingApi {
         }
 
         com.squareup.okhttp.Call call = getSigningInfosValidateBeforeCall(page, limit, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20016>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -323,7 +325,7 @@ public class SlashingApi {
      */
     public com.squareup.okhttp.Call getSlashingParamsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/slashing/parameters";
 
@@ -349,7 +351,7 @@ public class SlashingApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -361,39 +363,36 @@ public class SlashingApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getSlashingParamsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
+
         com.squareup.okhttp.Call call = getSlashingParamsCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get the current slashing parameters
      * 
-     * @return Object
+     * @return InlineResponse20017
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getSlashingParams() throws ApiException {
-        ApiResponse<Object> resp = getSlashingParamsWithHttpInfo();
+    public InlineResponse20017 getSlashingParams() throws ApiException {
+        ApiResponse<InlineResponse20017> resp = getSlashingParamsWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * Get the current slashing parameters
      * 
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;InlineResponse20017&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getSlashingParamsWithHttpInfo() throws ApiException {
+    public ApiResponse<InlineResponse20017> getSlashingParamsWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getSlashingParamsValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20017>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -404,7 +403,7 @@ public class SlashingApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSlashingParamsAsync(final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getSlashingParamsAsync(final ApiCallback<InlineResponse20017> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -426,22 +425,22 @@ public class SlashingApi {
         }
 
         com.squareup.okhttp.Call call = getSlashingParamsValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse20017>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for unjailValidator
-     * @param body  (required)
      * @param validatorAddr Bech32 validator address (required)
+     * @param unjailBody  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call unjailValidatorCall(Object body, String validatorAddr, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
+    public com.squareup.okhttp.Call unjailValidatorCall(String validatorAddr, UnjailBody unjailBody, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = unjailBody;
+
         // create path and map variables
         String localVarPath = "/slashing/validators/{validatorAddr}/unjail"
             .replaceAll("\\{" + "validatorAddr" + "\\}", apiClient.escapeString(validatorAddr.toString()));
@@ -468,7 +467,7 @@ public class SlashingApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -480,50 +479,49 @@ public class SlashingApi {
         String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call unjailValidatorValidateBeforeCall(Object body, String validatorAddr, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling unjailValidator(Async)");
-        }
+    private com.squareup.okhttp.Call unjailValidatorValidateBeforeCall(String validatorAddr, UnjailBody unjailBody, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
         // verify the required parameter 'validatorAddr' is set
         if (validatorAddr == null) {
             throw new ApiException("Missing the required parameter 'validatorAddr' when calling unjailValidator(Async)");
         }
         
-        com.squareup.okhttp.Call call = unjailValidatorCall(body, validatorAddr, progressListener, progressRequestListener);
+        // verify the required parameter 'unjailBody' is set
+        if (unjailBody == null) {
+            throw new ApiException("Missing the required parameter 'unjailBody' when calling unjailValidator(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = unjailValidatorCall(validatorAddr, unjailBody, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Unjail a jailed validator
      * Send transaction to unjail a jailed validator
-     * @param body  (required)
      * @param validatorAddr Bech32 validator address (required)
+     * @param unjailBody  (required)
      * @return BroadcastTxCommitResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public BroadcastTxCommitResult unjailValidator(Object body, String validatorAddr) throws ApiException {
-        ApiResponse<BroadcastTxCommitResult> resp = unjailValidatorWithHttpInfo(body, validatorAddr);
+    public BroadcastTxCommitResult unjailValidator(String validatorAddr, UnjailBody unjailBody) throws ApiException {
+        ApiResponse<BroadcastTxCommitResult> resp = unjailValidatorWithHttpInfo(validatorAddr, unjailBody);
         return resp.getData();
     }
 
     /**
      * Unjail a jailed validator
      * Send transaction to unjail a jailed validator
-     * @param body  (required)
      * @param validatorAddr Bech32 validator address (required)
+     * @param unjailBody  (required)
      * @return ApiResponse&lt;BroadcastTxCommitResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<BroadcastTxCommitResult> unjailValidatorWithHttpInfo(Object body, String validatorAddr) throws ApiException {
-        com.squareup.okhttp.Call call = unjailValidatorValidateBeforeCall(body, validatorAddr, null, null);
+    public ApiResponse<BroadcastTxCommitResult> unjailValidatorWithHttpInfo(String validatorAddr, UnjailBody unjailBody) throws ApiException {
+        com.squareup.okhttp.Call call = unjailValidatorValidateBeforeCall(validatorAddr, unjailBody, null, null);
         Type localVarReturnType = new TypeToken<BroadcastTxCommitResult>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -531,13 +529,13 @@ public class SlashingApi {
     /**
      * Unjail a jailed validator (asynchronously)
      * Send transaction to unjail a jailed validator
-     * @param body  (required)
      * @param validatorAddr Bech32 validator address (required)
+     * @param unjailBody  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call unjailValidatorAsync(Object body, String validatorAddr, final ApiCallback<BroadcastTxCommitResult> callback) throws ApiException {
+    public com.squareup.okhttp.Call unjailValidatorAsync(String validatorAddr, UnjailBody unjailBody, final ApiCallback<BroadcastTxCommitResult> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -558,7 +556,7 @@ public class SlashingApi {
             };
         }
 
-        com.squareup.okhttp.Call call = unjailValidatorValidateBeforeCall(body, validatorAddr, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = unjailValidatorValidateBeforeCall(validatorAddr, unjailBody, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<BroadcastTxCommitResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

@@ -10,10 +10,27 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
 import io.swagger.client.model.BroadcastTxCommitResult;
+import io.swagger.client.model.InlineResponse20018;
+import io.swagger.client.model.InlineResponse20019;
+import io.swagger.client.model.InlineResponse20020;
+import io.swagger.client.model.InlineResponse20021;
+import io.swagger.client.model.InlineResponse20022;
+import io.swagger.client.model.InlineResponse20023;
+import io.swagger.client.model.InlineResponse20024;
+import io.swagger.client.model.InlineResponse20025;
+import io.swagger.client.model.InlineResponse20026;
+import io.swagger.client.model.InlineResponse20027;
+import io.swagger.client.model.InlineResponse20028;
+import io.swagger.client.model.PostDepositBody;
+import io.swagger.client.model.PostProposalBody;
+import io.swagger.client.model.PostProposalBody1;
+import io.swagger.client.model.PostProposalBody2;
+import io.swagger.client.model.PostVoteBody;
 import io.swagger.client.model.StdTx;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -31,6 +48,7 @@ public class GovernanceApiTest {
 
     private final GovernanceApi api = new GovernanceApi();
 
+    
     /**
      * Deposit tokens to a proposal
      *
@@ -41,12 +59,13 @@ public class GovernanceApiTest {
      */
     @Test
     public void depositToProposalTest() throws ApiException {
-        Object body = null;
         String proposalId = null;
-        BroadcastTxCommitResult response = api.depositToProposal(body, proposalId);
+        PostDepositBody postDepositBody = null;
+        BroadcastTxCommitResult response = api.depositToProposal(proposalId, postDepositBody);
 
         // TODO: test validations
     }
+    
     /**
      * Query deposit
      *
@@ -59,10 +78,11 @@ public class GovernanceApiTest {
     public void getDepositByAddrTest() throws ApiException {
         String proposalId = null;
         String depositor = null;
-        Object response = api.getDepositByAddr(proposalId, depositor);
+        InlineResponse20022 response = api.getDepositByAddr(proposalId, depositor);
 
         // TODO: test validations
     }
+    
     /**
      * Query governance deposit parameters
      *
@@ -73,10 +93,11 @@ public class GovernanceApiTest {
      */
     @Test
     public void getDepositParametersTest() throws ApiException {
-        Object response = api.getDepositParameters();
+        InlineResponse20026 response = api.getDepositParameters();
 
         // TODO: test validations
     }
+    
     /**
      * Query deposits
      *
@@ -88,10 +109,11 @@ public class GovernanceApiTest {
     @Test
     public void getDepositsTest() throws ApiException {
         String proposalId = null;
-        Object response = api.getDeposits(proposalId);
+        InlineResponse20021 response = api.getDeposits(proposalId);
 
         // TODO: test validations
     }
+    
     /**
      * Query a proposal
      *
@@ -103,10 +125,11 @@ public class GovernanceApiTest {
     @Test
     public void getProposalByIDTest() throws ApiException {
         String proposalId = null;
-        Object response = api.getProposalByID(proposalId);
+        InlineResponse20019 response = api.getProposalByID(proposalId);
 
         // TODO: test validations
     }
+    
     /**
      * Query proposals
      *
@@ -120,10 +143,11 @@ public class GovernanceApiTest {
         String voter = null;
         String depositor = null;
         String status = null;
-        Object response = api.getProposals(voter, depositor, status);
+        InlineResponse20018 response = api.getProposals(voter, depositor, status);
 
         // TODO: test validations
     }
+    
     /**
      * Query proposer
      *
@@ -135,14 +159,15 @@ public class GovernanceApiTest {
     @Test
     public void getProposerTest() throws ApiException {
         String proposalId = null;
-        Object response = api.getProposer(proposalId);
+        InlineResponse20020 response = api.getProposer(proposalId);
 
         // TODO: test validations
     }
+    
     /**
-     * Get a proposal&#x27;s tally result at the current time
+     * Get a proposal&#39;s tally result at the current time
      *
-     * Gets a proposal&#x27;s tally result at the current time. If the proposal is pending deposits (i.e status &#x27;DepositPeriod&#x27;) it returns an empty tally result.
+     * Gets a proposal&#39;s tally result at the current time. If the proposal is pending deposits (i.e status &#39;DepositPeriod&#39;) it returns an empty tally result.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -150,10 +175,11 @@ public class GovernanceApiTest {
     @Test
     public void getTallyTest() throws ApiException {
         String proposalId = null;
-        Object response = api.getTally(proposalId);
+        InlineResponse20025 response = api.getTally(proposalId);
 
         // TODO: test validations
     }
+    
     /**
      * Query governance tally parameters
      *
@@ -164,10 +190,11 @@ public class GovernanceApiTest {
      */
     @Test
     public void getTallyingParametersTest() throws ApiException {
-        Object response = api.getTallyingParameters();
+        InlineResponse20027 response = api.getTallyingParameters();
 
         // TODO: test validations
     }
+    
     /**
      * Query vote
      *
@@ -180,10 +207,11 @@ public class GovernanceApiTest {
     public void getVoterByAddrTest() throws ApiException {
         String proposalId = null;
         String voter = null;
-        Object response = api.getVoterByAddr(proposalId, voter);
+        InlineResponse20024 response = api.getVoterByAddr(proposalId, voter);
 
         // TODO: test validations
     }
+    
     /**
      * Query voters
      *
@@ -195,10 +223,11 @@ public class GovernanceApiTest {
     @Test
     public void getVotersTest() throws ApiException {
         String proposalId = null;
-        Object response = api.getVoters(proposalId);
+        InlineResponse20023 response = api.getVoters(proposalId);
 
         // TODO: test validations
     }
+    
     /**
      * Query governance voting parameters
      *
@@ -209,10 +238,11 @@ public class GovernanceApiTest {
      */
     @Test
     public void getVotingParametersTest() throws ApiException {
-        Object response = api.getVotingParameters();
+        InlineResponse20028 response = api.getVotingParameters();
 
         // TODO: test validations
     }
+    
     /**
      * Generate a community pool spend proposal transaction
      *
@@ -223,11 +253,12 @@ public class GovernanceApiTest {
      */
     @Test
     public void submitCommunityPoolSpendProposalTest() throws ApiException {
-        Object body = null;
-        StdTx response = api.submitCommunityPoolSpendProposal(body);
+        PostProposalBody2 postProposalBody = null;
+        StdTx response = api.submitCommunityPoolSpendProposal(postProposalBody);
 
         // TODO: test validations
     }
+    
     /**
      * Generate a parameter change proposal transaction
      *
@@ -238,11 +269,12 @@ public class GovernanceApiTest {
      */
     @Test
     public void submitParameterChangeProposalTest() throws ApiException {
-        Object body = null;
-        StdTx response = api.submitParameterChangeProposal(body);
+        PostProposalBody1 postProposalBody = null;
+        StdTx response = api.submitParameterChangeProposal(postProposalBody);
 
         // TODO: test validations
     }
+    
     /**
      * Submit a proposal
      *
@@ -253,11 +285,12 @@ public class GovernanceApiTest {
      */
     @Test
     public void submitProposalTest() throws ApiException {
-        Object body = null;
-        StdTx response = api.submitProposal(body);
+        PostProposalBody postProposalBody = null;
+        StdTx response = api.submitProposal(postProposalBody);
 
         // TODO: test validations
     }
+    
     /**
      * Vote a proposal
      *
@@ -268,10 +301,11 @@ public class GovernanceApiTest {
      */
     @Test
     public void voteProposalTest() throws ApiException {
-        Object body = null;
         String proposalId = null;
-        BroadcastTxCommitResult response = api.voteProposal(body, proposalId);
+        PostVoteBody postVoteBody = null;
+        BroadcastTxCommitResult response = api.voteProposal(proposalId, postVoteBody);
 
         // TODO: test validations
     }
+    
 }

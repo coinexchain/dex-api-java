@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+
 package io.swagger.client.model;
 
 import java.util.Objects;
@@ -19,14 +20,16 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import io.swagger.client.model.StdTx;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.client.model.TxQueryResult;
 import java.io.IOException;
+
 /**
  * TxQuery
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-04-26T10:53:15.911+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
 public class TxQuery {
   @SerializedName("hash")
   private String hash = null;
@@ -38,7 +41,7 @@ public class TxQuery {
   private StdTx tx = null;
 
   @SerializedName("result")
-  private Object result = null;
+  private TxQueryResult result = null;
 
   public TxQuery hash(String hash) {
     this.hash = hash;
@@ -49,7 +52,7 @@ public class TxQuery {
    * Get hash
    * @return hash
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public String getHash() {
     return hash;
   }
@@ -67,7 +70,7 @@ public class TxQuery {
    * Get height
    * @return height
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public String getHeight() {
     return height;
   }
@@ -85,7 +88,7 @@ public class TxQuery {
    * Get tx
    * @return tx
   **/
-  @Schema(description = "")
+  @ApiModelProperty(value = "")
   public StdTx getTx() {
     return tx;
   }
@@ -94,7 +97,7 @@ public class TxQuery {
     this.tx = tx;
   }
 
-  public TxQuery result(Object result) {
+  public TxQuery result(TxQueryResult result) {
     this.result = result;
     return this;
   }
@@ -103,18 +106,18 @@ public class TxQuery {
    * Get result
    * @return result
   **/
-  @Schema(description = "")
-  public Object getResult() {
+  @ApiModelProperty(value = "")
+  public TxQueryResult getResult() {
     return result;
   }
 
-  public void setResult(Object result) {
+  public void setResult(TxQueryResult result) {
     this.result = result;
   }
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -151,7 +154,7 @@ public class TxQuery {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -159,3 +162,4 @@ public class TxQuery {
   }
 
 }
+
