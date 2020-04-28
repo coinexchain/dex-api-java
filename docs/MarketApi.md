@@ -27,8 +27,8 @@ Cancel the order
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.MarketApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.MarketApi;
 
 
 MarketApi apiInstance = new MarketApi();
@@ -70,8 +70,8 @@ Cancel the trading-pair
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.MarketApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.MarketApi;
 
 
 MarketApi apiInstance = new MarketApi();
@@ -113,8 +113,8 @@ Create GTE order in blockchain
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.MarketApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.MarketApi;
 
 
 MarketApi apiInstance = new MarketApi();
@@ -156,8 +156,8 @@ Create IOC order in blockchain
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.MarketApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.MarketApi;
 
 
 MarketApi apiInstance = new MarketApi();
@@ -199,8 +199,8 @@ Create trading-pair in blockchain
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.MarketApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.MarketApi;
 
 
 MarketApi apiInstance = new MarketApi();
@@ -242,8 +242,8 @@ Get the current market parameters
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.MarketApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.MarketApi;
 
 
 MarketApi apiInstance = new MarketApi();
@@ -281,8 +281,8 @@ Query order info
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.MarketApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.MarketApi;
 
 
 MarketApi apiInstance = new MarketApi();
@@ -324,8 +324,8 @@ Query user order-id list
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.MarketApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.MarketApi;
 
 
 MarketApi apiInstance = new MarketApi();
@@ -367,8 +367,8 @@ Query trading-pair&#39;s orderbook
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.MarketApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.MarketApi;
 
 
 MarketApi apiInstance = new MarketApi();
@@ -412,8 +412,8 @@ Query trading-pair info
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.MarketApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.MarketApi;
 
 
 MarketApi apiInstance = new MarketApi();
@@ -457,8 +457,8 @@ Modify the price precision of the trading pair in the dex
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.MarketApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.MarketApi;
 
 
 MarketApi apiInstance = new MarketApi();
@@ -500,8 +500,8 @@ Query all trading-pair infos in blockchain
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.MarketApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.MarketApi;
 
 
 MarketApi apiInstance = new MarketApi();

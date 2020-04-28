@@ -38,8 +38,8 @@ Add this dependency to your project's POM:
 
 ```xml
 <dependency>
-  <groupId>io.swagger</groupId>
-  <artifactId>swagger-java-client</artifactId>
+  <groupId>org.coinex</groupId>
+  <artifactId>dex-api-java</artifactId>
   <version>1.0.0</version>
   <scope>compile</scope>
 </dependency>
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.swagger:swagger-java-client:1.0.0"
+compile "org.coinex:dex-api-java:1.0.0"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/swagger-java-client-1.0.0.jar`
+* `target/dex-api-java-1.0.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -72,13 +72,8 @@ Please follow the [installation](#installation) instruction and execute the foll
 
 ```java
 
-import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.AliasApi;
-
-import java.io.File;
-import java.util.*;
+import org.coinex.dex.client.ApiException;import org.coinex.dex.client.model.InlineResponse20048;
+import org.coinex.dex.client.api.AliasApi;
 
 public class AliasApiExample {
 

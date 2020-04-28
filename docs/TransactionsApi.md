@@ -21,8 +21,8 @@ Broadcast a signed tx to a full node
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.TransactionsApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.TransactionsApi;
 
 
 TransactionsApi apiInstance = new TransactionsApi();
@@ -66,8 +66,8 @@ Encode a transaction (signed or not) from JSON to base64-encoded Amino serialize
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.TransactionsApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.TransactionsApi;
 
 
 TransactionsApi apiInstance = new TransactionsApi();
@@ -109,8 +109,8 @@ Get a Tx by hash
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.TransactionsApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.TransactionsApi;
 
 
 TransactionsApi apiInstance = new TransactionsApi();
@@ -154,8 +154,8 @@ Search transactions by events.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.TransactionsApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.TransactionsApi;
 
 
 TransactionsApi apiInstance = new TransactionsApi();

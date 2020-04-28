@@ -16,8 +16,8 @@ Get the current incentive parameters
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.IncentiveApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.IncentiveApi;
 
 
 IncentiveApi apiInstance = new IncentiveApi();

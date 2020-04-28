@@ -18,8 +18,8 @@ Post a follow-up comment under some thread
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.CommentApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.CommentApi;
 
 
 CommentApi apiInstance = new CommentApi();
@@ -61,8 +61,8 @@ Post a new comment to open a new thread
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.CommentApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.CommentApi;
 
 
 CommentApi apiInstance = new CommentApi();
@@ -104,8 +104,8 @@ reward some comments with coins
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.CommentApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.CommentApi;
 
 
 CommentApi apiInstance = new CommentApi();

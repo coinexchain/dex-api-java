@@ -33,8 +33,8 @@ Send transaction to deposit tokens to a proposal
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.GovernanceApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.GovernanceApi;
 
 
 GovernanceApi apiInstance = new GovernanceApi();
@@ -80,8 +80,8 @@ Query deposit by proposalId and depositor address
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.GovernanceApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.GovernanceApi;
 
 
 GovernanceApi apiInstance = new GovernanceApi();
@@ -127,8 +127,8 @@ Query governance deposit parameters. The max_deposit_period units are in nanosec
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.GovernanceApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.GovernanceApi;
 
 
 GovernanceApi apiInstance = new GovernanceApi();
@@ -168,8 +168,8 @@ Query deposits by proposalId
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.GovernanceApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.GovernanceApi;
 
 
 GovernanceApi apiInstance = new GovernanceApi();
@@ -213,8 +213,8 @@ Query a proposal by id
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.GovernanceApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.GovernanceApi;
 
 
 GovernanceApi apiInstance = new GovernanceApi();
@@ -258,8 +258,8 @@ Query proposals information with parameters
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.GovernanceApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.GovernanceApi;
 
 
 GovernanceApi apiInstance = new GovernanceApi();
@@ -307,8 +307,8 @@ Query for the proposer for a proposal
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.GovernanceApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.GovernanceApi;
 
 
 GovernanceApi apiInstance = new GovernanceApi();
@@ -352,8 +352,8 @@ Gets a proposal&#39;s tally result at the current time. If the proposal is pendi
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.GovernanceApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.GovernanceApi;
 
 
 GovernanceApi apiInstance = new GovernanceApi();
@@ -397,8 +397,8 @@ Query governance tally parameters
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.GovernanceApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.GovernanceApi;
 
 
 GovernanceApi apiInstance = new GovernanceApi();
@@ -438,8 +438,8 @@ Query vote information by proposal Id and voter address
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.GovernanceApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.GovernanceApi;
 
 
 GovernanceApi apiInstance = new GovernanceApi();
@@ -485,8 +485,8 @@ Query voters information by proposalId
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.GovernanceApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.GovernanceApi;
 
 
 GovernanceApi apiInstance = new GovernanceApi();
@@ -530,8 +530,8 @@ Query governance voting parameters. The voting_period units are in nanoseconds.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.GovernanceApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.GovernanceApi;
 
 
 GovernanceApi apiInstance = new GovernanceApi();
@@ -571,8 +571,8 @@ Generate a community pool spend proposal transaction
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.GovernanceApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.GovernanceApi;
 
 
 GovernanceApi apiInstance = new GovernanceApi();
@@ -616,8 +616,8 @@ Generate a parameter change proposal transaction
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.GovernanceApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.GovernanceApi;
 
 
 GovernanceApi apiInstance = new GovernanceApi();
@@ -661,8 +661,8 @@ Send transaction to submit a proposal
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.GovernanceApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.GovernanceApi;
 
 
 GovernanceApi apiInstance = new GovernanceApi();
@@ -706,8 +706,8 @@ Send transaction to vote a proposal
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.GovernanceApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.GovernanceApi;
 
 
 GovernanceApi apiInstance = new GovernanceApi();

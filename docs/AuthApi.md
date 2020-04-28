@@ -18,8 +18,8 @@ Get the account information on blockchain
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.AuthApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.AuthApi;
 
 
 AuthApi apiInstance = new AuthApi();
@@ -61,8 +61,8 @@ Get the current auth parameters
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.AuthApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.AuthApi;
 
 
 AuthApi apiInstance = new AuthApi();
@@ -100,8 +100,8 @@ Set referee for account
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.AuthApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.AuthApi;
 
 
 AuthApi apiInstance = new AuthApi();

@@ -34,8 +34,8 @@ Add forbiddable token whitelist addr
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.AssetApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.AssetApi;
 
 
 AssetApi apiInstance = new AssetApi();
@@ -81,8 +81,8 @@ Burn burnable token
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.AssetApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.AssetApi;
 
 
 AssetApi apiInstance = new AssetApi();
@@ -128,8 +128,8 @@ Add forbidden addresses
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.AssetApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.AssetApi;
 
 
 AssetApi apiInstance = new AssetApi();
@@ -175,8 +175,8 @@ Forbid forbiddable token
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.AssetApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.AssetApi;
 
 
 AssetApi apiInstance = new AssetApi();
@@ -220,8 +220,8 @@ Get the current asset parameters
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.AssetApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.AssetApi;
 
 
 AssetApi apiInstance = new AssetApi();
@@ -261,8 +261,8 @@ Get forbidden addresses with provided &#x60;symbol&#x60;
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.AssetApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.AssetApi;
 
 
 AssetApi apiInstance = new AssetApi();
@@ -306,8 +306,8 @@ List all reserved symbols
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.AssetApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.AssetApi;
 
 
 AssetApi apiInstance = new AssetApi();
@@ -347,8 +347,8 @@ Get token with provided &#x60;symbol&#x60;
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.AssetApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.AssetApi;
 
 
 AssetApi apiInstance = new AssetApi();
@@ -392,8 +392,8 @@ List all existing tokens
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.AssetApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.AssetApi;
 
 
 AssetApi apiInstance = new AssetApi();
@@ -433,8 +433,8 @@ Get token whitelist with provided &#x60;symbol&#x60;
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.AssetApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.AssetApi;
 
 
 AssetApi apiInstance = new AssetApi();
@@ -478,8 +478,8 @@ Issue a new Token
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.AssetApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.AssetApi;
 
 
 AssetApi apiInstance = new AssetApi();
@@ -523,8 +523,8 @@ Mint mintable token
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.AssetApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.AssetApi;
 
 
 AssetApi apiInstance = new AssetApi();
@@ -570,8 +570,8 @@ Modify token info
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.AssetApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.AssetApi;
 
 
 AssetApi apiInstance = new AssetApi();
@@ -617,8 +617,8 @@ Remove forbiddable token whitelist addr
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.AssetApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.AssetApi;
 
 
 AssetApi apiInstance = new AssetApi();
@@ -664,8 +664,8 @@ Transfer token owner ship
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.AssetApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.AssetApi;
 
 
 AssetApi apiInstance = new AssetApi();
@@ -711,8 +711,8 @@ Remove forbidden addresses
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.AssetApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.AssetApi;
 
 
 AssetApi apiInstance = new AssetApi();
@@ -758,8 +758,8 @@ UnForbid forbiddable token
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.AssetApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.AssetApi;
 
 
 AssetApi apiInstance = new AssetApi();

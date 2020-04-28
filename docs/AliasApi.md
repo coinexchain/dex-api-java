@@ -19,8 +19,8 @@ Given an alias, query the corresponding address
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.AliasApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.AliasApi;
 
 
 AliasApi apiInstance = new AliasApi();
@@ -62,8 +62,8 @@ Get the current alias parameters
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.AliasApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.AliasApi;
 
 
 AliasApi apiInstance = new AliasApi();
@@ -101,8 +101,8 @@ Given an account&#39;s address, query all the corresponding aliases
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.AliasApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.AliasApi;
 
 
 AliasApi apiInstance = new AliasApi();
@@ -144,8 +144,8 @@ Add or remove alias for an address
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.AliasApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.AliasApi;
 
 
 AliasApi apiInstance = new AliasApi();

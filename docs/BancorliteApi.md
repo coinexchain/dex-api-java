@@ -21,8 +21,8 @@ cancel bancor
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.BancorliteApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.BancorliteApi;
 
 
 BancorliteApi apiInstance = new BancorliteApi();
@@ -64,8 +64,8 @@ create bancor
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.BancorliteApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.BancorliteApi;
 
 
 BancorliteApi apiInstance = new BancorliteApi();
@@ -107,8 +107,8 @@ trade with bancor
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.BancorliteApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.BancorliteApi;
 
 
 BancorliteApi apiInstance = new BancorliteApi();
@@ -150,8 +150,8 @@ get the bancor pool info
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.BancorliteApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.BancorliteApi;
 
 
 BancorliteApi apiInstance = new BancorliteApi();
@@ -193,8 +193,8 @@ get all bancor infos
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.BancorliteApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.BancorliteApi;
 
 
 BancorliteApi apiInstance = new BancorliteApi();
@@ -232,8 +232,8 @@ Get the current bancorlite parameters
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.BancorliteApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.BancorliteApi;
 
 
 BancorliteApi apiInstance = new BancorliteApi();

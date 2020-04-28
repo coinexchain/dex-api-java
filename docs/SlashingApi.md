@@ -21,8 +21,8 @@ Get sign info of given validator
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.SlashingApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.SlashingApi;
 
 
 SlashingApi apiInstance = new SlashingApi();
@@ -66,8 +66,8 @@ Get sign info of all validators
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.SlashingApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.SlashingApi;
 
 
 SlashingApi apiInstance = new SlashingApi();
@@ -111,8 +111,8 @@ Get the current slashing parameters
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.SlashingApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.SlashingApi;
 
 
 SlashingApi apiInstance = new SlashingApi();
@@ -152,8 +152,8 @@ Send transaction to unjail a jailed validator
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.SlashingApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.SlashingApi;
 
 
 SlashingApi apiInstance = new SlashingApi();

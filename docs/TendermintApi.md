@@ -21,8 +21,8 @@ Get a block at a certain height
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.TendermintApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.TendermintApi;
 
 
 TendermintApi apiInstance = new TendermintApi();
@@ -64,8 +64,8 @@ Get the latest block
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.TendermintApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.TendermintApi;
 
 
 TendermintApi apiInstance = new TendermintApi();
@@ -103,8 +103,8 @@ Get the latest validator set
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.TendermintApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.TendermintApi;
 
 
 TendermintApi apiInstance = new TendermintApi();
@@ -144,8 +144,8 @@ Information about the connected node
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.TendermintApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.TendermintApi;
 
 
 TendermintApi apiInstance = new TendermintApi();
@@ -185,8 +185,8 @@ Get if the node is currently syning with other nodes
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.TendermintApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.TendermintApi;
 
 
 TendermintApi apiInstance = new TendermintApi();
@@ -223,8 +223,8 @@ Get a validator set a certain height
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.TendermintApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.TendermintApi;
 
 
 TendermintApi apiInstance = new TendermintApi();

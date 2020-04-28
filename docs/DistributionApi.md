@@ -30,8 +30,8 @@ Donate some amount of cet to the community pool
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.DistributionApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.DistributionApi;
 
 
 DistributionApi apiInstance = new DistributionApi();
@@ -77,8 +77,8 @@ Get the sum of all the rewards earned by delegations by a single delegator
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.DistributionApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.DistributionApi;
 
 
 DistributionApi apiInstance = new DistributionApi();
@@ -120,8 +120,8 @@ Community pool parameters
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.DistributionApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.DistributionApi;
 
 
 DistributionApi apiInstance = new DistributionApi();
@@ -161,8 +161,8 @@ Query the distribution information of a single validator
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.DistributionApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.DistributionApi;
 
 
 DistributionApi apiInstance = new DistributionApi();
@@ -204,8 +204,8 @@ Fee distribution parameters
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.DistributionApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.DistributionApi;
 
 
 DistributionApi apiInstance = new DistributionApi();
@@ -243,8 +243,8 @@ Fee distribution outstanding rewards of a single validator
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.DistributionApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.DistributionApi;
 
 
 DistributionApi apiInstance = new DistributionApi();
@@ -288,8 +288,8 @@ Query a single delegation reward by a delegator
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.DistributionApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.DistributionApi;
 
 
 DistributionApi apiInstance = new DistributionApi();
@@ -335,8 +335,8 @@ Query the commission and self-delegation rewards of validator.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.DistributionApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.DistributionApi;
 
 
 DistributionApi apiInstance = new DistributionApi();
@@ -380,8 +380,8 @@ Get the delegations&#39; rewards withdrawal address. This is the address in whic
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.DistributionApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.DistributionApi;
 
 
 DistributionApi apiInstance = new DistributionApi();
@@ -425,8 +425,8 @@ Replace the delegations&#39; rewards withdrawal address for a new one.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.DistributionApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.DistributionApi;
 
 
 DistributionApi apiInstance = new DistributionApi();
@@ -472,8 +472,8 @@ Withdraw all the delegator&#39;s delegation rewards
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.DistributionApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.DistributionApi;
 
 
 DistributionApi apiInstance = new DistributionApi();
@@ -519,8 +519,8 @@ Withdraw the validator&#39;s self-delegation and commissions rewards
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.DistributionApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.DistributionApi;
 
 
 DistributionApi apiInstance = new DistributionApi();
@@ -566,8 +566,8 @@ Withdraw a delegator&#39;s delegation reward from a single validator
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.DistributionApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.DistributionApi;
 
 
 DistributionApi apiInstance = new DistributionApi();

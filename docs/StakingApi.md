@@ -32,8 +32,8 @@ Get all delegations from a delegator
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.StakingApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.StakingApi;
 
 
 StakingApi apiInstance = new StakingApi();
@@ -75,8 +75,8 @@ Get all delegations from a validator
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.StakingApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.StakingApi;
 
 
 StakingApi apiInstance = new StakingApi();
@@ -118,8 +118,8 @@ Query the current delegation between a delegator and a validator
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.StakingApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.StakingApi;
 
 
 StakingApi apiInstance = new StakingApi();
@@ -163,8 +163,8 @@ Get all staking txs (i.e msgs) from a delegator
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.StakingApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.StakingApi;
 
 
 StakingApi apiInstance = new StakingApi();
@@ -206,8 +206,8 @@ Get all redelegations (filter by query params)
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.StakingApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.StakingApi;
 
 
 StakingApi apiInstance = new StakingApi();
@@ -253,8 +253,8 @@ Get the current staking parameter values
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.StakingApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.StakingApi;
 
 
 StakingApi apiInstance = new StakingApi();
@@ -292,8 +292,8 @@ Get the current state of the staking pool
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.StakingApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.StakingApi;
 
 
 StakingApi apiInstance = new StakingApi();
@@ -331,8 +331,8 @@ Query all unbonding delegations between a delegator and a validator
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.StakingApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.StakingApi;
 
 
 StakingApi apiInstance = new StakingApi();
@@ -376,8 +376,8 @@ Get all unbonding delegations from a delegator
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.StakingApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.StakingApi;
 
 
 StakingApi apiInstance = new StakingApi();
@@ -419,8 +419,8 @@ Get all unbonding delegations from a validator
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.StakingApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.StakingApi;
 
 
 StakingApi apiInstance = new StakingApi();
@@ -462,8 +462,8 @@ Query the information from a single validator
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.StakingApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.StakingApi;
 
 
 StakingApi apiInstance = new StakingApi();
@@ -505,8 +505,8 @@ Query a validator that a delegator is bonded to
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.StakingApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.StakingApi;
 
 
 StakingApi apiInstance = new StakingApi();
@@ -550,8 +550,8 @@ Get all validator candidates. By default it returns only the bonded validators.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.StakingApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.StakingApi;
 
 
 StakingApi apiInstance = new StakingApi();
@@ -597,8 +597,8 @@ Query all validators that a delegator is bonded to
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.StakingApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.StakingApi;
 
 
 StakingApi apiInstance = new StakingApi();
@@ -640,8 +640,8 @@ Submit delegation
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.StakingApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.StakingApi;
 
 
 StakingApi apiInstance = new StakingApi();
@@ -685,8 +685,8 @@ Submit a redelegation
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.StakingApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.StakingApi;
 
 
 StakingApi apiInstance = new StakingApi();
@@ -730,8 +730,8 @@ Submit an unbonding delegation
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.StakingApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.StakingApi;
 
 
 StakingApi apiInstance = new StakingApi();

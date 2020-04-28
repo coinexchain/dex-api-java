@@ -20,8 +20,8 @@ Get the account balances
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.BankApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.BankApi;
 
 
 BankApi apiInstance = new BankApi();
@@ -63,8 +63,8 @@ Get the current bankx parameters
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.BankApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.BankApi;
 
 
 BankApi apiInstance = new BankApi();
@@ -102,8 +102,8 @@ Send coins from one account to another
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.BankApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.BankApi;
 
 
 BankApi apiInstance = new BankApi();
@@ -147,8 +147,8 @@ Mark if memo is required to receive coins
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.BankApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.BankApi;
 
 
 BankApi apiInstance = new BankApi();
@@ -190,8 +190,8 @@ Operate a supervised transfer
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.BankApi;
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.BankApi;
 
 
 BankApi apiInstance = new BankApi();
