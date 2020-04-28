@@ -3,8 +3,9 @@
   "apiPackage"     : "org.coinex.dex.client.api",
   "invokerPackage" : "org.coinex.dex.client",
   "groupId"        : "org.coinex.dex",
-  "artifactId"     : "java-client",
-  "fullJavaUtil"   : true,
+  "artifactId"     : "dex-api-java",
+  "java8"          : true,
+  "fullJavaUtil"   : false,
   "dateLibrary"    : "java8",
-  "library"        : "jersey2"
+  "library"        : "okhttp-gson"
 }
