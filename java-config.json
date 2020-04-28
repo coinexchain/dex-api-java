@@ -1,0 +1,10 @@
+{
+  "modelPackage"   : "org.coinex.dex.client.model",
+  "apiPackage"     : "org.coinex.dex.client.api",
+  "invokerPackage" : "org.coinex.dex.client",
+  "groupId"        : "org.coinex.dex",
+  "artifactId"     : "java-client",
+  "fullJavaUtil"   : true,
+  "dateLibrary"    : "java8",
+  "library"        : "jersey2"
+}
