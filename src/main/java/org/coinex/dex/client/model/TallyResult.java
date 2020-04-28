@@ -14,17 +14,21 @@
 package org.coinex.dex.client.model;
 
 import java.util.Objects;
-
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
-import java.util.HashMap;
+import java.io.IOException;
 
 /**
  * TallyResult
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
-public class TallyResult extends HashMap<String, Object> {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-28T12:10:24.313+08:00")
+public class TallyResult {
   @SerializedName("yes")
   private String yes = null;
 
@@ -111,7 +115,7 @@ public class TallyResult extends HashMap<String, Object> {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -122,13 +126,12 @@ public class TallyResult extends HashMap<String, Object> {
     return Objects.equals(this.yes, tallyResult.yes) &&
         Objects.equals(this.abstain, tallyResult.abstain) &&
         Objects.equals(this.no, tallyResult.no) &&
-        Objects.equals(this.noWithVeto, tallyResult.noWithVeto) &&
-        super.equals(o);
+        Objects.equals(this.noWithVeto, tallyResult.noWithVeto);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(yes, abstain, no, noWithVeto, super.hashCode());
+    return Objects.hash(yes, abstain, no, noWithVeto);
   }
 
 
@@ -136,7 +139,7 @@ public class TallyResult extends HashMap<String, Object> {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TallyResult {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
     sb.append("    yes: ").append(toIndentedString(yes)).append("\n");
     sb.append("    abstain: ").append(toIndentedString(abstain)).append("\n");
     sb.append("    no: ").append(toIndentedString(no)).append("\n");
@@ -149,7 +152,7 @@ public class TallyResult extends HashMap<String, Object> {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

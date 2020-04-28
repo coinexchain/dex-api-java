@@ -114,7 +114,7 @@ Get a Tx by hash
 
 
 TransactionsApi apiInstance = new TransactionsApi();
-String hash = "hash_example"; // String | Tx hash
+String hash = "BCBE20E8D46758B96AE5883B792858296AC06E51435490FBDCAE25A72B3CC76B"; // String | Tx hash
 try {
     BroadcastTxCommitResult result = apiInstance.getTxByHash(hash);
     System.out.println(result);
@@ -159,10 +159,10 @@ Search transactions by events.
 
 
 TransactionsApi apiInstance = new TransactionsApi();
-String messageAction = "messageAction_example"; // String | transaction events such as 'message.action=send' which results in the following endpoint: 'GET /txs?message.action=send'
-String messageSender = "messageSender_example"; // String | transaction tags with sender: 'GET /txs?message.action=send&message.sender=cosmos16xyempempp92x9hyzz9wrgf94r6j9h5f06pxxv'
-Integer page = 56; // Integer | Page number
-Integer limit = 56; // Integer | Maximum number of items per page
+String messageAction = "send"; // String | transaction events such as 'message.action=send' which results in the following endpoint: 'GET /txs?message.action=send'
+String messageSender = "cosmos16xyempempp92x9hyzz9wrgf94r6j9h5f06pxxv"; // String | transaction tags with sender: 'GET /txs?message.action=send&message.sender=cosmos16xyempempp92x9hyzz9wrgf94r6j9h5f06pxxv'
+Integer page = 1; // Integer | Page number
+Integer limit = 1; // Integer | Maximum number of items per page
 try {
     PaginatedQueryTxs result = apiInstance.searchTx(messageAction, messageSender, page, limit);
     System.out.println(result);

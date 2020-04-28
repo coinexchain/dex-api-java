@@ -1,8 +1,5 @@
 *.class
 
-# idea
-.idea
-
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
@@ -22,4 +19,8 @@ hs_err_pid*
 target
 .gradle
 build
+/src/main/AndroidManifest.xml
+/.swagger-codegen-ignore
+/.travis.yml
+/git_push.sh
 /swagger-java-client.iml

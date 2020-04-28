@@ -14,17 +14,21 @@
 package org.coinex.dex.client.model;
 
 import java.util.Objects;
-
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
-import java.util.HashMap;
+import java.io.IOException;
 
 /**
  * TendermintValidator
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
-public class TendermintValidator extends HashMap<String, Object> {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-28T12:10:24.313+08:00")
+public class TendermintValidator {
   @SerializedName("address")
   private String address = null;
 
@@ -111,7 +115,7 @@ public class TendermintValidator extends HashMap<String, Object> {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -122,13 +126,12 @@ public class TendermintValidator extends HashMap<String, Object> {
     return Objects.equals(this.address, tendermintValidator.address) &&
         Objects.equals(this.pubKey, tendermintValidator.pubKey) &&
         Objects.equals(this.votingPower, tendermintValidator.votingPower) &&
-        Objects.equals(this.proposerPriority, tendermintValidator.proposerPriority) &&
-        super.equals(o);
+        Objects.equals(this.proposerPriority, tendermintValidator.proposerPriority);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, pubKey, votingPower, proposerPriority, super.hashCode());
+    return Objects.hash(address, pubKey, votingPower, proposerPriority);
   }
 
 
@@ -136,7 +139,7 @@ public class TendermintValidator extends HashMap<String, Object> {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TendermintValidator {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    pubKey: ").append(toIndentedString(pubKey)).append("\n");
     sb.append("    votingPower: ").append(toIndentedString(votingPower)).append("\n");
@@ -149,7 +152,7 @@ public class TendermintValidator extends HashMap<String, Object> {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

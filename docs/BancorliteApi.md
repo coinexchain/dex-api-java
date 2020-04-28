@@ -155,7 +155,7 @@ get the bancor pool info
 
 
 BancorliteApi apiInstance = new BancorliteApi();
-String symbol = "symbol_example"; // String | stock and money pair
+String symbol = "btc-cet"; // String | stock and money pair
 try {
     Map<String, Object> result = apiInstance.getBancorInfo(symbol);
     System.out.println(result);

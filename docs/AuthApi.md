@@ -23,7 +23,7 @@ Get the account information on blockchain
 
 
 AuthApi apiInstance = new AuthApi();
-String address = "address_example"; // String | Account address
+String address = "coinex16gdxm24ht2mxtpz9cma6tr6a6d47x63hlq4pxt"; // String | Account address
 try {
     InlineResponse2004 result = apiInstance.getAccount(address);
     System.out.println(result);
@@ -105,7 +105,7 @@ Set referee for account
 
 
 AuthApi apiInstance = new AuthApi();
-String address = "address_example"; // String | Account address in bech32 format
+String address = "coinex16gdxm24ht2mxtpz9cma6tr6a6d47x63hlq4pxt"; // String | Account address in bech32 format
 Referee referee = new Referee(); // Referee | Referee
 try {
     StdTx result = apiInstance.setReferee(address, referee);

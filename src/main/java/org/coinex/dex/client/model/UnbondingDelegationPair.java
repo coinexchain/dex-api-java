@@ -14,19 +14,24 @@
 package org.coinex.dex.client.model;
 
 import java.util.Objects;
-
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
+import org.coinex.dex.client.model.UnbondingEntries;
 
 /**
  * UnbondingDelegationPair
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
-public class UnbondingDelegationPair extends HashMap<String, Object> {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-28T12:10:24.313+08:00")
+public class UnbondingDelegationPair {
   @SerializedName("delegator_address")
   private String delegatorAddress = null;
 
@@ -34,7 +39,7 @@ public class UnbondingDelegationPair extends HashMap<String, Object> {
   private String validatorAddress = null;
 
   @SerializedName("entries")
-  private List<UnbondingEntries> entries = new ArrayList<UnbondingEntries>();
+  private List<UnbondingEntries> entries = new ArrayList<>();
 
   public UnbondingDelegationPair delegatorAddress(String delegatorAddress) {
     this.delegatorAddress = delegatorAddress;
@@ -97,7 +102,7 @@ public class UnbondingDelegationPair extends HashMap<String, Object> {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -107,13 +112,12 @@ public class UnbondingDelegationPair extends HashMap<String, Object> {
     UnbondingDelegationPair unbondingDelegationPair = (UnbondingDelegationPair) o;
     return Objects.equals(this.delegatorAddress, unbondingDelegationPair.delegatorAddress) &&
         Objects.equals(this.validatorAddress, unbondingDelegationPair.validatorAddress) &&
-        Objects.equals(this.entries, unbondingDelegationPair.entries) &&
-        super.equals(o);
+        Objects.equals(this.entries, unbondingDelegationPair.entries);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(delegatorAddress, validatorAddress, entries, super.hashCode());
+    return Objects.hash(delegatorAddress, validatorAddress, entries);
   }
 
 
@@ -121,7 +125,7 @@ public class UnbondingDelegationPair extends HashMap<String, Object> {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UnbondingDelegationPair {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
     sb.append("    delegatorAddress: ").append(toIndentedString(delegatorAddress)).append("\n");
     sb.append("    validatorAddress: ").append(toIndentedString(validatorAddress)).append("\n");
     sb.append("    entries: ").append(toIndentedString(entries)).append("\n");
@@ -133,7 +137,7 @@ public class UnbondingDelegationPair extends HashMap<String, Object> {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

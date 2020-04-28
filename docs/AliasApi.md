@@ -24,7 +24,7 @@ Given an alias, query the corresponding address
 
 
 AliasApi apiInstance = new AliasApi();
-String alias = "alias_example"; // String | The alias to be queried
+String alias = "superman"; // String | The alias to be queried
 try {
     InlineResponse20048 result = apiInstance.getAddressFromAlias(alias);
     System.out.println(result);
@@ -106,7 +106,7 @@ Given an account&#39;s address, query all the corresponding aliases
 
 
 AliasApi apiInstance = new AliasApi();
-String address = "address_example"; // String | The account's address to be queried
+String address = "coinex1dmz7e2fddhejdz5n7e3qc5szx3zn2gj3ta8rwj"; // String | The account's address to be queried
 try {
     InlineResponse20049 result = apiInstance.getAliasesFromAddress(address);
     System.out.println(result);

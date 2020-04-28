@@ -38,7 +38,7 @@ Send transaction to deposit tokens to a proposal
 
 
 GovernanceApi apiInstance = new GovernanceApi();
-String proposalId = "proposalId_example"; // String | proposal id
+String proposalId = "2"; // String | proposal id
 PostDepositBody postDepositBody = new PostDepositBody(); // PostDepositBody | 
 try {
     BroadcastTxCommitResult result = apiInstance.depositToProposal(proposalId, postDepositBody);
@@ -85,8 +85,8 @@ Query deposit by proposalId and depositor address
 
 
 GovernanceApi apiInstance = new GovernanceApi();
-String proposalId = "proposalId_example"; // String | proposal id
-String depositor = "depositor_example"; // String | Bech32 depositor address
+String proposalId = "2"; // String | proposal id
+String depositor = "coinex1xl6453f6q6dv5770c9ue6hspdc0vxfuqtudkhz"; // String | Bech32 depositor address
 try {
     InlineResponse20022 result = apiInstance.getDepositByAddr(proposalId, depositor);
     System.out.println(result);
@@ -173,7 +173,7 @@ Query deposits by proposalId
 
 
 GovernanceApi apiInstance = new GovernanceApi();
-String proposalId = "proposalId_example"; // String | 
+String proposalId = "2"; // String | 
 try {
     InlineResponse20021 result = apiInstance.getDeposits(proposalId);
     System.out.println(result);
@@ -218,7 +218,7 @@ Query a proposal by id
 
 
 GovernanceApi apiInstance = new GovernanceApi();
-String proposalId = "proposalId_example"; // String | 
+String proposalId = "1"; // String | 
 try {
     InlineResponse20019 result = apiInstance.getProposalByID(proposalId);
     System.out.println(result);
@@ -312,7 +312,7 @@ Query for the proposer for a proposal
 
 
 GovernanceApi apiInstance = new GovernanceApi();
-String proposalId = "proposalId_example"; // String | 
+String proposalId = "2"; // String | 
 try {
     InlineResponse20020 result = apiInstance.getProposer(proposalId);
     System.out.println(result);
@@ -357,7 +357,7 @@ Gets a proposal&#39;s tally result at the current time. If the proposal is pendi
 
 
 GovernanceApi apiInstance = new GovernanceApi();
-String proposalId = "proposalId_example"; // String | proposal id
+String proposalId = "2"; // String | proposal id
 try {
     InlineResponse20025 result = apiInstance.getTally(proposalId);
     System.out.println(result);
@@ -443,8 +443,8 @@ Query vote information by proposal Id and voter address
 
 
 GovernanceApi apiInstance = new GovernanceApi();
-String proposalId = "proposalId_example"; // String | proposal id
-String voter = "voter_example"; // String | Bech32 voter address
+String proposalId = "2"; // String | proposal id
+String voter = "coinex1qwl879nx9t6kef4supyazayf7vjhennyjqwjgr"; // String | Bech32 voter address
 try {
     InlineResponse20024 result = apiInstance.getVoterByAddr(proposalId, voter);
     System.out.println(result);
@@ -490,7 +490,7 @@ Query voters information by proposalId
 
 
 GovernanceApi apiInstance = new GovernanceApi();
-String proposalId = "proposalId_example"; // String | proposal id
+String proposalId = "2"; // String | proposal id
 try {
     InlineResponse20023 result = apiInstance.getVoters(proposalId);
     System.out.println(result);
@@ -711,7 +711,7 @@ Send transaction to vote a proposal
 
 
 GovernanceApi apiInstance = new GovernanceApi();
-String proposalId = "proposalId_example"; // String | proposal id
+String proposalId = "2"; // String | proposal id
 PostVoteBody postVoteBody = new PostVoteBody(); // PostVoteBody | valid value of `\"option\"` field can be `\"yes\"`, `\"no\"`, `\"no_with_veto\"` and `\"abstain\"`
 try {
     BroadcastTxCommitResult result = apiInstance.voteProposal(proposalId, postVoteBody);

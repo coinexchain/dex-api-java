@@ -35,7 +35,7 @@ Donate some amount of cet to the community pool
 
 
 DistributionApi apiInstance = new DistributionApi();
-String accAddress = "accAddress_example"; // String | Account address of the user
+String accAddress = "coinex1628t2zxa9antj3qtkg7xj2m4t68uljqvyjqrup"; // String | Account address of the user
 Amount amount = new Amount(); // Amount | Amount of cet to donate
 try {
     StdTx result = apiInstance.donateToCommunityPool(accAddress, amount);
@@ -82,7 +82,7 @@ Get the sum of all the rewards earned by delegations by a single delegator
 
 
 DistributionApi apiInstance = new DistributionApi();
-String delegatorAddr = "delegatorAddr_example"; // String | Bech32 AccAddress of Delegator
+String delegatorAddr = "coinex167w96tdvmazakdwkw2u57227eduula2cy572lf"; // String | Bech32 AccAddress of Delegator
 try {
     InlineResponse20029 result = apiInstance.getAllRewards(delegatorAddr);
     System.out.println(result);
@@ -166,7 +166,7 @@ Query the distribution information of a single validator
 
 
 DistributionApi apiInstance = new DistributionApi();
-String validatorAddr = "validatorAddr_example"; // String | Bech32 OperatorAddress of validator
+String validatorAddr = "coinexvaloper1qwl879nx9t6kef4supyazayf7vjhennyh568ys"; // String | Bech32 OperatorAddress of validator
 try {
     InlineResponse20032 result = apiInstance.getDistributionInfo(validatorAddr);
     System.out.println(result);
@@ -248,7 +248,7 @@ Fee distribution outstanding rewards of a single validator
 
 
 DistributionApi apiInstance = new DistributionApi();
-String validatorAddr = "validatorAddr_example"; // String | Bech32 OperatorAddress of validator
+String validatorAddr = "coinexvaloper1qwl879nx9t6kef4supyazayf7vjhennyh568ys"; // String | Bech32 OperatorAddress of validator
 try {
     Object result = apiInstance.getOutstandingRewards(validatorAddr);
     System.out.println(result);
@@ -293,8 +293,8 @@ Query a single delegation reward by a delegator
 
 
 DistributionApi apiInstance = new DistributionApi();
-String delegatorAddr = "delegatorAddr_example"; // String | Bech32 AccAddress of Delegator
-String validatorAddr = "validatorAddr_example"; // String | Bech32 OperatorAddress of validator
+String delegatorAddr = "coinex167w96tdvmazakdwkw2u57227eduula2cy572lf"; // String | Bech32 AccAddress of Delegator
+String validatorAddr = "coinexvaloper1qwl879nx9t6kef4supyazayf7vjhennyh568ys"; // String | Bech32 OperatorAddress of validator
 try {
     InlineResponse20030 result = apiInstance.getRewardByValidator(delegatorAddr, validatorAddr);
     System.out.println(result);
@@ -340,7 +340,7 @@ Query the commission and self-delegation rewards of validator.
 
 
 DistributionApi apiInstance = new DistributionApi();
-String validatorAddr = "validatorAddr_example"; // String | Bech32 OperatorAddress of validator
+String validatorAddr = "coinexvaloper1qwl879nx9t6kef4supyazayf7vjhennyh568ys"; // String | Bech32 OperatorAddress of validator
 try {
     InlineResponse20030 result = apiInstance.getValidatorRewards(validatorAddr);
     System.out.println(result);
@@ -385,7 +385,7 @@ Get the delegations&#39; rewards withdrawal address. This is the address in whic
 
 
 DistributionApi apiInstance = new DistributionApi();
-String delegatorAddr = "delegatorAddr_example"; // String | Bech32 AccAddress of Delegator
+String delegatorAddr = "coinex167w96tdvmazakdwkw2u57227eduula2cy572lf"; // String | Bech32 AccAddress of Delegator
 try {
     InlineResponse20031 result = apiInstance.getWithdrawAddress(delegatorAddr);
     System.out.println(result);
@@ -430,7 +430,7 @@ Replace the delegations&#39; rewards withdrawal address for a new one.
 
 
 DistributionApi apiInstance = new DistributionApi();
-String delegatorAddr = "delegatorAddr_example"; // String | Bech32 AccAddress of Delegator
+String delegatorAddr = "coinex167w96tdvmazakdwkw2u57227eduula2cy572lf"; // String | Bech32 AccAddress of Delegator
 WithdrawRequestBody2 withdrawRequestBody = new WithdrawRequestBody2(); // WithdrawRequestBody2 | 
 try {
     BroadcastTxCommitResult result = apiInstance.setWithdrawAddress(delegatorAddr, withdrawRequestBody);
@@ -477,7 +477,7 @@ Withdraw all the delegator&#39;s delegation rewards
 
 
 DistributionApi apiInstance = new DistributionApi();
-String delegatorAddr = "delegatorAddr_example"; // String | Bech32 AccAddress of Delegator
+String delegatorAddr = "coinex167w96tdvmazakdwkw2u57227eduula2cy572lf"; // String | Bech32 AccAddress of Delegator
 WithdrawRequestBody withdrawRequestBody = new WithdrawRequestBody(); // WithdrawRequestBody | 
 try {
     BroadcastTxCommitResult result = apiInstance.withdrawAllRewards(delegatorAddr, withdrawRequestBody);
@@ -524,7 +524,7 @@ Withdraw the validator&#39;s self-delegation and commissions rewards
 
 
 DistributionApi apiInstance = new DistributionApi();
-String validatorAddr = "validatorAddr_example"; // String | Bech32 OperatorAddress of validator
+String validatorAddr = "coinexvaloper1qwl879nx9t6kef4supyazayf7vjhennyh568ys"; // String | Bech32 OperatorAddress of validator
 WithdrawRequestBody3 withdrawRequestBody = new WithdrawRequestBody3(); // WithdrawRequestBody3 | 
 try {
     BroadcastTxCommitResult result = apiInstance.withdrawAllValidatorRewards(validatorAddr, withdrawRequestBody);
@@ -571,8 +571,8 @@ Withdraw a delegator&#39;s delegation reward from a single validator
 
 
 DistributionApi apiInstance = new DistributionApi();
-String delegatorAddr = "delegatorAddr_example"; // String | Bech32 AccAddress of Delegator
-String validatorAddr = "validatorAddr_example"; // String | Bech32 OperatorAddress of validator
+String delegatorAddr = "coinex167w96tdvmazakdwkw2u57227eduula2cy572lf"; // String | Bech32 AccAddress of Delegator
+String validatorAddr = "coinexvaloper1qwl879nx9t6kef4supyazayf7vjhennyh568ys"; // String | Bech32 OperatorAddress of validator
 WithdrawRequestBody1 withdrawRequestBody = new WithdrawRequestBody1(); // WithdrawRequestBody1 | 
 try {
     BroadcastTxCommitResult result = apiInstance.withdrawRewardsByValidator(delegatorAddr, validatorAddr, withdrawRequestBody);

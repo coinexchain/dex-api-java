@@ -14,17 +14,24 @@
 package org.coinex.dex.client.model;
 
 import java.util.Objects;
-
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.coinex.dex.client.model.BaseReq;
+import org.coinex.dex.client.model.CommentRef;
 
 /**
  * RewardCommentsReq
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-28T12:10:24.313+08:00")
 public class RewardCommentsReq {
   @SerializedName("base_req")
   private BaseReq baseReq = null;
@@ -78,7 +85,7 @@ public class RewardCommentsReq {
 
   public RewardCommentsReq addReferencesItem(CommentRef referencesItem) {
     if (this.references == null) {
-      this.references = new ArrayList<CommentRef>();
+      this.references = new ArrayList<>();
     }
     this.references.add(referencesItem);
     return this;
@@ -99,7 +106,7 @@ public class RewardCommentsReq {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -134,7 +141,7 @@ public class RewardCommentsReq {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

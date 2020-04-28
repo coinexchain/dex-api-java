@@ -37,9 +37,9 @@ public class Main {
         sendCoins.add(sendCoin);
 
         Account account = new Account();
-        account.put("base_req", context.getBaseReq());
-        account.put("amount", sendCoins);
-        account.put("unlock_time", "0");
+        account.setBaseReq(context.getBaseReq());
+        account.setAmount(sendCoins);
+        account.setUnlockTime("0");
 
         BankApi bankApi = new BankApi();
         bankApi.sendCoins("coinex1h6favnlytw3lgpy8cm6lcv530z0ctj6rplwt06", account);

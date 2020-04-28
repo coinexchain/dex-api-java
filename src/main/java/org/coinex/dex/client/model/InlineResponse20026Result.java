@@ -14,17 +14,23 @@
 package org.coinex.dex.client.model;
 
 import java.util.Objects;
-
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.coinex.dex.client.model.Coin;
 
 /**
  * InlineResponse20026Result
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-28T12:10:24.313+08:00")
 public class InlineResponse20026Result {
   @SerializedName("min_deposit")
   private List<Coin> minDeposit = null;
@@ -39,7 +45,7 @@ public class InlineResponse20026Result {
 
   public InlineResponse20026Result addMinDepositItem(Coin minDepositItem) {
     if (this.minDeposit == null) {
-      this.minDeposit = new ArrayList<Coin>();
+      this.minDeposit = new ArrayList<>();
     }
     this.minDeposit.add(minDepositItem);
     return this;
@@ -78,7 +84,7 @@ public class InlineResponse20026Result {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -111,7 +117,7 @@ public class InlineResponse20026Result {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

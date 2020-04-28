@@ -26,7 +26,7 @@ Get sign info of given validator
 
 
 SlashingApi apiInstance = new SlashingApi();
-String validatorPubKey = "validatorPubKey_example"; // String | Bech32 validator public key
+String validatorPubKey = "coinexvalconspub1zcjduepq7mft6gfls57a0a42d7uhx656cckhfvtrlmw744jv4q0mvlv0dypskehfk8"; // String | Bech32 validator public key
 try {
     InlineResponse20015 result = apiInstance.getSigningInfo(validatorPubKey);
     System.out.println(result);
@@ -71,8 +71,8 @@ Get sign info of all validators
 
 
 SlashingApi apiInstance = new SlashingApi();
-Integer page = 56; // Integer | Page number
-Integer limit = 56; // Integer | Maximum number of items per page
+Integer page = 1; // Integer | Page number
+Integer limit = 5; // Integer | Maximum number of items per page
 try {
     InlineResponse20016 result = apiInstance.getSigningInfos(page, limit);
     System.out.println(result);
@@ -157,7 +157,7 @@ Send transaction to unjail a jailed validator
 
 
 SlashingApi apiInstance = new SlashingApi();
-String validatorAddr = "validatorAddr_example"; // String | Bech32 validator address
+String validatorAddr = "coinexvaloper1qwl879nx9t6kef4supyazayf7vjhennyh568ys"; // String | Bech32 validator address
 UnjailBody unjailBody = new UnjailBody(); // UnjailBody | 
 try {
     BroadcastTxCommitResult result = apiInstance.unjailValidator(validatorAddr, unjailBody);

@@ -286,7 +286,7 @@ Query order info
 
 
 MarketApi apiInstance = new MarketApi();
-String orderId = "orderId_example"; // String | The order id
+String orderId = "coinex1dmz7e2fddhejdz5n7e3qc5szx3zn2gj3ta8rwj"; // String | The order id
 try {
     InlineResponse20046 result = apiInstance.getOrder(orderId);
     System.out.println(result);
@@ -329,7 +329,7 @@ Query user order-id list
 
 
 MarketApi apiInstance = new MarketApi();
-String address = "address_example"; // String | The user address
+String address = "coinex1dmz7e2fddhejdz5n7e3qc5szx3zn2gj3ta8rwj"; // String | The user address
 try {
     InlineResponse20047 result = apiInstance.getOrders(address);
     System.out.println(result);
@@ -372,8 +372,8 @@ Query trading-pair&#39;s orderbook
 
 
 MarketApi apiInstance = new MarketApi();
-String stock = "stock_example"; // String | stock symbol
-String money = "money_example"; // String | money symbol
+String stock = "btc"; // String | stock symbol
+String money = "cet"; // String | money symbol
 try {
     InlineResponse20045 result = apiInstance.getOrdersInMarket(stock, money);
     System.out.println(result);
@@ -417,8 +417,8 @@ Query trading-pair info
 
 
 MarketApi apiInstance = new MarketApi();
-String stock = "stock_example"; // String | stock symbol
-String money = "money_example"; // String | money symbol
+String stock = "btc"; // String | stock symbol
+String money = "cet"; // String | money symbol
 try {
     InlineResponse20044 result = apiInstance.getTradingPair(stock, money);
     System.out.println(result);

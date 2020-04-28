@@ -14,21 +14,26 @@
 package org.coinex.dex.client.model;
 
 import java.util.Objects;
-
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
+import org.coinex.dex.client.model.Coin;
 
 /**
  * Deposit
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
-public class Deposit extends HashMap<String, Object> {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-28T12:10:24.313+08:00")
+public class Deposit {
   @SerializedName("amount")
-  private List<Coin> amount = new ArrayList<Coin>();
+  private List<Coin> amount = new ArrayList<>();
 
   @SerializedName("proposal_id")
   private String proposalId = null;
@@ -97,7 +102,7 @@ public class Deposit extends HashMap<String, Object> {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -107,13 +112,12 @@ public class Deposit extends HashMap<String, Object> {
     Deposit deposit = (Deposit) o;
     return Objects.equals(this.amount, deposit.amount) &&
         Objects.equals(this.proposalId, deposit.proposalId) &&
-        Objects.equals(this.depositor, deposit.depositor) &&
-        super.equals(o);
+        Objects.equals(this.depositor, deposit.depositor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, proposalId, depositor, super.hashCode());
+    return Objects.hash(amount, proposalId, depositor);
   }
 
 
@@ -121,7 +125,7 @@ public class Deposit extends HashMap<String, Object> {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Deposit {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    proposalId: ").append(toIndentedString(proposalId)).append("\n");
     sb.append("    depositor: ").append(toIndentedString(depositor)).append("\n");
@@ -133,7 +137,7 @@ public class Deposit extends HashMap<String, Object> {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

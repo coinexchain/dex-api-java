@@ -14,18 +14,24 @@
 package org.coinex.dex.client.model;
 
 import java.util.Objects;
-
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
+import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.HashMap;
+import org.coinex.dex.client.model.BlockHeaderVersion;
+import org.coinex.dex.client.model.BlockID;
 
 /**
  * BlockHeader
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
-public class BlockHeader extends HashMap<String, Object> {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-28T12:10:24.313+08:00")
+public class BlockHeader {
   @SerializedName("chain_id")
   private String chainId = null;
 
@@ -364,7 +370,7 @@ public class BlockHeader extends HashMap<String, Object> {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -387,13 +393,12 @@ public class BlockHeader extends HashMap<String, Object> {
         Objects.equals(this.lastResultsHash, blockHeader.lastResultsHash) &&
         Objects.equals(this.evidenceHash, blockHeader.evidenceHash) &&
         Objects.equals(this.proposerAddress, blockHeader.proposerAddress) &&
-        Objects.equals(this.version, blockHeader.version) &&
-        super.equals(o);
+        Objects.equals(this.version, blockHeader.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chainId, height, time, numTxs, lastBlockId, totalTxs, lastCommitHash, dataHash, validatorsHash, nextValidatorsHash, consensusHash, appHash, lastResultsHash, evidenceHash, proposerAddress, version, super.hashCode());
+    return Objects.hash(chainId, height, time, numTxs, lastBlockId, totalTxs, lastCommitHash, dataHash, validatorsHash, nextValidatorsHash, consensusHash, appHash, lastResultsHash, evidenceHash, proposerAddress, version);
   }
 
 
@@ -401,7 +406,7 @@ public class BlockHeader extends HashMap<String, Object> {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BlockHeader {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
     sb.append("    chainId: ").append(toIndentedString(chainId)).append("\n");
     sb.append("    height: ").append(toIndentedString(height)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
@@ -426,7 +431,7 @@ public class BlockHeader extends HashMap<String, Object> {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

@@ -14,19 +14,24 @@
 package org.coinex.dex.client.model;
 
 import java.util.Objects;
-
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
+import org.coinex.dex.client.model.RedelegationEntry;
 
 /**
  * Redelegation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
-public class Redelegation extends HashMap<String, Object> {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-28T12:10:24.313+08:00")
+public class Redelegation {
   @SerializedName("delegator_address")
   private String delegatorAddress = null;
 
@@ -37,7 +42,7 @@ public class Redelegation extends HashMap<String, Object> {
   private String validatorDstAddress = null;
 
   @SerializedName("entries")
-  private List<RedelegationEntry> entries = new ArrayList<RedelegationEntry>();
+  private List<RedelegationEntry> entries = new ArrayList<>();
 
   public Redelegation delegatorAddress(String delegatorAddress) {
     this.delegatorAddress = delegatorAddress;
@@ -118,7 +123,7 @@ public class Redelegation extends HashMap<String, Object> {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -129,13 +134,12 @@ public class Redelegation extends HashMap<String, Object> {
     return Objects.equals(this.delegatorAddress, redelegation.delegatorAddress) &&
         Objects.equals(this.validatorSrcAddress, redelegation.validatorSrcAddress) &&
         Objects.equals(this.validatorDstAddress, redelegation.validatorDstAddress) &&
-        Objects.equals(this.entries, redelegation.entries) &&
-        super.equals(o);
+        Objects.equals(this.entries, redelegation.entries);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(delegatorAddress, validatorSrcAddress, validatorDstAddress, entries, super.hashCode());
+    return Objects.hash(delegatorAddress, validatorSrcAddress, validatorDstAddress, entries);
   }
 
 
@@ -143,7 +147,7 @@ public class Redelegation extends HashMap<String, Object> {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Redelegation {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
     sb.append("    delegatorAddress: ").append(toIndentedString(delegatorAddress)).append("\n");
     sb.append("    validatorSrcAddress: ").append(toIndentedString(validatorSrcAddress)).append("\n");
     sb.append("    validatorDstAddress: ").append(toIndentedString(validatorDstAddress)).append("\n");
@@ -156,7 +160,7 @@ public class Redelegation extends HashMap<String, Object> {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

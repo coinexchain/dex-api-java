@@ -14,24 +14,29 @@
 package org.coinex.dex.client.model;
 
 import java.util.Objects;
-
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
+import org.coinex.dex.client.model.BaseReq;
 
 /**
  * Addresses
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
-public class Addresses extends HashMap<String, Object> {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-28T12:10:24.313+08:00")
+public class Addresses {
   @SerializedName("base_req")
   private BaseReq baseReq = null;
 
   @SerializedName("addresses")
-  private List<String> addresses = new ArrayList<String>();
+  private List<String> addresses = new ArrayList<>();
 
   public Addresses baseReq(BaseReq baseReq) {
     this.baseReq = baseReq;
@@ -76,7 +81,7 @@ public class Addresses extends HashMap<String, Object> {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -85,13 +90,12 @@ public class Addresses extends HashMap<String, Object> {
     }
     Addresses addresses = (Addresses) o;
     return Objects.equals(this.baseReq, addresses.baseReq) &&
-        Objects.equals(this.addresses, addresses.addresses) &&
-        super.equals(o);
+        Objects.equals(this.addresses, addresses.addresses);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(baseReq, addresses, super.hashCode());
+    return Objects.hash(baseReq, addresses);
   }
 
 
@@ -99,7 +103,7 @@ public class Addresses extends HashMap<String, Object> {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Addresses {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
     sb.append("    baseReq: ").append(toIndentedString(baseReq)).append("\n");
     sb.append("    addresses: ").append(toIndentedString(addresses)).append("\n");
     sb.append("}");
@@ -110,7 +114,7 @@ public class Addresses extends HashMap<String, Object> {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

@@ -14,17 +14,22 @@
 package org.coinex.dex.client.model;
 
 import java.util.Objects;
-
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
-import java.util.HashMap;
+import java.io.IOException;
+import org.coinex.dex.client.model.TokenValue;
 
 /**
  * Token
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
-public class Token extends HashMap<String, Object> {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-28T12:10:24.313+08:00")
+public class Token {
   @SerializedName("type")
   private String type = null;
 
@@ -69,7 +74,7 @@ public class Token extends HashMap<String, Object> {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -78,13 +83,12 @@ public class Token extends HashMap<String, Object> {
     }
     Token token = (Token) o;
     return Objects.equals(this.type, token.type) &&
-        Objects.equals(this.value, token.value) &&
-        super.equals(o);
+        Objects.equals(this.value, token.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, value, super.hashCode());
+    return Objects.hash(type, value);
   }
 
 
@@ -92,7 +96,7 @@ public class Token extends HashMap<String, Object> {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Token {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
@@ -103,7 +107,7 @@ public class Token extends HashMap<String, Object> {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

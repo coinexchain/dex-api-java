@@ -25,7 +25,7 @@ Get the account balances
 
 
 BankApi apiInstance = new BankApi();
-String address = "address_example"; // String | Account address in bech32 format
+String address = "coinex16gdxm24ht2mxtpz9cma6tr6a6d47x63hlq4pxt"; // String | Account address in bech32 format
 try {
     Map<String, Object> result = apiInstance.getAddressBalances(address);
     System.out.println(result);
@@ -107,7 +107,7 @@ Send coins from one account to another
 
 
 BankApi apiInstance = new BankApi();
-String address = "address_example"; // String | Account address in bech32 format
+String address = "coinex16gdxm24ht2mxtpz9cma6tr6a6d47x63hlq4pxt"; // String | Account address in bech32 format
 Account account = new Account(); // Account | The sender and tx information
 try {
     StdTx result = apiInstance.sendCoins(address, account);
@@ -195,7 +195,7 @@ Operate a supervised transfer
 
 
 BankApi apiInstance = new BankApi();
-String address = "address_example"; // String | Account address in bech32 format
+String address = "coinex16gdxm24ht2mxtpz9cma6tr6a6d47x63hlq4pxt"; // String | Account address in bech32 format
 PostTxBody postTxBody = new PostTxBody(); // PostTxBody | The sender and tx information
 try {
     StdTx result = apiInstance.transferSupervisedCoins(address, postTxBody);

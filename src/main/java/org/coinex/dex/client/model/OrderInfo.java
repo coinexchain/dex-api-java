@@ -14,62 +14,361 @@
 package org.coinex.dex.client.model;
 
 import java.util.Objects;
-
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
-import java.util.HashMap;
+import java.io.IOException;
+import org.coinex.dex.client.model.Order;
 
 /**
  * OrderInfo
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
-public class OrderInfo extends HashMap<String, Object> {
-  @SerializedName("base_req")
-  private BaseReq baseReq = null;
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-28T12:10:24.313+08:00")
+public class OrderInfo {
+  @SerializedName("order_type")
+  private Integer orderType = null;
 
-  @SerializedName("order_id")
-  private String orderId = null;
+  @SerializedName("trading_pair")
+  private String tradingPair = null;
 
-  public OrderInfo baseReq(BaseReq baseReq) {
-    this.baseReq = baseReq;
+  @SerializedName("price_precision")
+  private String pricePrecision = null;
+
+  @SerializedName("price")
+  private String price = null;
+
+  @SerializedName("quantity")
+  private String quantity = null;
+
+  @SerializedName("side")
+  private Integer side = null;
+
+  @SerializedName("identify")
+  private Integer identify = null;
+
+  @SerializedName("sender")
+  private String sender = null;
+
+  @SerializedName("sequence")
+  private String sequence = null;
+
+  @SerializedName("time_in_force")
+  private String timeInForce = null;
+
+  @SerializedName("height")
+  private String height = null;
+
+  @SerializedName("frozen_fee")
+  private String frozenFee = null;
+
+  @SerializedName("left_stock")
+  private String leftStock = null;
+
+  @SerializedName("freeze")
+  private String freeze = null;
+
+  @SerializedName("DealStock")
+  private String dealStock = null;
+
+  @SerializedName("DealMoney")
+  private String dealMoney = null;
+
+  public OrderInfo orderType(Integer orderType) {
+    this.orderType = orderType;
     return this;
   }
 
    /**
-   * Get baseReq
-   * @return baseReq
+   * The identify of the price limit : 2; (Currently, only price limit orders are supported)
+   * @return orderType
   **/
-  @ApiModelProperty(required = true, value = "")
-  public BaseReq getBaseReq() {
-    return baseReq;
+  @ApiModelProperty(example = "2", required = true, value = "The identify of the price limit : 2; (Currently, only price limit orders are supported)")
+  public Integer getOrderType() {
+    return orderType;
   }
 
-  public void setBaseReq(BaseReq baseReq) {
-    this.baseReq = baseReq;
+  public void setOrderType(Integer orderType) {
+    this.orderType = orderType;
   }
 
-  public OrderInfo orderId(String orderId) {
-    this.orderId = orderId;
+  public OrderInfo tradingPair(String tradingPair) {
+    this.tradingPair = tradingPair;
     return this;
   }
 
    /**
-   * Get orderId
-   * @return orderId
+   * Get tradingPair
+   * @return tradingPair
   **/
-  @ApiModelProperty(example = "coinex1dmz7e2fddhejdz5n7e3qc5szx3zn2gj3ta8rwj-1", required = true, value = "")
-  public String getOrderId() {
-    return orderId;
+  @ApiModelProperty(example = "abc/cet", required = true, value = "")
+  public String getTradingPair() {
+    return tradingPair;
   }
 
-  public void setOrderId(String orderId) {
-    this.orderId = orderId;
+  public void setTradingPair(String tradingPair) {
+    this.tradingPair = tradingPair;
+  }
+
+  public OrderInfo pricePrecision(String pricePrecision) {
+    this.pricePrecision = pricePrecision;
+    return this;
+  }
+
+   /**
+   * Get pricePrecision
+   * @return pricePrecision
+  **/
+  @ApiModelProperty(example = "9", value = "")
+  public String getPricePrecision() {
+    return pricePrecision;
+  }
+
+  public void setPricePrecision(String pricePrecision) {
+    this.pricePrecision = pricePrecision;
+  }
+
+  public OrderInfo price(String price) {
+    this.price = price;
+    return this;
+  }
+
+   /**
+   * Get price
+   * @return price
+  **/
+  @ApiModelProperty(example = "1000", required = true, value = "")
+  public String getPrice() {
+    return price;
+  }
+
+  public void setPrice(String price) {
+    this.price = price;
+  }
+
+  public OrderInfo quantity(String quantity) {
+    this.quantity = quantity;
+    return this;
+  }
+
+   /**
+   * Get quantity
+   * @return quantity
+  **/
+  @ApiModelProperty(example = "12320", required = true, value = "")
+  public String getQuantity() {
+    return quantity;
+  }
+
+  public void setQuantity(String quantity) {
+    this.quantity = quantity;
+  }
+
+  public OrderInfo side(Integer side) {
+    this.side = side;
+    return this;
+  }
+
+   /**
+   * The buying or selling direction of an order.(buy : 1; sell : 2)
+   * @return side
+  **/
+  @ApiModelProperty(example = "1", required = true, value = "The buying or selling direction of an order.(buy : 1; sell : 2)")
+  public Integer getSide() {
+    return side;
+  }
+
+  public void setSide(Integer side) {
+    this.side = side;
+  }
+
+  public OrderInfo identify(Integer identify) {
+    this.identify = identify;
+    return this;
+  }
+
+   /**
+   * A transaction can contain multiple order creation messages, the identify field was added to the order creation message to give each order a unique ID. So the order ID consists of user address, user sequence, identify.
+   * @return identify
+  **/
+  @ApiModelProperty(example = "1", required = true, value = "A transaction can contain multiple order creation messages, the identify field was added to the order creation message to give each order a unique ID. So the order ID consists of user address, user sequence, identify.")
+  public Integer getIdentify() {
+    return identify;
+  }
+
+  public void setIdentify(Integer identify) {
+    this.identify = identify;
+  }
+
+  public OrderInfo sender(String sender) {
+    this.sender = sender;
+    return this;
+  }
+
+   /**
+   * Get sender
+   * @return sender
+  **/
+  @ApiModelProperty(example = "coinex1dmz7e2fddhejdz5n7e3qc5szx3zn2gj3ta8rwj", value = "")
+  public String getSender() {
+    return sender;
+  }
+
+  public void setSender(String sender) {
+    this.sender = sender;
+  }
+
+  public OrderInfo sequence(String sequence) {
+    this.sequence = sequence;
+    return this;
+  }
+
+   /**
+   * Get sequence
+   * @return sequence
+  **/
+  @ApiModelProperty(example = "8", value = "")
+  public String getSequence() {
+    return sequence;
+  }
+
+  public void setSequence(String sequence) {
+    this.sequence = sequence;
+  }
+
+  public OrderInfo timeInForce(String timeInForce) {
+    this.timeInForce = timeInForce;
+    return this;
+  }
+
+   /**
+   * Get timeInForce
+   * @return timeInForce
+  **/
+  @ApiModelProperty(example = "1", value = "")
+  public String getTimeInForce() {
+    return timeInForce;
+  }
+
+  public void setTimeInForce(String timeInForce) {
+    this.timeInForce = timeInForce;
+  }
+
+  public OrderInfo height(String height) {
+    this.height = height;
+    return this;
+  }
+
+   /**
+   * Get height
+   * @return height
+  **/
+  @ApiModelProperty(example = "10", value = "")
+  public String getHeight() {
+    return height;
+  }
+
+  public void setHeight(String height) {
+    this.height = height;
+  }
+
+  public OrderInfo frozenFee(String frozenFee) {
+    this.frozenFee = frozenFee;
+    return this;
+  }
+
+   /**
+   * Get frozenFee
+   * @return frozenFee
+  **/
+  @ApiModelProperty(example = "100", value = "")
+  public String getFrozenFee() {
+    return frozenFee;
+  }
+
+  public void setFrozenFee(String frozenFee) {
+    this.frozenFee = frozenFee;
+  }
+
+  public OrderInfo leftStock(String leftStock) {
+    this.leftStock = leftStock;
+    return this;
+  }
+
+   /**
+   * Get leftStock
+   * @return leftStock
+  **/
+  @ApiModelProperty(example = "100", value = "")
+  public String getLeftStock() {
+    return leftStock;
+  }
+
+  public void setLeftStock(String leftStock) {
+    this.leftStock = leftStock;
+  }
+
+  public OrderInfo freeze(String freeze) {
+    this.freeze = freeze;
+    return this;
+  }
+
+   /**
+   * Get freeze
+   * @return freeze
+  **/
+  @ApiModelProperty(example = "100", value = "")
+  public String getFreeze() {
+    return freeze;
+  }
+
+  public void setFreeze(String freeze) {
+    this.freeze = freeze;
+  }
+
+  public OrderInfo dealStock(String dealStock) {
+    this.dealStock = dealStock;
+    return this;
+  }
+
+   /**
+   * Get dealStock
+   * @return dealStock
+  **/
+  @ApiModelProperty(example = "100", value = "")
+  public String getDealStock() {
+    return dealStock;
+  }
+
+  public void setDealStock(String dealStock) {
+    this.dealStock = dealStock;
+  }
+
+  public OrderInfo dealMoney(String dealMoney) {
+    this.dealMoney = dealMoney;
+    return this;
+  }
+
+   /**
+   * Get dealMoney
+   * @return dealMoney
+  **/
+  @ApiModelProperty(example = "100", value = "")
+  public String getDealMoney() {
+    return dealMoney;
+  }
+
+  public void setDealMoney(String dealMoney) {
+    this.dealMoney = dealMoney;
   }
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -77,14 +376,27 @@ public class OrderInfo extends HashMap<String, Object> {
       return false;
     }
     OrderInfo orderInfo = (OrderInfo) o;
-    return Objects.equals(this.baseReq, orderInfo.baseReq) &&
-        Objects.equals(this.orderId, orderInfo.orderId) &&
-        super.equals(o);
+    return Objects.equals(this.orderType, orderInfo.orderType) &&
+        Objects.equals(this.tradingPair, orderInfo.tradingPair) &&
+        Objects.equals(this.pricePrecision, orderInfo.pricePrecision) &&
+        Objects.equals(this.price, orderInfo.price) &&
+        Objects.equals(this.quantity, orderInfo.quantity) &&
+        Objects.equals(this.side, orderInfo.side) &&
+        Objects.equals(this.identify, orderInfo.identify) &&
+        Objects.equals(this.sender, orderInfo.sender) &&
+        Objects.equals(this.sequence, orderInfo.sequence) &&
+        Objects.equals(this.timeInForce, orderInfo.timeInForce) &&
+        Objects.equals(this.height, orderInfo.height) &&
+        Objects.equals(this.frozenFee, orderInfo.frozenFee) &&
+        Objects.equals(this.leftStock, orderInfo.leftStock) &&
+        Objects.equals(this.freeze, orderInfo.freeze) &&
+        Objects.equals(this.dealStock, orderInfo.dealStock) &&
+        Objects.equals(this.dealMoney, orderInfo.dealMoney);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(baseReq, orderId, super.hashCode());
+    return Objects.hash(orderType, tradingPair, pricePrecision, price, quantity, side, identify, sender, sequence, timeInForce, height, frozenFee, leftStock, freeze, dealStock, dealMoney);
   }
 
 
@@ -92,9 +404,23 @@ public class OrderInfo extends HashMap<String, Object> {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrderInfo {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    baseReq: ").append(toIndentedString(baseReq)).append("\n");
-    sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
+    
+    sb.append("    orderType: ").append(toIndentedString(orderType)).append("\n");
+    sb.append("    tradingPair: ").append(toIndentedString(tradingPair)).append("\n");
+    sb.append("    pricePrecision: ").append(toIndentedString(pricePrecision)).append("\n");
+    sb.append("    price: ").append(toIndentedString(price)).append("\n");
+    sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
+    sb.append("    side: ").append(toIndentedString(side)).append("\n");
+    sb.append("    identify: ").append(toIndentedString(identify)).append("\n");
+    sb.append("    sender: ").append(toIndentedString(sender)).append("\n");
+    sb.append("    sequence: ").append(toIndentedString(sequence)).append("\n");
+    sb.append("    timeInForce: ").append(toIndentedString(timeInForce)).append("\n");
+    sb.append("    height: ").append(toIndentedString(height)).append("\n");
+    sb.append("    frozenFee: ").append(toIndentedString(frozenFee)).append("\n");
+    sb.append("    leftStock: ").append(toIndentedString(leftStock)).append("\n");
+    sb.append("    freeze: ").append(toIndentedString(freeze)).append("\n");
+    sb.append("    dealStock: ").append(toIndentedString(dealStock)).append("\n");
+    sb.append("    dealMoney: ").append(toIndentedString(dealMoney)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -103,7 +429,7 @@ public class OrderInfo extends HashMap<String, Object> {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

@@ -14,20 +14,25 @@
 package org.coinex.dex.client.model;
 
 import java.util.Objects;
-
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
+import org.coinex.dex.client.model.TxQuery;
 
 /**
  * PaginatedQueryTxs
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
-public class PaginatedQueryTxs extends HashMap<String, Object> {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-28T12:10:24.313+08:00")
+public class PaginatedQueryTxs {
   @SerializedName("total_count")
   private BigDecimal totalCount = null;
 
@@ -44,7 +49,7 @@ public class PaginatedQueryTxs extends HashMap<String, Object> {
   private BigDecimal limit = null;
 
   @SerializedName("txs")
-  private List<TxQuery> txs = new ArrayList<TxQuery>();
+  private List<TxQuery> txs = new ArrayList<>();
 
   public PaginatedQueryTxs totalCount(BigDecimal totalCount) {
     this.totalCount = totalCount;
@@ -161,7 +166,7 @@ public class PaginatedQueryTxs extends HashMap<String, Object> {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -174,13 +179,12 @@ public class PaginatedQueryTxs extends HashMap<String, Object> {
         Objects.equals(this.pageNumber, paginatedQueryTxs.pageNumber) &&
         Objects.equals(this.pageTotal, paginatedQueryTxs.pageTotal) &&
         Objects.equals(this.limit, paginatedQueryTxs.limit) &&
-        Objects.equals(this.txs, paginatedQueryTxs.txs) &&
-        super.equals(o);
+        Objects.equals(this.txs, paginatedQueryTxs.txs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalCount, count, pageNumber, pageTotal, limit, txs, super.hashCode());
+    return Objects.hash(totalCount, count, pageNumber, pageTotal, limit, txs);
   }
 
 
@@ -188,7 +192,7 @@ public class PaginatedQueryTxs extends HashMap<String, Object> {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaginatedQueryTxs {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
@@ -203,7 +207,7 @@ public class PaginatedQueryTxs extends HashMap<String, Object> {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

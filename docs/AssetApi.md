@@ -39,7 +39,7 @@ Add forbiddable token whitelist addr
 
 
 AssetApi apiInstance = new AssetApi();
-String symbol = "symbol_example"; // String | token symbol
+String symbol = "abc"; // String | token symbol
 Whitelist whitelist = new Whitelist(); // Whitelist | token whitelist addr
 try {
     StdTx result = apiInstance.addWhitelist(symbol, whitelist);
@@ -86,7 +86,7 @@ Burn burnable token
 
 
 AssetApi apiInstance = new AssetApi();
-String symbol = "symbol_example"; // String | token symbol
+String symbol = "abc"; // String | token symbol
 Amount2 amount = new Amount2(); // Amount2 | burn token amount
 try {
     StdTx result = apiInstance.burnToken(symbol, amount);
@@ -133,7 +133,7 @@ Add forbidden addresses
 
 
 AssetApi apiInstance = new AssetApi();
-String symbol = "symbol_example"; // String | token symbol
+String symbol = "abc"; // String | token symbol
 Addresses addresses = new Addresses(); // Addresses | forbidden addresses
 try {
     StdTx result = apiInstance.forbidAddr(symbol, addresses);
@@ -180,7 +180,7 @@ Forbid forbiddable token
 
 
 AssetApi apiInstance = new AssetApi();
-String symbol = "symbol_example"; // String | token symbol
+String symbol = "abc"; // String | token symbol
 BaseReq baseReq = new BaseReq(); // BaseReq | base req
 try {
     StdTx result = apiInstance.forbidToken(symbol, baseReq);
@@ -266,7 +266,7 @@ Get forbidden addresses with provided &#x60;symbol&#x60;
 
 
 AssetApi apiInstance = new AssetApi();
-String symbol = "symbol_example"; // String | token symbol
+String symbol = "abc"; // String | token symbol
 try {
     InlineResponse20040 result = apiInstance.getForbiddenAddresses(symbol);
     System.out.println(result);
@@ -352,7 +352,7 @@ Get token with provided &#x60;symbol&#x60;
 
 
 AssetApi apiInstance = new AssetApi();
-String symbol = "symbol_example"; // String | token symbol
+String symbol = "abc"; // String | token symbol
 try {
     InlineResponse20039 result = apiInstance.getToken(symbol);
     System.out.println(result);
@@ -438,7 +438,7 @@ Get token whitelist with provided &#x60;symbol&#x60;
 
 
 AssetApi apiInstance = new AssetApi();
-String symbol = "symbol_example"; // String | token symbol
+String symbol = "abc"; // String | token symbol
 try {
     InlineResponse20040 result = apiInstance.getWhitelist(symbol);
     System.out.println(result);
@@ -528,7 +528,7 @@ Mint mintable token
 
 
 AssetApi apiInstance = new AssetApi();
-String symbol = "symbol_example"; // String | token symbol
+String symbol = "abc"; // String | token symbol
 Amount1 amount = new Amount1(); // Amount1 | mint token amount
 try {
     StdTx result = apiInstance.mintToken(symbol, amount);
@@ -575,7 +575,7 @@ Modify token info
 
 
 AssetApi apiInstance = new AssetApi();
-String symbol = "symbol_example"; // String | token symbol
+String symbol = "abc"; // String | token symbol
 Info info = new Info(); // Info | new token info
 try {
     StdTx result = apiInstance.modifyTokenInfo(symbol, info);
@@ -622,7 +622,7 @@ Remove forbiddable token whitelist addr
 
 
 AssetApi apiInstance = new AssetApi();
-String symbol = "symbol_example"; // String | token symbol
+String symbol = "abc"; // String | token symbol
 Whitelist whitelist = new Whitelist(); // Whitelist | token whitelist addr
 try {
     StdTx result = apiInstance.removeWhitelist(symbol, whitelist);
@@ -669,7 +669,7 @@ Transfer token owner ship
 
 
 AssetApi apiInstance = new AssetApi();
-String symbol = "symbol_example"; // String | token symbol
+String symbol = "abc"; // String | token symbol
 NewOwner newOwner = new NewOwner(); // NewOwner | transfer ownership to new owner
 try {
     StdTx result = apiInstance.transferOwnership(symbol, newOwner);
@@ -716,7 +716,7 @@ Remove forbidden addresses
 
 
 AssetApi apiInstance = new AssetApi();
-String symbol = "symbol_example"; // String | token symbol
+String symbol = "abc"; // String | token symbol
 Addresses addresses = new Addresses(); // Addresses | un forbidden addresses
 try {
     StdTx result = apiInstance.unForbidAddr(symbol, addresses);
@@ -763,7 +763,7 @@ UnForbid forbiddable token
 
 
 AssetApi apiInstance = new AssetApi();
-String symbol = "symbol_example"; // String | token symbol
+String symbol = "abc"; // String | token symbol
 BaseReq1 baseReq = new BaseReq1(); // BaseReq1 | base req
 try {
     StdTx result = apiInstance.unFrobidToken(symbol, baseReq);

@@ -14,27 +14,32 @@
 package org.coinex.dex.client.model;
 
 import java.util.Objects;
-
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
+import org.coinex.dex.client.model.Coin;
 
 /**
  * ValidatorDistInfo
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
-public class ValidatorDistInfo extends HashMap<String, Object> {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-28T12:10:24.313+08:00")
+public class ValidatorDistInfo {
   @SerializedName("operator_address")
   private String operatorAddress = null;
 
   @SerializedName("self_bond_rewards")
-  private List<Coin> selfBondRewards = new ArrayList<Coin>();
+  private List<Coin> selfBondRewards = new ArrayList<>();
 
   @SerializedName("val_commission")
-  private List<Coin> valCommission = new ArrayList<Coin>();
+  private List<Coin> valCommission = new ArrayList<>();
 
   public ValidatorDistInfo operatorAddress(String operatorAddress) {
     this.operatorAddress = operatorAddress;
@@ -102,7 +107,7 @@ public class ValidatorDistInfo extends HashMap<String, Object> {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -112,13 +117,12 @@ public class ValidatorDistInfo extends HashMap<String, Object> {
     ValidatorDistInfo validatorDistInfo = (ValidatorDistInfo) o;
     return Objects.equals(this.operatorAddress, validatorDistInfo.operatorAddress) &&
         Objects.equals(this.selfBondRewards, validatorDistInfo.selfBondRewards) &&
-        Objects.equals(this.valCommission, validatorDistInfo.valCommission) &&
-        super.equals(o);
+        Objects.equals(this.valCommission, validatorDistInfo.valCommission);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operatorAddress, selfBondRewards, valCommission, super.hashCode());
+    return Objects.hash(operatorAddress, selfBondRewards, valCommission);
   }
 
 
@@ -126,7 +130,7 @@ public class ValidatorDistInfo extends HashMap<String, Object> {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ValidatorDistInfo {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
     sb.append("    operatorAddress: ").append(toIndentedString(operatorAddress)).append("\n");
     sb.append("    selfBondRewards: ").append(toIndentedString(selfBondRewards)).append("\n");
     sb.append("    valCommission: ").append(toIndentedString(valCommission)).append("\n");
@@ -138,7 +142,7 @@ public class ValidatorDistInfo extends HashMap<String, Object> {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

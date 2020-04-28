@@ -37,7 +37,7 @@ Get all delegations from a delegator
 
 
 StakingApi apiInstance = new StakingApi();
-String delegatorAddr = "delegatorAddr_example"; // String | Bech32 AccAddress of Delegator
+String delegatorAddr = "coinex167w96tdvmazakdwkw2u57227eduula2cy572lf"; // String | Bech32 AccAddress of Delegator
 try {
     InlineResponse2005 result = apiInstance.getDelegations(delegatorAddr);
     System.out.println(result);
@@ -80,7 +80,7 @@ Get all delegations from a validator
 
 
 StakingApi apiInstance = new StakingApi();
-String validatorAddr = "validatorAddr_example"; // String | Bech32 OperatorAddress of validator
+String validatorAddr = "coinexvaloper1qwl879nx9t6kef4supyazayf7vjhennyh568ys"; // String | Bech32 OperatorAddress of validator
 try {
     InlineResponse2005 result = apiInstance.getDelegationsOfValidator(validatorAddr);
     System.out.println(result);
@@ -123,8 +123,8 @@ Query the current delegation between a delegator and a validator
 
 
 StakingApi apiInstance = new StakingApi();
-String delegatorAddr = "delegatorAddr_example"; // String | Bech32 AccAddress of Delegator
-String validatorAddr = "validatorAddr_example"; // String | Bech32 OperatorAddress of validator
+String delegatorAddr = "coinex167w96tdvmazakdwkw2u57227eduula2cy572lf"; // String | Bech32 AccAddress of Delegator
+String validatorAddr = "coinexvaloper1qwl879nx9t6kef4supyazayf7vjhennyh568ys"; // String | Bech32 OperatorAddress of validator
 try {
     InlineResponse2006 result = apiInstance.getDelegationsToValidator(delegatorAddr, validatorAddr);
     System.out.println(result);
@@ -168,7 +168,7 @@ Get all staking txs (i.e msgs) from a delegator
 
 
 StakingApi apiInstance = new StakingApi();
-String delegatorAddr = "delegatorAddr_example"; // String | Bech32 AccAddress of Delegator
+String delegatorAddr = "coinex167w96tdvmazakdwkw2u57227eduula2cy572lf"; // String | Bech32 AccAddress of Delegator
 try {
     List<PaginatedQueryTxs> result = apiInstance.getDelegatorTxs(delegatorAddr);
     System.out.println(result);
@@ -336,8 +336,8 @@ Query all unbonding delegations between a delegator and a validator
 
 
 StakingApi apiInstance = new StakingApi();
-String delegatorAddr = "delegatorAddr_example"; // String | Bech32 AccAddress of Delegator
-String validatorAddr = "validatorAddr_example"; // String | Bech32 OperatorAddress of validator
+String delegatorAddr = "coinex167w96tdvmazakdwkw2u57227eduula2cy572lf"; // String | Bech32 AccAddress of Delegator
+String validatorAddr = "coinexvaloper1qwl879nx9t6kef4supyazayf7vjhennyh568ys"; // String | Bech32 OperatorAddress of validator
 try {
     InlineResponse2008 result = apiInstance.getUndelegationsBetween(delegatorAddr, validatorAddr);
     System.out.println(result);
@@ -381,7 +381,7 @@ Get all unbonding delegations from a delegator
 
 
 StakingApi apiInstance = new StakingApi();
-String delegatorAddr = "delegatorAddr_example"; // String | Bech32 AccAddress of Delegator
+String delegatorAddr = "coinex167w96tdvmazakdwkw2u57227eduula2cy572lf"; // String | Bech32 AccAddress of Delegator
 try {
     InlineResponse2007 result = apiInstance.getUndelegationsOfDelegator(delegatorAddr);
     System.out.println(result);
@@ -424,7 +424,7 @@ Get all unbonding delegations from a validator
 
 
 StakingApi apiInstance = new StakingApi();
-String validatorAddr = "validatorAddr_example"; // String | Bech32 OperatorAddress of validator
+String validatorAddr = "coinexvaloper1qwl879nx9t6kef4supyazayf7vjhennyh568ys"; // String | Bech32 OperatorAddress of validator
 try {
     InlineResponse20012 result = apiInstance.getUndelegationsOfValidator(validatorAddr);
     System.out.println(result);
@@ -467,7 +467,7 @@ Query the information from a single validator
 
 
 StakingApi apiInstance = new StakingApi();
-String validatorAddr = "validatorAddr_example"; // String | Bech32 OperatorAddress of validator
+String validatorAddr = "coinexvaloper1qwl879nx9t6kef4supyazayf7vjhennyh568ys"; // String | Bech32 OperatorAddress of validator
 try {
     InlineResponse20011 result = apiInstance.getValidator(validatorAddr);
     System.out.println(result);
@@ -510,8 +510,8 @@ Query a validator that a delegator is bonded to
 
 
 StakingApi apiInstance = new StakingApi();
-String delegatorAddr = "delegatorAddr_example"; // String | Bech32 AccAddress of Delegator
-String validatorAddr = "validatorAddr_example"; // String | Bech32 ValAddress of Delegator
+String delegatorAddr = "coinex167w96tdvmazakdwkw2u57227eduula2cy572lf"; // String | Bech32 AccAddress of Delegator
+String validatorAddr = "coinexvaloper1qwl879nx9t6kef4supyazayf7vjhennyh568ys"; // String | Bech32 ValAddress of Delegator
 try {
     InlineResponse20011 result = apiInstance.getValidatorOfDelegator(delegatorAddr, validatorAddr);
     System.out.println(result);
@@ -555,9 +555,9 @@ Get all validator candidates. By default it returns only the bonded validators.
 
 
 StakingApi apiInstance = new StakingApi();
-String status = "status_example"; // String | The validator bond status. Must be either 'bonded', 'unbonded', or 'unbonding'.
-Integer page = 56; // Integer | The page number.
-Integer limit = 56; // Integer | The maximum number of items per page.
+String status = "bonded"; // String | The validator bond status. Must be either 'bonded', 'unbonded', or 'unbonding'.
+Integer page = 1; // Integer | The page number.
+Integer limit = 1; // Integer | The maximum number of items per page.
 try {
     InlineResponse20010 result = apiInstance.getValidators(status, page, limit);
     System.out.println(result);
@@ -602,7 +602,7 @@ Query all validators that a delegator is bonded to
 
 
 StakingApi apiInstance = new StakingApi();
-String delegatorAddr = "delegatorAddr_example"; // String | Bech32 AccAddress of Delegator
+String delegatorAddr = "coinex167w96tdvmazakdwkw2u57227eduula2cy572lf"; // String | Bech32 AccAddress of Delegator
 try {
     InlineResponse20010 result = apiInstance.getValidatorsOfDelegator(delegatorAddr);
     System.out.println(result);
@@ -645,7 +645,7 @@ Submit delegation
 
 
 StakingApi apiInstance = new StakingApi();
-String delegatorAddr = "delegatorAddr_example"; // String | Bech32 AccAddress of Delegator
+String delegatorAddr = "coinex167w96tdvmazakdwkw2u57227eduula2cy572lf"; // String | Bech32 AccAddress of Delegator
 Delegation delegation = new Delegation(); // Delegation | submit delegation to provided validator
 try {
     BroadcastTxCommitResult result = apiInstance.submitDelegation(delegatorAddr, delegation);
@@ -690,7 +690,7 @@ Submit a redelegation
 
 
 StakingApi apiInstance = new StakingApi();
-String delegatorAddr = "delegatorAddr_example"; // String | Bech32 AccAddress of Delegator
+String delegatorAddr = "coinex167w96tdvmazakdwkw2u57227eduula2cy572lf"; // String | Bech32 AccAddress of Delegator
 Delegation2 delegation = new Delegation2(); // Delegation2 | The sender and tx information
 try {
     StdTx result = apiInstance.submitRedelegation(delegatorAddr, delegation);
@@ -735,7 +735,7 @@ Submit an unbonding delegation
 
 
 StakingApi apiInstance = new StakingApi();
-String delegatorAddr = "delegatorAddr_example"; // String | Bech32 AccAddress of Delegator
+String delegatorAddr = "coinex167w96tdvmazakdwkw2u57227eduula2cy572lf"; // String | Bech32 AccAddress of Delegator
 Delegation1 delegation = new Delegation1(); // Delegation1 | The password of the account to remove from the KMS
 try {
     BroadcastTxCommitResult result = apiInstance.undelegate(delegatorAddr, delegation);

@@ -14,17 +14,22 @@
 package org.coinex.dex.client.model;
 
 import java.util.Objects;
-
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
-import java.util.HashMap;
+import java.io.IOException;
+import org.coinex.dex.client.model.BaseReq;
 
 /**
  * Referee
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
-public class Referee extends HashMap<String, Object> {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-28T12:10:24.313+08:00")
+public class Referee {
   @SerializedName("base_req")
   private BaseReq baseReq = null;
 
@@ -69,7 +74,7 @@ public class Referee extends HashMap<String, Object> {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -78,13 +83,12 @@ public class Referee extends HashMap<String, Object> {
     }
     Referee referee = (Referee) o;
     return Objects.equals(this.baseReq, referee.baseReq) &&
-        Objects.equals(this.referee, referee.referee) &&
-        super.equals(o);
+        Objects.equals(this.referee, referee.referee);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(baseReq, referee, super.hashCode());
+    return Objects.hash(baseReq, referee);
   }
 
 
@@ -92,7 +96,7 @@ public class Referee extends HashMap<String, Object> {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Referee {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
     sb.append("    baseReq: ").append(toIndentedString(baseReq)).append("\n");
     sb.append("    referee: ").append(toIndentedString(referee)).append("\n");
     sb.append("}");
@@ -103,7 +107,7 @@ public class Referee extends HashMap<String, Object> {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

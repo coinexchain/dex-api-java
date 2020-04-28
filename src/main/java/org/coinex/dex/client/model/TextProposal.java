@@ -14,19 +14,26 @@
 package org.coinex.dex.client.model;
 
 import java.util.Objects;
-
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
+import org.coinex.dex.client.model.Coin;
+import org.coinex.dex.client.model.TallyResult;
+import org.coinex.dex.client.model.TextProposalContent;
 
 /**
  * TextProposal
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-27T01:19:45.029Z")
-public class TextProposal extends HashMap<String, Object> {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-28T12:10:24.313+08:00")
+public class TextProposal {
   @SerializedName("id")
   private String id = null;
 
@@ -46,7 +53,7 @@ public class TextProposal extends HashMap<String, Object> {
   private String submitTime = null;
 
   @SerializedName("total_deposit")
-  private List<Coin> totalDeposit = new ArrayList<Coin>();
+  private List<Coin> totalDeposit = new ArrayList<>();
 
   @SerializedName("voting_start_time")
   private String votingStartTime = null;
@@ -223,7 +230,7 @@ public class TextProposal extends HashMap<String, Object> {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -239,13 +246,12 @@ public class TextProposal extends HashMap<String, Object> {
         Objects.equals(this.submitTime, textProposal.submitTime) &&
         Objects.equals(this.totalDeposit, textProposal.totalDeposit) &&
         Objects.equals(this.votingStartTime, textProposal.votingStartTime) &&
-        Objects.equals(this.votingEndTime, textProposal.votingEndTime) &&
-        super.equals(o);
+        Objects.equals(this.votingEndTime, textProposal.votingEndTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, content, depositEndTime, proposalStatus, finalTallyResult, submitTime, totalDeposit, votingStartTime, votingEndTime, super.hashCode());
+    return Objects.hash(id, content, depositEndTime, proposalStatus, finalTallyResult, submitTime, totalDeposit, votingStartTime, votingEndTime);
   }
 
 
@@ -253,7 +259,7 @@ public class TextProposal extends HashMap<String, Object> {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TextProposal {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    depositEndTime: ").append(toIndentedString(depositEndTime)).append("\n");
@@ -271,7 +277,7 @@ public class TextProposal extends HashMap<String, Object> {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }
