@@ -3,9 +3,7 @@ package org.coinex.dex.client.example;
 import org.coinex.dex.client.ApiException;
 import org.coinex.dex.client.api.BankApi;
 import org.coinex.dex.client.context.ApiContext;
-import org.coinex.dex.client.model.Account;
-import org.coinex.dex.client.model.BaseReq;
-import org.coinex.dex.client.model.Coin;
+import org.coinex.dex.client.model.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,8 +39,11 @@ public class Main {
         account.setAmount(sendCoins);
         account.setUnlockTime("0");
 
-        BankApi bankApi = new BankApi();
-        bankApi.sendCoins("coinex1h6favnlytw3lgpy8cm6lcv530z0ctj6rplwt06", account);
+//        BankApi bankApi = new BankApi();
+//        StdTx stdTx = bankApi.sendCoins("coinex1h6favnlytw3lgpy8cm6lcv530z0ctj6rplwt06", account);
+//        stdTx.getValue().setSignatures(new ArrayList<StdTxCoreSignatures>());
+//        String stdTxStr = context.getJson().serialize(stdTx);
+//        context.signAndBroadcast(stdTxStr);
     }
 
     private static BaseReq createBaseReq(String address, List<Coin> fees) {
