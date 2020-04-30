@@ -77,6 +77,10 @@ After using swagger-codegen:
 - org.coinex.dex.client.JSON: Add function `serializeWithNull`
 - org.coinex.dex.client.context.*: Wrap ApiClient and Use "polarbear" (The wallet of coinex chain) dynamic library
 
+## Note That
+
+- org.coinex.dex.client.api.MarketApi: There are some bugs in MarketApi!
+
 
 ## Getting Started
 
