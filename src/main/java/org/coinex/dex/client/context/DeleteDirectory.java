@@ -9,6 +9,24 @@ import java.nio.file.attribute.BasicFileAttributes;
 
 public class DeleteDirectory implements FileVisitor {
 
+    private volatile static DeleteDirectory INSTANCE;
+
+    private DeleteDirectory() {
+    }
+
+    public static DeleteDirectory getUniqueInstance() {
+        if (INSTANCE == null) {
+            synchronized (DeleteDirectory.class) {
+                if (INSTANCE == null) {
+                    INSTANCE = new DeleteDirectory();
+                }
+            }
+        }
+        return INSTANCE;
+    }
+
+
+
     boolean deleteFileByFile(Path file) throws IOException {
         return Files.deleteIfExists(file);
     }

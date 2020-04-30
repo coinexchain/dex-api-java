@@ -46,7 +46,7 @@ public class WalletCaller {
         WalletLib.INSTANCE.BearInit("tmp");
 
         // Create Key
-        String key = WalletLib.INSTANCE.CreateKey(keyName,password,bip39Password,0,0);
+        String key = WalletLib.INSTANCE.CreateKey(keyName, password, bip39Password, 0, 0);
         System.out.println(key);
 
         // List Keys
@@ -62,20 +62,22 @@ public class WalletCaller {
         String addressWif = WalletLib.INSTANCE.GetAddressFromWIF(wif);
         System.out.println(addressWif);
 
+        // Export Keys
+        String exportKey = WalletLib.INSTANCE.ExportKey(keyName, "12345678", "12345678");
+        System.out.println(exportKey);
+
+        // Write Key File
+        String filePath = "./tmp/" + keyName + ".txt";
+        FileHelper.createFile(filePath);
+        FileHelper.write(filePath, exportKey);
+
         // Sign
         String sign = WalletLib.INSTANCE.Sign(keyName, password, "hello, that polar bear");
         System.out.println(sign);
 
-        // Delete Key
-        String delete = WalletLib.INSTANCE.DeleteKey(keyName, password);
-        System.out.println(delete);
-
-        keys = WalletLib.INSTANCE.ListKeys();
-        System.out.println(keys);
-
         // Delete tmp
         Path directory = Paths.get("./tmp");
-        DeleteDirectory walk = new DeleteDirectory();
+        DeleteDirectory walk = DeleteDirectory.getUniqueInstance();
         EnumSet opts = EnumSet.of(FileVisitOption.FOLLOW_LINKS);
         Files.walkFileTree(directory, opts, Integer.MAX_VALUE, walk);
 

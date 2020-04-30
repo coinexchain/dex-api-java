@@ -13,14 +13,20 @@
 
 package org.coinex.dex.client.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Objects;
-import java.util.Arrays;
 
 /**
  * Msg
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-28T12:10:24.313+08:00")
 public class Msg {
+  @SerializedName("type")
+  private String type = "";
+
+  @SerializedName("value")
+  private MsgValue value = null;
 
   @Override
   public boolean equals(java.lang.Object o) {

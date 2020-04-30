@@ -41,7 +41,7 @@ public class StdTxCore {
   private StdTxCoreFee fee = null;
 
   @SerializedName("memo")
-  private String memo = null;
+  private String memo = "";
 
   @SerializedName("signatures")
   private List<StdTxCoreSignatures> signatures = new ArrayList<>();

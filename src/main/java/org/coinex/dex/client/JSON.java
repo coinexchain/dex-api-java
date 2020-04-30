@@ -42,6 +42,7 @@ import java.util.HashMap;
 
 public class JSON {
     private Gson gson;
+    private Gson gsonWithNull;
     private boolean isLenientOnJson = false;
     private DateTypeAdapter dateTypeAdapter = new DateTypeAdapter();
     private SqlDateTypeAdapter sqlDateTypeAdapter = new SqlDateTypeAdapter();
@@ -50,8 +51,7 @@ public class JSON {
     private ByteArrayAdapter byteArrayAdapter = new ByteArrayAdapter();
 
     public static GsonBuilder createGson() {
-        GsonFireBuilder fireBuilder = new GsonFireBuilder()
-        ;
+        GsonFireBuilder fireBuilder = new GsonFireBuilder();
         GsonBuilder builder = fireBuilder.createGsonBuilder();
         return builder;
     }
@@ -115,6 +115,17 @@ public class JSON {
      */
     public String serialize(Object obj) {
         return gson.toJson(obj);
+    }
+
+    /**
+     * Serialize the given Java object into JSON string.
+     *
+     * @param obj Object
+     * @return String representation of the JSON
+     */
+    public String serializeWithNull(Object obj) {
+        gsonWithNull = new GsonBuilder().serializeNulls().create();
+        return gsonWithNull.toJson(obj);
     }
 
     /**
