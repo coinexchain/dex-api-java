@@ -69,11 +69,13 @@ Then manually install the following JARs:
 
 ## Modification Manually
 
-org.coinex.dex.client.model.BaseReq: Add some fields
-org.coinex.dex.client.model.Msg: Modify `value`
-org.coinex.dex.client.model.MsgValue: Wrap from address and to address for `Msg` class
-org.coinex.dex.client.JSON: Add function `serializeWithNull`
-org.coinex.dex.client.context.*: Wrap ApiClient and Use "polarbear" (The wallet of coinex chain) dynamic library
+After using swagger-codegen:
+
+- org.coinex.dex.client.model.BaseReq: Add some fields
+- org.coinex.dex.client.model.Msg: Modify `value`
+- org.coinex.dex.client.model.MsgValue: Wrap from address and to address for `Msg` class
+- org.coinex.dex.client.JSON: Add function `serializeWithNull`
+- org.coinex.dex.client.context.*: Wrap ApiClient and Use "polarbear" (The wallet of coinex chain) dynamic library
 
 
 ## Getting Started
