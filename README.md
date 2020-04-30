@@ -66,6 +66,16 @@ Then manually install the following JARs:
 * `target/dex-api-java-1.0.0.jar`
 * `target/lib/*.jar`
 
+
+## Modification Manually
+
+org.coinex.dex.client.model.BaseReq: Add some fields
+org.coinex.dex.client.model.Msg: Modify `value`
+org.coinex.dex.client.model.MsgValue: Wrap from address and to address for `Msg` class
+org.coinex.dex.client.JSON: Add function `serializeWithNull`
+org.coinex.dex.client.context.*: Wrap ApiClient and Use "polarbear" (The wallet of coinex chain) dynamic library
+
+
 ## Getting Started
 
 Please follow the [installation](#installation) instruction and execute the following Java code:
