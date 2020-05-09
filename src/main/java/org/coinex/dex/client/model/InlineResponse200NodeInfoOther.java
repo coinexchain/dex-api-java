@@ -28,7 +28,7 @@ import java.io.IOException;
  * more information on versions
  */
 @ApiModel(description = "more information on versions")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-28T12:10:24.313+08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-09T11:28:51.986+08:00")
 public class InlineResponse200NodeInfoOther {
   @SerializedName("tx_index")
   private String txIndex = null;

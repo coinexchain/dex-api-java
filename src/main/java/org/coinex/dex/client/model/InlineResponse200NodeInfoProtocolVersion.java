@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * InlineResponse200NodeInfoProtocolVersion
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-28T12:10:24.313+08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-09T11:28:51.986+08:00")
 public class InlineResponse200NodeInfoProtocolVersion {
   @SerializedName("p2p")
   private String p2p = null;

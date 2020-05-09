@@ -32,7 +32,7 @@ import org.coinex.dex.client.model.StdTxCoreSignatures;
 /**
  * StdTxCore
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-28T12:10:24.313+08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-09T11:28:51.986+08:00")
 public class StdTxCore {
   @SerializedName("msg")
   private List<Msg> msg = null;
@@ -41,7 +41,7 @@ public class StdTxCore {
   private StdTxCoreFee fee = null;
 
   @SerializedName("memo")
-  private String memo = "";
+  private String memo = null;
 
   @SerializedName("signatures")
   private List<StdTxCoreSignatures> signatures = new ArrayList<>();

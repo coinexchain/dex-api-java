@@ -30,7 +30,7 @@ import org.coinex.dex.client.model.TextProposal;
 /**
  * InlineResponse20018
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-28T12:10:24.313+08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-09T11:28:51.986+08:00")
 public class InlineResponse20018 {
   @SerializedName("height")
   private String height = null;

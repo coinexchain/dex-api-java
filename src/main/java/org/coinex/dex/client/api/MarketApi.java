@@ -27,6 +27,7 @@
 //import java.io.IOException;
 //
 //
+//import org.coinex.dex.client.model.CandleStick;
 //import org.coinex.dex.client.model.Info1;
 //import org.coinex.dex.client.model.Info2;
 //import org.coinex.dex.client.model.InlineResponse20042;
@@ -35,8 +36,12 @@
 //import org.coinex.dex.client.model.InlineResponse20045;
 //import org.coinex.dex.client.model.InlineResponse20046;
 //import org.coinex.dex.client.model.InlineResponse20047;
+//import org.coinex.dex.client.model.InlineResponse20055;
+//import org.coinex.dex.client.model.InlineResponse20056;
 //import org.coinex.dex.client.model.OrderInfo;
 //import org.coinex.dex.client.model.StdTx;
+//import org.coinex.dex.client.model.Tickers;
+//import org.coinex.dex.client.model.UserOrder;
 //
 //import java.lang.reflect.Type;
 //import java.util.ArrayList;
@@ -1417,6 +1422,759 @@
 //
 //        com.squareup.okhttp.Call call = modifyPricePrecisionValidateBeforeCall(info, progressListener, progressRequestListener);
 //        Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
+//        apiClient.executeAsync(call, localVarReturnType, callback);
+//        return call;
+//    }
+//    /**
+//     * Build call for queryCandleStick
+//     * @param market stock/money (required)
+//     * @param timespan 1min/1hour/1day (required)
+//     * @param time Unix timestamp (required)
+//     * @param sid Sequence id (required)
+//     * @param count Querier candleStick count limited to 1024 (required)
+//     * @param progressListener Progress listener
+//     * @param progressRequestListener Progress request listener
+//     * @return Call to execute
+//     * @throws ApiException If fail to serialize the request body object
+//     */
+//    public com.squareup.okhttp.Call queryCandleStickCall(String market, String timespan, Long time, Long sid, Integer count, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+//        Object localVarPostBody = null;
+//
+//        // create path and map variables
+//        String localVarPath = "/market/candle-sticks";
+//
+//        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+//        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+//        if (market != null)
+//        localVarQueryParams.addAll(apiClient.parameterToPair("market", market));
+//        if (timespan != null)
+//        localVarQueryParams.addAll(apiClient.parameterToPair("timespan", timespan));
+//        if (time != null)
+//        localVarQueryParams.addAll(apiClient.parameterToPair("time", time));
+//        if (sid != null)
+//        localVarQueryParams.addAll(apiClient.parameterToPair("sid", sid));
+//        if (count != null)
+//        localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
+//
+//        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+//
+//        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+//
+//        final String[] localVarAccepts = {
+//            "application/json"
+//        };
+//        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+//        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+//
+//        final String[] localVarContentTypes = {
+//
+//        };
+//        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+//        localVarHeaderParams.put("Content-Type", localVarContentType);
+//
+//        if(progressListener != null) {
+//            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+//                @Override
+//                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+//                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+//                    return originalResponse.newBuilder()
+//                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+//                    .build();
+//                }
+//            });
+//        }
+//
+//        String[] localVarAuthNames = new String[] {  };
+//        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+//    }
+//
+//    @SuppressWarnings("rawtypes")
+//    private com.squareup.okhttp.Call queryCandleStickValidateBeforeCall(String market, String timespan, Long time, Long sid, Integer count, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+//
+//        // verify the required parameter 'market' is set
+//        if (market == null) {
+//            throw new ApiException("Missing the required parameter 'market' when calling queryCandleStick(Async)");
+//        }
+//
+//        // verify the required parameter 'timespan' is set
+//        if (timespan == null) {
+//            throw new ApiException("Missing the required parameter 'timespan' when calling queryCandleStick(Async)");
+//        }
+//
+//        // verify the required parameter 'time' is set
+//        if (time == null) {
+//            throw new ApiException("Missing the required parameter 'time' when calling queryCandleStick(Async)");
+//        }
+//
+//        // verify the required parameter 'sid' is set
+//        if (sid == null) {
+//            throw new ApiException("Missing the required parameter 'sid' when calling queryCandleStick(Async)");
+//        }
+//
+//        // verify the required parameter 'count' is set
+//        if (count == null) {
+//            throw new ApiException("Missing the required parameter 'count' when calling queryCandleStick(Async)");
+//        }
+//
+//
+//        com.squareup.okhttp.Call call = queryCandleStickCall(market, timespan, time, sid, count, progressListener, progressRequestListener);
+//        return call;
+//
+//    }
+//
+//    /**
+//     * Query market candleStick
+//     * Query candleStick until to given time
+//     * @param market stock/money (required)
+//     * @param timespan 1min/1hour/1day (required)
+//     * @param time Unix timestamp (required)
+//     * @param sid Sequence id (required)
+//     * @param count Querier candleStick count limited to 1024 (required)
+//     * @return List&lt;CandleStick&gt;
+//     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+//     */
+//    public List<CandleStick> queryCandleStick(String market, String timespan, Long time, Long sid, Integer count) throws ApiException {
+//        ApiResponse<List<CandleStick>> resp = queryCandleStickWithHttpInfo(market, timespan, time, sid, count);
+//        return resp.getData();
+//    }
+//
+//    /**
+//     * Query market candleStick
+//     * Query candleStick until to given time
+//     * @param market stock/money (required)
+//     * @param timespan 1min/1hour/1day (required)
+//     * @param time Unix timestamp (required)
+//     * @param sid Sequence id (required)
+//     * @param count Querier candleStick count limited to 1024 (required)
+//     * @return ApiResponse&lt;List&lt;CandleStick&gt;&gt;
+//     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+//     */
+//    public ApiResponse<List<CandleStick>> queryCandleStickWithHttpInfo(String market, String timespan, Long time, Long sid, Integer count) throws ApiException {
+//        com.squareup.okhttp.Call call = queryCandleStickValidateBeforeCall(market, timespan, time, sid, count, null, null);
+//        Type localVarReturnType = new TypeToken<List<CandleStick>>(){}.getType();
+//        return apiClient.execute(call, localVarReturnType);
+//    }
+//
+//    /**
+//     * Query market candleStick (asynchronously)
+//     * Query candleStick until to given time
+//     * @param market stock/money (required)
+//     * @param timespan 1min/1hour/1day (required)
+//     * @param time Unix timestamp (required)
+//     * @param sid Sequence id (required)
+//     * @param count Querier candleStick count limited to 1024 (required)
+//     * @param callback The callback to be executed when the API call finishes
+//     * @return The request call
+//     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+//     */
+//    public com.squareup.okhttp.Call queryCandleStickAsync(String market, String timespan, Long time, Long sid, Integer count, final ApiCallback<List<CandleStick>> callback) throws ApiException {
+//
+//        ProgressResponseBody.ProgressListener progressListener = null;
+//        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+//
+//        if (callback != null) {
+//            progressListener = new ProgressResponseBody.ProgressListener() {
+//                @Override
+//                public void update(long bytesRead, long contentLength, boolean done) {
+//                    callback.onDownloadProgress(bytesRead, contentLength, done);
+//                }
+//            };
+//
+//            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+//                @Override
+//                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+//                    callback.onUploadProgress(bytesWritten, contentLength, done);
+//                }
+//            };
+//        }
+//
+//        com.squareup.okhttp.Call call = queryCandleStickValidateBeforeCall(market, timespan, time, sid, count, progressListener, progressRequestListener);
+//        Type localVarReturnType = new TypeToken<List<CandleStick>>(){}.getType();
+//        apiClient.executeAsync(call, localVarReturnType, callback);
+//        return call;
+//    }
+//    /**
+//     * Build call for queryDeal
+//     * @param market stock/money (required)
+//     * @param time Unix timestamp (required)
+//     * @param sid Sequence id (required)
+//     * @param count Querier deal count limited to 1024 (required)
+//     * @param progressListener Progress listener
+//     * @param progressRequestListener Progress request listener
+//     * @return Call to execute
+//     * @throws ApiException If fail to serialize the request body object
+//     */
+//    public com.squareup.okhttp.Call queryDealCall(String market, Long time, Long sid, Integer count, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+//        Object localVarPostBody = null;
+//
+//        // create path and map variables
+//        String localVarPath = "/market/deals";
+//
+//        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+//        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+//        if (market != null)
+//        localVarQueryParams.addAll(apiClient.parameterToPair("market", market));
+//        if (time != null)
+//        localVarQueryParams.addAll(apiClient.parameterToPair("time", time));
+//        if (sid != null)
+//        localVarQueryParams.addAll(apiClient.parameterToPair("sid", sid));
+//        if (count != null)
+//        localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
+//
+//        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+//
+//        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+//
+//        final String[] localVarAccepts = {
+//            "application/json"
+//        };
+//        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+//        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+//
+//        final String[] localVarContentTypes = {
+//
+//        };
+//        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+//        localVarHeaderParams.put("Content-Type", localVarContentType);
+//
+//        if(progressListener != null) {
+//            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+//                @Override
+//                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+//                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+//                    return originalResponse.newBuilder()
+//                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+//                    .build();
+//                }
+//            });
+//        }
+//
+//        String[] localVarAuthNames = new String[] {  };
+//        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+//    }
+//
+//    @SuppressWarnings("rawtypes")
+//    private com.squareup.okhttp.Call queryDealValidateBeforeCall(String market, Long time, Long sid, Integer count, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+//
+//        // verify the required parameter 'market' is set
+//        if (market == null) {
+//            throw new ApiException("Missing the required parameter 'market' when calling queryDeal(Async)");
+//        }
+//
+//        // verify the required parameter 'time' is set
+//        if (time == null) {
+//            throw new ApiException("Missing the required parameter 'time' when calling queryDeal(Async)");
+//        }
+//
+//        // verify the required parameter 'sid' is set
+//        if (sid == null) {
+//            throw new ApiException("Missing the required parameter 'sid' when calling queryDeal(Async)");
+//        }
+//
+//        // verify the required parameter 'count' is set
+//        if (count == null) {
+//            throw new ApiException("Missing the required parameter 'count' when calling queryDeal(Async)");
+//        }
+//
+//
+//        com.squareup.okhttp.Call call = queryDealCall(market, time, sid, count, progressListener, progressRequestListener);
+//        return call;
+//
+//    }
+//
+//    /**
+//     * Query market deal
+//     * Query market deal until to given time
+//     * @param market stock/money (required)
+//     * @param time Unix timestamp (required)
+//     * @param sid Sequence id (required)
+//     * @param count Querier deal count limited to 1024 (required)
+//     * @return InlineResponse20056
+//     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+//     */
+//    public InlineResponse20056 queryDeal(String market, Long time, Long sid, Integer count) throws ApiException {
+//        ApiResponse<InlineResponse20056> resp = queryDealWithHttpInfo(market, time, sid, count);
+//        return resp.getData();
+//    }
+//
+//    /**
+//     * Query market deal
+//     * Query market deal until to given time
+//     * @param market stock/money (required)
+//     * @param time Unix timestamp (required)
+//     * @param sid Sequence id (required)
+//     * @param count Querier deal count limited to 1024 (required)
+//     * @return ApiResponse&lt;InlineResponse20056&gt;
+//     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+//     */
+//    public ApiResponse<InlineResponse20056> queryDealWithHttpInfo(String market, Long time, Long sid, Integer count) throws ApiException {
+//        com.squareup.okhttp.Call call = queryDealValidateBeforeCall(market, time, sid, count, null, null);
+//        Type localVarReturnType = new TypeToken<InlineResponse20056>(){}.getType();
+//        return apiClient.execute(call, localVarReturnType);
+//    }
+//
+//    /**
+//     * Query market deal (asynchronously)
+//     * Query market deal until to given time
+//     * @param market stock/money (required)
+//     * @param time Unix timestamp (required)
+//     * @param sid Sequence id (required)
+//     * @param count Querier deal count limited to 1024 (required)
+//     * @param callback The callback to be executed when the API call finishes
+//     * @return The request call
+//     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+//     */
+//    public com.squareup.okhttp.Call queryDealAsync(String market, Long time, Long sid, Integer count, final ApiCallback<InlineResponse20056> callback) throws ApiException {
+//
+//        ProgressResponseBody.ProgressListener progressListener = null;
+//        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+//
+//        if (callback != null) {
+//            progressListener = new ProgressResponseBody.ProgressListener() {
+//                @Override
+//                public void update(long bytesRead, long contentLength, boolean done) {
+//                    callback.onDownloadProgress(bytesRead, contentLength, done);
+//                }
+//            };
+//
+//            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+//                @Override
+//                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+//                    callback.onUploadProgress(bytesWritten, contentLength, done);
+//                }
+//            };
+//        }
+//
+//        com.squareup.okhttp.Call call = queryDealValidateBeforeCall(market, time, sid, count, progressListener, progressRequestListener);
+//        Type localVarReturnType = new TypeToken<InlineResponse20056>(){}.getType();
+//        apiClient.executeAsync(call, localVarReturnType, callback);
+//        return call;
+//    }
+//    /**
+//     * Build call for queryDepth
+//     * @param market stock/money (required)
+//     * @param count Querier count limited to 1024 (required)
+//     * @param progressListener Progress listener
+//     * @param progressRequestListener Progress request listener
+//     * @return Call to execute
+//     * @throws ApiException If fail to serialize the request body object
+//     */
+//    public com.squareup.okhttp.Call queryDepthCall(String market, Integer count, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+//        Object localVarPostBody = null;
+//
+//        // create path and map variables
+//        String localVarPath = "/market/depths";
+//
+//        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+//        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+//        if (market != null)
+//        localVarQueryParams.addAll(apiClient.parameterToPair("market", market));
+//        if (count != null)
+//        localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
+//
+//        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+//
+//        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+//
+//        final String[] localVarAccepts = {
+//            "application/json"
+//        };
+//        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+//        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+//
+//        final String[] localVarContentTypes = {
+//
+//        };
+//        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+//        localVarHeaderParams.put("Content-Type", localVarContentType);
+//
+//        if(progressListener != null) {
+//            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+//                @Override
+//                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+//                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+//                    return originalResponse.newBuilder()
+//                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+//                    .build();
+//                }
+//            });
+//        }
+//
+//        String[] localVarAuthNames = new String[] {  };
+//        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+//    }
+//
+//    @SuppressWarnings("rawtypes")
+//    private com.squareup.okhttp.Call queryDepthValidateBeforeCall(String market, Integer count, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+//
+//        // verify the required parameter 'market' is set
+//        if (market == null) {
+//            throw new ApiException("Missing the required parameter 'market' when calling queryDepth(Async)");
+//        }
+//
+//        // verify the required parameter 'count' is set
+//        if (count == null) {
+//            throw new ApiException("Missing the required parameter 'count' when calling queryDepth(Async)");
+//        }
+//
+//
+//        com.squareup.okhttp.Call call = queryDepthCall(market, count, progressListener, progressRequestListener);
+//        return call;
+//
+//    }
+//
+//    /**
+//     * Query market depth
+//     * Query purchases and sales of a market at all price levels
+//     * @param market stock/money (required)
+//     * @param count Querier count limited to 1024 (required)
+//     * @return InlineResponse20055
+//     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+//     */
+//    public InlineResponse20055 queryDepth(String market, Integer count) throws ApiException {
+//        ApiResponse<InlineResponse20055> resp = queryDepthWithHttpInfo(market, count);
+//        return resp.getData();
+//    }
+//
+//    /**
+//     * Query market depth
+//     * Query purchases and sales of a market at all price levels
+//     * @param market stock/money (required)
+//     * @param count Querier count limited to 1024 (required)
+//     * @return ApiResponse&lt;InlineResponse20055&gt;
+//     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+//     */
+//    public ApiResponse<InlineResponse20055> queryDepthWithHttpInfo(String market, Integer count) throws ApiException {
+//        com.squareup.okhttp.Call call = queryDepthValidateBeforeCall(market, count, null, null);
+//        Type localVarReturnType = new TypeToken<InlineResponse20055>(){}.getType();
+//        return apiClient.execute(call, localVarReturnType);
+//    }
+//
+//    /**
+//     * Query market depth (asynchronously)
+//     * Query purchases and sales of a market at all price levels
+//     * @param market stock/money (required)
+//     * @param count Querier count limited to 1024 (required)
+//     * @param callback The callback to be executed when the API call finishes
+//     * @return The request call
+//     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+//     */
+//    public com.squareup.okhttp.Call queryDepthAsync(String market, Integer count, final ApiCallback<InlineResponse20055> callback) throws ApiException {
+//
+//        ProgressResponseBody.ProgressListener progressListener = null;
+//        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+//
+//        if (callback != null) {
+//            progressListener = new ProgressResponseBody.ProgressListener() {
+//                @Override
+//                public void update(long bytesRead, long contentLength, boolean done) {
+//                    callback.onDownloadProgress(bytesRead, contentLength, done);
+//                }
+//            };
+//
+//            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+//                @Override
+//                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+//                    callback.onUploadProgress(bytesWritten, contentLength, done);
+//                }
+//            };
+//        }
+//
+//        com.squareup.okhttp.Call call = queryDepthValidateBeforeCall(market, count, progressListener, progressRequestListener);
+//        Type localVarReturnType = new TypeToken<InlineResponse20055>(){}.getType();
+//        apiClient.executeAsync(call, localVarReturnType, callback);
+//        return call;
+//    }
+//    /**
+//     * Build call for queryOrder
+//     * @param account Bech32 address (required)
+//     * @param time Unix timestamp (required)
+//     * @param sid Sequence id (required)
+//     * @param count Querier order count limited to 1024 (required)
+//     * @param token Symbol (optional)
+//     * @param tag Filter responses type by tag string create/fill/cancel (optional)
+//     * @param progressListener Progress listener
+//     * @param progressRequestListener Progress request listener
+//     * @return Call to execute
+//     * @throws ApiException If fail to serialize the request body object
+//     */
+//    public com.squareup.okhttp.Call queryOrderCall(String account, Long time, Long sid, Integer count, String token, String tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+//        Object localVarPostBody = null;
+//
+//        // create path and map variables
+//        String localVarPath = "/market/user-orders";
+//
+//        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+//        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+//        if (account != null)
+//        localVarQueryParams.addAll(apiClient.parameterToPair("account", account));
+//        if (time != null)
+//        localVarQueryParams.addAll(apiClient.parameterToPair("time", time));
+//        if (sid != null)
+//        localVarQueryParams.addAll(apiClient.parameterToPair("sid", sid));
+//        if (count != null)
+//        localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
+//        if (token != null)
+//        localVarQueryParams.addAll(apiClient.parameterToPair("token", token));
+//        if (tag != null)
+//        localVarQueryParams.addAll(apiClient.parameterToPair("tag", tag));
+//
+//        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+//
+//        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+//
+//        final String[] localVarAccepts = {
+//            "application/json"
+//        };
+//        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+//        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+//
+//        final String[] localVarContentTypes = {
+//
+//        };
+//        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+//        localVarHeaderParams.put("Content-Type", localVarContentType);
+//
+//        if(progressListener != null) {
+//            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+//                @Override
+//                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+//                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+//                    return originalResponse.newBuilder()
+//                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+//                    .build();
+//                }
+//            });
+//        }
+//
+//        String[] localVarAuthNames = new String[] {  };
+//        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+//    }
+//
+//    @SuppressWarnings("rawtypes")
+//    private com.squareup.okhttp.Call queryOrderValidateBeforeCall(String account, Long time, Long sid, Integer count, String token, String tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+//
+//        // verify the required parameter 'account' is set
+//        if (account == null) {
+//            throw new ApiException("Missing the required parameter 'account' when calling queryOrder(Async)");
+//        }
+//
+//        // verify the required parameter 'time' is set
+//        if (time == null) {
+//            throw new ApiException("Missing the required parameter 'time' when calling queryOrder(Async)");
+//        }
+//
+//        // verify the required parameter 'sid' is set
+//        if (sid == null) {
+//            throw new ApiException("Missing the required parameter 'sid' when calling queryOrder(Async)");
+//        }
+//
+//        // verify the required parameter 'count' is set
+//        if (count == null) {
+//            throw new ApiException("Missing the required parameter 'count' when calling queryOrder(Async)");
+//        }
+//
+//
+//        com.squareup.okhttp.Call call = queryOrderCall(account, time, sid, count, token, tag, progressListener, progressRequestListener);
+//        return call;
+//
+//    }
+//
+//    /**
+//     * Query account&#39;s order
+//     * Query account&#39;s order activities in all markets until to given time
+//     * @param account Bech32 address (required)
+//     * @param time Unix timestamp (required)
+//     * @param sid Sequence id (required)
+//     * @param count Querier order count limited to 1024 (required)
+//     * @param token Symbol (optional)
+//     * @param tag Filter responses type by tag string create/fill/cancel (optional)
+//     * @return UserOrder
+//     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+//     */
+//    public UserOrder queryOrder(String account, Long time, Long sid, Integer count, String token, String tag) throws ApiException {
+//        ApiResponse<UserOrder> resp = queryOrderWithHttpInfo(account, time, sid, count, token, tag);
+//        return resp.getData();
+//    }
+//
+//    /**
+//     * Query account&#39;s order
+//     * Query account&#39;s order activities in all markets until to given time
+//     * @param account Bech32 address (required)
+//     * @param time Unix timestamp (required)
+//     * @param sid Sequence id (required)
+//     * @param count Querier order count limited to 1024 (required)
+//     * @param token Symbol (optional)
+//     * @param tag Filter responses type by tag string create/fill/cancel (optional)
+//     * @return ApiResponse&lt;UserOrder&gt;
+//     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+//     */
+//    public ApiResponse<UserOrder> queryOrderWithHttpInfo(String account, Long time, Long sid, Integer count, String token, String tag) throws ApiException {
+//        com.squareup.okhttp.Call call = queryOrderValidateBeforeCall(account, time, sid, count, token, tag, null, null);
+//        Type localVarReturnType = new TypeToken<UserOrder>(){}.getType();
+//        return apiClient.execute(call, localVarReturnType);
+//    }
+//
+//    /**
+//     * Query account&#39;s order (asynchronously)
+//     * Query account&#39;s order activities in all markets until to given time
+//     * @param account Bech32 address (required)
+//     * @param time Unix timestamp (required)
+//     * @param sid Sequence id (required)
+//     * @param count Querier order count limited to 1024 (required)
+//     * @param token Symbol (optional)
+//     * @param tag Filter responses type by tag string create/fill/cancel (optional)
+//     * @param callback The callback to be executed when the API call finishes
+//     * @return The request call
+//     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+//     */
+//    public com.squareup.okhttp.Call queryOrderAsync(String account, Long time, Long sid, Integer count, String token, String tag, final ApiCallback<UserOrder> callback) throws ApiException {
+//
+//        ProgressResponseBody.ProgressListener progressListener = null;
+//        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+//
+//        if (callback != null) {
+//            progressListener = new ProgressResponseBody.ProgressListener() {
+//                @Override
+//                public void update(long bytesRead, long contentLength, boolean done) {
+//                    callback.onDownloadProgress(bytesRead, contentLength, done);
+//                }
+//            };
+//
+//            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+//                @Override
+//                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+//                    callback.onUploadProgress(bytesWritten, contentLength, done);
+//                }
+//            };
+//        }
+//
+//        com.squareup.okhttp.Call call = queryOrderValidateBeforeCall(account, time, sid, count, token, tag, progressListener, progressRequestListener);
+//        Type localVarReturnType = new TypeToken<UserOrder>(){}.getType();
+//        apiClient.executeAsync(call, localVarReturnType, callback);
+//        return call;
+//    }
+//    /**
+//     * Build call for queryTickers
+//     * @param marketList Market count limited to 1~100 (required)
+//     * @param progressListener Progress listener
+//     * @param progressRequestListener Progress request listener
+//     * @return Call to execute
+//     * @throws ApiException If fail to serialize the request body object
+//     */
+//    public com.squareup.okhttp.Call queryTickersCall(List<String> marketList, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+//        Object localVarPostBody = null;
+//
+//        // create path and map variables
+//        String localVarPath = "/market/tickers";
+//
+//        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+//        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+//        if (marketList != null)
+//        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "market_list", marketList));
+//
+//        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+//
+//        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+//
+//        final String[] localVarAccepts = {
+//            "application/json"
+//        };
+//        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+//        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+//
+//        final String[] localVarContentTypes = {
+//
+//        };
+//        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+//        localVarHeaderParams.put("Content-Type", localVarContentType);
+//
+//        if(progressListener != null) {
+//            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+//                @Override
+//                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+//                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+//                    return originalResponse.newBuilder()
+//                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+//                    .build();
+//                }
+//            });
+//        }
+//
+//        String[] localVarAuthNames = new String[] {  };
+//        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+//    }
+//
+//    @SuppressWarnings("rawtypes")
+//    private com.squareup.okhttp.Call queryTickersValidateBeforeCall(List<String> marketList, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+//
+//        // verify the required parameter 'marketList' is set
+//        if (marketList == null) {
+//            throw new ApiException("Missing the required parameter 'marketList' when calling queryTickers(Async)");
+//        }
+//
+//
+//        com.squareup.okhttp.Call call = queryTickersCall(marketList, progressListener, progressRequestListener);
+//        return call;
+//
+//    }
+//
+//    /**
+//     * Query market tickers
+//     * Query tickers info
+//     * @param marketList Market count limited to 1~100 (required)
+//     * @return List&lt;Tickers&gt;
+//     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+//     */
+//    public List<Tickers> queryTickers(List<String> marketList) throws ApiException {
+//        ApiResponse<List<Tickers>> resp = queryTickersWithHttpInfo(marketList);
+//        return resp.getData();
+//    }
+//
+//    /**
+//     * Query market tickers
+//     * Query tickers info
+//     * @param marketList Market count limited to 1~100 (required)
+//     * @return ApiResponse&lt;List&lt;Tickers&gt;&gt;
+//     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+//     */
+//    public ApiResponse<List<Tickers>> queryTickersWithHttpInfo(List<String> marketList) throws ApiException {
+//        com.squareup.okhttp.Call call = queryTickersValidateBeforeCall(marketList, null, null);
+//        Type localVarReturnType = new TypeToken<List<Tickers>>(){}.getType();
+//        return apiClient.execute(call, localVarReturnType);
+//    }
+//
+//    /**
+//     * Query market tickers (asynchronously)
+//     * Query tickers info
+//     * @param marketList Market count limited to 1~100 (required)
+//     * @param callback The callback to be executed when the API call finishes
+//     * @return The request call
+//     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+//     */
+//    public com.squareup.okhttp.Call queryTickersAsync(List<String> marketList, final ApiCallback<List<Tickers>> callback) throws ApiException {
+//
+//        ProgressResponseBody.ProgressListener progressListener = null;
+//        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+//
+//        if (callback != null) {
+//            progressListener = new ProgressResponseBody.ProgressListener() {
+//                @Override
+//                public void update(long bytesRead, long contentLength, boolean done) {
+//                    callback.onDownloadProgress(bytesRead, contentLength, done);
+//                }
+//            };
+//
+//            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+//                @Override
+//                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+//                    callback.onUploadProgress(bytesWritten, contentLength, done);
+//                }
+//            };
+//        }
+//
+//        com.squareup.okhttp.Call call = queryTickersValidateBeforeCall(marketList, progressListener, progressRequestListener);
+//        Type localVarReturnType = new TypeToken<List<Tickers>>(){}.getType();
 //        apiClient.executeAsync(call, localVarReturnType, callback);
 //        return call;
 //    }

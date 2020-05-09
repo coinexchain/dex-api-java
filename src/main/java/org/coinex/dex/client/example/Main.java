@@ -2,6 +2,7 @@ package org.coinex.dex.client.example;
 
 import org.coinex.dex.client.ApiException;
 import org.coinex.dex.client.api.BankApi;
+import org.coinex.dex.client.api.TransactionsApi;
 import org.coinex.dex.client.context.ApiContext;
 import org.coinex.dex.client.context.WalletCaller;
 import org.coinex.dex.client.model.*;
@@ -51,13 +52,18 @@ public class Main {
         String stdTxStr = context.getJson().serializeWithNull(stdTx);
         BroadcastTxCommitResult broadcastTxCommitResult = context.signAndBroadcast(stdTxStr);
         System.out.println(broadcastTxCommitResult.toString());
+
+
+        TransactionsApi transactionsApi = new TransactionsApi();
+        BroadcastTxCommitResult txCommitResult = transactionsApi.getTxByHash("DFE3A2DC4CF5F2C2B02089F1C4C9C8249CBBE2AF8C40338E286938ACA0E3A9E5");
+        System.out.println(txCommitResult);
+
     }
 
     private static BaseReq createBaseReq(String address, List<Coin> fees) {
         BaseReq req = new BaseReq();
 
 
-        String from = address;
         String memo = "";
         String chainId = "coinexdex-test1";
         String accountNumber = "0";
@@ -66,7 +72,7 @@ public class Main {
         String gasAdjustment = "1.1";
         Boolean simulate = false;
 
-        req.setFrom(from);
+        req.setFrom(address);
         req.setMemo(memo);
         req.setChainId(chainId);
         req.setAccountNumber(accountNumber);

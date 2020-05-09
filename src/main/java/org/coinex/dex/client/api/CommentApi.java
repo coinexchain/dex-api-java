@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import org.coinex.dex.client.model.FollowupCommentReq;
+import org.coinex.dex.client.model.InlineResponse20063;
 import org.coinex.dex.client.model.NewThreadReq;
 import org.coinex.dex.client.model.RewardCommentsReq;
 import org.coinex.dex.client.model.StdTx;
@@ -298,6 +299,163 @@ public class CommentApi {
 
         com.squareup.okhttp.Call call = newThreadValidateBeforeCall(newThreadReq, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<StdTx>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for queryComment
+     * @param token Symbol (required)
+     * @param time Unix timestamp (required)
+     * @param sid Sequence id (required)
+     * @param count Querier comment count limited to 1024 (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call queryCommentCall(String token, Long time, Long sid, Integer count, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/comment/comments";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (token != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("token", token));
+        if (time != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("time", time));
+        if (sid != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("sid", sid));
+        if (count != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call queryCommentValidateBeforeCall(String token, Long time, Long sid, Integer count, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'token' is set
+        if (token == null) {
+            throw new ApiException("Missing the required parameter 'token' when calling queryComment(Async)");
+        }
+        
+        // verify the required parameter 'time' is set
+        if (time == null) {
+            throw new ApiException("Missing the required parameter 'time' when calling queryComment(Async)");
+        }
+        
+        // verify the required parameter 'sid' is set
+        if (sid == null) {
+            throw new ApiException("Missing the required parameter 'sid' when calling queryComment(Async)");
+        }
+        
+        // verify the required parameter 'count' is set
+        if (count == null) {
+            throw new ApiException("Missing the required parameter 'count' when calling queryComment(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = queryCommentCall(token, time, sid, count, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Query token comment
+     * Query all comments about given token until to time
+     * @param token Symbol (required)
+     * @param time Unix timestamp (required)
+     * @param sid Sequence id (required)
+     * @param count Querier comment count limited to 1024 (required)
+     * @return InlineResponse20063
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public InlineResponse20063 queryComment(String token, Long time, Long sid, Integer count) throws ApiException {
+        ApiResponse<InlineResponse20063> resp = queryCommentWithHttpInfo(token, time, sid, count);
+        return resp.getData();
+    }
+
+    /**
+     * Query token comment
+     * Query all comments about given token until to time
+     * @param token Symbol (required)
+     * @param time Unix timestamp (required)
+     * @param sid Sequence id (required)
+     * @param count Querier comment count limited to 1024 (required)
+     * @return ApiResponse&lt;InlineResponse20063&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<InlineResponse20063> queryCommentWithHttpInfo(String token, Long time, Long sid, Integer count) throws ApiException {
+        com.squareup.okhttp.Call call = queryCommentValidateBeforeCall(token, time, sid, count, null, null);
+        Type localVarReturnType = new TypeToken<InlineResponse20063>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Query token comment (asynchronously)
+     * Query all comments about given token until to time
+     * @param token Symbol (required)
+     * @param time Unix timestamp (required)
+     * @param sid Sequence id (required)
+     * @param count Querier comment count limited to 1024 (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call queryCommentAsync(String token, Long time, Long sid, Integer count, final ApiCallback<InlineResponse20063> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = queryCommentValidateBeforeCall(token, time, sid, count, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InlineResponse20063>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

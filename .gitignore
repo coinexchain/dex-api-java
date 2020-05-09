@@ -19,9 +19,10 @@ hs_err_pid*
 target
 .gradle
 build
-/src/main/AndroidManifest.xml
 /.swagger-codegen-ignore
 /.travis.yml
 /git_push.sh
+/.idea/
+/.swagger-codegen/
 /swagger-java-client.iml
 /tmp/

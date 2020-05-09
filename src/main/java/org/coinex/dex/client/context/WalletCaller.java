@@ -76,10 +76,10 @@ public class WalletCaller {
         System.out.println(sign);
 
         // Delete tmp
-        Path directory = Paths.get("./tmp");
-        DeleteDirectory walk = DeleteDirectory.getUniqueInstance();
-        EnumSet opts = EnumSet.of(FileVisitOption.FOLLOW_LINKS);
-        Files.walkFileTree(directory, opts, Integer.MAX_VALUE, walk);
+//        Path directory = Paths.get("./tmp");
+//        DeleteDirectory walk = DeleteDirectory.getUniqueInstance();
+//        EnumSet opts = EnumSet.of(FileVisitOption.FOLLOW_LINKS);
+//        Files.walkFileTree(directory, opts, Integer.MAX_VALUE, walk);
 
     }
 

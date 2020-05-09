@@ -30,7 +30,7 @@ import org.coinex.dex.client.model.Coin;
 /**
  * Supply
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-04-28T12:10:24.313+08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-09T11:28:51.986+08:00")
 public class Supply {
   @SerializedName("total")
   private List<Coin> total = null;

@@ -15,6 +15,11 @@ Method | HTTP request | Description
 [**getOrdersInMarket**](MarketApi.md#getOrdersInMarket) | **GET** /market/orderbook/{stock}/{money} | Query trading-pair&#39;s orderbook
 [**getTradingPair**](MarketApi.md#getTradingPair) | **GET** /market/trading-pairs/{stock}/{money} | Query trading-pair info
 [**modifyPricePrecision**](MarketApi.md#modifyPricePrecision) | **POST** /market/price-precision | Modify the price precision of the trading pair in the dex
+[**queryCandleStick**](MarketApi.md#queryCandleStick) | **GET** /market/candle-sticks | Query market candleStick
+[**queryDeal**](MarketApi.md#queryDeal) | **GET** /market/deals | Query market deal
+[**queryDepth**](MarketApi.md#queryDepth) | **GET** /market/depths | Query market depth
+[**queryOrder**](MarketApi.md#queryOrder) | **GET** /market/user-orders | Query account&#39;s order
+[**queryTickers**](MarketApi.md#queryTickers) | **GET** /market/tickers | Query market tickers
 [**queryTradingPairs**](MarketApi.md#queryTradingPairs) | **GET** /market/exist-trading-pairs | Query all trading-pair infos in blockchain
 
 
@@ -489,6 +494,257 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="queryCandleStick"></a>
+# **queryCandleStick**
+> List&lt;CandleStick&gt; queryCandleStick(market, timespan, time, sid, count)
+
+Query market candleStick
+
+Query candleStick until to given time
+
+### Example
+```java
+// Import classes:
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.MarketApi;
+
+
+MarketApi apiInstance = new MarketApi();
+String market = "market_example"; // String | stock/money
+String timespan = "timespan_example"; // String | 1min/1hour/1day
+Long time = 789L; // Long | Unix timestamp
+Long sid = 789L; // Long | Sequence id
+Integer count = 56; // Integer | Querier candleStick count limited to 1024
+try {
+    List<CandleStick> result = apiInstance.queryCandleStick(market, timespan, time, sid, count);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MarketApi#queryCandleStick");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **market** | **String**| stock/money |
+ **timespan** | **String**| 1min/1hour/1day |
+ **time** | **Long**| Unix timestamp |
+ **sid** | **Long**| Sequence id |
+ **count** | **Integer**| Querier candleStick count limited to 1024 |
+
+### Return type
+
+[**List&lt;CandleStick&gt;**](CandleStick.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="queryDeal"></a>
+# **queryDeal**
+> InlineResponse20056 queryDeal(market, time, sid, count)
+
+Query market deal
+
+Query market deal until to given time
+
+### Example
+```java
+// Import classes:
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.MarketApi;
+
+
+MarketApi apiInstance = new MarketApi();
+String market = "market_example"; // String | stock/money
+Long time = 789L; // Long | Unix timestamp
+Long sid = 789L; // Long | Sequence id
+Integer count = 56; // Integer | Querier deal count limited to 1024
+try {
+    InlineResponse20056 result = apiInstance.queryDeal(market, time, sid, count);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MarketApi#queryDeal");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **market** | **String**| stock/money |
+ **time** | **Long**| Unix timestamp |
+ **sid** | **Long**| Sequence id |
+ **count** | **Integer**| Querier deal count limited to 1024 |
+
+### Return type
+
+[**InlineResponse20056**](InlineResponse20056.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="queryDepth"></a>
+# **queryDepth**
+> InlineResponse20055 queryDepth(market, count)
+
+Query market depth
+
+Query purchases and sales of a market at all price levels
+
+### Example
+```java
+// Import classes:
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.MarketApi;
+
+
+MarketApi apiInstance = new MarketApi();
+String market = "market_example"; // String | stock/money
+Integer count = 56; // Integer | Querier count limited to 1024
+try {
+    InlineResponse20055 result = apiInstance.queryDepth(market, count);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MarketApi#queryDepth");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **market** | **String**| stock/money |
+ **count** | **Integer**| Querier count limited to 1024 |
+
+### Return type
+
+[**InlineResponse20055**](InlineResponse20055.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="queryOrder"></a>
+# **queryOrder**
+> UserOrder queryOrder(account, time, sid, count, token, tag)
+
+Query account&#39;s order
+
+Query account&#39;s order activities in all markets until to given time
+
+### Example
+```java
+// Import classes:
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.MarketApi;
+
+
+MarketApi apiInstance = new MarketApi();
+String account = "account_example"; // String | Bech32 address
+Long time = 789L; // Long | Unix timestamp
+Long sid = 789L; // Long | Sequence id
+Integer count = 56; // Integer | Querier order count limited to 1024
+String token = "token_example"; // String | Symbol
+String tag = "tag_example"; // String | Filter responses type by tag string create/fill/cancel
+try {
+    UserOrder result = apiInstance.queryOrder(account, time, sid, count, token, tag);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MarketApi#queryOrder");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account** | **String**| Bech32 address |
+ **time** | **Long**| Unix timestamp |
+ **sid** | **Long**| Sequence id |
+ **count** | **Integer**| Querier order count limited to 1024 |
+ **token** | **String**| Symbol | [optional]
+ **tag** | **String**| Filter responses type by tag string create/fill/cancel | [optional]
+
+### Return type
+
+[**UserOrder**](UserOrder.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="queryTickers"></a>
+# **queryTickers**
+> List&lt;Tickers&gt; queryTickers(marketList)
+
+Query market tickers
+
+Query tickers info
+
+### Example
+```java
+// Import classes:
+//import org.coinex.dex.client.ApiException;
+//import org.coinex.dex.client.api.MarketApi;
+
+
+MarketApi apiInstance = new MarketApi();
+List<String> marketList = Arrays.asList("marketList_example"); // List<String> | Market count limited to 1~100
+try {
+    List<Tickers> result = apiInstance.queryTickers(marketList);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MarketApi#queryTickers");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **marketList** | [**List&lt;String&gt;**](String.md)| Market count limited to 1~100 |
+
+### Return type
+
+[**List&lt;Tickers&gt;**](Tickers.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="queryTradingPairs"></a>
